@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "last_verified": "2026-10-09",
+  "provenance": "Only entries with a source I could verify are included. Everything else is listed in data/curation/TODO.md. These are options to discuss, not recommendations, and 'natural' or 'clean' never means safer.",
+  "entries": [
+    {
+      "id": "retinol_bakuchiol",
+      "from_label": "Retinol",
+      "from": ["RETINOL"],
+      "options": [
+        {
+          "inci": "BAKUCHIOL",
+          "role": "Studied as a retinol alternative for fine lines and pigmentation",
+          "tradeoffs": [
+            "In one 12-week trial of 44 volunteers (bakuchiol 0.5% twice daily vs retinol 0.5% once daily), both improved fine wrinkles and pigmentation with no statistically significant difference between groups.",
+            "The retinol group had more facial scaling and stinging in that trial.",
+            "One small trial is limited evidence. Retinol has a much larger research base, so 'similar' is not 'equal'.",
+            "This does not show bakuchiol is suitable in pregnancy or for any particular skin condition; ask a clinician."
+          ],
+          "source": [
+            { "label": "Dhaliwal et al., Br J Dermatol 2019;180:289-296", "url": "https://doi.org/10.1111/bjd.16918" },
+            { "label": "Full text (University of Michigan Deep Blue)", "url": "https://deepblue.lib.umich.edu/handle/2027.42/147746" }
+          ],
+          "confidence": "limited"
+        }
+      ]
+    }
+  ]
+}

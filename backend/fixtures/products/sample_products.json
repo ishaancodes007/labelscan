@@ -1,0 +1,19 @@
+{
+  "_note": "ILLUSTRATIVE SAMPLE products written for testing. Not real brands, not real formulas, no real concentrations. Ingredient lists are INCI names in a plausible order.",
+  "products": [
+    { "name": "Sample Retinol Night Serum", "type": "serum", "when": "pm", "mrp": 899, "volumeMl": 30,
+      "ingredients": ["Aqua", "Glycerin", "Retinol", "Squalane", "Tocopherol", "Phenoxyethanol"] },
+    { "name": "Sample Acne Gel (benzoyl peroxide)", "type": "treatment", "when": "pm", "mrp": 250, "volumeMl": 20,
+      "ingredients": ["Aqua", "Benzoyl Peroxide", "Glycerin", "Carbomer", "Sodium Hydroxide"] },
+    { "name": "Sample Glycolic Toner", "type": "toner", "when": "pm", "mrp": 600, "volumeMl": 100,
+      "ingredients": ["Aqua", "Glycolic Acid", "Glycerin", "Panthenol", "Sodium Hydroxide"] },
+    { "name": "Sample Daily Moisturizer", "type": "moisturizer", "when": "both", "mrp": 450, "volumeMl": 50,
+      "ingredients": ["Aqua", "Glycerin", "Cetyl Alcohol", "Niacinamide", "Panthenol", "Phenoxyethanol"] },
+    { "name": "Sample Scented Cream A", "type": "moisturizer", "when": "pm", "mrp": 300, "volumeMl": 50,
+      "ingredients": ["Aqua", "Glycerin", "Cetyl Alcohol", "Parfum", "Linalool", "Limonene"] },
+    { "name": "Sample Scented Lotion B", "type": "moisturizer", "when": "am", "mrp": 350, "volumeMl": 100,
+      "ingredients": ["Aqua", "Glycerin", "Dimethicone", "Parfum", "Linalool", "Benzyl Alcohol"] },
+    { "name": "Sample Plain Lotion C", "type": "moisturizer", "when": "pm", "mrp": 320, "volumeMl": 100,
+      "ingredients": ["Aqua", "Glycerin", "Cetyl Alcohol", "Dimethicone", "Panthenol"] }
+  ]
+}

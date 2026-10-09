@@ -1,0 +1,16 @@
+PASS analyze -> save product
+PASS saved product listed with unconfirmed item counted
+PASS routine: retinoid + benzoyl peroxide caution
+PASS routine: retinoid + AHA caution
+PASS routine: no sunscreen in AM caution
+PASS routine: sources are links
+PASS dupe finder: overlap, only-in lists and price per ml  [₹6.00/ml]
+PASS ingredient-level alternative: retinol -> bakuchiol with source
+PASS OBF alternatives: ran and reported counts (or said unavailable)  [12 products returned; 5 had no ingredient list; 6 left out because they contain something on your avoid list; 1 had too few shared ingredients to compare.]
+PASS OBF alternatives: none of the listed alternatives contains Glycerin (avoid list)  [6 left out]
+PASS reaction log hidden until consent
+PASS pattern: shared Linalool / Parfum, dermatologist + patch test wording, never 'allergic'
+PASS report: only selected products, routine, lists, reaction log
+PASS no product, reaction or profile data was POSTed to the server (only ingredient text for analysis)  [8 POSTs]
+PASS Delete all my data clears products, reactions and consent  [0 keys left]
+CONSOLE/PAGE ERRORS []

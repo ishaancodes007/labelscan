@@ -25,3 +25,8 @@ label { display:block; font-weight:600; } input[type=range] { width:100%; }
 ul.plain { list-style:none; padding:0; margin:0; } ul.plain li { padding:.4rem 0; border-bottom:1px solid var(--line); }
 small, .muted { color:var(--muted); }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+input[type=text], input[type=number], input[type=date], select { padding:.5rem .6rem; border:1px solid var(--line); border-radius:.5rem; background:var(--bg); color:var(--fg); min-height:2.5rem; max-width:100%; }
+nav.site { display:flex; flex-wrap:wrap; gap:.25rem 1rem; padding:.5rem 1rem; border-bottom:1px solid var(--line); }
+nav.site a { padding:.35rem 0; }
+table.cmp { border-collapse:collapse; width:100%; } table.cmp th, table.cmp td { text-align:left; padding:.35rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
+@media print { nav.site, .no-print, button { display:none !important; } .card { break-inside:avoid; border-color:#999; } body { background:#fff; color:#000; } }

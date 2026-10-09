@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "last_verified": "2026-10-09",
+  "provenance": "Class membership is by INCI name. Stacking and sun notes cite the sources below. Where sources disagree or only secondary summaries were available, confidence is 'limited' and the text says so. Verification was through web-search summaries (the British Skin Foundation page itself could not be opened from the build environment); re-check the primary pages before relying on any entry.",
+  "classes": [
+    { "id": "retinoid", "name": "Retinoids (vitamin A family)", "sun_sensitising": true,
+      "members": ["RETINOL", "RETINAL", "RETINYL PALMITATE", "RETINYL ACETATE", "RETINYL RETINOATE", "HYDROXYPINACOLONE RETINOATE", "TRETINOIN", "ADAPALENE"],
+      "note": "Topical retinoids often cause irritation (redness, peeling) and may raise the risk of sunburn; DermNet suggests starting with a small amount on alternate nights and adding a light moisturiser. DermNet describes prescription retinoids; cosmetic retinol and its esters belong to the same chemical family but are milder and less studied, so treat the class-level note as indicative.",
+      "source": [{ "label": "DermNet: topical therapy for acne", "url": "https://dermnetnz.org/cme/follicular/topical-therapy-for-acne" }], "confidence": "limited" },
+    { "id": "aha", "name": "Alpha hydroxy acids (AHAs)", "sun_sensitising": true,
+      "members": ["GLYCOLIC ACID", "LACTIC ACID", "MANDELIC ACID", "MALIC ACID"],
+      "note": "FDA: topical AHA cosmetics may increase skin sensitivity to the sun and the chance of sunburn, while in use and for up to a week after stopping. FDA names glycolic and lactic acid; mandelic and malic acid are the same chemical class but were not named in the sources read. Citric acid is also chemically an AHA but is usually a pH adjuster, so it is not counted here.",
+      "source": [{ "label": "FDA: Alpha hydroxy acids", "url": "https://www.fda.gov/cosmetics/cosmetic-ingredients/alpha-hydroxy-acids" }], "confidence": "established" },
+    { "id": "bha", "name": "Beta hydroxy acid (salicylic acid)", "sun_sensitising": false,
+      "members": ["SALICYLIC ACID"],
+      "note": "An exfoliating acid used for acne. Stacking advice here rests on a general 'avoid other exfoliants with a retinoid' statement, not on a salicylic-acid-specific source.",
+      "source": [{ "label": "DermNet: topical therapy for acne", "url": "https://dermnetnz.org/cme/follicular/topical-therapy-for-acne" }], "confidence": "limited" },
+    { "id": "bpo", "name": "Benzoyl peroxide", "sun_sensitising": false,
+      "members": ["BENZOYL PEROXIDE"],
+      "note": "DermNet: a common acne treatment in 2.5%, 5% and 10% strengths, usable with other topical or oral treatments.",
+      "source": [{ "label": "DermNet: topical therapy for acne", "url": "https://dermnetnz.org/cme/follicular/topical-therapy-for-acne" }], "confidence": "limited" },
+    { "id": "vitamin_c", "name": "Vitamin C forms", "sun_sensitising": false,
+      "members": ["ASCORBIC ACID", "SODIUM ASCORBYL PHOSPHATE", "MAGNESIUM ASCORBYL PHOSPHATE", "ASCORBYL GLUCOSIDE", "TETRAHEXYLDECYL ASCORBATE", "ETHYL ASCORBIC ACID"],
+      "note": "Identified as a notable active only. No stacking or timing rule is included: the sources found were consumer press that disagree with each other (see data/curation/TODO.md).",
+      "source": [], "confidence": "note" }
+  ],
+  "stacking": [
+    { "id": "retinoid_bpo", "a": "retinoid", "b": "bpo", "tier": "caution",
+      "text": "Some sources advise using benzoyl peroxide and a retinoid at different times of day (benzoyl peroxide in the morning, the retinoid at night), because together they may reduce each other's effect. Other sources describe fixed-dose retinoid plus benzoyl peroxide products that are prescribed together, so advice differs. A dermatologist or pharmacist can say what suits you.",
+      "source": [{ "label": "British Skin Foundation: which pharmaceutical skincare you shouldn't mix", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }, { "label": "DermNet: topical therapy for acne", "url": "https://dermnetnz.org/cme/follicular/topical-therapy-for-acne" }], "confidence": "limited" },
+    { "id": "retinoid_aha", "a": "retinoid", "b": "aha", "tier": "caution",
+      "text": "AHAs used together with a retinoid can add to skin irritation. Sources suggest using them at different times or on alternate days, especially at first.",
+      "source": [{ "label": "British Skin Foundation: which pharmaceutical skincare you shouldn't mix", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }], "confidence": "limited" },
+    { "id": "retinoid_bha", "a": "retinoid", "b": "bha", "tier": "note",
+      "text": "A retinoid plus another exfoliating acid may be harsh on the skin; one source suggests cutting back other exfoliants when starting a retinoid. This is general exfoliant advice, not specific to salicylic acid.",
+      "source": [{ "label": "British Skin Foundation: which pharmaceutical skincare you shouldn't mix", "url": "https://www.britishskinfoundation.org.uk/which-pharmaceutical-skincare-you-shouldnt-mix-and-why" }], "confidence": "limited" }
+  ]
+}

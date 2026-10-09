@@ -5,6 +5,7 @@ import { GLOSSARY, titleCase } from "@/lib/rules/data";
 import { evaluate, identityOf } from "@/lib/rules/engine";
 import type { Finding, ItemIn, Profile, Source, Tier } from "@/lib/rules/types";
 import type { OcrWordIn } from "@/lib/trust/misspell";
+import SaveProduct from "./SaveProduct";
 import TrustPanel from "./TrustPanel";
 
 export interface ApiItem {
@@ -32,7 +33,7 @@ function statusView(it: ApiItem, source?: string | null): { label: string; cls: 
 }
 const SrcLinks = ({ list }: { list: Source[] }) => <>{list.map((s, i) => <span key={`${i}-${s.url}`}>{i ? "; " : ""}<a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a></span>)}</>;
 
-function toItemIn(it: ApiItem, i: number): ItemIn {
+export function toItemIn(it: ApiItem, i: number): ItemIn {
   // the fallback (TypeScript) engine returns {status:'inci_exact', inci}; map it to the same shape
   if (it.status === "inci_exact") return { index: i, raw: it.raw, status: "resolved", layer: "inci_exact", inci_name: it.inci ?? null };
   return { index: i, raw: it.raw, status: it.status, layer: it.layer, inci_name: it.inci_name, category: it.category, candidates: it.candidates, highConfidence: it.highConfidence, source: it.source, optional: it.optional };
@@ -102,6 +103,7 @@ export default function ResultsPanel({ result, profile, pack }: { result: ApiRes
       {result.removed?.length ? <details><summary>Removed as not ingredients ({result.removed.length})</summary><ul className="plain">{result.removed.map((r, i) => <li key={i}>{r.raw} <small className="muted">· {r.reason}</small></li>)}</ul></details> : null}
     </section>
     <TrustPanel items={items} accepted={accepted} removedText={(result.removed ?? []).map((r) => r.raw)} frontText={pack.frontText} frontWords={pack.frontWords} datesText={pack.datesText} datesConf={pack.datesConf} />
+    <SaveProduct items={items} accepted={accepted} packText={`${pack.frontText}\n${pack.datesText}`} />
     </>
   );
 }

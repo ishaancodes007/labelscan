@@ -35,3 +35,12 @@ Sources used so far were checked through web-search summaries (the EU hosts coul
 - [ ] "Unscented" is deliberately not treated as "fragrance-free" (it can mean masking fragrance); decide the logic with a source.
 - [ ] Reference-formula (Open Beauty Facts) comparison is information only: the overlap at which a difference would suggest counterfeit packaging is uncalibrated; collect same-product pairs before adding a trigger.
 - [ ] Annex II (prohibited substances) is only partly loaded: 49 of its entries could be identified by INCI name; the rest have chemical names only.
+
+## actives.json and substitutions.json (Phase 5)
+- [ ] Vitamin C stacking/timing (with retinoids, with niacinamide, AM vs PM): only consumer press was found, and it disagrees. Find a peer-reviewed or society source before adding a rule.
+- [ ] AHA + BHA stacking: no source verified.
+- [ ] Retinoid and sunscreen/AM-PM advice for cosmetic retinol (as opposed to prescription tretinoin/adapalene): DermNet covers prescription retinoids; find a cosmetic-retinol source.
+- [ ] Other strong actives not yet covered: azelaic acid, tranexamic acid, hydroquinone, urea at high strength, PHAs, peptides, copper peptides.
+- [ ] The British Skin Foundation page was only seen through search summaries; open the page itself and confirm the wording.
+- [ ] Ingredient substitutions beyond retinol -> bakuchiol: surfactants (SLS -> milder), preservatives (formaldehyde releasers, isothiazolinones) and fragrance allergens have no verified, independent comparison. The sources found were supplier pages or product blogs. Bakuchiol in pregnancy is also unverified.
+- [ ] Function-profile similarity needs per-ingredient function data (CosIng), which is not loaded. Phase 5 compares products by shared identified ingredients and by notable-active classes instead; it says so in the UI.

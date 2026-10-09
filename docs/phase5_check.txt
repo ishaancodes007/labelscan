@@ -1,0 +1,23 @@
+PASS retinoid + benzoyl peroxide at the same time -> caution note
+PASS retinoid + AHA at the same time -> caution note
+PASS duplicate active: Glycerin etc. are NOT flagged (only notable actives)
+PASS no sunscreen marked in the AM -> sunscreen caution (types are marked)
+PASS every stacking/sunscreen note carries a source
+PASS types not marked -> asks to mark types, never says sunscreen is missing
+PASS retinoid PM and benzoyl peroxide AM -> only a 'different times' note, tier note
+PASS same active (Retinol) in two products -> duplicate note
+PASS dupe compare: shared ingredients listed, Parfum only in A  [similarity 0.38]
+PASS dupe compare: many unconfirmed items -> reliability low
+PASS price per ml: 899/30 = 29.97
+PASS price text parse: Rs.6.69/ml printed, MRP 669, 100 ml  [{"perMlPrinted":6.69,"mrp":669,"volumeMl":100}]
+PASS price text parse: nothing invented from text without prices
+PASS alternatives: a candidate with an avoid-list ingredient is excluded, not ranked
+PASS alternatives: ranked by shared-ingredient similarity (Plain Lotion first)  [Sample Plain Lotion C 0.38 | Sample Daily Moisturizer 0.33]
+PASS ingredient-level alternative: Retinol -> Bakuchiol with trade-offs and a source
+PASS ingredient-level alternative: nothing invented for an ingredient with no entry
+PASS reactions: two reacted products share Linalool and Parfum  [ingredient:Parfum, ingredient:Linalool, family:EU labelled fragrance allergens, ingredient:Aqua, ingredient:Glycerin]
+PASS reactions: ingredient also in an unreacted product is reported as such (Glycerin)
+PASS reactions: one reacted product -> no pattern
+PASS reactions: no pattern text claims an allergy
+
+all pass
