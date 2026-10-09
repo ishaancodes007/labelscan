@@ -140,6 +140,14 @@ export default function AnalyzeClient() {
         <label htmlFor="file">Take or choose photos (add several if the list wraps around the bottle)</label>
         <input id="file" type="file" accept="image/*" capture="environment" multiple onChange={(e) => { onFiles(e.target.files); e.target.value = ""; }} />
         {error && <p role="alert" className="notice warn">{error}</p>}
+        <details>
+          <summary>Tips for a good photo</summary>
+          <ul>
+            <li>Hold the phone parallel to the label, in even light, and tap to focus. Avoid glare and shadows.</li>
+            <li>Crop to just the ingredient lines, and trim away any half-cut line at the top or bottom: those produce junk words.</li>
+            <li><strong>Curved bottle or tube?</strong> The text near the edges is squeezed, so the first or last words of each line are the likeliest to be wrong or missing. Take one photo with the bottle turned left and another turned right, add both here, and they are merged.</li>
+          </ul>
+        </details>
       </section>
 
       {photos.map((p, n) => (
@@ -221,6 +229,7 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
         <button className="secondary" onClick={onRemove}>Remove photo</button>
       </div>
       {p.warnings?.map((w) => <p key={w} role="status" className="notice warn">{w}</p>)}
+      {p.status === "done" && p.warnings && p.warnings.length > 0 && <p role="note" className="notice info"><small>If this label is on a curved bottle, the words at the left and right edges of each line are squeezed and are the ones most likely to be missing or wrong. Turn the bottle so the weak edge faces the camera, add a second photo, and the two readings are merged. Check the text below against the label either way.</small></p>}
       {p.status === "idle" && !p.warnings && <p className="muted"><small>Tip: crop to just the ingredient list before reading. It removes marketing text and reads more accurately.</small></p>}
       {p.note && <p role="status" className={p.status === "error" ? "notice warn" : "muted"}><small>{p.note}</small></p>}
     </section>
