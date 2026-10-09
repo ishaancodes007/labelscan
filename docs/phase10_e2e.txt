@@ -1,0 +1,21 @@
+== curved bottle crop (your second screenshot)
+PASS the extra button appears after a read
+PASS progress shows 'Reading pass N of 11'
+BEFORE: © TTT THER INAEITRNCTN IVE VETUNT Wau. Centella Asiatica Leaf Water, 3-O-Ethyl Ascorbic Acid, Dimethyl Isosorbide, Glycerin, Sodium Gluconate, Acetyl : J ti Hyaluronate, Pullulan, Hydroxyethyicellulose, Xanthan Gum, Phenoxyethanol, Ethyihexylglycerin, Lecithin
+AFTER : Centela Asiatica Leaf Water, Isosorbide, 3-O-Ethyl Ascorbic Acid, Dimethyl Isosorbide, Glycerin, Sodium Gluconate, Acety J: Hyaluronate, Acetyl Sodum Hyaluronate, Pullulan, Xanthan Gum, Hydroxyethyicellulose, Phenoxyethanol, Ethylhexylglycerin, Lecithin, Lactic, Lactic Ad
+PASS it finished in a practical time (6s)
+PASS the note says the corrections are guesses and must be checked
+PASS expected words found: before 10/13, after 11/13  [missing after: Centella, Hydroxyethyl]
+PASS nothing but GET requests left the page (the photo was not uploaded)
+PASS no page errors
+
+== label crop with misprints (your first screenshot)
+PASS the extra button appears after a read
+PASS progress shows 'Reading pass N of 11'
+BEFORE: AGUA, ALi FANT GLYCERN, ISCPROPIL. PIMITATE, DETRY ALCONOI., CETEARETH:20, PANTHEVOL, re EMTLAGETATE, DMETWCONE, PERSEA, GRATISSSIE Ok, HELLATS ANUS 550 GLYCERIN STRERATE, SODILN BENDATE, BENEYL AL( 1OHOL, GITRIC AGO. Fins]
+AFTER : GLYCERN, — ISGPROPIL. PIMITATE, ISCPROPIL, CETEARETH:I, DETRY ALCOHOL, CETEARETH:20, PANTHEVOL, TOCOPYENYLACETATE, PANTHEVOL. DIMETHICONE, CETEARETHZS, DIMETHICONE, PERSEA, GRATISS" IE Oi, HELLATHUS ANNULUS 350 FANTLACTORE. GLYCERIN STRERATE, GLYCER STERATE, S0DIN BENOATE, BENEYL ALY IOHOL, AL JOHOL, CITRIC ACO. [rare]
+PASS it finished in a practical time (4s)
+PASS the note says the corrections are guesses and must be checked
+PASS expected words found: before 12/16, after 14/16  [missing after: AGUA, SODILN]
+PASS nothing but GET requests left the page (the photo was not uploaded)
+PASS no page errors

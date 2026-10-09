@@ -1,0 +1,40 @@
+photo                                truth single cons anypass
+real:real_cetaphil_lotion               16      0    0       0
+real:real_derma_co_sunscreen_tube       23      0    0       0
+real:real_dot_key_vitc_sunscreen_box    31      0    3       3
+real:real_forest_essentials_balm        28      0    0       0
+real:real_garnier_shampoo               25      0    0       0
+real:real_indian_label_crop             39     31   31      31
+real:real_joy_sunscreen_lotion          18      0    0       0
+real:real_minimalist_vitc_serum         15      9   12      12
+real:real_nivea_body_lotion             16      4    7      10
+synthetic:bad_blur                       9      0    0       0
+synthetic:bad_glare                     11      2    3       2
+synthetic:bad_lowres                     8      0    5       8
+synthetic:cleanser_clean                 9      9    9       9
+synthetic:foundation_curve               9      8    9       9
+synthetic:g_clean                       15     15   15      15
+synthetic:g_combo                       15     13   13      13
+synthetic:g_curve                       15     14   15      15
+synthetic:hair_clean                     1      1    1       1
+synthetic:lip_rot                        3      3    3       3
+synthetic:mineral_curve                  9      8    9       9
+synthetic:pair_g_a                       9      8    9       9
+synthetic:pair_g_b                      10      8    8       8
+synthetic:pair_sh_a                      7      7    7       7
+synthetic:pair_sh_b                      6      5    6       6
+synthetic:serum_blur                    10     10   10      10
+synthetic:shampoo_lowres                11     11   11      11
+synthetic:spf_glare                     12     10   10      10
+synthetic:toner_combo                    8      6    4       6
+
+  text segments per truth ingredient: single 0.62, consensus 0.70
+ALL photos                         photos=28 truth= 388 | single read  46.9% (precision 77.8%) | consensus  51.5% (precision 76.3%) | any one pass  53.4%
+  text segments per truth ingredient: single 1.03, consensus 1.14
+synthetic                          photos=19 truth= 177 | single read  78.0% (precision 75.8%) | consensus  83.1% (precision 74.6%) | any one pass  85.3%
+  text segments per truth ingredient: single 0.27, consensus 0.34
+real (9 web-size product photos)   photos= 9 truth= 211 | single read  20.9% (precision 84.6%) | consensus  25.1% (precision 81.5%) | any one pass  26.5%
+  text segments per truth ingredient: single 1.09, consensus 1.23
+synthetic curved                   photos= 5 truth=  56 | single read  87.5% (precision 79.0%) | consensus  89.3% (precision 75.8%) | any one pass  92.9%
+  text segments per truth ingredient: single 1.01, consensus 1.09
+synthetic not curved               photos=14 truth= 121 | single read  73.6% (precision 74.2%) | consensus  80.2% (precision 74.0%) | any one pass  81.8%

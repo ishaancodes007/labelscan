@@ -8,7 +8,7 @@ Explains cosmetic ingredient labels: it reads the text, identifies each name, sh
 | Part | State |
 |---|---|
 | Next.js app (`/`, `/analyze`, `/products`, `/compare`, `/reactions`, `/report`, `/profile`, `/about`) | Working |
-| Local OCR (Tesseract.js in the browser, photos never uploaded) | Working; reads clean, large text well and small, blurry or curved text poorly (`docs/PHASE2.md`) |
+| Local OCR (Tesseract.js in the browser, photos never uploaded) | Working; reads clean, large text well and small, blurry or curved text poorly (`docs/PHASE2.md`). An opt-in "Try harder" button adds curve corrections and multi-pass consensus: +4.6 points of ingredients read on our fixtures, about 1 to 2 more ingredients on two hard real crops (`docs/PHASE10.md`) |
 | Python identity service (`backend/`) with the 30k-name EU glossary dictionary | Working; if it is down the app falls back to a basic TypeScript matcher and says so |
 | PubChem identity lookups | Live when `PUBCHEM_ENABLED=1`; may be rate-limited, which is reported as "lookup unavailable", never "no concern" |
 | Open Beauty Facts (alternatives, reference formula) | Live through `/api/reference`; crowd-sourced, ODbL, attributed |

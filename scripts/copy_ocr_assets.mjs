@@ -9,4 +9,7 @@ cpSync("node_modules/@tesseract.js-data/eng/4.0.0_best_int/eng.traineddata.gz", 
 // English word list for the printed-misspelling check (loaded lazily in the browser only when front-of-pack text exists)
 mkdirSync("public/words", { recursive: true });
 cpSync("node_modules/word-list/words.txt", "public/words/en.txt");
-console.log("OCR assets and word list copied to public/");
+// Ingredient-name list (names only, from the EU glossary of common ingredient names): lets "Try harder" judge which OCR reading looks like a real name, in the browser
+mkdirSync("public/lexicon", { recursive: true });
+cpSync("data/inci_names.json", "public/lexicon/names.json");
+console.log("OCR assets, word list and name list copied to public/");

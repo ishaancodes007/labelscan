@@ -10,3 +10,4 @@ backend/data/*.sqlite
 public/tesseract/
 backend/data/raw/
 public/words/
+public/lexicon/

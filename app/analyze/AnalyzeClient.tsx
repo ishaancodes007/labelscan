@@ -2,7 +2,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Worker } from "tesseract.js";
 import { createOcrWorker, runOcr } from "@/lib/ocr/engine";
-import { grayToRGBA, resizeGray, toGray, type RGBA } from "@/lib/ocr/image";
+import { grayToRGBA, resizeGray, toGray, type Gray, type RGBA } from "@/lib/ocr/image";
+import { consensus } from "@/lib/ocr/consensus";
+import { buildLexicon, type Lexicon } from "@/lib/ocr/lexicon";
+import { VARIANTS, cylinderUnwarp } from "@/lib/ocr/unwarp";
 import { mergePhotos, segmentsFromLines, segmentsToText, type MSegment } from "@/lib/ocr/merge";
 import { prepareForOcr } from "@/lib/ocr/pipeline";
 import { crop as cropGray, rotate as rotateGray } from "@/lib/ocr/preprocess";
@@ -52,6 +55,8 @@ export default function AnalyzeClient() {
   const [ink, setInk] = useState(0);
   const [error, setError] = useState("");
   const worker = useRef<Worker | null>(null);
+  const lexicon = useRef<Lexicon | null>(null);
+  const onProgress = useRef<(x: number) => void>(() => {});
   const seq = useRef(0);
 
   const update = useCallback((id: string, patch: Partial<Photo>) => setPhotos((ps) => ps.map((p) => (p.id === id ? { ...p, ...patch } : p))), []);
@@ -80,22 +85,54 @@ export default function AnalyzeClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sig]);
 
+  async function getWorker() {
+    if (!worker.current) {
+      worker.current = await createOcrWorker({ workerPath: "/tesseract/worker.min.js", corePath: "/tesseract", langPath: "/tesseract",
+        logger: (m) => { if (m.status === "recognizing text") onProgress.current(m.progress); } });
+    }
+    return worker.current;
+  }
+  async function ocrGray(g: Gray) {
+    const rgba = grayToRGBA(g);
+    const c = document.createElement("canvas"); c.width = rgba.width; c.height = rgba.height;
+    c.getContext("2d")!.putImageData(new ImageData(new Uint8ClampedArray(rgba.data), rgba.width, rgba.height), 0, 0);
+    return runOcr(await getWorker(), c);
+  }
+
   async function read(p: Photo) {
     update(p.id, { status: "reading", progress: 0, note: undefined });
+    onProgress.current = (x) => update(p.id, { progress: x });
     try {
-      if (!worker.current) {
-        worker.current = await createOcrWorker({ workerPath: "/tesseract/worker.min.js", corePath: "/tesseract", langPath: "/tesseract",
-          logger: (m) => { if (m.status === "recognizing text") update(p.id, { progress: m.progress }); } });
-      }
       const prep = prepareForOcr(p.rgba, { crop: cropRect(p), rotateDeg: p.rotate });
-      const rgba = grayToRGBA(prep.image);
-      const c = document.createElement("canvas"); c.width = rgba.width; c.height = rgba.height;
-      c.getContext("2d")!.putImageData(new ImageData(new Uint8ClampedArray(rgba.data), rgba.width, rgba.height), 0, 0);
-      const r = await runOcr(worker.current, c);
+      const r = await ocrGray(prep.image);
       update(p.id, { status: "done", progress: 1, lines: r.lines.map((l) => ({ words: l.words.map((w) => ({ text: w.text, confidence: w.confidence })) })),
         warnings: assessOcr(r.text, r.words, r.meanConfidence),
         note: `${prep.skewApplied ? "Straightened the text. " : ""}Read in this browser.` });
     } catch (e) { update(p.id, { status: "error", note: "Could not read this photo. You can type the ingredients instead." }); console.error(e); }
+  }
+
+  /** "Try harder": reads the photo several ways (as is, and with curved-bottle corrections), then keeps the best reading of each ingredient. */
+  async function readHarder(p: Photo) {
+    update(p.id, { status: "reading", progress: 0.02, note: "Trying several corrections for a curved or blurry label. This takes about half a minute." });
+    try {
+      if (!lexicon.current) { const res = await fetch("/lexicon/names.json"); lexicon.current = buildLexicon((await res.json()) as string[]); }
+      const base = prepareForOcr(p.rgba, { crop: cropRect(p), rotateDeg: p.rotate }).image;
+      const total = VARIANTS.length + 1, passes: { id: string; segments: ReturnType<typeof segmentsFromLines> }[] = [];
+      const jobs: { id: string; g: Gray }[] = [{ id: "ship", g: base }, ...VARIANTS.map((v) => { const w = v.c !== undefined ? cylinderUnwarp(base, v.c, v.rho!) : base; return { id: v.id, g: resizeGray(w, Math.round(w.width * v.scale), Math.round(w.height * v.scale)) }; })];
+      for (let i = 0; i < jobs.length; i++) {
+        onProgress.current = (x) => update(p.id, { progress: (i + x) / total });
+        const r = await ocrGray(jobs[i].g);
+        passes.push({ id: jobs[i].id, segments: segmentsFromLines(r.lines.map((l) => ({ words: l.words.map((w) => ({ text: w.text, confidence: w.confidence })) })), jobs[i].id) });
+        update(p.id, { progress: (i + 1) / total, note: `Reading pass ${i + 1} of ${total}…` });
+      }
+      const c = consensus(passes, lexicon.current);
+      // one line per ingredient, each ending in a comma, so the normal merge and text steps see them as separate ingredients
+      const lines = c.items.map((it) => ({ words: it.seg.words.map((w, k, a) => (k === a.length - 1 ? { text: `${w.text.replace(/[,;.]+$/, "")},`, confidence: w.confidence } : { text: w.text, confidence: w.confidence })) }));
+      const words = lines.flatMap((l) => l.words), text = lines.map((l) => l.words.map((w) => w.text).join(" ")).join("\n");
+      const added = c.items.filter((i) => i.from !== "base").length;
+      update(p.id, { status: "done", progress: 1, lines, warnings: assessOcr(text, words.map((w) => ({ text: w.text, confidence: w.confidence, bbox: { x0: 0, y0: 0, x1: 0, y1: 0 } })), words.length ? words.reduce((a, w) => a + w.confidence, 0) / words.length : 0),
+        note: `Combined ${total} readings of this photo: ${c.items.length} ingredient readings, ${added} of them taken from a different pass than the main one. Corrections are guesses at the bottle's curve, so check every name against the label.` });
+    } catch (e) { update(p.id, { status: "error", note: "Could not run the extra readings. The earlier reading is gone; press “Read text from this photo” to read once again, or type the ingredients." }); console.error(e); }
   }
 
   const merged = useMemo(() => {
@@ -178,7 +215,7 @@ export default function AnalyzeClient() {
       </section>
 
       {photos.map((p, n) => (
-        <PhotoCard key={p.id} index={n + 1} photo={p} onChange={(patch) => update(p.id, ("trim" in patch || "rotate" in patch) && (p.status === "done" || p.status === "error") ? { ...patch, status: "idle", progress: 0, lines: undefined, warnings: undefined, note: "You changed the crop or rotation, so the earlier reading no longer applies. Press “Read text from this photo” to read the new view." } : patch)} onRead={() => read(p)} onRemove={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))} />
+        <PhotoCard key={p.id} index={n + 1} photo={p} onChange={(patch) => update(p.id, ("trim" in patch || "rotate" in patch) && (p.status === "done" || p.status === "error") ? { ...patch, status: "idle", progress: 0, lines: undefined, warnings: undefined, note: "You changed the crop or rotation, so the earlier reading no longer applies. Press “Read text from this photo” to read the new view." } : patch)} onRead={() => read(p)} onHarder={() => readHarder(p)} onRemove={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))} />
       ))}
 
       <section className="card" aria-labelledby="rev">
@@ -215,7 +252,7 @@ export default function AnalyzeClient() {
   );
 }
 
-function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: number; photo: Photo; onChange: (patch: Partial<Photo>) => void; onRead: () => void; onRemove: () => void }) {
+function PhotoCard({ index, photo: p, onChange, onRead, onHarder, onRemove }: { index: number; photo: Photo; onChange: (patch: Partial<Photo>) => void; onRead: () => void; onHarder: () => void; onRemove: () => void }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {   // preview = what OCR will see (after crop and manual rotation), at screen size
     const c = canvas.current; if (!c) return;
@@ -259,6 +296,7 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
       </select>
       <div className="row">
         <button onClick={onRead} disabled={p.status === "reading"}>{p.status === "reading" ? `Reading… ${Math.round(p.progress * 100)}%` : p.status === "done" ? "Read again" : "Read text from this photo"}</button>
+        {(p.status === "done" || p.status === "error") && <button className="secondary" onClick={onHarder} title="Reads the photo several ways (including curved-bottle corrections) and keeps the best reading of each ingredient">Try harder (curved or blurry label)</button>}
         <button className="secondary" onClick={onRemove}>Remove photo</button>
       </div>
       {p.warnings?.map((w) => <p key={w} role="status" className="notice warn">{w}</p>)}
