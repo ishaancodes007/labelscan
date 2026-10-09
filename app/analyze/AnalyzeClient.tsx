@@ -143,7 +143,7 @@ export default function AnalyzeClient() {
       </section>
 
       {photos.map((p, n) => (
-        <PhotoCard key={p.id} index={n + 1} photo={p} onChange={(patch) => update(p.id, patch)} onRead={() => read(p)} onRemove={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))} />
+        <PhotoCard key={p.id} index={n + 1} photo={p} onChange={(patch) => update(p.id, ("trim" in patch || "rotate" in patch) && (p.status === "done" || p.status === "error") ? { ...patch, status: "idle", progress: 0, lines: undefined, warnings: undefined, note: "You changed the crop or rotation, so the earlier reading no longer applies. Press “Read text from this photo” to read the new view." } : patch)} onRead={() => read(p)} onRemove={() => setPhotos((ps) => ps.filter((x) => x.id !== p.id))} />
       ))}
 
       <section className="card" aria-labelledby="rev">
