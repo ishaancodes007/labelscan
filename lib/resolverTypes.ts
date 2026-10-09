@@ -5,7 +5,7 @@ export type ResolveLayer =
   | "fuzzy" | "ai_agent" | "not_found" | "lookup_unavailable";
 
 export interface TokenIn { index: number; raw: string; ocrWordConfidence?: number }
-export interface ResolveRequest { tokens: TokenIn[]; useAgent?: boolean; locale?: string }
+export interface ResolveRequest { tokens: TokenIn[]; useAgent?: boolean; noMerge?: string[]; locale?: string }
 
 export interface Candidate {
   inci_name: string; score: number; source: "dictionary" | "pubchem" | "ai_agent";

@@ -1,0 +1,11 @@
+PASS light /: 0 violation types
+PASS light /about: 0 violation types
+PASS light /profile: 0 violation types
+PASS light /products: 0 violation types
+PASS light /analyze (with results): 0 violation types
+PASS dark /: 0 violation types
+PASS dark /about: 0 violation types
+PASS dark /profile: 0 violation types
+PASS dark /products: 0 violation types
+PASS dark /analyze (with results): 0 violation types
+no automated violations

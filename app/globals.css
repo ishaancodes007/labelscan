@@ -26,7 +26,16 @@ ul.plain { list-style:none; padding:0; margin:0; } ul.plain li { padding:.4rem 0
 small, .muted { color:var(--muted); }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 input[type=text], input[type=number], input[type=date], select { padding:.5rem .6rem; border:1px solid var(--line); border-radius:.5rem; background:var(--bg); color:var(--fg); min-height:2.5rem; max-width:100%; }
-nav.site { display:flex; flex-wrap:wrap; gap:.25rem 1rem; padding:.5rem 1rem; border-bottom:1px solid var(--line); }
-nav.site a { padding:.35rem 0; }
 table.cmp { border-collapse:collapse; width:100%; } table.cmp th, table.cmp td { text-align:left; padding:.35rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
 @media print { nav.site, .no-print, button { display:none !important; } .card { break-inside:avoid; border-color:#999; } body { background:#fff; color:#000; } }
+.stats { display:flex; flex-wrap:wrap; gap:.4rem .9rem; margin:.25rem 0; } .stats li { white-space:nowrap; }
+.review-card { margin:.6rem 0; } .cand { margin:.35rem 0 .35rem .25rem; padding-left:.6rem; border-left:3px solid var(--line); }
+
+/* site chrome (every route) */
+:root { --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; --leaf:#1f5d43; --amber:#b86e00; }
+@media (prefers-color-scheme: dark) { :root { --leaf:#7fd1a4; --amber:#ffc46b; } }
+.skip { position:absolute; left:-999px; top:0; background:var(--accent); color:var(--accent-fg); padding:.5rem 1rem; z-index:10; } .skip:focus { left:0; }
+nav.site .brand { font-family:var(--serif); font-weight:700; } nav.site .grow { flex:1; } label.motion { font-weight:400; display:flex; gap:.4rem; align-items:center; }
+nav.site a { color:inherit; background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat; text-decoration:none; transition:background-size .25s; } nav.site a:hover, nav.site a:focus-visible { background-size:100% 1px; }
+nav.site { display:flex; flex-wrap:wrap; gap:.1rem 1rem; padding:.25rem 1rem; border-bottom:1px solid var(--line); font-size:.95rem; } nav.site a { padding:.5rem 0; }
+a { color:var(--accent); } a.btn, a.btn:hover { color:var(--accent-fg); } nav.site a { color:inherit; }

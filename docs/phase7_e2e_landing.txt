@@ -1,0 +1,22 @@
+PASS headline is in the server-rendered HTML and visible with JavaScript off  ["Read the label.\nKnow what you are looking at."]
+PASS scroll sections are visible with JavaScript off (nothing hidden waiting for a script)
+PASS both CTAs exist as plain links
+PASS desktop: no horizontal scroll  [1280 <= 1280]
+PASS desktop: entrance animation is on by default  [{"line":"rise","motion":"full"}]
+PASS desktop: every scroll section was revealed once scrolled to
+INFO desktop: largest contentful paint 140 ms (headless Chromium, localhost, no throttling; indicative only)
+PASS desktop: no console or page errors
+PASS mobile: no horizontal scroll  [390 <= 390]
+PASS mobile: entrance animation is on by default  [{"line":"rise","motion":"full"}]
+PASS mobile: every scroll section was revealed once scrolled to
+INFO mobile: largest contentful paint 112 ms (headless Chromium, localhost, no throttling; indicative only)
+PASS mobile: no console or page errors
+PASS toggle sets data-motion=reduce and stores it
+PASS after reload the preference holds and the toggle is checked  [{"line":"none","draw":"0px","beam":"none","chip":"none","fx":"fadeonly","checked":true,"pre":0}]
+PASS reduced: no movement animations; only a short fade remains  [{"line":"none","draw":"0px","beam":"none","chip":"none","fx":"fadeonly","checked":true,"pre":0}]
+PASS reduced: botanical art is fully drawn (final state)  [0px]
+PASS toggle can be turned off again
+PASS prefers-reduced-motion is honoured by default (toggle starts checked)  [reduce,none,true]
+PASS CTA 'Analyze a label' opens /analyze
+PASS 'About' opens /about
+PASS keyboard: first Tab reaches the skip link  [Skip to content]

@@ -48,7 +48,7 @@ export default function CompareClient() {
         const res = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text: p.ingredients_text }) });
         if (!res.ok) continue;
         const data = (await res.json()) as { items: ApiItem[] };
-        const items = data.items.map(toItemIn).filter((i) => !i.optional);
+        const items = data.items.map((it, i) => toItemIn(it, i)).filter((i) => !i.optional);
         const ev = evaluate(items, profile);
         const ids = items.map((i) => identityOf(i));
         cands.push({ name: p.name || "(unnamed)", brands: p.brands, code: p.code, url: p.url, ingredients: ids.flatMap((d) => (d.inci ? [titleCase(d.inci)] : [])), unresolved: ids.filter((d) => !d.inci).length,

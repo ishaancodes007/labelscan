@@ -9,6 +9,7 @@ import { crop as cropGray, rotate as rotateGray } from "@/lib/ocr/preprocess";
 import { assess, assessOcr, type QualityReport } from "@/lib/ocr/quality";
 import { loadProfile } from "@/lib/rules/profileStore";
 import { EMPTY_PROFILE, type Profile } from "@/lib/rules/types";
+import { NO_CHOICES, type Choices } from "./choices";
 import ResultsPanel, { type ApiResult } from "./ResultsPanel";
 
 interface Trim { l: number; t: number; r: number; b: number }
@@ -42,6 +43,8 @@ export default function AnalyzeClient() {
   const [result, setResult] = useState<ApiResult | null>(null);
   const [profile, setProfile] = useState<Profile>(EMPTY_PROFILE);
   useEffect(() => { setProfile(loadProfile()); }, []);   // local only
+  const [choices, setChoices] = useState<Choices>(NO_CHOICES);   // review decisions: session state only
+  const [agentAsked, setAgentAsked] = useState(false);
   const [useAgent, setUseAgent] = useState(false);   // opt-in, off by default
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -114,15 +117,18 @@ export default function AnalyzeClient() {
   const mergedText = merged ? segmentsToText(merged.segments) : "";
   useEffect(() => { if (!edited) setText(mergedText); }, [mergedText, edited]);
 
-  async function analyze() {
+  async function analyze(t = text, noMerge: string[] = choices.noMerge) {
     setBusy(true); setError(""); setResult(null);
     try {
-      const res = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, useAgent }) });
+      const res = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text: t, useAgent, noMerge }) });
       if (!res.ok) throw new Error(String(res.status));
+      setAgentAsked(useAgent);
       setResult(await res.json());
     } catch { setError("Analysis failed. Check your connection and try again."); }
     setBusy(false);
   }
+  /** Re-run from the review panel (edit text / split merge): the earlier results are cleared first so nothing stale stays on screen. */
+  function rerun(t: string, noMerge?: string[]) { setText(t); setEdited(true); analyze(t, noMerge ?? choices.noMerge); }
 
   return (
     <main>
@@ -147,7 +153,7 @@ export default function AnalyzeClient() {
         <label style={{ fontWeight: 400 }}><input type="checkbox" checked={useAgent} onChange={(e) => setUseAgent(e.target.checked)} /> Use AI to help identify unrecognized names (sends only those names, never your photo or profile).</label>
         <div className="row">
           {edited && mergedText && <button className="secondary" onClick={() => { setEdited(false); setText(mergedText); }}>Reset to the text read from photos</button>}
-          <button onClick={analyze} disabled={busy || !text.trim()}>{busy ? "Analyzing…" : "Analyze ingredients"}</button>
+          <button onClick={() => analyze()} disabled={busy || !text.trim()}>{busy ? "Analyzing…" : "Analyze ingredients"}</button>
         </div>
         {merged && merged.warnings.map((w) => <p key={w} className="notice warn" role="status">{w}</p>)}
         {merged && photos.filter((p) => p.status === "done").length > 1 && merged.overlapFound && <p className="notice info" role="status">Merged {photos.filter((p) => p.status === "done").length} photos; {merged.matched} ingredients appeared in more than one.</p>}
@@ -169,7 +175,7 @@ export default function AnalyzeClient() {
         <textarea id="dates" value={datesText} onChange={(e) => { setDatesText(e.target.value); setDatesEdited(true); }} />
       </section>
 
-      {result && <ResultsPanel result={result} profile={profile} pack={{ frontText, frontWords, datesText, datesConf }} />}
+      {result && <ResultsPanel result={result} profile={profile} pack={{ frontText, frontWords, datesText, datesConf }} choices={choices} setChoices={setChoices} onRerun={rerun} requestedAgent={agentAsked} />}
     </main>
   );
 }

@@ -114,7 +114,8 @@ function summarise(items: ItemIn[], ids: Identity[]): string {
   if (!main.length) return "";
   const named = main.filter((x) => x.id.via !== "none");
   const parts: string[] = [];
-  parts.push(`${main.length} ingredient${main.length > 1 ? "s" : ""} listed; ${named.length} identified${main.length - named.length ? `, ${main.length - named.length} need review` : ""}.`);
+  const review = main.filter((x) => x.id.via === "none" && NEEDS_REVIEW.has(x.it.status)).length, kept = main.length - named.length - review;
+  parts.push(`${main.length} ingredient${main.length > 1 ? "s" : ""} listed; ${named.length} identified${review ? `, ${review} need review` : ""}${kept ? `, ${kept} kept as printed and unconfirmed` : ""}.`);
   const top = main.slice(0, 3);
   const first = top.map((x) => (x.id.via !== "none" ? nameOf(x.it, x.id) : `\u201c${x.it.raw}\u201d`));
   if (first.length) {

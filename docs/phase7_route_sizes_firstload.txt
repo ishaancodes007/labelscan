@@ -1,0 +1,4 @@
+/ first-load JS: 174.5 KB gzip in 8 scripts
+/about first-load JS: 173.8 KB gzip in 7 scripts
+/analyze first-load JS: 254.2 KB gzip in 10 scripts
+/products first-load JS: 192.2 KB gzip in 9 scripts

@@ -185,7 +185,7 @@ class Resolver:
                 fz[i] = self._fuzzy(st.seg.raw)
         t_fuzzy = time.perf_counter()
 
-        states = self._merge(states, fz)
+        states = self._merge(states, fz, {key(x) for x in req.noMerge})
         states = self._split(states, fz)
         # recompute fuzzy for new/changed states
         for st in states:
@@ -280,7 +280,7 @@ class Resolver:
         return status, n, skipped
 
     # ---- B2 merge ---------------------------------------------------------------------------------
-    def _merge(self, states: list[State], fz) -> list[State]:
+    def _merge(self, states: list[State], fz, nomerge: set[str] = frozenset()) -> list[State]:
         out: list[State] = []
         i = 0
         tries = 0
@@ -288,6 +288,7 @@ class Resolver:
             a = states[i]
             if i + 1 < len(states) and a.status == "pending" and states[i + 1].status == "pending" \
                     and a.seg.source_index == states[i + 1].seg.source_index \
+                    and key(a.seg.raw) not in nomerge and key(states[i + 1].seg.raw) not in nomerge \
                     and tries < self.T["max_merge_tries"] and len(a.seg.raw.split()) <= 3 and len(states[i + 1].seg.raw.split()) <= 3 \
                     and (fz.get(i) or fz.get(i + 1) or states[i].seg.raw):
                 tries += 1

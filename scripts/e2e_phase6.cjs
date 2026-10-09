@@ -15,18 +15,18 @@ const MODE = process.env.MODE || "real";
   ok("consent checkbox exists and is unchecked by default", (await cb.count()) === 1 && !(await cb.isChecked()));
   await pg.fill("#txt", "AQUA, HYALURONATE SOD, XQZVRTL");
   await pg.getByRole("button", { name: "Analyze ingredients" }).click(); await pg.waitForSelector("text=Ingredients");
-  ok("unchecked: request sends useAgent=false and no AI notice is shown", bodies[0].useAgent === false && (await pg.locator("text=AI helper:").count()) === 0);
+  ok("unchecked: request sends useAgent=false and no AI notice is shown", bodies[0].useAgent === false && (await pg.locator(".notice", { hasText: "AI helper:" }).count()) === 0 && /AI helper: off/.test(await pg.locator(".provider").innerText()));
   await cb.check();
-  await pg.getByRole("button", { name: "Analyze ingredients" }).click(); await pg.waitForSelector("text=AI helper:");
-  ok("checked: request sends useAgent=true and only text", bodies[1].useAgent === true && Object.keys(bodies[1]).sort().join() === "text,useAgent");
+  await pg.getByRole("button", { name: "Analyze ingredients" }).click(); await pg.waitForFunction(() => /AI helper: (on|unavailable|rate-limited)/.test(document.querySelector(".provider")?.textContent ?? ""));
+  ok("checked: request sends useAgent=true and only text", bodies[1].useAgent === true && Object.keys(bodies[1]).sort().join() === "noMerge,text,useAgent" && bodies[1].noMerge.length === 0);
   const t = await pg.locator("main").innerText();
   if (MODE === "mock") {
-    ok("status line says the helper is on and how many names it looked at", /AI helper: on\. It looked at 2 unrecognized names/.test(t));
-    ok("AI candidate is labelled 'AI suggestion' and not applied", /\(AI suggestion\)/.test(t) && /nothing is applied until you press the button/.test(t) && /Suggested: needs your confirmation/.test(t));
-    await pg.getByRole("button", { name: /\(AI suggestion\)/ }).first().click();
+    ok("status line says the helper is on and how many names it looked at", /AI helper: it looked at 2 unrecognized names/.test(t));
+    ok("AI candidate is labelled 'AI suggestion' and not applied", (await pg.locator(".review-card .badge", { hasText: "AI suggestion" }).count()) >= 1 && /not applied until you choose/.test(t) && /Suggested: needs your confirmation/.test(t));
+    await pg.locator(".cand", { has: pg.locator(".badge", { hasText: "AI suggestion" }) }).first().getByRole("button", { name: /^Use / }).click();
     ok("pressing the button is what accepts it (shows 'Accepted by you')", /Accepted by you/.test(await pg.locator("main").innerText()));
   } else {
-    ok("no key on this server: the notice says the helper is unavailable and standard matching was used", /AI helper: unavailable on this server/.test(t) && !/\(AI suggestion\)/.test(t));
+    ok("no key on this server: the notice says the helper is unavailable and standard matching was used", /AI helper: unavailable on this server/.test(t) && (await pg.locator(".badge", { hasText: "AI suggestion" }).count()) === 0);
   }
   console.log("CONSOLE/PAGE ERRORS", errs);
   await b.close();

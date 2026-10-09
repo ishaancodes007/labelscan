@@ -18,6 +18,7 @@ class TokenIn(BaseModel):
 class ResolveRequest(BaseModel):
     tokens: list[TokenIn] = Field(max_length=500)
     useAgent: bool = False
+    noMerge: list[str] = Field(default_factory=list, max_length=50)   # fragments the user asked to keep separate ("Split merge")
     locale: str = "en"
 
 

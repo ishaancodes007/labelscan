@@ -1,0 +1,77 @@
+/* Landing page. Warm ivory + forest green, editorial serif headings, clean sans body. Animations use transform/opacity (the botanical line-draw uses stroke-dashoffset). */
+.display, .landing h2, .feature h3 { font-family:var(--serif); font-weight:600; letter-spacing:-.01em; }
+
+.hero { position:relative; overflow:hidden; padding:2.5rem 1rem 3rem; isolation:isolate; }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; opacity:.07; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.leak { position:absolute; inset:-20% -10% auto auto; width:70%; height:90%; z-index:-1; pointer-events:none; border-radius:50%;
+  background:radial-gradient(closest-side, color-mix(in srgb, #ffd9a0 70%, transparent), transparent); opacity:.55; animation:leak 1.4s ease-out both; }
+@media (prefers-color-scheme: dark) { .leak { background:radial-gradient(closest-side, color-mix(in srgb, #7fd1a4 22%, transparent), transparent); } }
+.sprig { position:absolute; right:-2.5rem; bottom:-1rem; width:min(40vw,200px); height:auto; color:var(--leaf); opacity:.35; z-index:-1; }
+.draw { stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1.1s ease-out var(--d,0s) forwards; }
+.hero-inner { max-width:68rem; margin:0 auto; display:grid; gap:2rem; grid-template-columns:1fr; align-items:center; }
+@media (min-width: 52rem) { .hero-inner { grid-template-columns:1.1fr .9fr; } .hero { padding:4rem 1.5rem 4.5rem; } }
+.eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.8rem; color:var(--muted); margin:0 0 .5rem; }
+.display { font-size:clamp(2.2rem, 7vw, 4rem); line-height:1.05; margin:.2rem 0 1rem; }
+.line { display:block; overflow:hidden; padding-bottom:.08em; } .line > span { display:block; animation:rise .75s cubic-bezier(.2,.7,.2,1) var(--d,0s) both; }
+.sub { font-size:1.1rem; max-width:34rem; } .fx { animation:fadeup .7s ease-out var(--d,0s) both; }
+.cta-row { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; }
+.btn.cta { display:inline-flex; align-items:center; text-decoration:none; padding:.75rem 1.4rem; border-radius:999px; font-weight:600; transition:transform .2s, box-shadow .2s; }
+.btn.cta:hover, .btn.cta:focus-visible { transform:translateY(-2px); box-shadow:0 8px 20px -10px var(--fg); }
+.textlink, .landing a:not(.btn):not(.feature) { color:var(--fg); text-decoration:none; background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat; transition:background-size .3s; }
+.textlink:hover, .textlink:focus-visible { background-size:0 1px; background-position:100% 100%; }
+
+.label-fig { margin:0; } .label-fig figcaption { font-size:.8rem; color:var(--muted); margin-top:.6rem; max-width:24rem; }
+.label { position:relative; background:#fffdf7; color:#2a2a24; border:1px solid #d9d2c0; border-radius:12px; padding:1.1rem 1.1rem 1.2rem; box-shadow:0 18px 40px -26px #000; overflow:hidden; max-width:26rem; transform:rotate(-1.2deg); }
+.tag-illus { position:absolute; top:.6rem; right:.7rem; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; border:1px solid #b9b19a; border-radius:999px; padding:.05rem .5rem; color:#5a5a4f; }
+.label-title { font-weight:700; letter-spacing:.14em; font-size:.8rem; margin-bottom:.5rem; }
+.label ul { list-style:none; margin:0; padding:0; } .label li { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding:.45rem 0; border-bottom:1px dashed #d9d2c0; font:600 .85rem/1.2 ui-monospace, Menlo, monospace; }
+.chip { font:600 .7rem/1 system-ui, sans-serif; font-style:normal; padding:.28rem .55rem; border-radius:999px; animation:pop .5s ease-out both; }
+.c1 { background:#e3f4e8; color:#14532d; animation-delay:1.0s; } .c2 { background:#e8f0ff; color:#1b3a8a; animation-delay:1.3s; } .c3 { background:#fff3d6; color:#6a4500; animation-delay:1.6s; }
+.beam { position:absolute; left:0; right:0; top:0; height:2.6rem; pointer-events:none; background:linear-gradient(to bottom, transparent, color-mix(in srgb, #2f9b6c 38%, transparent) 70%, #2f9b6c 98%, transparent); opacity:0; animation:scan 1.3s ease-in-out .6s both; }
+
+.landing { max-width:68rem; margin:0 auto; padding:0 1rem 3rem; }
+.band { padding:2.5rem 0; border-top:1px solid var(--line); } .band h2 { font-size:clamp(1.5rem, 4vw, 2.2rem); margin:0 0 1rem; } .lead { max-width:40rem; color:var(--muted); }
+.steps { list-style:none; padding:0; margin:0; display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(17rem,1fr)); }
+.steps li { display:flex; gap:.8rem; align-items:flex-start; } .steps p { margin:.15rem 0 0; color:var(--muted); font-size:.95rem; }
+.num { flex:none; width:2rem; height:2rem; border-radius:50%; border:1px solid var(--leaf); color:var(--leaf); display:grid; place-items:center; font-family:var(--serif); font-weight:700; }
+.privacy { margin:0; } .privacy svg { width:100%; height:auto; max-width:42rem; } .privacy figcaption { color:var(--muted); font-size:.9rem; max-width:40rem; }
+.privacy .zone { fill:color-mix(in srgb, var(--leaf) 8%, transparent); stroke:var(--leaf); stroke-dasharray:5 4; } .privacy .zone2 { fill:var(--neutral-bg); stroke:var(--line); }
+.privacy .node { fill:var(--bg); stroke:var(--line); } .privacy .chipbox { fill:var(--warn-bg); stroke:var(--line); } .privacy text { fill:var(--fg); font:600 13px system-ui, sans-serif; }
+.privacy .zlabel { font-size:11px; letter-spacing:.12em; fill:var(--leaf); } .privacy .small { font-weight:400; font-size:11.5px; fill:var(--muted); } .privacy .arrow { stroke:var(--fg); stroke-width:1.6; fill:none; marker-end:none; }
+.privacy .travel { stroke-dasharray:6 5; }
+.ladder { list-style:none; padding:0; margin:1rem 0 0; display:grid; gap:.5rem; } .ladder li { border-left:3px solid var(--leaf); padding:.35rem .8rem; background:color-mix(in srgb, var(--bg) 94%, var(--fg) 6%); border-radius:0 .5rem .5rem 0; } .ladder span { color:var(--muted); }
+.features { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(11.5rem,1fr)); }
+.feature { display:block; text-decoration:none; color:var(--fg); border:1px solid var(--line); border-radius:.9rem; padding:1rem 1.1rem; background:color-mix(in srgb, var(--bg) 94%, var(--fg) 6%); transition:transform .2s ease-out, box-shadow .2s; will-change:transform; }
+.feature:hover, .feature:focus-visible { box-shadow:0 14px 28px -20px var(--fg); } .feature h3 { margin:0 0 .3rem; font-size:1.2rem; } .feature p { margin:0; color:var(--muted); font-size:.95rem; }
+.final { text-align:left; } .site-foot { max-width:68rem; margin:0 auto; padding:1rem 1rem 3rem; color:var(--muted); font-size:.9rem; border-top:1px solid var(--line); }
+
+/* reveal on scroll: visible by default; hidden only after mount for below-the-fold blocks */
+.reveal.pre > *, .reveal.pre li { opacity:0; transform:translateY(16px); }
+.reveal.pre.in > *, .reveal.pre.in li { opacity:1; transform:none; transition:opacity .6s ease-out, transform .6s ease-out; }
+.reveal.pre.in li { transition-delay:calc(var(--i, 0) * 90ms); }
+.reveal.pre .ladder li { transform:translateX(-14px); } .reveal.pre.in .ladder li { transform:none; }
+
+@keyframes rise { from { transform:translateY(105%); } to { transform:none; } }
+@keyframes fadeup { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes pop { from { opacity:0; transform:scale(.8); } to { opacity:1; transform:none; } }
+@keyframes leak { from { opacity:0; transform:scale(.9); } to { opacity:.55; transform:none; } }
+@keyframes draw { to { stroke-dashoffset:0; } }
+@keyframes scan { 0% { opacity:0; transform:translateY(-100%); } 15% { opacity:1; } 85% { opacity:1; } 100% { opacity:0; transform:translateY(calc(100% * 5)); } }
+@keyframes fadeonly { from { opacity:0; } to { opacity:1; } }
+
+/* Reduced motion: final states, with at most a short fade. Honors the system setting unless the user chose "full", and the on-page toggle. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="full"]) .line > span, html:not([data-motion="full"]) .draw, html:not([data-motion="full"]) .beam, html:not([data-motion="full"]) .chip, html:not([data-motion="full"]) .leak { animation:none; }
+  html:not([data-motion="full"]) .draw { stroke-dashoffset:0; } html:not([data-motion="full"]) .beam { opacity:0; }
+  html:not([data-motion="full"]) .fx { animation:fadeonly .2s ease-out both; animation-delay:0s; }
+  html:not([data-motion="full"]) * { transition-duration:.01ms !important; scroll-behavior:auto; }
+}
+html[data-motion="reduce"] .line > span, html[data-motion="reduce"] .draw, html[data-motion="reduce"] .beam, html[data-motion="reduce"] .chip, html[data-motion="reduce"] .leak { animation:none; }
+html[data-motion="reduce"] .draw { stroke-dashoffset:0; } html[data-motion="reduce"] .beam { opacity:0; }
+html[data-motion="reduce"] .fx { animation:fadeonly .2s ease-out both; animation-delay:0s; }
+html[data-motion="reduce"] * { transition-duration:.01ms !important; }
+html[data-motion="reduce"] .reveal.pre > *, html[data-motion="reduce"] .reveal.pre li { opacity:1; transform:none; }
+
+
+.privacy .scroll { overflow-x:auto; } .privacy .scroll svg { min-width:600px; }

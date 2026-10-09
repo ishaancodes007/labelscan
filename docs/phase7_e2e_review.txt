@@ -1,0 +1,19 @@
+PASS identity summary: counts add up to the total  [{"total":16,"parts":[2,14],"review":14}]
+PASS needsReview = suggested + ambiguous + not found + lookup unavailable  [14 = 14]
+PASS review cards = needsReview  [14]
+PASS provider status line  [Enhanced recognition: on · AI helper: off · OCR: local (in this browser)]
+PASS no unresolved item uses the green 'resolved' style
+PASS card shows raw token, OCR confidence line, candidates with source links and a why-note
+PASS at most 3 candidates per card
+PASS bulk accept lists every item before applying  [7]
+PASS cancel applies nothing
+PASS applying moves exactly those items out of review  [14 -> 7]
+PASS Use this accepts and moves the item out of review
+PASS Keep as typed: not counted as needing review, and counted separately
+PASS Not an ingredient: moves to the removed list
+PASS Restore puts it back (unchecked) in the list
+PASS Edit text re-runs the analysis
+PASS earlier choices survive the re-run
+PASS Split merge: re-analysis keeps the fragments apart  [noMerge=["ISCPROPIL","PIMITATE"]]
+PASS choices are not persisted (no beautylens review keys in localStorage)
+CONSOLE/PAGE ERRORS []
