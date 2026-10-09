@@ -1,0 +1,16 @@
+dictionary: version=seed-1 source=seed entries=235  fixtures=10
+
+=== BASELINE (exact match only) ===
+expected entries: 110
+resolved (auto):    77  70.0%   (correct 77, wrong 0)
+suggested:           0   0.0%   (top-1 correct 0, top-1 wrong 0, correct only in top-3 0)
+not found/other:    33  30.0%   (not_found 22, lookup_unavailable 0, missing 10, expected-unresolved 1)
+FALSE-ACCEPT count (auto-resolved wrong + top-1 suggestion wrong): 0
+high-confidence suggestions: 0 (correct 0, wrong 0)
+removed-fragment recall: 0/7   wrongly removed ingredients: 0
+merges/splits proposed: clean_merges=0, clean_splits=0, golden_merges=0, golden_splits=0  (any on the clean group is a false proposal)
+per layer (items matched to an expected entry): layer  n  correct
+   inci_exact            77  77
+   not_found             23   1
+latency per label: mean 0 ms, max 1 ms over 10 labels
+golden case: 2/16 entries resolved or correctly suggested at top-1

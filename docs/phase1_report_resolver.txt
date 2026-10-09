@@ -1,0 +1,19 @@
+dictionary: version=seed-1 source=seed entries=235  fixtures=10
+
+=== RESOLVER (PubChem OFF) thresholds={'high_score': 0.8, 'high_margin': 0.08, 'max_unexplained': 1} ===
+expected entries: 110
+resolved (auto):    95  86.4%   (correct 95, wrong 0)
+suggested:          14  12.7%   (top-1 correct 14, top-1 wrong 0, correct only in top-3 0)
+not found/other:     1   0.9%   (not_found 0, lookup_unavailable 0, missing 0, expected-unresolved 1)
+FALSE-ACCEPT count (auto-resolved wrong + top-1 suggestion wrong): 0
+high-confidence suggestions: 8 (correct 8, wrong 0)
+removed-fragment recall: 7/7   wrongly removed ingredients: 0
+merges/splits proposed: clean_merges=0, clean_splits=0, golden_merges=2, golden_splits=1  (any on the clean group is a false proposal)
+per layer (items matched to an expected entry): layer  n  correct
+   category_recognized   12  12
+   fuzzy                 14  14
+   inci_alias             1   1
+   inci_exact            82  82
+   not_found              1   1
+latency per label: mean 106 ms, max 1032 ms over 10 labels
+golden case: 16/16 entries resolved or correctly suggested at top-1

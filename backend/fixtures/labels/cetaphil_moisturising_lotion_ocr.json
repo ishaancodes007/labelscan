@@ -48,7 +48,11 @@
     {
       "raw": "DETRY ALCOHOL",
       "inci": null,
-      "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)"
+      "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+      "suggested_any_of": [
+        "CETYL ALCOHOL",
+        "CETEARYL ALCOHOL"
+      ]
     },
     {
       "raw": "CETEARETH:20",

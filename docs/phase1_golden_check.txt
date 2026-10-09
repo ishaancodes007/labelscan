@@ -1,0 +1,32 @@
+PASS  16 ingredients
+PASS  order preserved and top identity correct for all 15 non-DETRY items
+PASS  'FIL1746700' moved to removed with a reason
+PASS  'MRP' moved to removed with a reason
+PASS  'B.NO' moved to removed with a reason
+PASS  'Mfg' moved to removed with a reason
+PASS  ISCPROPIL+PIMITATE merged into ISOPROPYL PALMITATE
+PASS  PERSEA+GRATISS merged into PERSEA GRATISSIMA OIL
+PASS  GLYCERIN STRERATE -> Glyceryl Stearate (not Glycerin)
+PASS  DETRY ALCOHOL suggested; top candidates Cetyl + Cetearyl Alcohol
+PASS  DETRY ALCOHOL is not flagged high-confidence
+PASS  HELLATHUS ANNUUS SEED suggested: Helianthus Annuus Seed Oil, with 'Oil not visible'
+PASS  FANTLACTOIDE suggested (Pantolactone), low confidence, never auto-accepted
+PASS  ACUA -> AQUA (resolved, or high-confidence suggestion)
+PASS  GLYCERN -> GLYCERIN (resolved, or high-confidence suggestion)
+PASS  CETEARETH -> CETEARETH-20 (resolved, or high-confidence suggestion)
+PASS  PANTHEVOL -> PANTHENOL (resolved, or high-confidence suggestion)
+PASS  NACINANDE -> NIACINAMIDE (resolved, or high-confidence suggestion)
+PASS  TOCOPYENYL -> TOCOPHERYL ACETATE (resolved, or high-confidence suggestion)
+PASS  DIMETHICONE -> DIMETHICONE (resolved, or high-confidence suggestion)
+DEVIATION  SODILN -> SODIUM BENZOATE (resolved, or high-confidence suggestion)   [top-1 is correct (0.80) but 2 of 4 edits are unexplained and the margin is moderate -> kept 'suggested', not bulk-acceptable]
+DEVIATION  BENEYL -> BENZYL ALCOHOL (resolved, or high-confidence suggestion)   [genuinely ambiguous: Benzyl Alcohol 0.92 vs Behenyl Alcohol 0.90 -> kept 'suggested' with both candidates shown]
+PASS  CITRIC -> CITRIC ACID (resolved, or high-confidence suggestion)
+PENDING  Fatty-alcohol note: 'not a drying alcohol' (Phase 3)
+PENDING  Fragrance-allergy profile: benzyl alcohol 'caution', no contradiction (Phase 3)
+PENDING  Claims: vitamin E/B3/B5/avocado oil 'matches' (Phase 4)
+PENDING  Claim: 'No added fragrance' 'consistent' with benzyl-alcohol nuance (Phase 4)
+PENDING  Claims: won't clog pores / non-irritating / clinically tested 'not verifiable' (Phase 4)
+PENDING  Trust signal: printed-misspelling soft notice (Phase 4)
+PENDING  Expiry 04/29 extracted with low confidence + confirm prompt (Phase 4)
+
+21/23 implemented expectations pass, 2 documented deviation(s), 0 fail; 7 pending (later phases). PubChem: off.
