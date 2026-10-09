@@ -26,7 +26,7 @@ Crop and rotate by the user → automatic deskew **only for angles ≥ 1°** →
 
 - On the real photos **no variant beat the raw image** (Tesseract.js with upscaling ×2/×3, contrast, crops, flattening, adaptive, deskew all landed between 15% and 48%; see `docs/phase2_real_photo_report.txt`). Deskew's gain exists only on synthetic photos, where I rotated 4 of 16 on purpose.
 - Removing the glare-triggered adaptive threshold costs about 1 point on synthetic photos (91.0% → 89.9%) and avoids a 24-point loss on real ones.
-- Real-photo numbers are over only 5 photos and about 100 ingredients (73 counted: entries the seed dictionary can identify; the rest are dictionary gaps and are not counted as OCR misses).
+- Real-photo numbers are over only 5 photos and 120 listed ingredients (96 counted: the ones the seed dictionary or a category pattern can identify; the other 24 are dictionary gaps and are not counted as OCR misses).
 
 ### Where real photos actually fail
 | Photo | What happens | Why |
