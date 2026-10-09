@@ -726,5 +726,715 @@
     "category": "colorant"
    }
   ]
+ },
+ {
+  "id": "real_derma_co_sunscreen_tube",
+  "file": "real_derma_co_sunscreen_tube.jpg",
+  "product": "The Derma Co sunscreen tube, India (hand-held, 450x600, small text)",
+  "crop": {
+   "x": 0.34,
+   "y": 0.23,
+   "w": 0.36,
+   "h": 0.14
+  },
+  "notes": "Tiny text (~6px) on a tube. Ground truth is my best reading and is the LEAST certain of the set.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Aqua, Titanium Dioxide, Ethylhexyl Methoxycinnamate, Sodium Polyacrylate, Zinc Oxide, Glycerin, Butyl Methoxydibenzoylmethane, Xylitol, Phospholipids, Caprylic Acid, Glyceryl Stearate, Dimethicone, Hyaluronic Acid, Helianthus Annuus (Sunflower) Seed Oil, 1,3-Butylene Glycol, D-Alpha Tocopheryl Acetate, C12-15 Alkyl Benzoate, Benzophenone-3, Aloe Barbadensis Leaf Juice, Ascorbic Acid, Sodium Levulinate, Phenoxyethanol, Allantoin, Melanin",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Titanium Dioxide",
+    "covered": true,
+    "inci": "TITANIUM DIOXIDE"
+   },
+   {
+    "raw": "Ethylhexyl Methoxycinnamate",
+    "covered": true,
+    "inci": "ETHYLHEXYL METHOXYCINNAMATE"
+   },
+   {
+    "raw": "Sodium Polyacrylate",
+    "covered": true,
+    "inci": "SODIUM POLYACRYLATE"
+   },
+   {
+    "raw": "Zinc Oxide",
+    "covered": true,
+    "inci": "ZINC OXIDE"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Butyl Methoxydibenzoylmethane",
+    "covered": true,
+    "inci": "BUTYL METHOXYDIBENZOYLMETHANE"
+   },
+   {
+    "raw": "Xylitol",
+    "covered": true,
+    "inci": "XYLITOL"
+   },
+   {
+    "raw": "Phospholipids",
+    "covered": false,
+    "inci": "PHOSPHOLIPIDS",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Caprylic Acid",
+    "covered": false,
+    "inci": "CAPRYLIC ACID",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Glyceryl Stearate",
+    "covered": true,
+    "inci": "GLYCERYL STEARATE"
+   },
+   {
+    "raw": "Dimethicone",
+    "covered": true,
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Hyaluronic Acid",
+    "covered": true,
+    "inci": "HYALURONIC ACID"
+   },
+   {
+    "raw": "Helianthus Annuus (Sunflower) Seed Oil",
+    "covered": true,
+    "inci": "HELIANTHUS ANNUUS SEED OIL"
+   },
+   {
+    "raw": "1,3-Butylene Glycol",
+    "covered": false,
+    "inci": "1,3-BUTYLENE GLYCOL",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "D-Alpha Tocopheryl Acetate",
+    "covered": false,
+    "inci": "D-ALPHA TOCOPHERYL ACETATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "C12-15 Alkyl Benzoate",
+    "covered": true,
+    "inci": "C12-15 ALKYL BENZOATE"
+   },
+   {
+    "raw": "Benzophenone-3",
+    "covered": false,
+    "inci": "BENZOPHENONE-3",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Aloe Barbadensis Leaf Juice",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Ascorbic Acid",
+    "covered": true,
+    "inci": "ASCORBIC ACID"
+   },
+   {
+    "raw": "Sodium Levulinate",
+    "covered": false,
+    "inci": "SODIUM LEVULINATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "covered": true,
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Allantoin",
+    "covered": true,
+    "inci": "ALLANTOIN"
+   },
+   {
+    "raw": "Melanin",
+    "covered": false,
+    "inci": "MELANIN",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   }
+  ]
+ },
+ {
+  "id": "real_joy_sunscreen_lotion",
+  "file": "real_joy_sunscreen_lotion.jpg",
+  "product": "Joy sun screen lotion bottle, India (429x600, patterned background, blurry)",
+  "crop": {
+   "x": 0.14,
+   "y": 0.49,
+   "w": 0.52,
+   "h": 0.13
+  },
+  "notes": "Blurry; ground truth is a partial/uncertain reading (INCI blends with (and) separators).",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Water, Propylene Glycol, Glyceryl Monostearate, Stearic Acid, Isopropyl Palmitate, Cetyl Alcohol, Dimethicone, Titanium Dioxide, Triethanolamine, Cyclopentasiloxane, Phenyl Trimethicone, C12-15 Alkyl Benzoate, Ethylhexyl Methoxycinnamate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Disodium EDTA, Glycyrrhiza Glabra (Licorice) Root Extract, Vitis Vinifera (Grape) Seed Extract, Methylparaben, Propylparaben, Parfum",
+  "expected": [
+   {
+    "raw": "Water",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Propylene Glycol",
+    "covered": true,
+    "inci": "PROPYLENE GLYCOL"
+   },
+   {
+    "raw": "Glyceryl Monostearate",
+    "covered": false,
+    "inci": "GLYCERYL MONOSTEARATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Stearic Acid",
+    "covered": true,
+    "inci": "STEARIC ACID"
+   },
+   {
+    "raw": "Isopropyl Palmitate",
+    "covered": true,
+    "inci": "ISOPROPYL PALMITATE"
+   },
+   {
+    "raw": "Cetyl Alcohol",
+    "covered": true,
+    "inci": "CETYL ALCOHOL"
+   },
+   {
+    "raw": "Dimethicone",
+    "covered": true,
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Titanium Dioxide",
+    "covered": true,
+    "inci": "TITANIUM DIOXIDE"
+   },
+   {
+    "raw": "Triethanolamine",
+    "covered": true,
+    "inci": "TRIETHANOLAMINE"
+   },
+   {
+    "raw": "Cyclopentasiloxane",
+    "covered": true,
+    "inci": "CYCLOPENTASILOXANE"
+   },
+   {
+    "raw": "Phenyl Trimethicone",
+    "covered": true,
+    "inci": "PHENYL TRIMETHICONE"
+   },
+   {
+    "raw": "C12-15 Alkyl Benzoate",
+    "covered": true,
+    "inci": "C12-15 ALKYL BENZOATE"
+   },
+   {
+    "raw": "Ethylhexyl Methoxycinnamate",
+    "covered": true,
+    "inci": "ETHYLHEXYL METHOXYCINNAMATE"
+   },
+   {
+    "raw": "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+    "covered": true,
+    "inci": "ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER"
+   },
+   {
+    "raw": "Disodium EDTA",
+    "covered": true,
+    "inci": "DISODIUM EDTA"
+   },
+   {
+    "raw": "Glycyrrhiza Glabra (Licorice) Root Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Vitis Vinifera (Grape) Seed Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Methylparaben",
+    "covered": true,
+    "inci": "METHYLPARABEN"
+   },
+   {
+    "raw": "Propylparaben",
+    "covered": true,
+    "inci": "PROPYLPARABEN"
+   },
+   {
+    "raw": "Parfum",
+    "covered": true,
+    "inci": "PARFUM"
+   }
+  ]
+ },
+ {
+  "id": "real_dot_key_vitc_sunscreen_box",
+  "file": "real_dot_key_vitc_sunscreen_box.jpg",
+  "product": "Dot & Key Vitamin C+E sunscreen carton, India (450x600)",
+  "crop": {
+   "x": 0.08,
+   "y": 0.34,
+   "w": 0.72,
+   "h": 0.16
+  },
+  "notes": "Long INCI list written as blends with (and) separators; contains 'Aqua' twice and 'Water' (and) inside blends.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Aqua, Ethylhexyl Methoxycinnamate, Butyl Methoxydibenzoylmethane, Benzophenone-3, Phospholipids, 1,3-Butylene Glycol, Isododecane, Dicaprylyl Carbonate, Glycerine, Caprylic/Capric Triglyceride, Glyceryl Citrate/Lactate/Linoleate/Oleate, Propanediol, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol, Decyl Glucoside, Propylene Glycol, Xanthan Gum, Polyacrylate-13, Polyisobutene, Polysorbate 20, Polyacrylate Crosspolymer-6, Titanium Dioxide, Silica, Disodium EDTA, Sodium Gluconate, Tocopheryl Acetate, Niacinamide, Ascorbyl Glucoside, Citrus Sinensis (Blood Orange) Fruit Extract, Glycerin, Water, Fructooligosaccharides, Beta Vulgaris (Beet) Root Extract, Terminalia Ferdinandiana Fruit Extract, Phenoxyethanol, Ethylhexylglycerin",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Ethylhexyl Methoxycinnamate",
+    "covered": true,
+    "inci": "ETHYLHEXYL METHOXYCINNAMATE"
+   },
+   {
+    "raw": "Butyl Methoxydibenzoylmethane",
+    "covered": true,
+    "inci": "BUTYL METHOXYDIBENZOYLMETHANE"
+   },
+   {
+    "raw": "Benzophenone-3",
+    "covered": false,
+    "inci": "BENZOPHENONE-3",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Phospholipids",
+    "covered": false,
+    "inci": "PHOSPHOLIPIDS",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "1,3-Butylene Glycol",
+    "covered": false,
+    "inci": "1,3-BUTYLENE GLYCOL",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Isododecane",
+    "covered": true,
+    "inci": "ISODODECANE"
+   },
+   {
+    "raw": "Dicaprylyl Carbonate",
+    "covered": false,
+    "inci": "DICAPRYLYL CARBONATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Glycerine",
+    "covered": false,
+    "inci": "GLYCERINE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Caprylic/Capric Triglyceride",
+    "covered": true,
+    "inci": "CAPRYLIC/CAPRIC TRIGLYCERIDE"
+   },
+   {
+    "raw": "Glyceryl Citrate/Lactate/Linoleate/Oleate",
+    "covered": false,
+    "inci": "GLYCERYL CITRATE/LACTATE/LINOLEATE/OLEATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Propanediol",
+    "covered": true,
+    "inci": "PROPANEDIOL"
+   },
+   {
+    "raw": "Methylene Bis-Benzotriazolyl Tetramethylbutylphenol",
+    "covered": false,
+    "inci": "METHYLENE BIS-BENZOTRIAZOLYL TETRAMETHYLBUTYLPHENOL",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Decyl Glucoside",
+    "covered": true,
+    "inci": "DECYL GLUCOSIDE"
+   },
+   {
+    "raw": "Propylene Glycol",
+    "covered": true,
+    "inci": "PROPYLENE GLYCOL"
+   },
+   {
+    "raw": "Xanthan Gum",
+    "covered": true,
+    "inci": "XANTHAN GUM"
+   },
+   {
+    "raw": "Polyacrylate-13",
+    "covered": false,
+    "inci": "POLYACRYLATE-13",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Polyisobutene",
+    "covered": true,
+    "inci": "POLYISOBUTENE"
+   },
+   {
+    "raw": "Polysorbate 20",
+    "covered": true,
+    "inci": "POLYSORBATE 20"
+   },
+   {
+    "raw": "Polyacrylate Crosspolymer-6",
+    "covered": false,
+    "inci": "POLYACRYLATE CROSSPOLYMER-6",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Titanium Dioxide",
+    "covered": true,
+    "inci": "TITANIUM DIOXIDE"
+   },
+   {
+    "raw": "Silica",
+    "covered": true,
+    "inci": "SILICA"
+   },
+   {
+    "raw": "Disodium EDTA",
+    "covered": true,
+    "inci": "DISODIUM EDTA"
+   },
+   {
+    "raw": "Sodium Gluconate",
+    "covered": true,
+    "inci": "SODIUM GLUCONATE"
+   },
+   {
+    "raw": "Tocopheryl Acetate",
+    "covered": true,
+    "inci": "TOCOPHERYL ACETATE"
+   },
+   {
+    "raw": "Niacinamide",
+    "covered": true,
+    "inci": "NIACINAMIDE"
+   },
+   {
+    "raw": "Ascorbyl Glucoside",
+    "covered": true,
+    "inci": "ASCORBYL GLUCOSIDE"
+   },
+   {
+    "raw": "Citrus Sinensis (Blood Orange) Fruit Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Water",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Fructooligosaccharides",
+    "covered": false,
+    "inci": "FRUCTOOLIGOSACCHARIDES",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Beta Vulgaris (Beet) Root Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Terminalia Ferdinandiana Fruit Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "covered": true,
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Ethylhexylglycerin",
+    "covered": true,
+    "inci": "ETHYLHEXYLGLYCERIN"
+   }
+  ]
+ },
+ {
+  "id": "real_forest_essentials_balm",
+  "file": "real_forest_essentials_balm.jpg",
+  "product": "Forest Essentials Ojas night balm, Ayurvedic 'Composition' list with printed percentages (500x500)",
+  "crop": {
+   "x": 0.05,
+   "y": 0.17,
+   "w": 0.47,
+   "h": 0.46
+  },
+  "notes": "Not an INCI list: common names with Latin binomials in parentheses, printed percentages (e.g. '- 1.0%') and '**' organic markers. The printed percentages are a label fact, not something BeautyLens infers.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Kasturi Manjal Extract (Curcuma Aromatica), Babchi Extract (Psoralea Corylifolia), Nutgrass Extract (Cyperus Rotundus), White Turmeric Extract (Curcuma Zedoaria), Licorice Extract (Glycyrrhiza Glabra), Anantmool Extract (Hemidesmus Indicus), Manjistha Extract (Rubia Cordifolia), Jatamansi Extract (Nardostachys Jatamansi), Vidanga Extract (Embelia Ribes), Jyotishmati Extract (Celastrus Paniculatus), Vetiver Extract (Vetiveria Zizanioides), Bach Extract (Acorus Calamus), Talaspatre Extract (Abies Webbiana), Haritaki Extract (Terminalia Chebula), Bibhitaki Extract (Terminalia Bellirica), Nagkesar Extract (Mesua Ferrea), Rose Bud Extract (Rosa Centifolia), Maulsari Extract (Mimusops Elengi), Arjuna Bark Extract (Terminalia Arjuna), Kalonji Extract (Nigella Sativa), Kallijiri Extract (Vernonia Anthelmintica), Cardamom Extract (Elettaria Cardamomum), Nutmeg Extract (Myristica Officinalis), Neem Extract (Azadirachta Indica), Coconut Milk (Cocos Nucifera), Fermented Sweet Almond Kernel Oil (Prunus Amygdalus Dulcis), Fermented Argan Oil (Argania Spinosa), Fermented Sunflower Seed Oil (Helianthus Annuus), Fermented Moringa Seed Oil (Moringa Oleifera), Cow's Milk, Tamra Bhasma (Purified Ash Of Copper), Vitamin E (Tocopheryl Acetate), Yasad Bhasma (Purified Ash Of Zinc), Ceramide III, Cocoa Seed Butter (Theobroma Cacao), Bees Wax (Cera Alba)",
+  "expected": [
+   {
+    "raw": "Kasturi Manjal Extract (Curcuma Aromatica)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Babchi Extract (Psoralea Corylifolia)",
+    "covered": false,
+    "inci": "BABCHI EXTRACT (PSORALEA CORYLIFOLIA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Nutgrass Extract (Cyperus Rotundus)",
+    "covered": false,
+    "inci": "NUTGRASS EXTRACT (CYPERUS ROTUNDUS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "White Turmeric Extract (Curcuma Zedoaria)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Licorice Extract (Glycyrrhiza Glabra)",
+    "covered": false,
+    "inci": "LICORICE EXTRACT (GLYCYRRHIZA GLABRA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Anantmool Extract (Hemidesmus Indicus)",
+    "covered": false,
+    "inci": "ANANTMOOL EXTRACT (HEMIDESMUS INDICUS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Manjistha Extract (Rubia Cordifolia)",
+    "covered": false,
+    "inci": "MANJISTHA EXTRACT (RUBIA CORDIFOLIA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Jatamansi Extract (Nardostachys Jatamansi)",
+    "covered": false,
+    "inci": "JATAMANSI EXTRACT (NARDOSTACHYS JATAMANSI)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Vidanga Extract (Embelia Ribes)",
+    "covered": false,
+    "inci": "VIDANGA EXTRACT (EMBELIA RIBES)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Jyotishmati Extract (Celastrus Paniculatus)",
+    "covered": false,
+    "inci": "JYOTISHMATI EXTRACT (CELASTRUS PANICULATUS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Vetiver Extract (Vetiveria Zizanioides)",
+    "covered": false,
+    "inci": "VETIVER EXTRACT (VETIVERIA ZIZANIOIDES)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Bach Extract (Acorus Calamus)",
+    "covered": false,
+    "inci": "BACH EXTRACT (ACORUS CALAMUS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Talaspatre Extract (Abies Webbiana)",
+    "covered": false,
+    "inci": "TALASPATRE EXTRACT (ABIES WEBBIANA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Haritaki Extract (Terminalia Chebula)",
+    "covered": false,
+    "inci": "HARITAKI EXTRACT (TERMINALIA CHEBULA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Bibhitaki Extract (Terminalia Bellirica)",
+    "covered": false,
+    "inci": "BIBHITAKI EXTRACT (TERMINALIA BELLIRICA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Nagkesar Extract (Mesua Ferrea)",
+    "covered": false,
+    "inci": "NAGKESAR EXTRACT (MESUA FERREA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Rose Bud Extract (Rosa Centifolia)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Maulsari Extract (Mimusops Elengi)",
+    "covered": false,
+    "inci": "MAULSARI EXTRACT (MIMUSOPS ELENGI)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Arjuna Bark Extract (Terminalia Arjuna)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Kalonji Extract (Nigella Sativa)",
+    "covered": false,
+    "inci": "KALONJI EXTRACT (NIGELLA SATIVA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Kallijiri Extract (Vernonia Anthelmintica)",
+    "covered": false,
+    "inci": "KALLIJIRI EXTRACT (VERNONIA ANTHELMINTICA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Cardamom Extract (Elettaria Cardamomum)",
+    "covered": false,
+    "inci": "CARDAMOM EXTRACT (ELETTARIA CARDAMOMUM)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Nutmeg Extract (Myristica Officinalis)",
+    "covered": false,
+    "inci": "NUTMEG EXTRACT (MYRISTICA OFFICINALIS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Neem Extract (Azadirachta Indica)",
+    "covered": false,
+    "inci": "NEEM EXTRACT (AZADIRACHTA INDICA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Coconut Milk (Cocos Nucifera)",
+    "covered": false,
+    "inci": "COCONUT MILK (COCOS NUCIFERA)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Fermented Sweet Almond Kernel Oil (Prunus Amygdalus Dulcis)",
+    "covered": false,
+    "inci": "FERMENTED SWEET ALMOND KERNEL OIL (PRUNUS AMYGDALUS DULCIS)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Fermented Argan Oil (Argania Spinosa)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Fermented Sunflower Seed Oil (Helianthus Annuus)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Fermented Moringa Seed Oil (Moringa Oleifera)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Cow's Milk",
+    "covered": false,
+    "inci": "COW'S MILK",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Tamra Bhasma (Purified Ash Of Copper)",
+    "covered": false,
+    "inci": "TAMRA BHASMA (PURIFIED ASH OF COPPER)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Vitamin E (Tocopheryl Acetate)",
+    "covered": false,
+    "inci": "VITAMIN E (TOCOPHERYL ACETATE)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Yasad Bhasma (Purified Ash Of Zinc)",
+    "covered": false,
+    "inci": "YASAD BHASMA (PURIFIED ASH OF ZINC)",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Ceramide III",
+    "covered": false,
+    "inci": "CERAMIDE III",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Cocoa Seed Butter (Theobroma Cacao)",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Bees Wax (Cera Alba)",
+    "covered": true,
+    "inci": "CERA ALBA"
+   }
+  ]
  }
 ]

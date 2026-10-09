@@ -55,7 +55,8 @@ class Resolver:
     def _static(self, text: str, optional_tags: list[str]) -> dict | None:
         """inci_exact -> inci_alias -> category_recognized. Returns a dict of fields or None."""
         base = strip_decorations(text)
-        for variant in (base, without_parens(base)):
+        inner = re.search(r"\(([^()]+)\)\s*$", base)       # "Vitamin E (Tocopheryl Acetate)": try the name in parentheses too
+        for variant in (base, without_parens(base), inner.group(1) if inner else ""):
             k = key(variant)
             if not k:
                 continue

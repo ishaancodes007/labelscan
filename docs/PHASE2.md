@@ -7,7 +7,7 @@
 
 ## Two photo sets, and why the real one matters most
 1. **Synthetic** (`backend/fixtures/photos/`, 19 images): ground-truth text rendered on a label and degraded (bottle warp, blur, glare, noise, rotation, low resolution), seeded and repeatable. They test robustness to those degradations only.
-2. **Real** (`backend/fixtures/photos/real/`, 5 photos supplied by the project owner; 4 more were announced but have not arrived): Cetaphil lotion, Minimalist vitamin C serum, Nivea body lotion, Garnier shampoo, and an Indian-market label crop. **Their ground-truth ingredient text was read from the photos by an AI model and is not human-verified** (`truth_verified: false`); please check `scripts/make_real_index.py`. The images look like web-sized copies (500-1600 px, one with a platform watermark, one showing a person's hand), not original phone photos, so they under-represent phone resolution. The ingredient-list crop rectangles are my own guesses.
+2. **Real** (`backend/fixtures/photos/real/`, 9 photos supplied by the project owner in two batches): Cetaphil lotion, Minimalist vitamin C serum, Nivea body lotion, Garnier shampoo, an Indian-market label crop, The Derma Co sunscreen tube, Joy sunscreen lotion, Dot & Key sunscreen carton and a Forest Essentials Ayurvedic balm. **Their ground-truth ingredient text was read from the photos by an AI model and is not human-verified** (`truth_verified: false`); please check `scripts/make_real_index.py`. The images look like web-sized copies (429-1600 px, one with a platform watermark, two showing a person's hand), not original phone photos, so they under-represent phone resolution. The ingredient-list crop rectangles are my own guesses.
 
 ## Headline: tuning on synthetic photos overfitted. The real photos exposed it.
 The Phase 2 pipeline I first shipped (deskew + adaptive threshold when "glare" is detected) scored **24.0% top-1 on the real photos against 47.9% for doing nothing**. Causes found and fixed:
@@ -20,13 +20,14 @@ Crop and rotate by the user → automatic deskew **only for angles ≥ 1°** →
 
 | Set | Raw image (baseline) | Current pipeline v19 | Ceiling (perfect text) |
 |---|---|---|---|
-| **Real, 5 photos**: top-1 identified / auto-resolved / false-accepts | 47.9% / 38.5% / 8 | **47.9% / 38.5% / 8** (identical: it does no harm) | not measured |
+| **Real, first 5 photos**: top-1 identified / auto-resolved / false-accepts | 47.9% / 38.5% / 8 | **47.9% / 38.5% / 8** (identical: it does no harm) | not measured |
+| **Real, all 9 photos** | 27.7% / 22.3% / 9 | **27.7% / 22.3% / 9** | not measured |
 | Synthetic, 16 readable photos: OCR char. error | 11.0% | 3.8% | 0% |
 | Synthetic: top-1 / auto / false-accepts | 86.0% / 79.2% / 10 | 89.9% / 84.3% / 4 | 99.4% / 97.2% / 0 |
 
 - On the real photos **no variant beat the raw image** (Tesseract.js with upscaling ×2/×3, contrast, crops, flattening, adaptive, deskew all landed between 15% and 48%; see `docs/phase2_real_photo_report.txt`). Deskew's gain exists only on synthetic photos, where I rotated 4 of 16 on purpose.
 - Removing the glare-triggered adaptive threshold costs about 1 point on synthetic photos (91.0% → 89.9%) and avoids a 24-point loss on real ones.
-- Real-photo numbers are over only 5 photos and 120 listed ingredients (96 counted: the ones the seed dictionary or a category pattern can identify; the other 24 are dictionary gaps and are not counted as OCR misses).
+- Real-photo numbers are over only 9 photos and 120 listed ingredients (96 counted: the ones the seed dictionary or a category pattern can identify; the other 24 are dictionary gaps and are not counted as OCR misses).
 
 ### Where real photos actually fail
 | Photo | What happens | Why |
@@ -35,9 +36,11 @@ Crop and rotate by the user → automatic deskew **only for angles ≥ 1°** →
 | Minimalist serum | 8/12 on the full photo; cropping to the list cuts char. error from 179% to 31% | the full photo adds marketing and direction text; crop removes it |
 | Nivea (white on blue, curved) | partial (3-7/13) | polarity and curvature; no rotation/inversion/PSM combination reliably helped (best 13 of 28 exact words) |
 | Cetaphil (556 px wide) | nothing read from the ingredient line | text about 7 px tall |
+| Derma Co tube, Joy lotion, Dot & Key carton (429-450 px wide) | **nothing usable** (word recall 0%) | text about 5-7 px; Joy is also blurry |
+| Forest Essentials balm (500 px) | 16% word recall, 0/9 identified | small text, long Ayurvedic composition list |
 | Garnier (Drug Facts panel) | nothing read | text about 10-12 px, blurry, low contrast |
 
-**Neither OCR engine reads the last three.** RapidOCR (ONNX) also failed on them (char. error 77-95%; its word-recall figure is understated because it often drops spaces), so a server-OCR path was not built. The limiting factor looks like image resolution and text size, which the 4 incoming photos and original phone-resolution images would clarify.
+**Neither OCR engine reads the small-text photos** (6 of the 9). RapidOCR (ONNX) also failed on them (char. error 77-95%; its word-recall figure is understated because it often drops spaces), so a server-OCR path was not built. The limiting factor looks like image resolution and text size, which the 4 incoming photos and original phone-resolution images would clarify.
 
 ## Quality prompts (honest status)
 Before OCR (`lib/ocr/quality.ts`; thresholds set between the last readable and first unreadable example, so each rests on two or three images): blur (99th-percentile Sobel gradient < 40), glare (saturated blob 10-50% of the image and the page not white), tiny images (< 300 px or estimated text < 8 px). On the synthetic set they fire on exactly the three deliberately bad photos. **On real photos they fire on none**, including the two unreadable ones; a mostly-white label is explicitly not glare. The pre-OCR message therefore no longer says "looks readable"; it says no blur/glare/size problem was found and the text will be checked after reading.
@@ -45,6 +48,9 @@ After OCR (the part that works on real photos), in order: fewer than 8 words →
 
 ## Multi-photo merge
 `lib/ocr/merge.ts`: per-photo segments with word confidences → semi-global alignment → higher-confidence reading at conflicts → per-segment photo source shown in the UI. An overlap must be a **contiguous run of ≥ 2** matching ingredients (found by a browser test: a shampoo photo was first accepted as overlapping a lotion because they share Dimethicone, Sodium Benzoate, Citric Acid). Evaluated on synthetic pairs only (`python scripts/merge_report.py`): lotion 56% / 56% alone → 94% merged; shampoo 62% / 54% → 100%; negative controls (different products) rejected. Not tested on real overlapping photos.
+
+## Parser additions driven by the second batch (Phase 1 code changed)
+The last four photos use label conventions the Phase 1 parser did not handle, so it now: splits INCI **blends written `A (and) B (and) C`** into separate ingredients; recognises a **common name with a Latin binomial in parentheses** (e.g. "Kasturi Manjal Extract (Curcuma Aromatica)") as a botanical class; matches the **name inside trailing parentheses** ("Vitamin E (Tocopheryl Acetate)"); and moves printed percentages ("- 1.0%") and `**` markers into tags (`label_percent=1.0`, `marker=*`). The percentage is a label fact kept for later phases; BeautyLens never infers or shows concentrations itself. These were verified on typed strings and the golden/Phase 1 numbers did not change; **they were not validated on real OCR output of those labels, because OCR could not read them**.
 
 ## New resolver finding from real text (Phase 1 code changed)
 Names correctly printed but missing from the 235-name seed dictionary were suggested as a *different real chemical*: Aluminum Hydroxide → Sodium Hydroxide, Tin Oxide → Zinc Oxide, Retinyl Propionate → Retinyl Palmitate. All were only `suggested` (never auto-resolved, never high-confidence), but they are misleading. A candidate now carries a warning ("a different ingredient word, not a misspelling: check the pack") when it differs by a whole word that is itself a valid dictionary word, and the UI shows it. **This catches Aluminum→Sodium but not Tin→Zinc or Retinyl** (those words are not in the seed vocabulary); it will be much stronger with the real CosIng dictionary. The golden check and the Phase 1 numbers are unchanged.

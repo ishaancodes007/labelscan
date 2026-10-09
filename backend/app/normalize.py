@@ -18,6 +18,9 @@ class Segment:
 _LABEL = re.compile(r"^\s*(?:ingredients?|ingredientes|inci)\s*(?:\(inci\))?\s*[:\-]?\s*", re.I)
 _MAYCONTAIN = re.compile(r"^\s*(?:may\s+contain|\+\s*/\s*-|\+/-|±)\s*[:\-]?\s*", re.I)
 _NANO = re.compile(r"\(\s*nano\s*\)", re.I)
+_AND = re.compile(r"\s*\(\s*and\s*\)\s*", re.I)                      # INCI blends: "A (and) B (and) C" are separate ingredients
+_PCT = re.compile(r"\s*[-\u2013:]?\s*(\d+(?:\.\d+)?)\s*%\s*\**\s*$")   # a printed percentage after the name, e.g. "- 1.0%"
+_STARS = re.compile(r"\s*\*{1,3}\s*$")                                  # organic / footnote markers
 # a period is a separator only when it is followed by a capital letter or '+' (lost-comma / sentence boundary)
 _PERIOD_SPLIT = re.compile(r"\.\s+(?=[A-Z+])")
 # pieces that start with a label like "B.NO. X" / "Mfg. Date" are one field: do not cut at their periods
@@ -56,6 +59,7 @@ def segment(tokens: list[tuple[int, str, float | None]]) -> list[Segment]:
         optional_run = False
         for piece in split_top_level(text):
             parts = [piece] if _FIELD_LABEL.match(piece.strip()) else _PERIOD_SPLIT.split(piece)
+            parts = [q for part in parts for q in _AND.split(part)]
             for part in parts:
                 part = part.strip().strip(".").strip()
                 if not part:
@@ -70,6 +74,11 @@ def segment(tokens: list[tuple[int, str, float | None]]) -> list[Segment]:
                 tags = []
                 if _NANO.search(part):
                     tags.append("nano")
+                m = _PCT.search(part)
+                if m:   # the label itself printed a percentage: keep it as a tag, never infer or display concentrations ourselves
+                    tags.append(f"label_percent={m.group(1)}"); part = part[:m.start()].strip()
+                if _STARS.search(part):
+                    tags.append("marker=*"); part = _STARS.sub("", part).strip()
                 segs.append(Segment(part, src, pos, optional=opt, tags=tags, ocr_conf=conf))
                 pos += 1
     return segs

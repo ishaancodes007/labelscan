@@ -9,6 +9,9 @@ POLYMER = re.compile(r"(?:\b|/)(?:CROSSPOLYMER|COPOLYMER|POLYMER)$", re.I)
 FRAGRANCE = re.compile(r"^(?:PARFUM|FRAGRANCE|AROMA|FLAVOR)(?:\s*[/(]\s*(?:PARFUM|FRAGRANCE|AROMA)\)?)?$", re.I)
 COLORANT = re.compile(r"^(?:CI\s?\d{5}(?::\d)?|(?:EXT\.?\s*)?(?:FD&C|D&C)\s+(?:BLUE|RED|YELLOW|GREEN|ORANGE|VIOLET)\s*(?:NO\.?\s*)?\d+\s*(?:LAKE)?)$", re.I)
 
+# common name + Latin binomial in parentheses, e.g. "Kasturi Manjal Extract (Curcuma Aromatica)"
+LATIN_PAREN = re.compile(r"^.+\(\s*[A-Z][a-z]{2,}\s+[a-z]{3,}\s*\)$")
+
 NOTE = "Valid ingredient class; no single compound record expected."
 
 
@@ -20,6 +23,6 @@ def classify(text: str) -> str | None:
         return "colorant"
     if POLYMER.search(t):
         return "polymer"
-    if BOTANICAL.match(t):
+    if BOTANICAL.match(t) or LATIN_PAREN.match(t):
         return "botanical"
     return None
