@@ -1,0 +1,20 @@
+id                     blur  glareFrac  glareBlob  longSide  textH  prompts / degradations
+g_clean                 211     0.0032      0.000      1000     21   0 noise
+g_combo                 102     0.0335      0.022      1000     37   0 curve+glare+blur1+rot5+noise
+g_curve                 204     0.0020      0.000      1000     28   0 curve+noise
+cleanser_clean          209     0.0028      0.000      1000     20   0 noise
+serum_blur               55     0.0001      0.000      1000     12   0 blur2+noise
+spf_glare               205     0.0423      0.029      1000     15   0 glare+noise
+mineral_curve           178     0.0008      0.000      1000    179   0 curve+rot3+noise
+shampoo_lowres          178     0.0027      0.000       420      9   0 lowres
+toner_combo             106     0.0335      0.023      1000     17   0 curve+glare+blur1+noise
+lip_rot                 195     0.0018      0.000      1000    212   0 rot6+noise
+foundation_curve        110     0.0002      0.000      1000     22   0 curve+blur1+noise
+hair_clean              210     0.0026      0.000      1000     20   0 noise
+bad_blur                 26     0.0001      0.000      1000     23   1 blur5+noise
+bad_glare               131     0.2932      0.268      1000     20   1 bigglare+noise
+bad_lowres              172     0.0025      0.000       250      6   1 tiny
+pair_g_a                113     0.0002      0.000      1000     24   0 curve+blur1+noise
+pair_g_b                190     0.0398      0.022      1000     65   0 glare+rot3+noise
+pair_sh_a               123     0.0002      0.000      1000     21   0 blur1+noise
+pair_sh_b               202     0.0017      0.000      1000     26   0 curve+noise

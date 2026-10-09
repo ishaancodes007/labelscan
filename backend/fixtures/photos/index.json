@@ -1,0 +1,1427 @@
+[
+ {
+  "id": "g_clean",
+  "file": "g_clean.jpg",
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, ISOPROPYL PALMITATE, DETRY ALCOHOL, CETEARETH-20, PANTHENOL, NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL, HELIANTHUS ANNUUS SEED OIL, PANTOLACTONE, GLYCERYL STEARATE, SODIUM BENZOATE, BENZYL ALCOHOL, CITRIC ACID",
+  "expected": [
+   {
+    "raw": "ACUA",
+    "inci": "AQUA",
+    "note": "ingredient"
+   },
+   {
+    "raw": "GLYCERN",
+    "inci": "GLYCERIN",
+    "note": "ingredient"
+   },
+   {
+    "raw": "ISCPROPIL + PIMITATE",
+    "inci": "ISOPROPYL PALMITATE",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "DETRY ALCOHOL",
+    "inci": null,
+    "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+    "suggested_any_of": [
+     "CETYL ALCOHOL",
+     "CETEARYL ALCOHOL"
+    ]
+   },
+   {
+    "raw": "CETEARETH:20",
+    "inci": "CETEARETH-20",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PANTHEVOL",
+    "inci": "PANTHENOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "HELLATHUS ANNUUS SEED",
+    "inci": "HELIANTHUS ANNUUS SEED OIL",
+    "note": "suggested ('Oil' not visible)"
+   },
+   {
+    "raw": "FANTLACTOIDE",
+    "inci": "PANTOLACTONE",
+    "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+   },
+   {
+    "raw": "GLYCERIN STRERATE",
+    "inci": "GLYCERYL STEARATE",
+    "note": "ingredient (must NOT resolve to GLYCERIN)"
+   },
+   {
+    "raw": "SODILN BENDATE",
+    "inci": "SODIUM BENZOATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "BENEYL ALCOHOL",
+    "inci": "BENZYL ALCOHOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "CITRIC ACO",
+    "inci": "CITRIC ACID",
+    "note": "ingredient"
+   }
+  ]
+ },
+ {
+  "id": "g_combo",
+  "file": "g_combo.jpg",
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "glare",
+   "blur1",
+   "rot5",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, ISOPROPYL PALMITATE, DETRY ALCOHOL, CETEARETH-20, PANTHENOL, NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL, HELIANTHUS ANNUUS SEED OIL, PANTOLACTONE, GLYCERYL STEARATE, SODIUM BENZOATE, BENZYL ALCOHOL, CITRIC ACID",
+  "expected": [
+   {
+    "raw": "ACUA",
+    "inci": "AQUA",
+    "note": "ingredient"
+   },
+   {
+    "raw": "GLYCERN",
+    "inci": "GLYCERIN",
+    "note": "ingredient"
+   },
+   {
+    "raw": "ISCPROPIL + PIMITATE",
+    "inci": "ISOPROPYL PALMITATE",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "DETRY ALCOHOL",
+    "inci": null,
+    "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+    "suggested_any_of": [
+     "CETYL ALCOHOL",
+     "CETEARYL ALCOHOL"
+    ]
+   },
+   {
+    "raw": "CETEARETH:20",
+    "inci": "CETEARETH-20",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PANTHEVOL",
+    "inci": "PANTHENOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "HELLATHUS ANNUUS SEED",
+    "inci": "HELIANTHUS ANNUUS SEED OIL",
+    "note": "suggested ('Oil' not visible)"
+   },
+   {
+    "raw": "FANTLACTOIDE",
+    "inci": "PANTOLACTONE",
+    "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+   },
+   {
+    "raw": "GLYCERIN STRERATE",
+    "inci": "GLYCERYL STEARATE",
+    "note": "ingredient (must NOT resolve to GLYCERIN)"
+   },
+   {
+    "raw": "SODILN BENDATE",
+    "inci": "SODIUM BENZOATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "BENEYL ALCOHOL",
+    "inci": "BENZYL ALCOHOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "CITRIC ACO",
+    "inci": "CITRIC ACID",
+    "note": "ingredient"
+   }
+  ]
+ },
+ {
+  "id": "g_curve",
+  "file": "g_curve.jpg",
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "noise"
+  ],
+  "part": "all",
+  "font": "sans",
+  "size": 28,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, ISOPROPYL PALMITATE, DETRY ALCOHOL, CETEARETH-20, PANTHENOL, NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL, HELIANTHUS ANNUUS SEED OIL, PANTOLACTONE, GLYCERYL STEARATE, SODIUM BENZOATE, BENZYL ALCOHOL, CITRIC ACID",
+  "expected": [
+   {
+    "raw": "ACUA",
+    "inci": "AQUA",
+    "note": "ingredient"
+   },
+   {
+    "raw": "GLYCERN",
+    "inci": "GLYCERIN",
+    "note": "ingredient"
+   },
+   {
+    "raw": "ISCPROPIL + PIMITATE",
+    "inci": "ISOPROPYL PALMITATE",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "DETRY ALCOHOL",
+    "inci": null,
+    "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+    "suggested_any_of": [
+     "CETYL ALCOHOL",
+     "CETEARYL ALCOHOL"
+    ]
+   },
+   {
+    "raw": "CETEARETH:20",
+    "inci": "CETEARETH-20",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PANTHEVOL",
+    "inci": "PANTHENOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "HELLATHUS ANNUUS SEED",
+    "inci": "HELIANTHUS ANNUUS SEED OIL",
+    "note": "suggested ('Oil' not visible)"
+   },
+   {
+    "raw": "FANTLACTOIDE",
+    "inci": "PANTOLACTONE",
+    "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+   },
+   {
+    "raw": "GLYCERIN STRERATE",
+    "inci": "GLYCERYL STEARATE",
+    "note": "ingredient (must NOT resolve to GLYCERIN)"
+   },
+   {
+    "raw": "SODILN BENDATE",
+    "inci": "SODIUM BENZOATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "BENEYL ALCOHOL",
+    "inci": "BENZYL ALCOHOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "CITRIC ACO",
+    "inci": "CITRIC ACID",
+    "note": "ingredient"
+   }
+  ]
+ },
+ {
+  "id": "cleanser_clean",
+  "file": "cleanser_clean.jpg",
+  "source_fixture": "ref_gentle_cleanser",
+  "synthetic": true,
+  "degradations": [
+   "noise"
+  ],
+  "part": "all",
+  "font": "sans",
+  "size": 28,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, CETEARYL ALCOHOL, COCAMIDOPROPYL BETAINE, SODIUM COCOYL ISETHIONATE, STEARIC ACID, PHENOXYETHANOL, SODIUM CHLORIDE, CITRIC ACID, PARFUM",
+  "expected": [
+   {
+    "raw": "AQUA/WATER/EAU",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "GLYCERIN",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "CETEARYL ALCOHOL",
+    "inci": "CETEARYL ALCOHOL"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM COCOYL ISETHIONATE",
+    "inci": "SODIUM COCOYL ISETHIONATE"
+   },
+   {
+    "raw": "STEARIC ACID",
+    "inci": "STEARIC ACID"
+   },
+   {
+    "raw": "PHENOXYETHANOL",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   }
+  ]
+ },
+ {
+  "id": "serum_blur",
+  "file": "serum_blur.jpg",
+  "source_fixture": "ref_niacinamide_serum",
+  "synthetic": true,
+  "degradations": [
+   "blur2",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Aqua, Niacinamide, Pentylene Glycol, Zinc PCA, Dimethyl Isosorbide, Tamarindus Indica Seed Gum, Xanthan Gum, Isoceteth-20, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Niacinamide",
+    "inci": "NIACINAMIDE"
+   },
+   {
+    "raw": "Pentylene Glycol",
+    "inci": "PENTYLENE GLYCOL"
+   },
+   {
+    "raw": "Zinc PCA",
+    "inci": "ZINC PCA"
+   },
+   {
+    "raw": "Dimethyl Isosorbide",
+    "inci": "DIMETHYL ISOSORBIDE"
+   },
+   {
+    "raw": "Tamarindus Indica Seed Gum",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Xanthan Gum",
+    "inci": "XANTHAN GUM"
+   },
+   {
+    "raw": "Isoceteth-20",
+    "inci": "ISOCETETH-20"
+   },
+   {
+    "raw": "Ethoxydiglycol",
+    "inci": "ETHOXYDIGLYCOL"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Chlorphenesin",
+    "inci": "CHLORPHENESIN"
+   }
+  ]
+ },
+ {
+  "id": "spf_glare",
+  "file": "spf_glare.jpg",
+  "source_fixture": "ref_sunscreen_spf50",
+  "synthetic": true,
+  "degradations": [
+   "glare",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Aqua, Homosalate, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Octocrylene, Glycerin, Alcohol Denat., Phenoxyethanol, Carbomer, Tocopheryl Acetate, Sodium Hydroxide, Disodium EDTA, Parfum",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Homosalate",
+    "inci": "HOMOSALATE"
+   },
+   {
+    "raw": "Ethylhexyl Salicylate",
+    "inci": "ETHYLHEXYL SALICYLATE"
+   },
+   {
+    "raw": "Butyl Methoxydibenzoylmethane",
+    "inci": "BUTYL METHOXYDIBENZOYLMETHANE"
+   },
+   {
+    "raw": "Octocrylene",
+    "inci": "OCTOCRYLENE"
+   },
+   {
+    "raw": "Glycerin",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Alcohol Denat.",
+    "inci": "ALCOHOL DENAT."
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Carbomer",
+    "inci": "CARBOMER"
+   },
+   {
+    "raw": "Tocopheryl Acetate",
+    "inci": "TOCOPHERYL ACETATE"
+   },
+   {
+    "raw": "Sodium Hydroxide",
+    "inci": "SODIUM HYDROXIDE"
+   },
+   {
+    "raw": "Disodium EDTA",
+    "inci": "DISODIUM EDTA"
+   },
+   {
+    "raw": "Parfum",
+    "inci": null,
+    "category": "fragrance"
+   }
+  ]
+ },
+ {
+  "id": "mineral_curve",
+  "file": "mineral_curve.jpg",
+  "source_fixture": "ref_mineral_sunscreen",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "rot3",
+   "noise"
+  ],
+  "part": "all",
+  "font": "sans",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Zinc Oxide (nano), Caprylic/Capric Triglyceride, Aqua, Glycerin, Cetearyl Alcohol, Polyhydroxystearic Acid, Helianthus Annuus (Sunflower) Seed Oil, Tocopherol, Xanthan Gum, CI 77891",
+  "expected": [
+   {
+    "raw": "Zinc Oxide (nano)",
+    "inci": "ZINC OXIDE"
+   },
+   {
+    "raw": "Caprylic/Capric Triglyceride",
+    "inci": "CAPRYLIC/CAPRIC TRIGLYCERIDE"
+   },
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Glycerin",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Cetearyl Alcohol",
+    "inci": "CETEARYL ALCOHOL"
+   },
+   {
+    "raw": "Polyhydroxystearic Acid",
+    "inci": "POLYHYDROXYSTEARIC ACID"
+   },
+   {
+    "raw": "Helianthus Annuus (Sunflower) Seed Oil",
+    "inci": "HELIANTHUS ANNUUS SEED OIL"
+   },
+   {
+    "raw": "Tocopherol",
+    "inci": "TOCOPHEROL"
+   },
+   {
+    "raw": "Xanthan Gum",
+    "inci": "XANTHAN GUM"
+   },
+   {
+    "raw": "May Contain: CI 77891",
+    "inci": null,
+    "category": "colorant (may-contain)"
+   }
+  ]
+ },
+ {
+  "id": "shampoo_lowres",
+  "file": "shampoo_lowres.jpg",
+  "source_fixture": "ref_shampoo",
+  "synthetic": true,
+  "degradations": [
+   "lowres"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, SODIUM CHLORIDE, GLYCOL DISTEARATE, DIMETHICONE, SODIUM BENZOATE, PARFUM, CITRIC ACID, GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, LINALOOL, LIMONENE, CI 19140",
+  "expected": [
+   {
+    "raw": "AQUA",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "SODIUM LAURETH SULFATE",
+    "inci": "SODIUM LAURETH SULFATE"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "GLYCOL DISTEARATE",
+    "inci": "GLYCOL DISTEARATE"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "SODIUM BENZOATE",
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+    "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+   },
+   {
+    "raw": "LINALOOL",
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "LIMONENE",
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "CI 19140",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ },
+ {
+  "id": "toner_combo",
+  "file": "toner_combo.jpg",
+  "source_fixture": "ref_aha_toner",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "glare",
+   "blur1",
+   "noise"
+  ],
+  "part": "all",
+  "font": "serif",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Aqua, Glycolic Acid, Sodium Hydroxide, Aloe Barbadensis Leaf Juice, Glycerin, Propylene Glycol, Allantoin, Phenoxyethanol, Ethylhexylglycerin",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Glycolic Acid",
+    "inci": "GLYCOLIC ACID"
+   },
+   {
+    "raw": "Sodium Hydroxide",
+    "inci": "SODIUM HYDROXIDE"
+   },
+   {
+    "raw": "Aloe Barbadensis Leaf Juice",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Glycerin",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Propylene Glycol",
+    "inci": "PROPYLENE GLYCOL"
+   },
+   {
+    "raw": "Allantoin",
+    "inci": "ALLANTOIN"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Ethylhexylglycerin",
+    "inci": "ETHYLHEXYLGLYCERIN"
+   }
+  ]
+ },
+ {
+  "id": "lip_rot",
+  "file": "lip_rot.jpg",
+  "source_fixture": "ref_lip_balm",
+  "synthetic": true,
+  "degradations": [
+   "rot6",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Ricinus Communis (Castor) Seed Oil, Cera Alba, Butyrospermum Parkii (Shea) Butter, Cocos Nucifera (Coconut) Oil, Tocopherol, Mentha Piperita (Peppermint) Oil, Limonene",
+  "expected": [
+   {
+    "raw": "Ricinus Communis (Castor) Seed Oil",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Cera Alba",
+    "inci": "CERA ALBA"
+   },
+   {
+    "raw": "Butyrospermum Parkii (Shea) Butter",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Cocos Nucifera (Coconut) Oil",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Tocopherol",
+    "inci": "TOCOPHEROL"
+   },
+   {
+    "raw": "Mentha Piperita (Peppermint) Oil",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Limonene",
+    "inci": "LIMONENE"
+   }
+  ]
+ },
+ {
+  "id": "foundation_curve",
+  "file": "foundation_curve.jpg",
+  "source_fixture": "ref_foundation",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "blur1",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Aqua, Cyclopentasiloxane, Dimethicone, Glycerin, Titanium Dioxide, PEG-10 Dimethicone, Phenoxyethanol, Mica, Silica, Parfum, CI 77891, CI 77492, CI 77491",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Cyclopentasiloxane",
+    "inci": "CYCLOPENTASILOXANE"
+   },
+   {
+    "raw": "Dimethicone",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Glycerin",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Titanium Dioxide",
+    "inci": "TITANIUM DIOXIDE"
+   },
+   {
+    "raw": "PEG-10 Dimethicone",
+    "inci": "PEG-10 DIMETHICONE"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Mica",
+    "inci": "MICA"
+   },
+   {
+    "raw": "Silica",
+    "inci": "SILICA"
+   },
+   {
+    "raw": "Parfum",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "+/- CI 77891",
+    "inci": null,
+    "category": "colorant"
+   },
+   {
+    "raw": "CI 77492",
+    "inci": null,
+    "category": "colorant"
+   },
+   {
+    "raw": "CI 77491",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ },
+ {
+  "id": "hair_clean",
+  "file": "hair_clean.jpg",
+  "source_fixture": "ref_hair_oil_indian",
+  "synthetic": true,
+  "degradations": [
+   "noise"
+  ],
+  "part": "all",
+  "font": "sans",
+  "size": 28,
+  "truth_text": "INGREDIENTS: Cocos Nucifera Oil, Sesamum Indicum Seed Oil, Phyllanthus Emblica Fruit Extract, Eclipta Prostrata Extract, Bhringraj Extract, Tocopherol, Parfum, CI 61565",
+  "expected": [
+   {
+    "raw": "Cocos Nucifera Oil",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Sesamum Indicum Seed Oil",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Phyllanthus Emblica Fruit Extract",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Eclipta Prostrata Extract",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Bhringraj Extract",
+    "inci": null,
+    "category": "trade/common name"
+   },
+   {
+    "raw": "Tocopherol",
+    "inci": "TOCOPHEROL"
+   },
+   {
+    "raw": "Parfum",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "CI 61565",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ },
+ {
+  "id": "bad_blur",
+  "file": "bad_blur.jpg",
+  "source_fixture": "ref_gentle_cleanser",
+  "synthetic": true,
+  "degradations": [
+   "blur5",
+   "noise"
+  ],
+  "part": "all",
+  "font": "sans",
+  "size": 28,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, CETEARYL ALCOHOL, COCAMIDOPROPYL BETAINE, SODIUM COCOYL ISETHIONATE, STEARIC ACID, PHENOXYETHANOL, SODIUM CHLORIDE, CITRIC ACID, PARFUM",
+  "expected": [
+   {
+    "raw": "AQUA/WATER/EAU",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "GLYCERIN",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "CETEARYL ALCOHOL",
+    "inci": "CETEARYL ALCOHOL"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM COCOYL ISETHIONATE",
+    "inci": "SODIUM COCOYL ISETHIONATE"
+   },
+   {
+    "raw": "STEARIC ACID",
+    "inci": "STEARIC ACID"
+   },
+   {
+    "raw": "PHENOXYETHANOL",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   }
+  ]
+ },
+ {
+  "id": "bad_glare",
+  "file": "bad_glare.jpg",
+  "source_fixture": "ref_shampoo",
+  "synthetic": true,
+  "degradations": [
+   "bigglare",
+   "noise"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, SODIUM CHLORIDE, GLYCOL DISTEARATE, DIMETHICONE, SODIUM BENZOATE, PARFUM, CITRIC ACID, GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, LINALOOL, LIMONENE, CI 19140",
+  "expected": [
+   {
+    "raw": "AQUA",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "SODIUM LAURETH SULFATE",
+    "inci": "SODIUM LAURETH SULFATE"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "GLYCOL DISTEARATE",
+    "inci": "GLYCOL DISTEARATE"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "SODIUM BENZOATE",
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+    "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+   },
+   {
+    "raw": "LINALOOL",
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "LIMONENE",
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "CI 19140",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ },
+ {
+  "id": "bad_lowres",
+  "file": "bad_lowres.jpg",
+  "source_fixture": "ref_aha_toner",
+  "synthetic": true,
+  "degradations": [
+   "tiny"
+  ],
+  "part": "all",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: Aqua, Glycolic Acid, Sodium Hydroxide, Aloe Barbadensis Leaf Juice, Glycerin, Propylene Glycol, Allantoin, Phenoxyethanol, Ethylhexylglycerin",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Glycolic Acid",
+    "inci": "GLYCOLIC ACID"
+   },
+   {
+    "raw": "Sodium Hydroxide",
+    "inci": "SODIUM HYDROXIDE"
+   },
+   {
+    "raw": "Aloe Barbadensis Leaf Juice",
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Glycerin",
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Propylene Glycol",
+    "inci": "PROPYLENE GLYCOL"
+   },
+   {
+    "raw": "Allantoin",
+    "inci": "ALLANTOIN"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Ethylhexylglycerin",
+    "inci": "ETHYLHEXYLGLYCERIN"
+   }
+  ]
+ },
+ {
+  "id": "pair_g_a",
+  "file": "pair_g_a.jpg",
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "blur1",
+   "noise"
+  ],
+  "part": "first",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, ISOPROPYL PALMITATE, DETRY ALCOHOL, CETEARETH-20, PANTHENOL, NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL",
+  "expected": [
+   {
+    "raw": "ACUA",
+    "inci": "AQUA",
+    "note": "ingredient"
+   },
+   {
+    "raw": "GLYCERN",
+    "inci": "GLYCERIN",
+    "note": "ingredient"
+   },
+   {
+    "raw": "ISCPROPIL + PIMITATE",
+    "inci": "ISOPROPYL PALMITATE",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "DETRY ALCOHOL",
+    "inci": null,
+    "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+    "suggested_any_of": [
+     "CETYL ALCOHOL",
+     "CETEARYL ALCOHOL"
+    ]
+   },
+   {
+    "raw": "CETEARETH:20",
+    "inci": "CETEARETH-20",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PANTHEVOL",
+    "inci": "PANTHENOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   }
+  ]
+ },
+ {
+  "id": "pair_g_b",
+  "file": "pair_g_b.jpg",
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "glare",
+   "rot3",
+   "noise"
+  ],
+  "part": "last",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL, HELIANTHUS ANNUUS SEED OIL, PANTOLACTONE, GLYCERYL STEARATE, SODIUM BENZOATE, BENZYL ALCOHOL, CITRIC ACID",
+  "expected": [
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "HELLATHUS ANNUUS SEED",
+    "inci": "HELIANTHUS ANNUUS SEED OIL",
+    "note": "suggested ('Oil' not visible)"
+   },
+   {
+    "raw": "FANTLACTOIDE",
+    "inci": "PANTOLACTONE",
+    "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+   },
+   {
+    "raw": "GLYCERIN STRERATE",
+    "inci": "GLYCERYL STEARATE",
+    "note": "ingredient (must NOT resolve to GLYCERIN)"
+   },
+   {
+    "raw": "SODILN BENDATE",
+    "inci": "SODIUM BENZOATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "BENEYL ALCOHOL",
+    "inci": "BENZYL ALCOHOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "CITRIC ACO",
+    "inci": "CITRIC ACID",
+    "note": "ingredient"
+   }
+  ]
+ },
+ {
+  "id": "pair_sh_a",
+  "file": "pair_sh_a.jpg",
+  "source_fixture": "ref_shampoo",
+  "synthetic": true,
+  "degradations": [
+   "blur1",
+   "noise"
+  ],
+  "part": "first",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, SODIUM CHLORIDE, GLYCOL DISTEARATE, DIMETHICONE, SODIUM BENZOATE, PARFUM",
+  "expected": [
+   {
+    "raw": "AQUA",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "SODIUM LAURETH SULFATE",
+    "inci": "SODIUM LAURETH SULFATE"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "GLYCOL DISTEARATE",
+    "inci": "GLYCOL DISTEARATE"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "SODIUM BENZOATE",
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   }
+  ]
+ },
+ {
+  "id": "pair_sh_b",
+  "file": "pair_sh_b.jpg",
+  "source_fixture": "ref_shampoo",
+  "synthetic": true,
+  "degradations": [
+   "curve",
+   "noise"
+  ],
+  "part": "last",
+  "font": "lib",
+  "size": 30,
+  "truth_text": "INGREDIENTS: DIMETHICONE, SODIUM BENZOATE, PARFUM, CITRIC ACID, GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, LINALOOL, LIMONENE, CI 19140",
+  "expected": [
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "SODIUM BENZOATE",
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+    "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+   },
+   {
+    "raw": "LINALOOL",
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "LIMONENE",
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "CI 19140",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ },
+ {
+  "id": "merged_g",
+  "file": null,
+  "source_fixture": "cetaphil_moisturising_lotion_ocr",
+  "synthetic": true,
+  "degradations": [
+   "merge-target"
+  ],
+  "part": "all",
+  "truth_text": "INGREDIENTS: AQUA, GLYCERIN, ISOPROPYL PALMITATE, DETRY ALCOHOL, CETEARETH-20, PANTHENOL, NIACINAMIDE, TOCOPHERYL ACETATE, DIMETHICONE, PERSEA GRATISSIMA OIL, HELIANTHUS ANNUUS SEED OIL, PANTOLACTONE, GLYCERYL STEARATE, SODIUM BENZOATE, BENZYL ALCOHOL, CITRIC ACID",
+  "expected": [
+   {
+    "raw": "ACUA",
+    "inci": "AQUA",
+    "note": "ingredient"
+   },
+   {
+    "raw": "GLYCERN",
+    "inci": "GLYCERIN",
+    "note": "ingredient"
+   },
+   {
+    "raw": "ISCPROPIL + PIMITATE",
+    "inci": "ISOPROPYL PALMITATE",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "DETRY ALCOHOL",
+    "inci": null,
+    "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)",
+    "suggested_any_of": [
+     "CETYL ALCOHOL",
+     "CETEARYL ALCOHOL"
+    ]
+   },
+   {
+    "raw": "CETEARETH:20",
+    "inci": "CETEARETH-20",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PANTHEVOL",
+    "inci": "PANTHENOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "NACINANDE",
+    "inci": "NIACINAMIDE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "TOCOPYENYLACETATE",
+    "inci": "TOCOPHERYL ACETATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "PERSEA + GRATISS?IE OIL",
+    "inci": "PERSEA GRATISSIMA OIL",
+    "note": "ingredient (merge of 2 fragments)"
+   },
+   {
+    "raw": "HELLATHUS ANNUUS SEED",
+    "inci": "HELIANTHUS ANNUUS SEED OIL",
+    "note": "suggested ('Oil' not visible)"
+   },
+   {
+    "raw": "FANTLACTOIDE",
+    "inci": "PANTOLACTONE",
+    "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+   },
+   {
+    "raw": "GLYCERIN STRERATE",
+    "inci": "GLYCERYL STEARATE",
+    "note": "ingredient (must NOT resolve to GLYCERIN)"
+   },
+   {
+    "raw": "SODILN BENDATE",
+    "inci": "SODIUM BENZOATE",
+    "note": "ingredient"
+   },
+   {
+    "raw": "BENEYL ALCOHOL",
+    "inci": "BENZYL ALCOHOL",
+    "note": "ingredient"
+   },
+   {
+    "raw": "CITRIC ACO",
+    "inci": "CITRIC ACID",
+    "note": "ingredient"
+   }
+  ]
+ },
+ {
+  "id": "merged_sh",
+  "file": null,
+  "source_fixture": "ref_shampoo",
+  "synthetic": true,
+  "degradations": [
+   "merge-target"
+  ],
+  "part": "all",
+  "truth_text": "INGREDIENTS: AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, SODIUM CHLORIDE, GLYCOL DISTEARATE, DIMETHICONE, SODIUM BENZOATE, PARFUM, CITRIC ACID, GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, LINALOOL, LIMONENE, CI 19140",
+  "expected": [
+   {
+    "raw": "AQUA",
+    "inci": "AQUA"
+   },
+   {
+    "raw": "SODIUM LAURETH SULFATE",
+    "inci": "SODIUM LAURETH SULFATE"
+   },
+   {
+    "raw": "COCAMIDOPROPYL BETAINE",
+    "inci": "COCAMIDOPROPYL BETAINE"
+   },
+   {
+    "raw": "SODIUM CHLORIDE",
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "GLYCOL DISTEARATE",
+    "inci": "GLYCOL DISTEARATE"
+   },
+   {
+    "raw": "DIMETHICONE",
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "SODIUM BENZOATE",
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "PARFUM",
+    "inci": null,
+    "category": "fragrance"
+   },
+   {
+    "raw": "CITRIC ACID",
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+    "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+   },
+   {
+    "raw": "LINALOOL",
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "LIMONENE",
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "CI 19140",
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ }
+]

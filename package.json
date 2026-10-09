@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "phase0": "tsx scripts/phase0_baseline.ts"
+    "phase0": "tsx scripts/phase0_baseline.ts",
+    "ocr:assets": "node scripts/copy_ocr_assets.mjs",
+    "predev": "node scripts/copy_ocr_assets.mjs",
+    "prebuild": "node scripts/copy_ocr_assets.mjs"
   },
   "dependencies": {
+    "@tesseract.js-data/eng": "^1.0.0",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -16,7 +20,10 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/pngjs": "^6.0.5",
     "@types/react": "^19.0.0",
+    "jpeg-js": "^0.4.4",
+    "pngjs": "^7.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

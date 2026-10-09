@@ -1,0 +1,36 @@
+
+merged_g: matched 4 segments, overlapFound=true, 15 segments
+  [pair_g_a] conf 96  AQUA
+  [pair_g_a] conf 95  GLYCERIN
+  [pair_g_a] conf 88  ISOPROPYL PALMITATE
+  [pair_g_a] conf 93  DETRY ALCOHOL
+  [pair_g_a] conf 91  CETEARETH-20
+  [pair_g_a] conf 91  PANTHENOL
+  [pair_g_a+pair_g_b] conf 91  NIACINAMIDE
+  [pair_g_a+pair_g_b] conf 94  TOCOPHERYL ACETATE
+  [pair_g_a+pair_g_b] conf 92  DIMETHICONE
+  [pair_g_a+pair_g_b] conf 92  PERSEA GRATISSIMA OIL
+  [pair_g_b] conf 71  HELIANTHUS ANNUUS SEED C ACTONE
+  [pair_g_b] conf 96  GLYCERYL STEARATE
+  [pair_g_b] conf 94  SODIUM BENZOATE
+  [pair_g_b] conf 75  benZYL ALCOHOL
+  [pair_g_b] conf 95  CITRIC ACID
+
+merged_sh: matched 3 segments, overlapFound=true, 13 segments
+  [pair_sh_a] conf 95  AQUA
+  [pair_sh_a] conf 93  SODIUM LAURETH SULFATE
+  [pair_sh_a] conf 92  COCAMIDOPROPYL BETAINE
+  [pair_sh_a] conf 96  SODIUM CHLORIDE
+  [pair_sh_a] conf 93  GLYCOL DISTEARATE
+  [pair_sh_a+pair_sh_b] conf 90  DIMETHICONE
+  [pair_sh_a+pair_sh_b] conf 96  SODIUM BENZOATE
+  [pair_sh_a+pair_sh_b] conf 96  PARFUM
+  [pair_sh_b] conf 95  CITRIC ACID
+  [pair_sh_b] conf 91  GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE
+  [pair_sh_b] conf 92  LINALOOL
+  [pair_sh_b] conf 90  LIMONENE
+  [pair_sh_b] conf 89  CI 19140
+
+NEGATIVE CONTROL lotion(A) + shampoo(B): overlapFound=false matched=1
+NEGATIVE CONTROL (lotion A+B) + shampoo(B): overlapFound=false matched=7; warnings: 1
+POSITIVE CONTROL shampoo A + B: overlapFound=true matched=3

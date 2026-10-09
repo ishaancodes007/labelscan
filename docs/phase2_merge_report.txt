@@ -1,0 +1,13 @@
+full-list recall (identified at top-1 / expected entries); auto = resolved without user action
+
+merged_g  (16 expected entries)
+   photo A alone  top1  9/16 (56%)   auto  8/16   false-accept 0
+   photo B alone  top1  9/16 (56%)   auto  8/16   false-accept 0
+   MERGED         top1 15/16 (94%)   auto 13/16   false-accept 0
+   ceiling (perfect text)  top1 16/16
+
+merged_sh  (13 expected entries)
+   photo A alone  top1  8/13 (62%)   auto  8/13   false-accept 0
+   photo B alone  top1  7/13 (54%)   auto  7/13   false-accept 1
+   MERGED         top1 13/13 (100%)   auto 13/13   false-accept 0
+   ceiling (perfect text)  top1 13/13

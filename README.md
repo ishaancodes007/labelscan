@@ -2,7 +2,7 @@
 
 Explains cosmetic ingredient labels (identity, formulation role, hazard, exposure, regulation and user compatibility are kept separate). No scores, no verdicts. Progress is recorded per phase in `docs/`.
 
-**Status:** Phase 1 (identity resolution service) done. The browser OCR/review UI, rules, claims, customer features and landing page are **not built yet**; `app/page.tsx` is a placeholder.
+**Status:** Phases 0-2 done: identity resolution service, and `/analyze` with photo quality prompts, local OCR, crop/rotate and multi-photo merge. Rules, claims, customer features, the review panel and the landing page are **not built yet** (`app/page.tsx` is a placeholder).
 
 ```bash
 npm install && npm run dev                 # Next.js app + POST /api/analyze
@@ -11,4 +11,4 @@ python3 -m venv .venv && . .venv/bin/activate && pip install -r backend/requirem
 python scripts/resolution_report.py        # measurements          python scripts/golden_check.py   # golden case
 npm run phase0                             # Phase 0 baseline diagnosis
 ```
-See `backend/README.md`, `docs/PHASE0.md`, `docs/PHASE1.md`.
+See `backend/README.md`, `docs/PHASE0.md`, `docs/PHASE1.md`, `docs/PHASE2.md`. OCR measurements: `npx tsx scripts/ocr_eval.ts && python scripts/photo_report.py --exclude-bad`.
