@@ -1,6 +1,6 @@
 # BeautyLens
 
-Explains cosmetic ingredient labels (identity, formulation role, hazard, exposure, regulation and user compatibility are kept separate). No scores, no verdicts. See `BEAUTYLENS_MASTER_PROMPT_V3.md` conventions in the project brief; progress is recorded per phase in `docs/`.
+Explains cosmetic ingredient labels (identity, formulation role, hazard, exposure, regulation and user compatibility are kept separate). No scores, no verdicts. Progress is recorded per phase in `docs/`.
 
 **Status:** Phase 1 (identity resolution service) done. The browser OCR/review UI, rules, claims, customer features and landing page are **not built yet**; `app/page.tsx` is a placeholder.
 
