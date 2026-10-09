@@ -67,6 +67,8 @@ class Meta(BaseModel):
     dictionarySource: str
     agentStatus: Literal["off", "not_implemented", "unavailable", "rate_limited", "on"] = "off"
     pubchemStatus: Literal["on", "off", "unavailable"] = "off"
+    agentTokensProcessed: int = 0
+    agentTokensSkipped: int = 0
     timings: dict[str, float] = {}
     thresholds: dict[str, float] = {}
 

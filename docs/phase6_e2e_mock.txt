@@ -1,0 +1,7 @@
+PASS consent checkbox exists and is unchecked by default
+PASS unchecked: request sends useAgent=false and no AI notice is shown
+PASS checked: request sends useAgent=true and only text
+PASS status line says the helper is on and how many names it looked at
+PASS AI candidate is labelled 'AI suggestion' and not applied
+PASS pressing the button is what accepts it (shows 'Accepted by you')
+CONSOLE/PAGE ERRORS []

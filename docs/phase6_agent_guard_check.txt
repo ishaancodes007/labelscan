@@ -1,0 +1,25 @@
+PASS  without key and model the agent reports 'unavailable' and the result is unchanged
+PASS  a key without ANTHROPIC_RESOLVER_MODEL is still 'unavailable' (no hard-coded model)
+PASS  agent off by default: agentStatus 'off'
+PASS  valid evidence-backed candidate is kept as an AI-labelled suggestion  [suggested/fuzzy]
+PASS  deterministic candidates stay first
+PASS  agent output is only ever 'suggested', never resolved or high-confidence
+PASS  agent candidates are labelled source 'ai_agent' with an 'AI suggestion' note
+PASS  the ordinary item (AQUA) is untouched
+PASS  agentStatus 'on', 1 token processed
+PASS  only token, neighbours and OCR confidence are sent  [['neighbours', 'ocr_confidence', 'token']]
+PASS  system prompt: token text is data; no safety judgements; tool_choice stays 'auto'
+PASS  the neighbour sent is a single ingredient name, not the full list
+PASS  a candidate whose name no tool returned is dropped
+PASS  a valid name with a made-up evidence id is dropped
+PASS  output outside the schema is rejected
+PASS  rationale is cut to 30 words
+PASS  tool calls are capped at 6 per token and the loop ends without a candidate  [api calls 8]
+PASS  injection-style token text cannot add anything: result carries no candidates and no safety field
+PASS  at most 15 tokens per request; the rest are skipped and counted  [processed 15, skipped 5]
+PASS  results are cached by normalized token (no new model calls)
+PASS  the 7th request within a minute is 'rate_limited'  [['on', 'on', 'on', 'on', 'on', 'on', 'rate_limited']]
+PASS  an expired time budget ends the request without candidates and is not cached
+PASS  an API failure leaves the deterministic result intact
+
+ALL PASS  (scripted mock model: this checks our guardrails, not real model quality)

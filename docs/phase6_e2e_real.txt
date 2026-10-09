@@ -1,0 +1,5 @@
+PASS consent checkbox exists and is unchecked by default
+PASS unchecked: request sends useAgent=false and no AI notice is shown
+PASS checked: request sends useAgent=true and only text
+PASS no key on this server: the notice says the helper is unavailable and standard matching was used
+CONSOLE/PAGE ERRORS []

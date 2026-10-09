@@ -1,0 +1,29 @@
+# Phase 6 report: bounded AI resolution agent (opt-in, last resort)
+
+**Read this first: the agent has NOT been run against a real model.** No `ANTHROPIC_API_KEY` or `ANTHROPIC_RESOLVER_MODEL` exists in the build environment. What was exercised is the plumbing and the guardrails, using a *scripted mock* in place of the model. Nothing here measures how good real AI suggestions are.
+
+## What was built
+- `backend/app/agent.py`: Python, Anthropic SDK (`anthropic==1.13.0`), tool-use loop. Config only from the Python environment (`ANTHROPIC_API_KEY`, `ANTHROPIC_RESOLVER_MODEL`); no default model.
+- **Verified from official docs on 2026-10-09** (platform.claude.com, "Define tools" and "Models overview"): tool definitions are `{name, description, input_schema}`; results return as `tool_result` blocks keyed by `tool_use_id`. Claude Opus 5.5, Sonnet 5.5 and Fable 5.1 reject forced `tool_choice` (`any`/`tool`), so the loop uses `tool_choice: auto` and a `submit_resolution` tool whose input we validate ourselves instead of relying on the API to enforce a schema.
+- **Read-only tools:** `search_inci_dictionary`, `fuzzy_candidates`, `lookup_by_cas`, `pubchem_lookup` (existing cached, rate-limited client), `classify_category`, plus `submit_resolution`.
+- **What is sent to the model:** only the unresolved token, its neighbouring ingredient names, and OCR confidence (the check asserts the payload keys). Never the photo, profile or identity. The system prompt says token text, neighbours and tool results are data, forbids safety/role/hazard/compatibility statements, and prefers "no confident match" over guessing.
+- **Limits:** 6 tool calls per token; 15 tokens per request (extra ones are counted and reported, not sent); 30 s overall budget; 6 agent requests per minute per process; cache keyed by normalized token (failures and timeouts are never cached).
+- **Output schema** (pydantic): `verdict` = candidate | no_confident_match | not_an_ingredient; up to 3 candidates with `inci_name`, `source`, `source_id`, `evidence_tool_call_ids`, `rationale` (cut to 30 words).
+- **Post-validation:** a candidate survives only if its name was returned by a tool call in the same session *and* one of its cited evidence ids is such a call. Source and source id are taken from the tool result, not from the model's claim. If nothing survives: `no_confident_match`.
+- **Integration (`resolver.py`):** runs only on request (`useAgent`), after the deterministic ladder, for items that are `not_found`, `lookup_unavailable`, `ambiguous`, or low-confidence `suggested`. Deterministic candidates stay first; AI candidates are appended with `source: ai_agent` and a note. The item is always `suggested`, never `resolved`, never high-confidence. `not_an_ingredient` only adds a note; the item stays in the list.
+- **UI:** a consent checkbox on `/analyze`, **unchecked by default**, with the spec's wording, independent of other consents. Candidates carry an "(AI suggestion)" label and a notice; the status line shows on / unavailable / paused. The browser sends only `{text, useAgent}`.
+
+## What was run (exact commands, outputs saved in `docs/`)
+- `python scripts/agent_guard_check.py` -> `ALL PASS` (21 checks; `docs/phase6_agent_guard_check.txt`). Scripted mock model. Covers: unavailable without key or without model; valid candidate kept as an AI-labelled suggestion with deterministic candidates first; hallucinated name dropped; made-up evidence id dropped; out-of-schema output rejected; rationale cut to 30 words; tool-call cap; injection-style token adds nothing; 15-token cap with skipped count; cache; the 7th request in a minute is `rate_limited`; expired time budget; API failure leaves the deterministic result intact; payload contains only token, neighbours and OCR confidence.
+- `MODE=mock node scripts/e2e_phase6.cjs` against `python scripts/mock_agent_server.py 8000` -> 6 PASS, no console errors (`docs/phase6_e2e_mock.txt`). The mock server is test-only and its "AI" is a script.
+- `MODE=real node scripts/e2e_phase6.cjs` against the normal service -> 4 PASS (`docs/phase6_e2e_real.txt`): consent unchecked by default, `useAgent` false unless ticked, and with no key the notice says the helper is unavailable and only standard matching was used.
+- `python scripts/resolution_report.py --agent` (`docs/phase6_resolution_report_agent_flag.txt`) printed: **"AI HELPER: NOT EXERCISED. ANTHROPIC_API_KEY and/or ANTHROPIC_RESOLVER_MODEL is not set, so there is no agent-on result and no delta to report."** So the spec's agent-on vs agent-off delta does **not exist yet**. Once a key and model are set, the same command prints it.
+- `python scripts/golden_check.py` unchanged: 49/51, 2 documented deviations, 0 fail.
+
+## Deviations and limits
+- **No real-model result, no delta** (above). The first real run may show prompt or tool-design problems that the mock cannot reveal.
+- Candidate `source` is `dictionary` or `pubchem`, not the spec's `cosing|pubchem`: the dictionary is the EU glossary of common ingredient names, not the CosIng database, and labelling it CosIng would be wrong.
+- `pubchem_lookup` confirms that a *name* has a PubChem record; it does not confirm the printed token meant that name. That is why PubChem-backed AI candidates also stay `suggested` and need the user's click.
+- Because `search_inci_dictionary` was returning unranked, very long multi-component names on the first try (found by the guard check), it now ranks whole-word matches first and skips names over 80 characters.
+- The agent also gets low-confidence `suggested` items, not only `not_found`: nearly every unresolved token has some fuzzy suggestion, so restricting it to `not_found` would almost never run. This is a judgement call; say if you want it narrower.
+- Rate limit and cache are per process and in memory. The consent checkbox state is not saved between visits.

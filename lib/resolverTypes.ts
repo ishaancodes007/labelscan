@@ -23,6 +23,7 @@ export interface RemovedFragment { position: number; sourceIndex: number; raw: s
 export interface ResolveMeta {
   dictionaryVersion: string; dictionarySourceDate?: string | null; dictionarySource: string;
   agentStatus: "off" | "not_implemented" | "unavailable" | "rate_limited" | "on";
+  agentTokensProcessed?: number; agentTokensSkipped?: number;
   pubchemStatus: "on" | "off" | "unavailable"; timings: Record<string, number>; thresholds: Record<string, number>;
 }
 export interface ResolveResponse { items: ResolvedItem[]; removed: RemovedFragment[]; meta: ResolveMeta }

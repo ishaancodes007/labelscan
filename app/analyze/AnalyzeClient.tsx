@@ -42,6 +42,7 @@ export default function AnalyzeClient() {
   const [result, setResult] = useState<ApiResult | null>(null);
   const [profile, setProfile] = useState<Profile>(EMPTY_PROFILE);
   useEffect(() => { setProfile(loadProfile()); }, []);   // local only
+  const [useAgent, setUseAgent] = useState(false);   // opt-in, off by default
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const worker = useRef<Worker | null>(null);
@@ -116,7 +117,7 @@ export default function AnalyzeClient() {
   async function analyze() {
     setBusy(true); setError(""); setResult(null);
     try {
-      const res = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text }) });
+      const res = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, useAgent }) });
       if (!res.ok) throw new Error(String(res.status));
       setResult(await res.json());
     } catch { setError("Analysis failed. Check your connection and try again."); }
@@ -143,6 +144,7 @@ export default function AnalyzeClient() {
         <h2 id="rev">2. Check the text</h2>
         <label htmlFor="txt">Ingredient text (edit anything the camera got wrong)</label>
         <textarea id="txt" value={text} onChange={(e) => { setText(e.target.value); setEdited(true); }} placeholder="Read a photo above, or type or paste the ingredient list here." />
+        <label style={{ fontWeight: 400 }}><input type="checkbox" checked={useAgent} onChange={(e) => setUseAgent(e.target.checked)} /> Use AI to help identify unrecognized names (sends only those names, never your photo or profile).</label>
         <div className="row">
           {edited && mergedText && <button className="secondary" onClick={() => { setEdited(false); setText(mergedText); }}>Reset to the text read from photos</button>}
           <button onClick={analyze} disabled={busy || !text.trim()}>{busy ? "Analyzing…" : "Analyze ingredients"}</button>

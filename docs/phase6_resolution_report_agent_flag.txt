@@ -1,0 +1,19 @@
+dictionary: version=glossary-2025-1175 source=eu_glossary entries=30373  fixtures=10
+
+=== RESOLVER (PubChem OFF) thresholds={'high_score': 0.8, 'high_margin': 0.08, 'max_unexplained': 1} ===
+expected entries: 110
+resolved (auto):    95  86.4%   (correct 95, wrong 0)
+suggested:          15  13.6%   (top-1 correct 13, top-1 wrong 1, correct only in top-3 1)
+not found/other:     0   0.0%   (not_found 0, lookup_unavailable 0, missing 0, expected-unresolved 0)
+FALSE-ACCEPT count (auto-resolved wrong + top-1 suggestion wrong): 1
+high-confidence suggestions: 7 (correct 7, wrong 0)
+removed-fragment recall: 7/7   wrongly removed ingredients: 0
+merges/splits proposed: clean_merges=0, clean_splits=0, golden_merges=2, golden_splits=1  (any on the clean group is a false proposal)
+per layer (items matched to an expected entry): layer  n  correct
+   fuzzy                 15  13
+   inci_alias             1   1
+   inci_exact            94  94
+latency per label: mean 64 ms, max 608 ms over 10 labels
+
+AI HELPER: NOT EXERCISED. ANTHROPIC_API_KEY and/or ANTHROPIC_RESOLVER_MODEL is not set, so there is no agent-on result and no delta to report.
+golden case: 15/16 entries resolved or correctly suggested at top-1

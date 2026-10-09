@@ -23,6 +23,7 @@ from app.models import ResolveRequest, TokenIn  # noqa: E402
 from app.pubchem import PubChemClient  # noqa: E402
 from app.resolver import THRESHOLDS, Resolver  # noqa: E402
 
+USE_AGENT = False
 FIX = ROOT / "backend" / "fixtures" / "labels"
 
 
@@ -34,7 +35,7 @@ def request_for(fx):
     toks = [TokenIn(index=0, raw=fx["raw_ingredients"])]
     for i, v in enumerate((fx.get("other_fields") or {}).values()):
         toks.append(TokenIn(index=i + 1, raw=v))
-    return ResolveRequest(tokens=toks)
+    return ResolveRequest(tokens=toks, useAgent=USE_AGENT)
 
 
 def noisy_copy(fx, rng):
@@ -201,7 +202,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pubchem", action="store_true"); ap.add_argument("--baseline", action="store_true")
     ap.add_argument("--noise", type=int, default=0); ap.add_argument("--seed", type=int, default=1)
-    ap.add_argument("--sweep", action="store_true"); ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--agent", action="store_true", help="also run with the AI helper ON and print the delta (needs ANTHROPIC_API_KEY + ANTHROPIC_RESOLVER_MODEL; otherwise says it was not exercised)"); ap.add_argument("--sweep", action="store_true"); ap.add_argument("--verbose", action="store_true")
     a = ap.parse_args()
     fx = load_fixtures()
     d = Dictionary()
@@ -215,6 +216,20 @@ def main():
     title = ("BASELINE (exact match only)" if a.baseline else f"RESOLVER (PubChem {'ON' if a.pubchem else 'OFF'}) thresholds={ {k: v for k, v in THRESHOLDS.items() if k.startswith('high') or k == 'max_unexplained'} }")
     r = evaluate(fx, resolver, d if a.baseline else None)
     print_report(title + (f" +synthetic noise x{a.noise}" if a.noise else ""), r)
+    if a.agent and resolver is not None:
+        global USE_AGENT
+        if not resolver.agent.available:
+            print("\nAI HELPER: NOT EXERCISED. ANTHROPIC_API_KEY and/or ANTHROPIC_RESOLVER_MODEL is not set, so there is no agent-on result and no delta to report.")
+        else:
+            USE_AGENT = True
+            r2 = evaluate(fx, resolver, None)
+            print_report(title + " + AI HELPER ON", r2)
+            c1, c2 = Counter(x[2] for x in r["rows"]), Counter(x[2] for x in r2["rows"])
+            print("\nAI helper delta (agent on minus agent off), outcome counts:")
+            for k in sorted(set(c1) | set(c2)):
+                if c1[k] != c2[k]:
+                    print(f"  {k:18s} {c1[k]:4d} -> {c2[k]:4d}  ({c2[k] - c1[k]:+d})")
+            print("note: the helper is rate limited (6 requests/min per process) and caps tokens per request; rows beyond that were not helped.")
     g = [x for x in r["rows"] if x[0].startswith("cetaphil") and "~" not in x[0]]
     if g:
         ok = sum(1 for _, _, o, _ in g if o in ("resolved_ok", "category_ok", "sugg_top1_ok"))

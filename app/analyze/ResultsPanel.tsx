@@ -10,10 +10,10 @@ import TrustPanel from "./TrustPanel";
 
 export interface ApiItem {
   raw: string; status: string; layer?: string; inci_name?: string | null; inci?: string; category?: string | null; source?: string | null;
-  highConfidence?: boolean; candidates?: { inci_name: string; score: number; note?: string | null }[]; notes?: string[];
+  highConfidence?: boolean; candidates?: { inci_name: string; score: number; note?: string | null; source?: string }[]; notes?: string[];
   mergedFrom?: number | null; splitFrom?: string | null; optional?: boolean; index?: number;
 }
-export interface ApiResult { engine: "enhanced" | "fallback"; notice?: string; items: ApiItem[]; removed?: { raw: string; reason: string }[]; meta?: { dictionarySource?: string } }
+export interface ApiResult { engine: "enhanced" | "fallback"; notice?: string; items: ApiItem[]; removed?: { raw: string; reason: string }[]; meta?: { dictionarySource?: string; agentStatus?: string; agentTokensProcessed?: number; agentTokensSkipped?: number } }
 
 const TIER_LABEL: Record<Tier, string> = { avoid: "Avoid", caution: "Caution", note: "Note" };
 const TIER_CLASS: Record<Tier, string> = { avoid: "notfound", caution: "suggested", note: "class" };   // never green: a finding is not reassurance
@@ -52,6 +52,9 @@ export default function ResultsPanel({ result, profile, pack }: { result: ApiRes
     <section className="card" aria-labelledby="res">
       <h2 id="res">3. Ingredients</h2>
       {result.notice && <p className="notice warn" role="status">{result.notice}</p>}
+      {result.meta?.agentStatus && result.meta.agentStatus !== "off" && (
+        <p className="notice info" role="status">{{ on: `AI helper: on. It looked at ${result.meta.agentTokensProcessed ?? 0} unrecognized name${result.meta.agentTokensProcessed === 1 ? "" : "s"}${result.meta.agentTokensSkipped ? ` (${result.meta.agentTokensSkipped} more were over the limit and were not sent)` : ""}. Its suggestions are labelled and never applied for you.`,
+          unavailable: "AI helper: unavailable on this server, so only the standard matching was used.", rate_limited: "AI helper: paused for now (too many requests); only the standard matching was used.", not_implemented: "AI helper: not available." }[result.meta.agentStatus]}</p>)}
       <p className={`notice ${ev.banner.avoidMatches ? "warn" : "info"}`} role="status" aria-live="polite"><strong>{ev.banner.text}</strong></p>
       <p><small className="muted">{profile.avoid.length ? "Checked against your avoid list on this device. " : ""}<Link href="/profile">Edit your profile and avoid list</Link></small></p>
       {ev.summary && <p>{ev.summary}</p>}
@@ -68,8 +71,9 @@ export default function ResultsPanel({ result, profile, pack }: { result: ApiRes
             {a.status === "suggested" && !accIsSuggestion && a.candidates?.length ? (
               <div role="group" aria-label={`Candidates for ${a.raw}`}>
                 <small className="muted">Possible{a.highConfidence ? "" : " (not certain)"}: </small>
-                {a.candidates.slice(0, 3).map((c) => <button key={c.inci_name} className="secondary" style={{ minHeight: "2rem", padding: ".2rem .6rem", marginRight: ".3rem" }} onClick={() => setAccepted((x) => ({ ...x, [i]: c.inci_name }))}>Use {titleCase(c.inci_name)}</button>)}
+                {a.candidates.slice(0, 5).map((c) => <button key={c.inci_name} className="secondary" style={{ minHeight: "2rem", padding: ".2rem .6rem", marginRight: ".3rem" }} onClick={() => setAccepted((x) => ({ ...x, [i]: c.inci_name }))}>Use {titleCase(c.inci_name)}{c.source === "ai_agent" ? " (AI suggestion)" : ""}</button>)}
               </div>) : null}
+            {a.status === "suggested" && !accIsSuggestion ? a.candidates?.filter((c) => c.source === "ai_agent").map((c) => <small key={`ai-${c.inci_name}`} className="notice info" role="note" style={{ display: "block" }}><strong>AI suggestion: {titleCase(c.inci_name)}.</strong> {(c.note ?? "").replace(/^AI suggestion \([a-z]+\): ?/, "")} It is only a possible name found by a lookup; nothing is applied until you press the button.</small>) : null}
             {accIsSuggestion ? <button className="secondary" style={{ minHeight: "2rem", padding: ".2rem .6rem" }} onClick={() => setAccepted((x) => { const y = { ...x }; delete y[i]; return y; })}>Undo</button> : null}
             {a.status === "suggested" && !accIsSuggestion && a.candidates?.[0]?.note ? <small className="notice warn" role="note" style={{ display: "block" }}>{a.candidates[0].note}</small> : null}
             {a.mergedFrom ? <small className="muted"> · merged from {a.mergedFrom} fragments</small> : null}{a.splitFrom ? <small className="muted"> · split from one token</small> : null}

@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from rapidfuzz import fuzz, process
 
 from . import categories, filter as nf
+from .agent import ResolutionAgent, TokenCtx
 from .dictionary import Dictionary, key
 from .models import Candidate, Meta, RemovedFragment, ResolvedItem, ResolveRequest, ResolveResponse
 from .normalize import Segment, segment, strip_decorations, without_parens
@@ -52,6 +53,7 @@ class Resolver:
         self.pubchem = pubchem or PubChemClient(enabled=False)
         self.T = {**THRESHOLDS, **(thresholds or {})}
         self._fz_cache: dict[tuple[str, int], list] = {}
+        self.agent = ResolutionAgent(self)   # opt-in, last resort; reports 'unavailable' without ANTHROPIC_API_KEY + ANTHROPIC_RESOLVER_MODEL
 
     # ---- layers 1-3 -------------------------------------------------------------------------------
     def _static(self, text: str, optional_tags: list[str]) -> dict | None:
@@ -223,6 +225,11 @@ class Resolver:
                 st.status, st.layer = "not_found", "not_found"
         t_end = time.perf_counter()
 
+        agent_status, agent_n, agent_skipped = "off", 0, 0
+        if req.useAgent:
+            agent_status, agent_n, agent_skipped = self._apply_agent(states)
+        t_agent = time.perf_counter()
+
         items = []
         for n, st in enumerate(states):
             raw = " ".join(st.fragments)
@@ -234,13 +241,43 @@ class Resolver:
                 candidates=st.cands, highConfidence=st.high, notes=st.notes))
         m = self.d.meta
         meta = Meta(dictionaryVersion=m.get("dictionaryVersion", "unknown"), dictionarySourceDate=m.get("dictionarySourceDate") or None,
-                    dictionarySource=self.d.source, agentStatus="off" if not req.useAgent else "not_implemented",
+                    dictionarySource=self.d.source, agentStatus=agent_status, agentTokensProcessed=agent_n, agentTokensSkipped=agent_skipped,
                     pubchemStatus=self.pubchem.state,
                     timings={"normalize_ms": round((t_norm - t0) * 1000, 2), "static_ms": round((t_static - t_norm) * 1000, 2),
                              "fuzzy_ms": round((t_fuzzy - t_static) * 1000, 2), "merge_split_ms": round((t_merge - t_fuzzy) * 1000, 2),
-                             "pubchem_fuzzy_ms": round((t_end - t_merge) * 1000, 2), "total_ms": round((t_end - t0) * 1000, 2)},
+                             "pubchem_fuzzy_ms": round((t_end - t_merge) * 1000, 2), "agent_ms": round((t_agent - t_end) * 1000, 2), "total_ms": round((t_agent - t0) * 1000, 2)},
                     thresholds=self.T)
         return ResolveResponse(items=items, removed=removed, meta=meta)
+
+    # ---- Phase 6: bounded AI helper (opt-in, last resort) -------------------------------------------
+    def _apply_agent(self, states: list[State]) -> tuple[str, int, int]:
+        open_ = [i for i, st in enumerate(states) if st.status in ("not_found", "lookup_unavailable", "ambiguous") or (st.status == "suggested" and not st.high)]
+        if not open_:
+            return ("on" if self.agent.available else "unavailable"), 0, 0
+        def name(j: int) -> str:
+            if not 0 <= j < len(states): return ""
+            st = states[j]
+            return st.inci or " ".join(st.fragments)
+        ctxs = [TokenCtx(raw=" ".join(states[i].fragments) if states[i].merged_from else states[i].seg.raw, prev=name(i - 1), next=name(i + 1), ocr_conf=states[i].seg.ocr_conf) for i in open_]
+        status, results, skipped = self.agent.run(ctxs)
+        n = 0
+        for i, ctx in zip(open_, ctxs):
+            r = results.get(key(ctx.raw)); st = states[i]
+            if r is None:
+                continue
+            n += 1
+            if r.verdict == "candidate" and r.candidates:
+                mine = [Candidate(inci_name=c.inci_name.upper(), score=round(score_candidate(key(ctx.raw), key(c.inci_name))[0], 2), source="ai_agent",
+                                  source_id=c.source_id, note=f"AI suggestion ({c.source}): {c.rationale}".strip()) for c in r.candidates]
+                have = {key(c.inci_name) for c in st.cands}
+                st.cands = (st.cands + [c for c in mine if key(c.inci_name) not in have])[:5]   # deterministic candidates stay first
+                if st.status != "suggested":
+                    st.layer = "ai_agent"
+                st.status, st.high = "suggested", False
+                st.notes.append("Includes an AI suggestion: not applied until you accept it. It only offers names that a lookup returned.")
+            elif r.verdict == "not_an_ingredient":
+                st.notes.append("The AI helper thinks this may not be an ingredient name. It is kept in your list, unconfirmed.")
+        return status, n, skipped
 
     # ---- B2 merge ---------------------------------------------------------------------------------
     def _merge(self, states: list[State], fz) -> list[State]:
