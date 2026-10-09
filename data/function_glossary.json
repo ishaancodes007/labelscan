@@ -1,0 +1,163 @@
+{
+ "version": 1,
+ "last_updated": "2026-10-09",
+ "provenance": "Plain-language wording written by the project for the common CosIng 'function' terms. It paraphrases what the term names mean; it is NOT CosIng text and makes no safety claim. Per-ingredient functions must come from the CosIng import (not loaded yet).",
+ "source": {
+  "label": "EU CosIng database (function terms)",
+  "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en"
+ },
+ "confidence": "note",
+ "hindi_reviewed": false,
+ "terms": [
+  {
+   "function": "ABRASIVE",
+   "en": "Helps scrub away dead skin or surface residue by gentle rubbing.",
+   "hi": "त्वचा की मृत परत या गंदगी को हल्के रगड़ से हटाने में मदद करता है।"
+  },
+  {
+   "function": "ANTIMICROBIAL",
+   "en": "Slows the growth of microbes in the product or on skin.",
+   "hi": "उत्पाद या त्वचा पर सूक्ष्मजीवों की वृद्धि धीमी करता है।"
+  },
+  {
+   "function": "ANTIOXIDANT",
+   "en": "Slows spoilage of the product caused by air (oxidation); on skin it may also be marketed for protection.",
+   "hi": "हवा से होने वाली खराबी (ऑक्सीकरण) को धीमा करता है; त्वचा के लिए सुरक्षा के रूप में भी बताया जा सकता है।"
+  },
+  {
+   "function": "ANTISTATIC",
+   "en": "Reduces static and flyaway, mostly in hair products.",
+   "hi": "स्थैतिक बिजली और उड़ते बाल कम करता है, ज़्यादातर हेयर प्रोडक्ट में।"
+  },
+  {
+   "function": "BUFFERING",
+   "en": "Keeps the product's acidity (pH) steady.",
+   "hi": "उत्पाद की अम्लता (pH) को स्थिर रखता है।"
+  },
+  {
+   "function": "CHELATING",
+   "en": "Binds metal traces so the product stays stable and keeps its colour and smell.",
+   "hi": "धातु के अंशों को बांधता है ताकि उत्पाद स्थिर रहे और रंग-गंध न बदले।"
+  },
+  {
+   "function": "CLEANSING",
+   "en": "Helps lift away oil, dirt and make-up.",
+   "hi": "तेल, गंदगी और मेकअप हटाने में मदद करता है।"
+  },
+  {
+   "function": "COSMETIC COLORANT",
+   "en": "Gives the product or the skin colour.",
+   "hi": "उत्पाद या त्वचा को रंग देता है।"
+  },
+  {
+   "function": "EMOLLIENT",
+   "en": "Softens and smooths the skin surface.",
+   "hi": "त्वचा की सतह को मुलायम और चिकना करता है।"
+  },
+  {
+   "function": "EMULSIFYING",
+   "en": "Helps oil and water mix into a cream or lotion.",
+   "hi": "तेल और पानी को मिलाकर क्रीम या लोशन बनाने में मदद करता है।"
+  },
+  {
+   "function": "EMULSION STABILISING",
+   "en": "Keeps a cream or lotion from separating.",
+   "hi": "क्रीम या लोशन को अलग होने से रोकता है।"
+  },
+  {
+   "function": "EXFOLIATING",
+   "en": "Helps remove dead cells from the skin surface.",
+   "hi": "त्वचा की सतह से मृत कोशिकाएं हटाने में मदद करता है।"
+  },
+  {
+   "function": "FILM FORMING",
+   "en": "Leaves a thin film on skin or hair.",
+   "hi": "त्वचा या बालों पर पतली परत छोड़ता है।"
+  },
+  {
+   "function": "FRAGRANCE",
+   "en": "Gives or adds scent.",
+   "hi": "खुशबू देता है या बढ़ाता है।"
+  },
+  {
+   "function": "HAIR CONDITIONING",
+   "en": "Leaves hair softer and easier to comb.",
+   "hi": "बालों को मुलायम और सुलझाने में आसान बनाता है।"
+  },
+  {
+   "function": "HUMECTANT",
+   "en": "Attracts and holds water in the skin surface.",
+   "hi": "त्वचा की सतह पर पानी को खींचता और रोकता है।"
+  },
+  {
+   "function": "MASKING",
+   "en": "Reduces or hides an unwanted smell or taste of the product.",
+   "hi": "उत्पाद की अवांछित गंध या स्वाद को कम या ढक देता है।"
+  },
+  {
+   "function": "MOISTURISING",
+   "en": "Helps skin hold moisture and feel less dry.",
+   "hi": "त्वचा में नमी रोकने और रूखापन कम करने में मदद करता है।"
+  },
+  {
+   "function": "OPACIFYING",
+   "en": "Makes a product look less see-through and more creamy.",
+   "hi": "उत्पाद को कम पारदर्शी और ज़्यादा मलाईदार दिखाता है।"
+  },
+  {
+   "function": "PRESERVATIVE",
+   "en": "Stops bacteria and mould growing in the product.",
+   "hi": "उत्पाद में बैक्टीरिया और फफूंद पनपने से रोकता है।"
+  },
+  {
+   "function": "SKIN CONDITIONING",
+   "en": "Keeps skin in good condition (a broad term: softening, smoothing, moisture).",
+   "hi": "त्वचा को अच्छी स्थिति में रखता है (व्यापक शब्द: मुलायम करना, चिकना करना, नमी)।"
+  },
+  {
+   "function": "SKIN PROTECTING",
+   "en": "Forms a barrier or shield on the skin.",
+   "hi": "त्वचा पर सुरक्षा की परत बनाता है।"
+  },
+  {
+   "function": "SMOOTHING",
+   "en": "Makes skin or hair feel smoother.",
+   "hi": "त्वचा या बालों को चिकना महसूस कराता है।"
+  },
+  {
+   "function": "SOLVENT",
+   "en": "Dissolves other ingredients so they can be mixed.",
+   "hi": "अन्य सामग्रियों को घोलता है ताकि वे मिल सकें।"
+  },
+  {
+   "function": "SOOTHING",
+   "en": "Marketed to make skin feel calmer and more comfortable.",
+   "hi": "त्वचा को शांत और आरामदायक महसूस कराने के लिए बताया जाता है।"
+  },
+  {
+   "function": "SURFACTANT",
+   "en": "Helps oil and water mix; in cleansers it creates foam and lifts dirt.",
+   "hi": "तेल और पानी को मिलाने में मदद करता है; क्लींज़र में झाग बनाता और गंदगी उठाता है।"
+  },
+  {
+   "function": "UV ABSORBER",
+   "en": "Absorbs part of the sun's UV light inside the product.",
+   "hi": "उत्पाद में सूर्य की UV किरणों का कुछ हिस्सा सोखता है।"
+  },
+  {
+   "function": "UV FILTER",
+   "en": "Protects against UV light in sunscreens.",
+   "hi": "सनस्क्रीन में UV किरणों से बचाव करता है।"
+  },
+  {
+   "function": "VISCOSITY CONTROLLING",
+   "en": "Makes the product thicker or thinner.",
+   "hi": "उत्पाद को गाढ़ा या पतला करता है।"
+  },
+  {
+   "function": "TONIC",
+   "en": "Marketed to leave skin feeling refreshed.",
+   "hi": "त्वचा को तरोताज़ा महसूस कराने के लिए बताया जाता है।"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "last_updated": "2026-10-09",
+ "verification_note": "Verified through web-search summaries of the sources (primary EUR-Lex/EMA text could not be opened from the build environment); re-check against the primary text before relying on it for regulatory use.",
+ "tiers": {
+  "avoid": "Hard rule: shown first. Used for doctor-confirmed allergies, and for the regulator-advised pregnancy precaution.",
+  "caution": "Soft rule: personal preference, or an ingredient whose role in this product is unclear.",
+  "note": "Information only."
+ },
+ "rules": [
+  {
+   "id": "pregnancy_retinoids",
+   "condition": "pregnancy",
+   "family": "retinoids",
+   "tier": "avoid",
+   "title": "Retinoid ingredient and pregnancy",
+   "explanation": "Regulators advise against using topical retinoids during pregnancy as a precaution, even though very little is absorbed through skin. If you are pregnant or planning to be, check this product with your doctor or pharmacist.",
+   "source": [
+    {
+     "label": "EMA: updated measures for pregnancy prevention during retinoid use",
+     "url": "https://www.ema.europa.eu/mt/news/updated-measures-pregnancy-prevention-during-retinoid-use"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "limited"
+  }
+ ],
+ "no_rule_yet": [
+  "breastfeeding",
+  "rosacea",
+  "eczema",
+  "acne_prone",
+  "sensitive_skin",
+  "baby_child"
+ ],
+ "no_rule_reason": "No sourced, conservative rule could be verified for these yet; they are listed in data/curation/TODO.md. The profile still records them, and the app says plainly that no rules exist."
+}

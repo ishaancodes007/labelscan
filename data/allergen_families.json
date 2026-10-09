@@ -1,0 +1,332 @@
+{
+ "version": 1,
+ "last_updated": "2026-10-09",
+ "verification_note": "Verified through web-search summaries of the sources (primary EUR-Lex/EMA text could not be opened from the build environment); re-check against the primary text before relying on it for regulatory use.",
+ "families": [
+  {
+   "id": "eu_fragrance_allergens",
+   "name": "EU labelled fragrance allergens",
+   "kind": "allergen",
+   "description": "Fragrance ingredients that must be declared by name in the EU ingredient list when present above 0.001% in leave-on products or 0.01% in rinse-off products (Annex III of Regulation (EC) No 1223/2009, extended by Regulation (EU) 2023/1545). Appearing on the list means contact allergy has been reported for the substance; it does not say whether any particular product or person is affected.",
+   "regulatory": {
+    "text": "Declared by name when above 0.001% (leave-on) or 0.01% (rinse-off). Regulation (EU) 2023/1545 expands the list (about 80 substances; transition dates 31 July 2026 for new products and 31 July 2028 for products already on the market, per secondary sources). This file only contains the long-standing entries listed below.",
+    "source": [
+     {
+      "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
+     },
+     {
+      "label": "EMA appendix: EU list of fragrance allergens requiring labelling in cosmetic and detergent products",
+      "url": "https://www.ema.europa.eu/en/documents/other/appendix-european-union-list-fragrance-allergens-requiring-labelling-cosmetic-and-detergent-products_en.pdf"
+     }
+    ]
+   },
+   "members": [
+    {
+     "inci": "LIMONENE"
+    },
+    {
+     "inci": "LINALOOL"
+    },
+    {
+     "inci": "CITRAL"
+    },
+    {
+     "inci": "GERANIOL"
+    },
+    {
+     "inci": "EUGENOL"
+    },
+    {
+     "inci": "ISOEUGENOL"
+    },
+    {
+     "inci": "COUMARIN"
+    },
+    {
+     "inci": "CITRONELLOL"
+    },
+    {
+     "inci": "FARNESOL"
+    },
+    {
+     "inci": "HEXYL CINNAMAL"
+    },
+    {
+     "inci": "AMYL CINNAMAL"
+    },
+    {
+     "inci": "CINNAMAL"
+    },
+    {
+     "inci": "CINNAMYL ALCOHOL"
+    },
+    {
+     "inci": "HYDROXYCITRONELLAL"
+    },
+    {
+     "inci": "BUTYLPHENYL METHYLPROPIONAL"
+    },
+    {
+     "inci": "ALPHA-ISOMETHYL IONONE"
+    },
+    {
+     "inci": "BENZYL SALICYLATE"
+    },
+    {
+     "inci": "BENZYL CINNAMATE"
+    },
+    {
+     "inci": "BENZYL BENZOATE"
+    },
+    {
+     "inci": "ANISE ALCOHOL",
+     "aliases": [
+      "ANISYL ALCOHOL"
+     ]
+    },
+    {
+     "inci": "AMYLCINNAMYL ALCOHOL"
+    },
+    {
+     "inci": "EVERNIA PRUNASTRI EXTRACT",
+     "aliases": [
+      "OAKMOSS EXTRACT"
+     ]
+    },
+    {
+     "inci": "EVERNIA FURFURACEA EXTRACT",
+     "aliases": [
+      "TREEMOSS EXTRACT"
+     ]
+    },
+    {
+     "inci": "BENZYL ALCOHOL",
+     "cap_tier": "caution",
+     "role_note": "Benzyl alcohol is on the fragrance-allergen list, but it is also widely used as a preservative, and the Commission's draft Annex III entry applies it 'for purposes other than inhibiting the development of microorganisms in the product'. The label cannot tell which role it plays here, so it matters mainly if you are specifically sensitised to benzyl alcohol.",
+     "role_source": [
+      {
+       "label": "Council of the EU document ST 7839/2023 ADD 1 (Commission draft regulation on fragrance allergen labelling; benzyl alcohol entry 'for purposes other than inhibiting the development of microorganisms in the product')",
+       "url": "https://data.consilium.europa.eu/doc/document/ST-7839-2023-ADD-1/en/pdf"
+      },
+      {
+       "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
+       "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
+      }
+     ],
+     "role_confidence": "limited"
+    }
+   ],
+   "source": [
+    {
+     "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
+     "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
+    },
+    {
+     "label": "EMA appendix: EU list of fragrance allergens requiring labelling in cosmetic and detergent products",
+     "url": "https://www.ema.europa.eu/en/documents/other/appendix-european-union-list-fragrance-allergens-requiring-labelling-cosmetic-and-detergent-products_en.pdf"
+    },
+    {
+     "label": "European Commission: perfume allergies (lay summary of the SCCS opinion; the 26 substances were added to Annex III by Directive 2003/15/EC)",
+     "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/en/l-3/1-introduction.htm"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Member list = the long-standing Annex III entries confirmed by name in EMA/European Commission tables. The additional substances added by Regulation (EU) 2023/1545 are NOT included (see data/curation/TODO.md); HICC (Lyral) and methyl 2-octynoate are also left out here."
+  },
+  {
+   "id": "fragrance_mixtures",
+   "name": "Fragrance / perfume mixtures",
+   "kind": "allergen",
+   "description": "'Parfum' (also written Fragrance or Aroma) stands for an undisclosed mixture of perfuming ingredients. Individual components are only named on the label if they are on the labelled-allergen list and above the thresholds.",
+   "members": [
+    {
+     "inci": "PARFUM",
+     "aliases": [
+      "FRAGRANCE",
+      "AROMA",
+      "PARFUM/FRAGRANCE"
+     ]
+    }
+   ],
+   "source": [
+    {
+     "label": "EU CosIng glossary of ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "The CosIng glossary page explains that perfuming ingredients may carry 'perfuming names'; what a given mixture contains cannot be read from the label."
+  },
+  {
+   "id": "isothiazolinones",
+   "name": "Isothiazolinone preservatives",
+   "kind": "allergen",
+   "description": "Methylisothiazolinone (MI) and methylchloroisothiazolinone (MCI) are preservatives with well-documented contact allergy; the EU Commission found no safe concentration for leave-on use of MI.",
+   "regulatory": {
+    "text": "Methylisothiazolinone is not permitted in leave-on cosmetic products in the EU (Regulation (EU) 2016/1198, applying from 12 February 2017 per secondary sources). Rinse-off and MCI/MI-mixture limits are set in Annex V and were not verified here: check the current text.",
+    "source": [
+     {
+      "label": "Commission Regulation (EU) 2016/1198 (methylisothiazolinone not permitted in leave-on cosmetic products), legislation.gov.uk copy",
+      "url": "https://www.legislation.gov.uk/eur/2016/1198"
+     }
+    ]
+   },
+   "members": [
+    {
+     "inci": "METHYLISOTHIAZOLINONE",
+     "aliases": [
+      "MI",
+      "MIT"
+     ]
+    },
+    {
+     "inci": "METHYLCHLOROISOTHIAZOLINONE",
+     "aliases": [
+      "MCI"
+     ]
+    }
+   ],
+   "source": [
+    {
+     "label": "Commission Regulation (EU) 2016/1198 (methylisothiazolinone not permitted in leave-on cosmetic products), legislation.gov.uk copy",
+     "url": "https://www.legislation.gov.uk/eur/2016/1198"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Benzisothiazolinone (BIT) is not included: not verified (see TODO)."
+  },
+  {
+   "id": "formaldehyde_releasers",
+   "name": "Formaldehyde-releasing preservatives",
+   "kind": "allergen",
+   "description": "Preservatives that can release formaldehyde. Reactions to them often reflect formaldehyde itself. A review advises formaldehyde-allergic people to avoid leave-on products preserved with them.",
+   "members": [
+    {
+     "inci": "DMDM HYDANTOIN"
+    },
+    {
+     "inci": "IMIDAZOLIDINYL UREA"
+    },
+    {
+     "inci": "DIAZOLIDINYL UREA"
+    },
+    {
+     "inci": "QUATERNIUM-15"
+    }
+   ],
+   "source": [
+    {
+     "label": "de Groot et al., formaldehyde-releasers in cosmetics (two-part review), Contact Dermatitis 2010",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/20136875/"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Bronopol is also a releaser in that review but is not in the seed dictionary. EU regulatory status of each member was NOT verified and is not stated. Amounts released depend on the product and cannot be read from the label."
+  },
+  {
+   "id": "retinoids",
+   "name": "Retinoids and vitamin A forms",
+   "kind": "class",
+   "description": "Vitamin A derivatives used for skin renewal. Regulators advise against topical retinoids in pregnancy as a precaution.",
+   "members": [
+    {
+     "inci": "RETINOL"
+    },
+    {
+     "inci": "RETINYL PALMITATE"
+    },
+    {
+     "inci": "RETINAL",
+     "aliases": [
+      "RETINALDEHYDE"
+     ]
+    },
+    {
+     "inci": "RETINYL PROPIONATE"
+    },
+    {
+     "inci": "ADAPALENE"
+    }
+   ],
+   "source": [
+    {
+     "label": "EMA: updated measures for pregnancy prevention during retinoid use",
+     "url": "https://www.ema.europa.eu/mt/news/updated-measures-pregnancy-prevention-during-retinoid-use"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "limited",
+   "limits": "The EMA statement concerns topical retinoids as a class and is precautionary (it notes negligible absorption). That it covers cosmetic retinol and retinyl esters is the usual reading in secondary sources, not something the EMA page states for each ingredient."
+  },
+  {
+   "id": "fatty_alcohols",
+   "name": "Fatty alcohols",
+   "kind": "class",
+   "description": "Waxy, long-chain alcohols (cetyl, stearyl, cetearyl, behenyl alcohol) used to soften skin and thicken creams. Chemically they are alcohols, but they are not the solvent alcohols (ethanol, alcohol denat.) that can feel drying.",
+   "candidate_note": "The possible matches are all fatty alcohols with a similar role (waxy softeners). They are not drying alcohols, so the practical difference between them is small.",
+   "members": [
+    {
+     "inci": "CETYL ALCOHOL"
+    },
+    {
+     "inci": "STEARYL ALCOHOL"
+    },
+    {
+     "inci": "CETEARYL ALCOHOL"
+    },
+    {
+     "inci": "BEHENYL ALCOHOL"
+    }
+   ],
+   "source": [
+    {
+     "label": "Paula's Choice ingredient dictionary: cetearyl alcohol (secondary, retailer; contrasts fatty alcohols with solvent alcohols)",
+     "url": "https://www.paulaschoice.co.uk/cetearyl-alcohol/ingredient-cetearyl-alcohol.html"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "limited",
+   "limits": "Supported by a secondary consumer database that cites the Cosmetic Ingredient Review panel; the CIR report itself was not retrieved (see TODO). This is a classification note, not a safety statement; people with damaged skin can still react to any ingredient."
+  },
+  {
+   "id": "solvent_alcohols",
+   "name": "Solvent alcohols (ethanol type)",
+   "kind": "class",
+   "description": "Ethanol and denatured or isopropyl alcohol used as solvents. This is what 'alcohol' usually means on a label.",
+   "members": [
+    {
+     "inci": "ALCOHOL",
+     "aliases": [
+      "ETHANOL"
+     ]
+    },
+    {
+     "inci": "ALCOHOL DENAT.",
+     "aliases": [
+      "DENATURED ALCOHOL"
+     ]
+    },
+    {
+     "inci": "ETHANOL"
+    },
+    {
+     "inci": "ISOPROPYL ALCOHOL"
+    }
+   ],
+   "source": [
+    {
+     "label": "PubChem: ethanol (compound record, identity only)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/702"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Chemical identity only. No claim is made here about how these feel on skin."
+  }
+ ]
+}

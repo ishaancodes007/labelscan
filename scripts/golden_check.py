@@ -77,9 +77,50 @@ for frag, want in zip(rest, exp_rest):
     top1 = bool(it and top(it) == key(want))
     check(f"{frag} -> {want} (resolved, or high-confidence suggestion)", ok, detail, dev=KNOWN_DEVIATIONS.get(frag) if (not ok and top1) else None)
 
+# ---- Phase 3: rules (TypeScript engine run on the real resolver output) --------------------------------------------------
+import subprocess  # noqa: E402
+
+
+def run_rules(accept_top1: bool, profile_spec: dict) -> dict:
+    items = [i.model_dump() for i in resp.items]
+    accepted = {}
+    if accept_top1:   # simulates the user pressing "Use this" on each suggestion's top candidate
+        for it in items:
+            if it["status"] == "suggested" and it["candidates"]:
+                accepted[str(it["index"])] = it["candidates"][0]["inci_name"]
+    out = subprocess.run(["npx", "tsx", str(ROOT / "scripts/rules_cli.ts")], input=json.dumps({"items": items, "profileSpec": profile_spec, "accepted": accepted}),
+                         capture_output=True, text=True, cwd=ROOT, check=True)
+    return json.loads(out.stdout)
+
+
+import re  # noqa: E402
+FRAG = {"avoidFamilies": ["eu_fragrance_allergens"], "avoidIngredients": ["Parfum"], "strength": "doctor"}
+ev_open = run_rules(False, FRAG)    # nothing accepted yet
+ev_acc = run_rules(True, FRAG)      # every top-1 suggestion accepted by the user
+idx = {key(i.raw): n for n, i in enumerate(items)}
+det = next(n for n, i in enumerate(items) if "DETRY" in i.raw.upper())
+check("DETRY ALCOHOL (unaccepted): note says the candidates are fatty alcohols, not drying alcohols",
+      any(f["kind"] == "candidate_note" and re.search(r"fatty alcohols", f["explanation"]) and re.search(r"not drying", f["explanation"]) for f in ev_open["findings"][det]),
+      str([f["kind"] for f in ev_open["findings"][det]]))
+check("DETRY ALCOHOL stays unidentified until accepted (no avoid/rule findings from guessing)", not any(f["kind"] in ("avoid_list", "profile_rule") for f in ev_open["findings"][det]))
+fa_idx = [n for n, i in enumerate(items) if i.status == "suggested" and i.candidates and i.candidates[0].inci_name in ("CETYL ALCOHOL", "CETEARYL ALCOHOL")]
+check("Fatty alcohol accepted -> note 'not a drying alcohol'", bool(fa_idx) and any(re.search(r"not a drying alcohol", f["explanation"]) for f in ev_acc["findings"][fa_idx[0]] if f["kind"] == "family_note"))
+bz = next(n for n, i in enumerate(items) if "BENEYL" in i.raw.upper())
+bzf = [f for f in ev_acc["findings"][bz] if f["kind"] == "avoid_list" and "benzyl" in f["explanation"].lower()]
+check("Fragrance-allergy profile: benzyl alcohol gets tier 'caution' (not 'avoid')", bool(bzf) and all(f["tier"] == "caution" for f in bzf), str([(f["tier"], f["title"]) for f in ev_acc["findings"][bz]]))
+check("Benzyl alcohol caution explains the likely preservative role and cites a source", bool(bzf) and "preservative" in bzf[0]["explanation"] and len(bzf[0]["source"]) >= 1 and bzf[0]["confidence"] == "limited")
+check("No 'contradiction' is raised for benzyl alcohol", not any("contradict" in (f["title"] + f["explanation"]).lower() for f in ev_acc["findings"][bz]))
+spec = run_rules(True, {**FRAG, "avoidIngredients": ["Parfum", "Benzyl alcohol"]})
+check("If the user lists benzyl alcohol specifically (doctor-confirmed) the cap lifts to 'avoid'", any(f["kind"] == "avoid_list" and f["tier"] == "avoid" for f in spec["findings"][bz]))
+cit = next(n for n, i in enumerate(items) if "CITRIC" in i.raw.upper())
+check("Citric acid (not on any list) has no avoid-list findings", not any(f["kind"] == "avoid_list" for f in ev_acc["findings"][cit]))
+check("Banner (all accepted): states the avoid-list match, never 'safe'", "Contains 1 ingredient you avoid" in ev_acc["banner"]["text"] and "safe" not in ev_acc["banner"]["text"].lower() and "need review" not in ev_acc["banner"]["text"], ev_acc["banner"]["text"])
+check("Banner (nothing accepted): adds how many items still need review", "still need review" in ev_open["banner"]["text"], ev_open["banner"]["text"])
+check("Summary is deterministic text with no verdict words", ev_acc["summary"] != "" and not re.search(r"\b(safe|toxic|clean|hypoallergenic)\b", ev_acc["summary"], re.I))
+ev_none = run_rules(True, {})
+check("Empty profile: banner asks for an avoid list instead of claiming anything", "have not set an avoid list" in ev_none["banner"]["text"])
+
 pending = [
-    "Fatty-alcohol note: 'not a drying alcohol' (Phase 3)",
-    "Fragrance-allergy profile: benzyl alcohol 'caution', no contradiction (Phase 3)",
     "Claims: vitamin E/B3/B5/avocado oil 'matches' (Phase 4)",
     "Claim: 'No added fragrance' 'consistent' with benzyl-alcohol nuance (Phase 4)",
     "Claims: won't clog pores / non-irritating / clinically tested 'not verifiable' (Phase 4)",

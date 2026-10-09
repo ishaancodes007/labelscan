@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "last_updated": "2026-10-09",
+ "notes": [
+  {
+   "id": "fatty_alcohol_not_drying",
+   "trigger": {
+    "family": "fatty_alcohols"
+   },
+   "title": "'Alcohol' in the name does not mean drying",
+   "text": "Cetyl, stearyl and cetearyl alcohol are fatty alcohols: waxy ingredients that soften skin. They are not the same as ethanol or alcohol denat., the solvent alcohols people usually mean by 'alcohol'. This is not a drying alcohol.",
+   "source": [
+    {
+     "label": "Paula's Choice ingredient dictionary: cetearyl alcohol (secondary, retailer; contrasts fatty alcohols with solvent alcohols)",
+     "url": "https://www.paulaschoice.co.uk/cetearyl-alcohol/ingredient-cetearyl-alcohol.html"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "chemical_not_harmful",
+   "trigger": {
+    "inci": "AQUA"
+   },
+   "title": "'Chemical' does not mean harmful",
+   "text": "Water is a chemical too. In cosmetics law a 'substance' is any chemical element or compound, natural or manufactured, so 'chemical' says what something is made of, not whether it is harmful.",
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, Article 2 (definition of 'substance'); wording confirmed via secondary summaries",
+     "url": "https://eur-lex.europa.eu/eli/reg/2009/1223/oj"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "natural_not_gentle",
+   "trigger": {
+    "any_inci": [
+     "LIMONENE",
+     "LINALOOL"
+    ]
+   },
+   "title": "'Natural' does not mean gentle",
+   "text": "Limonene and linalool occur naturally in many essential oils and plant extracts, and they are on the EU list of fragrance allergens. When they react with air they form compounds that are stronger contact allergens, so a natural origin does not make an ingredient free of allergy risk.",
+   "source": [
+    {
+     "label": "DermNet: contact allergy to limonene and linalool",
+     "url": "https://dermnetnz.org/topics/contact-allergy-to-limonene-and-linalool"
+    },
+    {
+     "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
+     "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
+    }
+   ],
+   "confidence": "established"
+  }
+ ]
+}

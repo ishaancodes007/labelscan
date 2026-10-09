@@ -7,17 +7,15 @@ import { mergePhotos, segmentsFromLines, segmentsToText, type MSegment } from "@
 import { prepareForOcr } from "@/lib/ocr/pipeline";
 import { crop as cropGray, rotate as rotateGray } from "@/lib/ocr/preprocess";
 import { assess, assessOcr, type QualityReport } from "@/lib/ocr/quality";
+import { loadProfile } from "@/lib/rules/profileStore";
+import { EMPTY_PROFILE, type Profile } from "@/lib/rules/types";
+import ResultsPanel, { type ApiResult } from "./ResultsPanel";
 
 interface Trim { l: number; t: number; r: number; b: number }
 interface Photo {
   id: string; name: string; rgba: RGBA; trim: Trim; rotate: number; report?: QualityReport;
   status: "idle" | "reading" | "done" | "error"; progress: number; warnings?: string[]; lines?: { words: { text: string; confidence: number }[] }[]; note?: string;
 }
-interface ApiItem {
-  raw: string; status: string; layer?: string; inci_name?: string | null; category?: string | null; source?: string | null; highConfidence?: boolean;
-  candidates?: { inci_name: string; score: number; note?: string | null }[]; notes?: string[]; mergedFrom?: number | null; splitFrom?: string | null;
-}
-interface ApiResult { engine: "enhanced" | "fallback"; notice?: string; items: ApiItem[]; removed?: { raw: string; reason: string }[] }
 
 const MAX_SIDE = 2400;
 const LOW_CONF = 70;
@@ -36,25 +34,13 @@ async function fileToRGBA(file: File): Promise<RGBA> {
 const cropRect = (p: Photo) => ({ x: (p.trim.l / 100) * p.rgba.width, y: (p.trim.t / 100) * p.rgba.height,
   width: (1 - (p.trim.l + p.trim.r) / 100) * p.rgba.width, height: (1 - (p.trim.t + p.trim.b) / 100) * p.rgba.height });
 
-function statusView(it: ApiItem, source?: string | null): { label: string; cls: string } {
-  if (it.status === "resolved") {
-    if (it.layer === "category_recognized") return { label: "Recognized ingredient class", cls: "class" };
-    if (it.layer === "pubchem_match") return { label: "PubChem record match (identity only)", cls: "resolved" };
-    return { label: it.layer === "inci_alias" ? "Synonym match" : source === "cosing" ? "INCI match (CosIng)" : "Name match (starter list)", cls: "resolved" };
-  }
-  if (it.status === "suggested") return { label: "Suggested: needs your confirmation", cls: "suggested" };
-  if (it.status === "ambiguous") return { label: "Ambiguous", cls: "ambiguous" };
-  if (it.status === "lookup_unavailable") return { label: "Lookup unavailable", cls: "unavailable" };
-  if (it.status === "inci_exact") return { label: "Name match (starter list)", cls: "resolved" };   // fallback engine
-  if (it.status === "pubchem_match") return { label: "PubChem record match (identity only)", cls: "resolved" };
-  return { label: "Not found", cls: "notfound" };
-}
-
 export default function AnalyzeClient() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [text, setText] = useState("");
   const [edited, setEdited] = useState(false);
   const [result, setResult] = useState<ApiResult | null>(null);
+  const [profile, setProfile] = useState<Profile>(EMPTY_PROFILE);
+  useEffect(() => { setProfile(loadProfile()); }, []);   // local only
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const worker = useRef<Worker | null>(null);
@@ -124,8 +110,6 @@ export default function AnalyzeClient() {
     setBusy(false);
   }
 
-  const needsReview = result ? result.items.filter((i) => ["suggested", "ambiguous", "not_found", "lookup_unavailable"].includes(i.status) || i.status === "not_found").length : 0;
-
   return (
     <main>
       <h1>Analyze a label</h1>
@@ -161,24 +145,7 @@ export default function AnalyzeClient() {
         )}
       </section>
 
-      {result && (
-        <section className="card" aria-labelledby="res" aria-live="polite">
-          <h2 id="res">3. Ingredients</h2>
-          {result.notice && <p className="notice warn" role="status">{result.notice}</p>}
-          <p>{result.items.length} items{needsReview ? `; ${needsReview} still need review` : ""}.</p>
-          <p className="muted"><small>A name match shows identity only. It is not a safety statement. Suggestions are never applied until you confirm them (review panel arrives in a later phase).</small></p>
-          <ul className="plain">{result.items.map((it, i) => {
-            const v = statusView(it, it.source);
-            return (<li key={i}><strong>{it.raw}</strong> <span className={`badge ${v.cls}`}>{v.label}</span>
-              {it.inci_name ? <> <small className="muted">→ {it.inci_name}</small></> : null}
-              {it.status === "suggested" && it.candidates?.length ? <small className="muted"> Possible: {it.candidates.map((c) => c.inci_name).join(", ")}{it.highConfidence ? "" : " (not certain)"}</small> : null}
-              {it.status === "suggested" && it.candidates?.[0]?.note ? <small className="notice warn" role="note" style={{ display: "block" }}>{it.candidates[0].note}</small> : null}
-              {it.mergedFrom ? <small className="muted"> · merged from {it.mergedFrom} fragments</small> : null}{it.splitFrom ? <small className="muted"> · split from one token</small> : null}
-              {it.notes?.length ? <small className="muted"> {it.notes.join(" ")}</small> : null}</li>);
-          })}</ul>
-          {result.removed?.length ? <details><summary>Removed as not ingredients ({result.removed.length})</summary><ul className="plain">{result.removed.map((r, i) => <li key={i}>{r.raw} <small className="muted">· {r.reason}</small></li>)}</ul></details> : null}
-        </section>
-      )}
+      {result && <ResultsPanel result={result} profile={profile} />}
     </main>
   );
 }
