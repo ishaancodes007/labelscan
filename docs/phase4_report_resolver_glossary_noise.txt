@@ -1,0 +1,17 @@
+dictionary: version=glossary-2025-1175 source=eu_glossary entries=30373  fixtures=10
+
+=== RESOLVER (PubChem OFF) thresholds={'high_score': 0.8, 'high_margin': 0.08, 'max_unexplained': 1} +synthetic noise x5 ===
+expected entries: 580
+resolved (auto):   254  43.8%   (correct 254, wrong 0)
+suggested:         325  56.0%   (top-1 correct 316, top-1 wrong 6, correct only in top-3 3)
+not found/other:     1   0.2%   (not_found 0, lookup_unavailable 0, missing 1, expected-unresolved 0)
+FALSE-ACCEPT count (auto-resolved wrong + top-1 suggestion wrong): 6
+high-confidence suggestions: 211 (correct 211, wrong 0)
+removed-fragment recall: 7/7   wrongly removed ingredients: 0
+merges/splits proposed: clean_merges=0, clean_splits=0, golden_merges=2, golden_splits=1, synthetic_merges=0, synthetic_splits=1  (any on the clean group is a false proposal)
+per layer (items matched to an expected entry): layer  n  correct
+   fuzzy                325 316
+   inci_alias             6   6
+   inci_exact           248 248
+latency per label: mean 307 ms, max 809 ms over 55 labels
+golden case: 15/16 entries resolved or correctly suggested at top-1

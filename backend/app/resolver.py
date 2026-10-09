@@ -8,7 +8,7 @@ from . import categories, filter as nf
 from .dictionary import Dictionary, key
 from .models import Candidate, Meta, RemovedFragment, ResolvedItem, ResolveRequest, ResolveResponse
 from .normalize import Segment, segment, strip_decorations, without_parens
-from .ocr_confusion import score_candidate
+from .ocr_confusion import quick_score, score_candidate
 from .pubchem import PubChemClient
 
 # Calibrated in scripts/resolution_report.py --sweep (see backend/README.md for the numbers and their limits).
@@ -16,10 +16,12 @@ THRESHOLDS = {
     "high_score": 0.80,      # top-1 score needed to flag a suggestion high_confidence
     "high_margin": 0.08,     # top-1 minus top-2 score
     "max_unexplained": 1,    # edits not explained by look-alike glyphs / narrow-glyph drops
-    "dominant_score": 0.85, "dominant_margin": 0.25,  # very dominant candidate: high-confidence even with unexplained edits
+    "dominant_score": 0.85, "dominant_margin": 0.15,  # very dominant candidate: high-confidence even with unexplained edits
     "suggest_floor": 0.55,   # below this a fuzzy candidate is not shown
     "merge_score": 0.75, "merge_gain": 0.10,
     "split_min": 0.60, "split_gain": 0.10,
+    "max_merge_tries": 40, "max_split_tries": 25,   # per request: keeps latency bounded on noisy OCR text
+    "split_whole_unexplained": 3, "split_part_unexplained": 2,   # whole token has no OCR-plausible match, each half does -> split
 }
 
 
@@ -62,17 +64,17 @@ class Resolver:
                 continue
             e = self.d.exact(k)
             if e:
-                return dict(layer="inci_exact", inci=e.inci_name, category=e.category, cas=e.cas, ec=e.ec, source=self.d.source)
+                return dict(layer="inci_exact", inci=e.inci_name, category=e.category, cas=e.cas, ec=e.ec, source=e.source or self.d.source)
             e = self.d.alias(k)
             if e:
-                return dict(layer="inci_alias", inci=e.inci_name, category=e.category, cas=e.cas, ec=e.ec, source=self.d.source,
+                return dict(layer="inci_alias", inci=e.inci_name, category=e.category, cas=e.cas, ec=e.ec, source=e.source or self.d.source,
                             notes=[f"Matched through a {e.alias_kind.replace('_', ' ')} alias."])
         if "/" in base:  # slash synonyms: "Aqua/Water/Eau" when the whole string is not an entry
             for part in base.split("/"):
                 e = self.d.exact(key(part)) or self.d.alias(key(part))
                 if e:
                     return dict(layer="inci_alias", inci=e.inci_name, category=e.category, cas=e.cas, ec=e.ec,
-                                source=self.d.source, notes=["Matched through a slash synonym."])
+                                source=e.source or self.d.source, notes=["Matched through a slash synonym."])
         cat = categories.classify(base) or categories.classify(without_parens(base))
         if cat:
             return dict(layer="category_recognized", category=cat, notes=[categories.NOTE])
@@ -89,18 +91,27 @@ class Resolver:
         return res
 
     def _fuzzy_uncached(self, k: str, limit: int) -> list[tuple[Candidate, int]]:
-        if len(k) < 3:
+        if len(k) < 3 or len(k) > 60:
             return []
-        pool = process.extract(k, self.d.corpus_keys, scorer=fuzz.ratio, limit=60, score_cutoff=35)
-        by_inci: dict[str, tuple[float, list[str], int]] = {}
+        floor = self.T["suggest_floor"]
+        pool = process.extract(k, self.d.corpus_keys, scorer=fuzz.ratio, limit=40, score_cutoff=45)
+        scored: dict[str, tuple[float, str]] = {}
         for ck, _s, _i in pool:
+            sc = quick_score(k, ck, floor)
+            if sc >= floor:
+                name = self.d.corpus[ck]
+                if name not in scored or sc > scored[name][0]:
+                    scored[name] = (sc, ck)
+
+        def prior(name: str) -> int:
+            return self.d.suffix_freq.get(name.split()[-1], 0) if " " in name else 0
+        ranked = sorted(scored.items(), key=lambda kv: (-round(kv[1][0] / 0.005), -prior(kv[0]), -kv[1][0]))[:limit]
+        out = []
+        for name, (_sc, ck) in ranked:   # full traceback (edits, unexplained count) only for the few finalists
             sc, edits, un = score_candidate(k, ck)
-            name = self.d.corpus[ck]
-            if name not in by_inci or sc > by_inci[name][0]:
-                by_inci[name] = (sc, edits, un)
-        ranked = sorted(by_inci.items(), key=lambda kv: -kv[1][0])[:limit]
-        return [(Candidate(inci_name=n, score=round(sc, 3), edits=edits, source="dictionary"), un)
-                for n, (sc, edits, un) in ranked if sc >= self.T["suggest_floor"]]
+            out.append((Candidate(inci_name=name, score=round(sc, 3), edits=edits, source="dictionary"), un))
+        out.sort(key=lambda x: (-round(x[0].score / 0.005), -prior(x[0].inci_name), -x[0].score))
+        return out
 
     def _word_swap_note(self, text: str, cand: Candidate) -> str | None:
         """Warn when a candidate differs from the printed text by a WHOLE WORD that is itself a valid ingredient word
@@ -126,8 +137,12 @@ class Resolver:
         second = cands[1][0].score if len(cands) > 1 else 0.0
         st.status, st.layer, st.unexplained_top = "suggested", "fuzzy", un
         margin = top.score - second
-        st.high = ((top.score >= self.T["high_score"] and margin >= self.T["high_margin"] and un <= self.T["max_unexplained"])
-                   or (top.score >= self.T["dominant_score"] and margin >= self.T["dominant_margin"]))
+        extra = sum(1 for e in top.edits if e.startswith("extra"))
+        st.high = (((top.score >= self.T["high_score"] and margin >= self.T["high_margin"] and un <= self.T["max_unexplained"])
+                    or (top.score >= self.T["dominant_score"] and margin >= self.T["dominant_margin"]))
+                   and extra < 2)   # never bulk-acceptable when the token has 2+ extra characters: OCR truncates names more often than it invents letters
+        if extra >= 2:
+            st.notes.append("The text has extra characters, so a word may be cut off or merged with its neighbour: check the pack.")
         for e in top.edits:
             if "not visible" in e:
                 st.notes.append(f"{e}.")
@@ -144,6 +159,10 @@ class Resolver:
         for s in segs:
             st = State(seg=s, fragments=[s.raw])
             hit = self._static(s.raw, s.tags)
+            if hit is None and (len(s.raw.split()) > 9 or len(s.raw) > 90):
+                removed.append(RemovedFragment(position=s.position, sourceIndex=s.source_index, raw=s.raw,
+                                               reason="long text fragment (too long to be one ingredient name)", kind="long_text"))
+                continue
             if hit is None:
                 f = nf.strong(s.raw)
                 if f:
@@ -227,10 +246,14 @@ class Resolver:
     def _merge(self, states: list[State], fz) -> list[State]:
         out: list[State] = []
         i = 0
+        tries = 0
         while i < len(states):
             a = states[i]
             if i + 1 < len(states) and a.status == "pending" and states[i + 1].status == "pending" \
-                    and a.seg.source_index == states[i + 1].seg.source_index:
+                    and a.seg.source_index == states[i + 1].seg.source_index \
+                    and tries < self.T["max_merge_tries"] and len(a.seg.raw.split()) <= 3 and len(states[i + 1].seg.raw.split()) <= 3 \
+                    and (fz.get(i) or fz.get(i + 1) or states[i].seg.raw):
+                tries += 1
                 b = states[i + 1]
                 joined = f"{a.seg.raw} {b.seg.raw}"
                 cands = self._fuzzy(joined)
@@ -250,18 +273,25 @@ class Resolver:
     # ---- lost comma split -----------------------------------------------------------------------
     def _split(self, states: list[State], fz) -> list[State]:
         out: list[State] = []
+        tries = 0
         for st in states:
             words = st.seg.raw.split()
-            if st.status != "pending" or st.merged_from or len(words) < 2:
+            if st.status != "pending" or st.merged_from or len(words) < 2 or len(words) > 5 or tries >= self.T["max_split_tries"]:
                 out.append(st); continue
+            tries += 1
             whole = self._fuzzy(st.seg.raw)
             whole_s = whole[0][0].score if whole else 0.0
+            whole_un = whole[0][1] if whole else 99
             best = None
             for k in range(1, len(words)):
                 l, r = " ".join(words[:k]), " ".join(words[k:])
-                ls = 1.0 if self._static(l, []) else (self._fuzzy(l)[:1] or [(Candidate(inci_name="", score=0), 0)])[0][0].score
-                rs = 1.0 if self._static(r, []) else (self._fuzzy(r)[:1] or [(Candidate(inci_name="", score=0), 0)])[0][0].score
-                if min(ls, rs) >= self.T["split_min"] and (ls + rs) / 2 - whole_s >= self.T["split_gain"]:
+                lf = self._fuzzy(l)[:1] or [(Candidate(inci_name="", score=0), 99)]
+                rf = self._fuzzy(r)[:1] or [(Candidate(inci_name="", score=0), 99)]
+                ls = 1.0 if self._static(l, []) else lf[0][0].score
+                rs = 1.0 if self._static(r, []) else rf[0][0].score
+                lu = 0 if ls == 1.0 else lf[0][1]; ru = 0 if rs == 1.0 else rf[0][1]
+                explained = whole_un >= self.T["split_whole_unexplained"] and max(lu, ru) <= self.T["split_part_unexplained"]
+                if min(ls, rs) >= self.T["split_min"] and ((ls + rs) / 2 - whole_s >= self.T["split_gain"] or explained):
                     if best is None or ls + rs > best[0]:
                         best = (ls + rs, l, r)
             if best:

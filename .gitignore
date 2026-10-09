@@ -8,3 +8,4 @@ __pycache__
 backend/data/*.sqlite
 .venv
 public/tesseract/
+backend/data/raw/

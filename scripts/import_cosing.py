@@ -4,6 +4,12 @@
   python scripts/import_cosing.py --seed
       Build from the hand-written seed list (backend/data/seed_inci.csv). No CosIng data, no functions/CAS.
 
+  python scripts/fetch_glossary.py
+  python scripts/import_cosing.py --glossary-csv backend/data/raw/glossary_32025D1175.csv --source-date 2025-06-16 --version glossary-2025-1175
+      Build from the OFFICIAL EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175, ~30,400 names;
+      names only: no CAS/EC/functions). Seed aliases and categories are merged in; seed names that are not in the glossary are kept
+      but marked as seed-only so they are never presented as official.
+
   python scripts/import_cosing.py --cosing-file path/to/cosing.csv --source-date 2025-06-16 --version cosing-2025-06
       Build from an official EU CosIng / glossary CSV export you downloaded yourself. The seed list's common-name
       aliases are merged in for names that exist in the import.
@@ -62,6 +68,7 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--seed", action="store_true")
     g.add_argument("--cosing-file", type=Path)
+    g.add_argument("--glossary-csv", type=Path)
     ap.add_argument("--source-date", default="", help="publication/update date of the source file (YYYY-MM-DD)")
     ap.add_argument("--version", default="")
     ap.add_argument("--out", type=Path, default=D.DEFAULT_DB)
@@ -69,6 +76,25 @@ def main():
     if a.seed:
         n = D.build_seed_db(a.out)
         print(f"built seed dictionary: {n} entries -> {a.out}")
+        return
+    if a.glossary_csv:
+        import csv as _csv
+        by: dict[str, dict] = {}
+        for r in _csv.DictReader(open(a.glossary_csv, encoding="utf-8")):
+            n = r["common_ingredient_name"].strip().upper()
+            if n and n not in by:
+                by[n] = {"inci_name": n, "aliases": [], "cosing_ref": r["entry"]}
+        from app.dictionary import SEED_ONLY_MARK
+        for s_ in D.load_seed_rows():
+            r = by.get(s_["inci_name"].upper())
+            if r:
+                r["aliases"] = s_["aliases"]; r["category"] = s_.get("category")
+            else:
+                by[s_["inci_name"].upper()] = {"inci_name": s_["inci_name"], "aliases": s_["aliases"], "category": s_.get("category"), "description": SEED_ONLY_MARK}
+        n = D.build_db(a.out, list(by.values()), {
+            "dictionaryVersion": a.version or "glossary-2025-1175", "dictionarySource": "eu_glossary", "dictionarySourceDate": a.source_date or "2025-06-16",
+            "note": f"EU glossary of common ingredient names (Implementing Decision (EU) 2025/1175), names only; imported from {a.glossary_csv.name}"})
+        print(f"built EU-glossary dictionary: {n} entries -> {a.out}")
         return
     rows = read_cosing(a.cosing_file)
     by = {r["inci_name"].upper(): r for r in rows}

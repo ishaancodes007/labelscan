@@ -68,6 +68,9 @@ def build_seed_db(db_path: Path = DEFAULT_DB) -> int:
     })
 
 
+SEED_ONLY_MARK = "Name from the project seed list; not an entry of the EU glossary."
+
+
 @dataclass
 class Entry:
     inci_name: str
@@ -75,6 +78,7 @@ class Entry:
     cas: str | None
     ec: str | None
     alias_kind: str | None = None  # set when found through an alias
+    source: str = ""               # "eu_glossary" | "seed" (per entry: a seed-only name is never presented as an official one)
 
 
 class Dictionary:
@@ -86,12 +90,18 @@ class Dictionary:
         self.meta = dict(self.con.execute("SELECT key,value FROM meta"))
         self.by_key: dict[str, Entry] = {}
         self.alias_key: dict[str, Entry] = {}
-        for name, norm, cas, ec, cat in self.con.execute("SELECT inci_name,normalized,cas,ec,category FROM inci"):
-            self.by_key[norm] = Entry(name, cat, cas, ec)
+        for name, norm, cas, ec, cat, desc in self.con.execute("SELECT inci_name,normalized,cas,ec,category,description FROM inci"):
+            seed_only = bool(desc and desc.startswith(SEED_ONLY_MARK))
+            self.by_key[norm] = Entry(name, cat, cas, ec, source="seed" if seed_only else self.meta.get("dictionarySource", "seed"))
         for alias, norm, name, kind in self.con.execute("SELECT alias,normalized,inci_name,kind FROM aliases"):
             base = self.by_key.get(key(name))
             self.alias_key.setdefault(norm, Entry(name, base.category if base else None,
-                                                  base.cas if base else None, base.ec if base else None, kind))
+                                                  base.cas if base else None, base.ec if base else None, kind, base.source if base else ""))
+        # curated common-name aliases (WATER -> AQUA, FRAGRANCE -> PARFUM, ...) win over a same-named official glossary entry, so that
+        # one ingredient has one identity (the glossary lists WATER as an entry of its own)
+        for k, e in list(self.alias_key.items()):
+            if e.alias_kind == "common_name" and k in self.by_key and self.by_key[k].inci_name != e.inci_name:
+                del self.by_key[k]
         # fuzzy corpus: every INCI key and alias key -> inci_name
         self.corpus: dict[str, str] = {k: e.inci_name for k, e in self.by_key.items()}
         for k, e in self.alias_key.items():
@@ -99,8 +109,12 @@ class Dictionary:
         self.corpus_keys = list(self.corpus)
         # vocabulary of whole words used in dictionary names (for the "different ingredient word" warning)
         self.vocab: set[str] = set()
+        self.suffix_freq: dict[str, int] = {}   # last word -> how many dictionary names end with it (data-driven prior for dropped suffixes)
         for name in set(self.corpus.values()):
             self.vocab.update(re.findall(r"[A-Z0-9]{3,}", name))
+            last = name.split()[-1] if name.split() else ""
+            if len(name.split()) > 1:
+                self.suffix_freq[last] = self.suffix_freq.get(last, 0) + 1
 
     @property
     def source(self) -> str:

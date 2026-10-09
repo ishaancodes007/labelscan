@@ -173,18 +173,28 @@ def print_report(title, r):
 
 
 def sweep(fixtures):
+    """Calibration sweep: golden + clean fixtures + 5 seeded random-edit copies of each clean fixture. Objective: no wrong high-confidence
+    suggestion; among those settings, as many correct ones as possible. Evaluate the chosen setting on held-out data afterwards."""
     rng = random.Random(7)
-    pool = list(fixtures) + [noisy_copy(f, rng) for f in fixtures if not f.get("golden") for _ in range(3)]
+    pool = list(fixtures) + [noisy_copy(f, rng) for f in fixtures if not f.get("golden") for _ in range(5)]
     print(f"\n=== threshold sweep on {len(pool)} labels ({len(fixtures)} fixtures + synthetic random-edit copies) ===")
-    print("high_score margin max_unexpl | high-conf total  correct  wrong")
+    print("high_score margin max_unexpl dom_score dom_margin | high-conf total  correct  wrong")
     res = Resolver(Dictionary(), PubChemClient(enabled=False))  # one resolver: fuzzy cache is shared across configs
-    for hs in (0.70, 0.75, 0.80, 0.85, 0.90):
-        for mg in (0.0, 0.05, 0.08, 0.12, 0.20):
-            for mu in (0, 1, 2):
-                res.T = {**THRESHOLDS, "high_score": hs, "high_margin": mg, "max_unexplained": mu}
-                r = evaluate(pool, res)
-                h = r["hc"]
-                print(f"  {hs:.2f}   {mg:.2f}      {mu}      | {h['total']:5d}  {h['ok']:7d}  {h['wrong']:5d}")
+    rows = []
+    for hs in (0.75, 0.80, 0.85):
+        for mg in (0.05, 0.08, 0.12):
+            for mu in (1, 2):
+                for ds in (0.85, 0.90):
+                    for dm in (0.12, 0.15, 0.20, 0.25):
+                        res.T = {**THRESHOLDS, "high_score": hs, "high_margin": mg, "max_unexplained": mu, "dominant_score": ds, "dominant_margin": dm}
+                        h = evaluate(pool, res)["hc"]
+                        rows.append((hs, mg, mu, ds, dm, h["total"], h["ok"], h["wrong"]))
+                        print(f"  {hs:.2f}   {mg:.2f}      {mu}        {ds:.2f}     {dm:.2f}     | {h['total']:5d}  {h['ok']:7d}  {h['wrong']:5d}")
+    safe = [r for r in rows if r[7] == 0]
+    print(f"\nsettings with 0 wrong high-confidence suggestions: {len(safe)} of {len(rows)}")
+    if safe:
+        best = max(safe, key=lambda r: r[6])
+        print("most correct high-confidence suggestions with 0 wrong:", best)
 
 
 def main():

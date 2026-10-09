@@ -65,10 +65,17 @@ export function evaluate(items: ItemIn[], profile: Profile, accepted: Record<num
       // regulatory status lines from the curated families
       for (const f of new Set(hits.map((h) => h.family))) if (f.regulatory) regulatory[i].push({ text: f.regulatory.text, source: f.regulatory.source, family: f.name });
     } else if (it.status === "suggested" && it.candidates && it.candidates.length >= 2) {
-      // candidate note: all top candidates in one family with a candidate_note -> informational, does NOT identify the item
-      const top = it.candidates.filter((c) => c.score >= it.candidates![0].score - 0.2).slice(0, 3);
-      for (const f of FAMILIES) if (f.candidate_note && top.length >= 2 && top.every((c) => lookupKey(normKey(c.inci_name)).some((h) => h.family.id === f.id)))
-        findings[i].push({ kind: "candidate_note", tier: "note", ruleId: `cand:${f.id}`, title: "The possible matches are alike", explanation: f.candidate_note, source: f.source, confidence: f.confidence });
+      // candidate note: when at least two of the top candidates are members of a family with a candidate note, say so (informational:
+      // it does NOT identify the item)
+      const top = it.candidates.slice(0, 3);
+      for (const f of FAMILIES) {
+        if (!f.candidate_note) continue;
+        const inFam = top.filter((c) => lookupKey(normKey(c.inci_name)).some((h) => h.family.id === f.id));
+        if (inFam.length >= 2)
+          findings[i].push({ kind: "candidate_note", tier: "note", ruleId: `cand:${f.id}`, title: "Some of the possible matches are alike",
+            explanation: `Among the possible matches, ${inFam.map((c) => titleCase(c.inci_name)).join(" and ")} are fatty alcohols with a similar role (waxy softeners). They are not drying alcohols, so the practical difference between them is small.`,
+            source: f.source, confidence: f.confidence });
+      }
     }
     findings[i].sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier]);
   });

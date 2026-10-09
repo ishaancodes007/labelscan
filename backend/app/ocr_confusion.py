@@ -99,3 +99,58 @@ def score_candidate(tok: str, cand: str) -> tuple[float, list[str], int]:
                 best_cost, best_edits, best_un = c, e + [f"'{suf.title()}' not visible"], u
                 best_len = max(len(tok), len(cand) - len(suf), 1)
     return max(0.0, 1.0 - best_cost / best_len), best_edits, best_un
+
+
+def cost_only(tok: str, cand: str, bound: float) -> float:
+    """Same weighted distance as `distance`, cost only, pull-style with early exit: returns INF as soon as every cell of two
+    consecutive rows exceeds `bound` (the score floor makes anything above it irrelevant). ~10x faster than the traceback version."""
+    INF = 1e9
+    n, m = len(tok), len(cand)
+    prev2 = None
+    prev = [j * 1.0 for j in range(m + 1)]
+    prev[0] = 0.0
+    for j in range(1, m + 1):
+        prev[j] = prev[j - 1] + _indel_cost(cand[j - 1])
+    for i in range(1, n + 1):
+        ti = tok[i - 1]
+        cur = [INF] * (m + 1)
+        cur[0] = prev[0] + _indel_cost(ti)
+        row_min = cur[0]
+        for j in range(1, m + 1):
+            cj = cand[j - 1]
+            v = prev[j - 1] + (0.0 if ti == cj else _sub_cost(ti, cj)[0])
+            a = prev[j] + _indel_cost(ti)
+            if a < v: v = a
+            b = cur[j - 1] + _indel_cost(cj)
+            if b < v: v = b
+            if i >= 2 and prev2 is not None:      # token pair -> one candidate char (rn->m, cl->d, vv->w)
+                pair = tok[i - 2:i]
+                for x, y in MULTI:
+                    if pair == x and cj == y and prev2[j - 1] + CONF_SUB < v: v = prev2[j - 1] + CONF_SUB
+            if j >= 2:                             # one token char -> candidate pair
+                cp = cand[j - 2:j]
+                for x, y in MULTI:
+                    if cp == x and ti == y and prev[j - 2] + CONF_SUB < v: v = prev[j - 2] + CONF_SUB
+            cur[j] = v
+            if v < row_min: row_min = v
+        if row_min > bound and (prev2 is None or min(prev) > bound):
+            return INF
+        prev2, prev = prev, cur
+    return prev[m]
+
+
+def quick_score(tok: str, cand: str, floor: float) -> float:
+    """Similarity like `score_candidate` (incl. the dropped-generic-suffix variant) but cost-only and pruned; 0 if below `floor`."""
+    maxlen = max(len(tok), len(cand), 1)
+    best = 0.0
+    c = cost_only(tok, cand, (1.0 - floor) * maxlen)
+    if c < 1e8:
+        best = max(0.0, 1.0 - c / maxlen)
+    for suf in GENERIC_SUFFIXES:
+        if cand.endswith(suf) and len(cand) > len(suf) + 3 and not tok.endswith(suf):
+            short = cand[: -len(suf)]
+            ml = max(len(tok), len(short), 1)
+            c = cost_only(tok, short, (1.0 - floor) * ml - SUFFIX_COST)
+            if c < 1e8:
+                best = max(best, max(0.0, 1.0 - (c + SUFFIX_COST) / ml))
+    return best
