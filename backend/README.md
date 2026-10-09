@@ -22,8 +22,8 @@ split lost-comma tokens → PubChem (CAS, name, autocomplete) → OCR-weighted f
 Any fuzzy or merged/split result is `suggested` until the user accepts it; `highConfidence` marks suggestions safe to offer for bulk review.
 
 ## What is actually connected (and what is not)
-- **Dictionary: a 235-name hand-written SEED list** (`data/seed_inci.csv`), *not* CosIng. It has no functions, CAS numbers or regulatory data. `meta.dictionarySource` says `seed`.
-- `scripts/import_cosing.py --cosing-file <csv>` builds the real dictionary from an official CosIng/glossary CSV. **It has only been run on a synthetic CSV**: the official export's real headers are unverified, and the official data hosts (`publications.europa.eu`, `data.europa.eu`, `eur-lex.europa.eu`) were unreachable from the build environment. Check the current terms of reuse before using or redistributing the data.
+- **Dictionary:** the 30k-name EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175; names only, no functions, no CAS), built by `scripts/fetch_glossary.py` + `scripts/import_cosing.py --glossary-csv ...` (see the repo README). If `backend/data/inci.sqlite` is missing the service builds a 235-name seed list instead (`meta.dictionarySource` says `seed`). It is *not* CosIng.
+- `scripts/import_cosing.py --cosing-file <csv>` (a CosIng export) has only been run on a synthetic CSV; the glossary path above is the one used and verified. Check the current terms of reuse before redistributing the data.
 - PubChem: live calls verified for name and CAS lookups (e.g. niacinamide → CID 936). The shared egress IP was intermittently throttled (HTTP 429), so full-label runs often ended `lookup_unavailable`; that state is reported, never treated as "no concern". The autocomplete relevance filter and outage handling were checked against a mock, not live.
 - The AI helper (Phase 6, `app/agent.py`) is built but **has never been run against a real model** (no API key in the build environment). Its guardrails are checked with a scripted mock model (`python scripts/agent_guard_check.py`). See `docs/PHASE6.md`.
 
@@ -34,3 +34,6 @@ Thresholds live in `app/resolver.py` (`THRESHOLDS`) and edit costs in `app/ocr_c
 Off unless the request has `useAgent: true` (the UI checkbox is unchecked by default) **and** the server has both variables, read from the Python environment only:
 `ANTHROPIC_API_KEY` and `ANTHROPIC_RESOLVER_MODEL`. There is no default model on purpose. Anthropic's models overview (checked 2026-10-09) lists `claude-haiku-5-5` as the fastest, intended for classification and extraction, `claude-sonnet-5-5` as the speed/intelligence balance; pick one yourself and re-check the page for current IDs. The server also needs network access to `api.anthropic.com`.
 Without both variables `meta.agentStatus` is `unavailable` and nothing else changes.
+
+## Hosting
+Set `SERVICE_TOKEN` on any public deployment (requests to `/v1/*` then need the `x-service-token` header; `/healthz` stays open). `render.yaml` and `scripts/build_backend.sh` build it on Render; see `DEPLOY.md`.

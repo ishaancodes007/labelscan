@@ -1,6 +1,8 @@
 import { analyzeBaseline } from "@/lib/baseline";
 import { resolveIdentities } from "@/lib/resolverClient";
 
+export const maxDuration = 30;   // seconds, where the platform allows (a sleeping free-tier Python service can take a while to wake)
+
 // Contract: { text: string, useAgent?: boolean } -> { engine, items, removed?, meta?, notice? }.
 // engine "enhanced": identities from the Python service. engine "fallback": TypeScript starter path
 // (exact seed match + PubChem name lookup); the notice must be shown to the user. Logs counts/timings only.

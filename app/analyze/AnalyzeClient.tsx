@@ -42,7 +42,7 @@ export default function AnalyzeClient() {
   const [edited, setEdited] = useState(false);
   const [result, setResult] = useState<ApiResult | null>(null);
   const [profile, setProfile] = useState<Profile>(EMPTY_PROFILE);
-  useEffect(() => { setProfile(loadProfile()); }, []);   // local only
+  useEffect(() => { setProfile(loadProfile()); fetch("/api/warm").catch(() => {}); }, []);   // profile: local only; warm-up: wakes an idle matching service, sends nothing
   const [choices, setChoices] = useState<Choices>(NO_CHOICES);   // review decisions: session state only
   const [agentAsked, setAgentAsked] = useState(false);
   const [useAgent, setUseAgent] = useState(false);   // opt-in, off by default

@@ -1,0 +1,20 @@
+# Render Blueprint for the Python identity service. The Next.js app is deployed separately (Vercel); see DEPLOY.md.
+services:
+  - type: web
+    name: beautylens-identity
+    runtime: python
+    plan: free                       # free instances sleep when idle; the app wakes it on /analyze
+    buildCommand: bash scripts/build_backend.sh
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7                # developed on 3.13; 3.12 is NOT yet tested (see DEPLOY.md)
+      - key: PUBCHEM_ENABLED
+        value: "1"
+      - key: SERVICE_TOKEN
+        generateValue: true          # copy this value into Vercel as PYTHON_API_TOKEN
+      - key: ANTHROPIC_API_KEY       # optional: enables the opt-in AI helper. Leave empty to keep it unavailable.
+        sync: false
+      - key: ANTHROPIC_RESOLVER_MODEL
+        sync: false
