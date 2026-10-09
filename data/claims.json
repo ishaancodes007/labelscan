@@ -1,0 +1,689 @@
+{
+ "version": 1,
+ "last_updated": "2026-10-09",
+ "verification_note": "Claim logic is deterministic. Free-from families come from data/allergen_families.json (primary text of Regulation 1223/2009 where noted). Vitamin/ingredient aliases were checked against PubChem synonym records; plant-oil aliases rest on standard botanical names and are marked limited.",
+ "unverifiable_basis": [
+  {
+   "label": "Commission Regulation (EU) No 655/2013, common criteria for the justification of claims used in relation to cosmetic products (Annex, criterion 3: evidential support)",
+   "url": "https://publications.europa.eu/resource/cellar/4821a83b-e9f9-11e2-99b0-01aa75ed71a1"
+  }
+ ],
+ "free_from": [
+  {
+   "id": "fragrance_free",
+   "label": "Fragrance-free / no added fragrance",
+   "logic": "fragrance",
+   "phrases": [
+    "fragrance free",
+    "fragrance-free",
+    "no added fragrance",
+    "no fragrance",
+    "without fragrance",
+    "free from fragrance",
+    "free of fragrance",
+    "perfume free",
+    "no added perfume",
+    "without added fragrance"
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    },
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "established"
+  },
+  {
+   "id": "alcohol_free",
+   "label": "Alcohol-free",
+   "logic": "alcohol",
+   "phrases": [
+    "alcohol free",
+    "alcohol-free",
+    "no alcohol",
+    "free from alcohol",
+    "without alcohol"
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "paraben_free",
+   "label": "Paraben-free",
+   "logic": "family",
+   "family": "parabens",
+   "phrases": [
+    "paraben free",
+    "paraben-free",
+    "no parabens",
+    "free from parabens",
+    "without parabens",
+    "parabens free"
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "confidence": "established"
+  },
+  {
+   "id": "sulfate_free",
+   "label": "Sulfate-free",
+   "logic": "family",
+   "family": "sulfate_surfactants",
+   "phrases": [
+    "sulfate free",
+    "sulfate-free",
+    "sulphate free",
+    "sulphate-free",
+    "no sulfates",
+    "no sulphates",
+    "free from sulfates",
+    "without sulfates",
+    "sulfates free"
+   ],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "silicone_free",
+   "label": "Silicone-free",
+   "logic": "family",
+   "family": "silicones",
+   "phrases": [
+    "silicone free",
+    "silicone-free",
+    "no silicones",
+    "free from silicones",
+    "without silicones",
+    "silicones free"
+   ],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "dye_free",
+   "label": "Dye-free / no colourants",
+   "logic": "colorant",
+   "phrases": [
+    "no dyes",
+    "dye free",
+    "dye-free",
+    "no artificial colours",
+    "no artificial colors",
+    "colour free",
+    "color free",
+    "free from dyes",
+    "without dyes"
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "confidence": "limited"
+  },
+  {
+   "id": "essential_oil_free",
+   "label": "No essential oils",
+   "logic": "unsupported",
+   "phrases": [
+    "no essential oils",
+    "essential oil free",
+    "essential oils free",
+    "free from essential oils",
+    "without essential oils"
+   ],
+   "reason": "BeautyLens does not have a verified list of which ingredients count as essential oils yet, so it cannot check this claim against the ingredient list.",
+   "source": [],
+   "confidence": "note"
+  }
+ ],
+ "ingredient_claims": [
+  {
+   "id": "vitamin_e",
+   "label": "Vitamin E",
+   "terms": [
+    "vitamin e"
+   ],
+   "inci": [
+    "TOCOPHEROL",
+    "TOCOPHERYL ACETATE",
+    "TOCOPHERYL LINOLEATE",
+    "TOCOPHERYL NICOTINATE",
+    "TOCOPHERYL SUCCINATE"
+   ],
+   "inci_patterns": [
+    "^(DL-|D-|ALPHA-|DL-ALPHA-)?TOCOPHER"
+   ],
+   "source": [
+    {
+     "label": "PubChem: alpha-tocopherol (vitamin E)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14985"
+    },
+    {
+     "label": "PubChem: tocopheryl acetate (synonym: vitamin E acetate)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2117"
+    }
+   ],
+   "confidence": "established",
+   "note": "Vitamin E on labels is tocopherol or one of its esters (for example tocopheryl acetate)."
+  },
+  {
+   "id": "vitamin_b3",
+   "label": "Vitamin B3 (niacinamide)",
+   "terms": [
+    "vitamin b3",
+    "niacinamide"
+   ],
+   "inci": [
+    "NIACINAMIDE",
+    "NIACIN"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "PubChem: niacinamide (synonyms include Vitamin B3)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/936"
+    }
+   ],
+   "confidence": "established",
+   "note": "Niacinamide is a form of vitamin B3."
+  },
+  {
+   "id": "vitamin_b5",
+   "label": "Pro-vitamin B5 (panthenol)",
+   "terms": [
+    "vitamin b5",
+    "provitamin b5",
+    "pro-vitamin b5",
+    "pro vitamin b5",
+    "panthenol"
+   ],
+   "inci": [
+    "PANTHENOL",
+    "PANTOTHENIC ACID",
+    "CALCIUM PANTOTHENATE",
+    "PANTHENYL ETHYL ETHER"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "PubChem: dexpanthenol (synonyms include Provitamin B5)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/131204"
+    },
+    {
+     "label": "PubChem: pantothenic acid (vitamin B5)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6613"
+    }
+   ],
+   "confidence": "established",
+   "note": "Panthenol is the provitamin of B5; it is converted to pantothenic acid in the skin."
+  },
+  {
+   "id": "vitamin_c",
+   "label": "Vitamin C",
+   "terms": [
+    "vitamin c"
+   ],
+   "inci": [
+    "ASCORBIC ACID",
+    "SODIUM ASCORBYL PHOSPHATE",
+    "ASCORBYL GLUCOSIDE",
+    "ASCORBYL PALMITATE",
+    "MAGNESIUM ASCORBYL PHOSPHATE",
+    "3-O-ETHYL ASCORBIC ACID",
+    "ETHYL ASCORBIC ACID"
+   ],
+   "inci_patterns": [
+    "ASCORB"
+   ],
+   "source": [
+    {
+     "label": "PubChem: ascorbic acid (vitamin C)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/54670067"
+    }
+   ],
+   "confidence": "established",
+   "note": "Vitamin C on labels is ascorbic acid or one of its derivatives."
+  },
+  {
+   "id": "vitamin_a",
+   "label": "Vitamin A / retinol",
+   "terms": [
+    "vitamin a",
+    "retinol"
+   ],
+   "inci": [
+    "RETINOL",
+    "RETINYL PALMITATE",
+    "RETINYL ACETATE",
+    "RETINYL PROPIONATE",
+    "RETINAL"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "PubChem: retinol (vitamin A)",
+     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445354"
+    },
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "confidence": "established",
+   "note": "Retinol and its esters are forms of vitamin A (restricted in Annex III)."
+  },
+  {
+   "id": "hyaluronic_acid",
+   "label": "Hyaluronic acid",
+   "terms": [
+    "hyaluronic acid",
+    "hyaluronate"
+   ],
+   "inci": [
+    "HYALURONIC ACID",
+    "SODIUM HYALURONATE"
+   ],
+   "inci_patterns": [
+    "HYALURONATE$",
+    "^HYALURONIC"
+   ],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": ""
+  },
+  {
+   "id": "avocado_oil",
+   "label": "Avocado oil",
+   "terms": [
+    "avocado oil",
+    "avocado"
+   ],
+   "inci": [
+    "PERSEA GRATISSIMA OIL",
+    "PERSEA GRATISSIMA BUTTER"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Avocado is Persea gratissima; botanical names are standard taxonomy but were not individually verified."
+  },
+  {
+   "id": "almond_oil",
+   "label": "Almond oil",
+   "terms": [
+    "almond oil",
+    "sweet almond oil"
+   ],
+   "inci": [
+    "PRUNUS AMYGDALUS DULCIS OIL"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Sweet almond is Prunus amygdalus dulcis."
+  },
+  {
+   "id": "sunflower_oil",
+   "label": "Sunflower oil",
+   "terms": [
+    "sunflower oil",
+    "sunflower seed oil"
+   ],
+   "inci": [
+    "HELIANTHUS ANNUUS SEED OIL"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Sunflower is Helianthus annuus."
+  },
+  {
+   "id": "coconut_oil",
+   "label": "Coconut oil",
+   "terms": [
+    "coconut oil"
+   ],
+   "inci": [
+    "COCOS NUCIFERA OIL"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Coconut is Cocos nucifera."
+  },
+  {
+   "id": "shea_butter",
+   "label": "Shea butter",
+   "terms": [
+    "shea butter"
+   ],
+   "inci": [
+    "BUTYROSPERMUM PARKII BUTTER"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Shea is Butyrospermum parkii."
+  },
+  {
+   "id": "argan_oil",
+   "label": "Argan oil",
+   "terms": [
+    "argan oil"
+   ],
+   "inci": [
+    "ARGANIA SPINOSA KERNEL OIL"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Argan is Argania spinosa."
+  },
+  {
+   "id": "aloe_vera",
+   "label": "Aloe vera",
+   "terms": [
+    "aloe vera",
+    "aloe"
+   ],
+   "inci": [],
+   "inci_patterns": [
+    "^ALOE BARBADENSIS"
+   ],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": "Aloe vera is Aloe barbadensis."
+  },
+  {
+   "id": "glycerin",
+   "label": "Glycerin",
+   "terms": [
+    "glycerin",
+    "glycerine"
+   ],
+   "inci": [
+    "GLYCERIN"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "established",
+   "note": ""
+  },
+  {
+   "id": "ceramides",
+   "label": "Ceramides",
+   "terms": [
+    "ceramide",
+    "ceramides"
+   ],
+   "inci": [],
+   "inci_patterns": [
+    "^CERAMIDE"
+   ],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "limited",
+   "note": ""
+  },
+  {
+   "id": "salicylic_acid",
+   "label": "Salicylic acid",
+   "terms": [
+    "salicylic acid"
+   ],
+   "inci": [
+    "SALICYLIC ACID"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "established",
+   "note": ""
+  },
+  {
+   "id": "zinc_oxide",
+   "label": "Zinc oxide",
+   "terms": [
+    "zinc oxide"
+   ],
+   "inci": [
+    "ZINC OXIDE"
+   ],
+   "inci_patterns": [],
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "confidence": "established",
+   "note": ""
+  }
+ ],
+ "vitamin_codes": {
+  "E": "vitamin_e",
+  "B3": "vitamin_b3",
+  "B5": "vitamin_b5",
+  "C": "vitamin_c",
+  "A": "vitamin_a"
+ },
+ "unverifiable": [
+  {
+   "id": "non_comedogenic",
+   "label": "Won't clog pores / non-comedogenic",
+   "phrases": [
+    "won't clog pores",
+    "wont clog pores",
+    "doesn't clog pores",
+    "does not clog pores",
+    "non comedogenic",
+    "non-comedogenic",
+    "noncomedogenic",
+    "won't block pores",
+    "will not clog pores"
+   ],
+   "reason": "Whether a product clogs pores is judged by testing the finished product, not by reading its ingredient list."
+  },
+  {
+   "id": "hypoallergenic",
+   "label": "Hypoallergenic",
+   "phrases": [
+    "hypoallergenic",
+    "hypo allergenic"
+   ],
+   "reason": "'Hypoallergenic' has no legal definition and is supported by testing of the finished product, not by an ingredient list. Any product can still cause an allergic reaction in someone."
+  },
+  {
+   "id": "dermatologist_tested",
+   "label": "Dermatologist tested / approved",
+   "phrases": [
+    "dermatologist tested",
+    "dermatologically tested",
+    "dermatologist approved",
+    "dermatologist recommended",
+    "dermatologist developed",
+    "tested by dermatologists",
+    "skin compatibility dermatologically tested"
+   ],
+   "reason": "This describes who tested or recommended the product. An ingredient list cannot show that."
+  },
+  {
+   "id": "clinically_tested",
+   "label": "Clinically proven / tested",
+   "phrases": [
+    "clinically proven",
+    "clinically tested",
+    "clinically shown",
+    "clinically demonstrated",
+    "clinically proven to"
+   ],
+   "reason": "This describes studies on the finished product. An ingredient list cannot show whether such studies exist or what they found."
+  },
+  {
+   "id": "non_irritating",
+   "label": "Non-irritating / gentle",
+   "phrases": [
+    "non irritating",
+    "non-irritating",
+    "nonirritating",
+    "does not irritate",
+    "won't irritate",
+    "gentle on skin",
+    "suitable for sensitive skin",
+    "tested on sensitive skin"
+   ],
+   "reason": "Irritation depends on the whole formula, its concentration and the person; it is shown by testing, not by an ingredient list."
+  },
+  {
+   "id": "natural",
+   "label": "Natural / clean / chemical-free",
+   "phrases": [
+    "100% natural",
+    "all natural",
+    "natural ingredients",
+    "chemical free",
+    "chemical-free",
+    "toxin free",
+    "toxin-free",
+    "clean beauty",
+    "non toxic",
+    "non-toxic"
+   ],
+   "reason": "These words have no fixed legal meaning for cosmetics, and every ingredient is a chemical. An ingredient list cannot verify them."
+  },
+  {
+   "id": "pao_claims",
+   "label": "Long-lasting / 24-hour / 72h",
+   "phrases": [
+    "24 hour",
+    "24-hour",
+    "48 hour",
+    "72 hour",
+    "72h",
+    "long lasting",
+    "long-lasting"
+   ],
+   "reason": "Duration of effect is shown by testing the finished product, not by an ingredient list."
+  }
+ ],
+ "sources": {
+  "reg": {
+   "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18",
+   "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+  },
+  "reg655": {
+   "label": "Commission Regulation (EU) No 655/2013, common criteria for the justification of claims used in relation to cosmetic products (Annex, criterion 3: evidential support)",
+   "url": "https://publications.europa.eu/resource/cellar/4821a83b-e9f9-11e2-99b0-01aa75ed71a1"
+  },
+  "glossary": {
+   "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+   "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+  },
+  "pc_niacinamide": {
+   "label": "PubChem: niacinamide (synonyms include Vitamin B3)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/936"
+  },
+  "pc_dexpanthenol": {
+   "label": "PubChem: dexpanthenol (synonyms include Provitamin B5)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/131204"
+  },
+  "pc_pantothenic": {
+   "label": "PubChem: pantothenic acid (vitamin B5)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6613"
+  },
+  "pc_atocopherol": {
+   "label": "PubChem: alpha-tocopherol (vitamin E)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14985"
+  },
+  "pc_tocac": {
+   "label": "PubChem: tocopheryl acetate (synonym: vitamin E acetate)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2117"
+  },
+  "pc_ascorbic": {
+   "label": "PubChem: ascorbic acid (vitamin C)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/54670067"
+  },
+  "pc_retinol": {
+   "label": "PubChem: retinol (vitamin A)",
+   "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445354"
+  }
+ }
+}

@@ -12,8 +12,9 @@ import { EMPTY_PROFILE, type Profile } from "@/lib/rules/types";
 import ResultsPanel, { type ApiResult } from "./ResultsPanel";
 
 interface Trim { l: number; t: number; r: number; b: number }
+type Role = "ingredients" | "front" | "dates";
 interface Photo {
-  id: string; name: string; rgba: RGBA; trim: Trim; rotate: number; report?: QualityReport;
+  role: Role; id: string; name: string; rgba: RGBA; trim: Trim; rotate: number; report?: QualityReport;
   status: "idle" | "reading" | "done" | "error"; progress: number; warnings?: string[]; lines?: { words: { text: string; confidence: number }[] }[]; note?: string;
 }
 
@@ -54,7 +55,7 @@ export default function AnalyzeClient() {
     for (const f of Array.from(files)) {
       try {
         const rgba = await fileToRGBA(f);
-        setPhotos((ps) => [...ps, { id: `p${++seq.current}`, name: f.name, rgba, trim: { l: 0, t: 0, r: 0, b: 0 }, rotate: 0, status: "idle", progress: 0 }]);
+        setPhotos((ps) => [...ps, { role: "ingredients", id: `p${++seq.current}`, name: f.name, rgba, trim: { l: 0, t: 0, r: 0, b: 0 }, rotate: 0, status: "idle", progress: 0 }]);
       } catch { setError(`Could not open ${f.name} as an image.`); }
     }
   }
@@ -91,11 +92,23 @@ export default function AnalyzeClient() {
   }
 
   const merged = useMemo(() => {
-    const done = photos.filter((p) => p.status === "done" && p.lines);
+    const done = photos.filter((p) => p.role === "ingredients" && p.status === "done" && p.lines);
     if (!done.length) return null;
     const segs = done.map((p) => segmentsFromLines(p.lines!.map((l) => ({ words: l.words.map((w) => ({ ...w })) })), p.name));
     return mergePhotos(segs);
   }, [photos]);
+
+  // front-of-pack and dates photos: text and OCR confidences are kept only while the box is unedited
+  const roleWords = (r: Role) => photos.filter((p) => p.role === r && p.status === "done" && p.lines).flatMap((p) => p.lines!.flatMap((l) => l.words));
+  const roleText = (r: Role) => photos.filter((p) => p.role === r && p.status === "done" && p.lines).flatMap((p) => p.lines!.map((l) => l.words.map((w) => w.text).join(" "))).join("\n");
+  const frontRead = roleText("front"), datesRead = roleText("dates");
+  const [frontText, setFrontText] = useState(""), [frontEdited, setFrontEdited] = useState(false);
+  const [datesText, setDatesText] = useState(""), [datesEdited, setDatesEdited] = useState(false);
+  useEffect(() => { if (!frontEdited) setFrontText(frontRead); }, [frontRead, frontEdited]);
+  useEffect(() => { if (!datesEdited) setDatesText(datesRead); }, [datesRead, datesEdited]);
+  const digitConfs = datesEdited ? [] : roleWords("dates").filter((w) => /\d/.test(w.text)).map((w) => w.confidence);
+  const datesConf = digitConfs.length ? Math.min(...digitConfs) : undefined;
+  const frontWords = frontEdited ? undefined : roleWords("front");
 
   const mergedText = merged ? segmentsToText(merged.segments) : "";
   useEffect(() => { if (!edited) setText(mergedText); }, [mergedText, edited]);
@@ -145,7 +158,16 @@ export default function AnalyzeClient() {
         )}
       </section>
 
-      {result && <ResultsPanel result={result} profile={profile} />}
+      <section className="card" aria-labelledby="pack">
+        <h2 id="pack">Optional: front of pack and dates</h2>
+        <p className="muted"><small>Set a photo's role below to read these from a photo, or just type them. Used only to check claims and dates; nothing here is sent anywhere.</small></p>
+        <label htmlFor="front">Front-of-pack text (claims such as “fragrance free”)</label>
+        <textarea id="front" value={frontText} onChange={(e) => { setFrontText(e.target.value); setFrontEdited(true); }} />
+        <label htmlFor="dates">Dates and other pack text (batch, MFG, EXP, PAO)</label>
+        <textarea id="dates" value={datesText} onChange={(e) => { setDatesText(e.target.value); setDatesEdited(true); }} />
+      </section>
+
+      {result && <ResultsPanel result={result} profile={profile} pack={{ frontText, frontWords, datesText, datesConf }} />}
     </main>
   );
 }
@@ -182,6 +204,10 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
         {trimInput("l", "Trim left")}{trimInput("r", "Trim right")}{trimInput("t", "Trim top")}{trimInput("b", "Trim bottom")}
         <p className="muted"><small>Text that is only slightly tilted is straightened automatically.</small></p>
       </details>
+      <label htmlFor={`${id}-role`}>What does this photo show?</label>
+      <select id={`${id}-role`} value={p.role} onChange={(e) => onChange({ role: e.target.value as Role })}>
+        <option value="ingredients">Ingredient list</option><option value="front">Front of pack (claims)</option><option value="dates">Dates / batch / PAO</option>
+      </select>
       <div className="row">
         <button onClick={onRead} disabled={p.status === "reading"}>{p.status === "reading" ? `Reading… ${Math.round(p.progress * 100)}%` : p.status === "done" ? "Read again" : "Read text from this photo"}</button>
         <button className="secondary" onClick={onRemove}>Remove photo</button>

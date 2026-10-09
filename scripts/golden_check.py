@@ -115,7 +115,7 @@ check("Fatty alcohol accepted -> note 'not a drying alcohol'", bool(fa_idx) and 
 bz = next(n for n, i in enumerate(items) if "BENEYL" in i.raw.upper())
 bzf = [f for f in ev_acc["findings"][bz] if f["kind"] == "avoid_list" and "benzyl" in f["explanation"].lower()]
 check("Fragrance-allergy profile: benzyl alcohol gets tier 'caution' (not 'avoid')", bool(bzf) and all(f["tier"] == "caution" for f in bzf), str([(f["tier"], f["title"]) for f in ev_acc["findings"][bz]]))
-check("Benzyl alcohol caution explains the likely preservative role and cites a source", bool(bzf) and "preservative" in bzf[0]["explanation"] and len(bzf[0]["source"]) >= 1 and bzf[0]["confidence"] == "limited")
+check("Benzyl alcohol caution explains the likely preservative role and cites a source", bool(bzf) and "preservative" in bzf[0]["explanation"] and len(bzf[0]["source"]) >= 1 and bzf[0]["confidence"] == "established")
 check("No 'contradiction' is raised for benzyl alcohol", not any("contradict" in (f["title"] + f["explanation"]).lower() for f in ev_acc["findings"][bz]))
 spec = run_rules(True, {**FRAG, "avoidIngredients": ["Parfum", "Benzyl alcohol"]})
 check("If the user lists benzyl alcohol specifically (doctor-confirmed) the cap lifts to 'avoid'", any(f["kind"] == "avoid_list" and f["tier"] == "avoid" for f in spec["findings"][bz]))
@@ -127,12 +127,44 @@ check("Summary is deterministic text with no verdict words", ev_acc["summary"] !
 ev_none = run_rules(True, {})
 check("Empty profile: banner asks for an avoid list instead of claiming anything", "have not set an avoid list" in ev_none["banner"]["text"])
 
+# ---- Phase 4: claims and trust signals (TypeScript engine on the real resolver output) --------------------------------------
+def run_claims(front: str, accept_top1=True, conf=90, date_lines=(), typed=False) -> dict:
+    items = [i.model_dump() for i in resp.items]
+    accepted = {}
+    if accept_top1:
+        for it in items:
+            if it["status"] == "suggested" and it["candidates"]:
+                accepted[str(it["index"])] = it["candidates"][0]["inci_name"]
+    out = subprocess.run(["npx", "tsx", str(ROOT / "scripts/claims_cli.ts")], capture_output=True, text=True, cwd=ROOT, check=True,
+                         input=json.dumps({"items": items, "accepted": accepted, "frontText": front, "frontWordConf": conf, "dateLines": list(date_lines), "now": "2026-10-09", "typedDates": typed}))
+    return json.loads(out.stdout)
+
+
+FRONT = fx["front_text"]
+cl = run_claims(FRONT, date_lines=["Mfg. Date 01/26", "Use before " + fx["other_fields"]["use_before"]])
+V = {c["id"]: c for c in cl["claims"]}
+for cid, label in [("vitamin_e", "Vitamin E"), ("vitamin_b3", "Vitamin B3"), ("vitamin_b5", "Pro-vitamin B5"), ("avocado_oil", "Avocado oil (printed 'Avocadi Oil')")]:
+    check(f"Claim '{label}' -> matches the ingredient list", cid in V and V[cid]["verdict"] == "matches", V.get(cid, {}).get("explanation", "claim not detected")[:90])
+ff = V.get("fragrance_free")
+check("Claim 'No added fragrance' -> consistent, with the benzyl alcohol nuance explained",
+      bool(ff and ff["verdict"] == "consistent" and "benzyl alcohol" in ff["explanation"].lower() and "preservative" in ff["explanation"].lower()), (ff or {}).get("verdict", "not detected"))
+for cid, label in [("non_comedogenic", "Won't clog pores (printed \"Won'n clog pores\")"), ("non_irritating", "Non-irritating"), ("clinically_tested", "Clinically tested (printed 'Clincally Tested')")]:
+    check(f"Claim '{label}' -> not verifiable from ingredients", cid in V and V[cid]["verdict"] == "not_verifiable", V.get(cid, {}).get("verdict", "claim not detected"))
+check("No claim is reported as a contradiction for the golden label", not any(c["verdict"] == "contradiction" for c in cl["claims"]), str([(c["id"], c["verdict"]) for c in cl["claims"]]))
+cl_open = run_claims(FRONT, accept_top1=False)
+ffo = {c["id"]: c for c in cl_open["claims"]}.get("fragrance_free")
+check("Before the user accepts suggestions, 'No added fragrance' is NOT called consistent (items still need review)", bool(ffo and ffo["verdict"] == "needs_context"), (ffo or {}).get("verdict", ""))
+ms = cl["misspellings"]
+# the golden raw front text has no per-word OCR confidence; the spec describes the words as high-confidence, so the check ASSUMES 90.
+check("Printed-misspelling heuristic triggers a soft notice (several high-confidence misspelled words; OCR confidence assumed 90)", ms["notify"] and len(ms["found"]) >= 3, str([f["word"] + "->" + f["suggestion"] for f in ms["found"]][:6]))
+check("...and never on low-confidence OCR words (confidence 50)", not run_claims(FRONT, conf=50)["misspellings"]["notify"])
+check("...and never on typed text (no OCR confidence)", not run_claims(FRONT, conf=None)["misspellings"]["notify"])
+D = {d["kind"]: d for d in cl["dates"]}
+check("Mfg. date 01/26 extracted (January 2026)", "mfg" in D and (D["mfg"]["month"], D["mfg"]["year"]) == (1, 2026), str(D.get("mfg")))
+check("Use-before extracted as 04/29 with LOW confidence and the user is asked to confirm",
+      "expiry" in D and (D["expiry"]["month"], D["expiry"]["year"]) == (4, 2029) and D["expiry"]["confidence"] == "low" and D["expiry"]["needsConfirm"] and "confirm" in D["expiry"]["status"]["text"].lower(), str(D.get("expiry", {}).get("status")))
+
 pending = [
-    "Claims: vitamin E/B3/B5/avocado oil 'matches' (Phase 4)",
-    "Claim: 'No added fragrance' 'consistent' with benzyl-alcohol nuance (Phase 4)",
-    "Claims: won't clog pores / non-irritating / clinically tested 'not verifiable' (Phase 4)",
-    "Trust signal: printed-misspelling soft notice (Phase 4)",
-    "Expiry 04/29 extracted with low confidence + confirm prompt (Phase 4)",
 ]
 w = max(len(n) for _, n, _ in results)
 for s, n, d in results:

@@ -1,7 +1,8 @@
 {
- "version": 1,
+ "version": 2,
  "last_updated": "2026-10-09",
- "verification_note": "Verified through web-search summaries of the sources (primary EUR-Lex/EMA text could not be opened from the build environment); re-check against the primary text before relying on it for regulatory use.",
+ "generated_by": "scripts/curate_families.py from data/regulation_1223_annexes.json",
+ "verification_note": "Fragrance-allergen, preservative, paraben, isothiazolinone and retinol entries were read from the primary text of Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office. Other sources are noted per family.",
  "families": [
   {
    "id": "eu_fragrance_allergens",
@@ -9,131 +10,454 @@
    "kind": "allergen",
    "description": "Fragrance ingredients that must be declared by name in the EU ingredient list when present above 0.001% in leave-on products or 0.01% in rinse-off products (Annex III of Regulation (EC) No 1223/2009, extended by Regulation (EU) 2023/1545). Appearing on the list means contact allergy has been reported for the substance; it does not say whether any particular product or person is affected.",
    "regulatory": {
-    "text": "Declared by name when above 0.001% (leave-on) or 0.01% (rinse-off). Regulation (EU) 2023/1545 expands the list (about 80 substances; transition dates 31 July 2026 for new products and 31 July 2028 for products already on the market, per secondary sources). This file only contains the long-standing entries listed below.",
+    "text": "Must be named in the ingredient list above 0.001% (leave-on) or 0.01% (rinse-off) (Annex III).",
     "source": [
      {
-      "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
-      "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
      },
      {
-      "label": "EMA appendix: EU list of fragrance allergens requiring labelling in cosmetic and detergent products",
-      "url": "https://www.ema.europa.eu/en/documents/other/appendix-european-union-list-fragrance-allergens-requiring-labelling-cosmetic-and-detergent-products_en.pdf"
+      "label": "Commission Regulation (EU) 2023/1545 (amends Annex III: fragrance allergen labelling), EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
      }
     ]
    },
    "members": [
     {
-     "inci": "LIMONENE"
+     "inci": "BENZYL ALCOHOL",
+     "annex3_entry": "45",
+     "cap_tier": "caution",
+     "role_note": "Benzyl alcohol is on the labelled-allergen list, but Annex III (entry 45) applies that requirement only 'for purposes other than inhibiting the development of microorganisms in the product', and benzyl alcohol is also a permitted preservative (Annex V, entry 34, up to 1.0%). The label cannot tell which role it plays here, so it matters mainly if you are specifically sensitised to benzyl alcohol.",
+     "role_source": [
+      {
+       "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+       "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+      }
+     ],
+     "role_confidence": "established"
     },
     {
-     "inci": "LINALOOL"
+     "inci": "6-METHYL COUMARIN",
+     "annex3_entry": "46"
     },
     {
-     "inci": "CITRAL"
+     "inci": "AMYL CINNAMAL",
+     "annex3_entry": "67"
     },
     {
-     "inci": "GERANIOL"
+     "inci": "CINNAMYL ALCOHOL",
+     "annex3_entry": "69"
     },
     {
-     "inci": "EUGENOL"
+     "inci": "CITRAL",
+     "annex3_entry": "70"
     },
     {
-     "inci": "ISOEUGENOL"
+     "inci": "EUGENOL",
+     "annex3_entry": "71"
     },
     {
-     "inci": "COUMARIN"
+     "inci": "HYDROXYCITRONELLAL",
+     "annex3_entry": "72"
     },
     {
-     "inci": "CITRONELLOL"
+     "inci": "ISOEUGENOL",
+     "annex3_entry": "73"
     },
     {
-     "inci": "FARNESOL"
+     "inci": "AMYLCINNAMYL ALCOHOL",
+     "annex3_entry": "74"
     },
     {
-     "inci": "HEXYL CINNAMAL"
+     "inci": "BENZYL SALICYLATE",
+     "annex3_entry": "75"
     },
     {
-     "inci": "AMYL CINNAMAL"
+     "inci": "CINNAMAL",
+     "annex3_entry": "76"
     },
     {
-     "inci": "CINNAMAL"
+     "inci": "COUMARIN",
+     "annex3_entry": "77"
     },
     {
-     "inci": "CINNAMYL ALCOHOL"
-    },
-    {
-     "inci": "HYDROXYCITRONELLAL"
-    },
-    {
-     "inci": "BUTYLPHENYL METHYLPROPIONAL"
-    },
-    {
-     "inci": "ALPHA-ISOMETHYL IONONE"
-    },
-    {
-     "inci": "BENZYL SALICYLATE"
-    },
-    {
-     "inci": "BENZYL CINNAMATE"
-    },
-    {
-     "inci": "BENZYL BENZOATE"
+     "inci": "GERANIOL",
+     "annex3_entry": "78"
     },
     {
      "inci": "ANISE ALCOHOL",
-     "aliases": [
-      "ANISYL ALCOHOL"
-     ]
+     "annex3_entry": "80"
     },
     {
-     "inci": "AMYLCINNAMYL ALCOHOL"
+     "inci": "BENZYL CINNAMATE",
+     "annex3_entry": "81"
+    },
+    {
+     "inci": "FARNESOL",
+     "annex3_entry": "82"
+    },
+    {
+     "inci": "LINALOOL",
+     "annex3_entry": "84"
+    },
+    {
+     "inci": "BENZYL BENZOATE",
+     "annex3_entry": "85"
+    },
+    {
+     "inci": "CITRONELLOL",
+     "annex3_entry": "86"
+    },
+    {
+     "inci": "HEXYL CINNAMAL",
+     "annex3_entry": "87"
+    },
+    {
+     "inci": "LIMONENE",
+     "annex3_entry": "88"
+    },
+    {
+     "inci": "METHYL 2-OCTYNOATE",
+     "annex3_entry": "89"
+    },
+    {
+     "inci": "ALPHA-ISOMETHYL IONONE",
+     "annex3_entry": "90"
     },
     {
      "inci": "EVERNIA PRUNASTRI EXTRACT",
-     "aliases": [
-      "OAKMOSS EXTRACT"
-     ]
+     "annex3_entry": "91"
     },
     {
      "inci": "EVERNIA FURFURACEA EXTRACT",
-     "aliases": [
-      "TREEMOSS EXTRACT"
-     ]
+     "annex3_entry": "92"
     },
     {
-     "inci": "BENZYL ALCOHOL",
-     "cap_tier": "caution",
-     "role_note": "Benzyl alcohol is on the fragrance-allergen list, but it is also widely used as a preservative, and the Commission's draft Annex III entry applies it 'for purposes other than inhibiting the development of microorganisms in the product'. The label cannot tell which role it plays here, so it matters mainly if you are specifically sensitised to benzyl alcohol.",
-     "role_source": [
-      {
-       "label": "Council of the EU document ST 7839/2023 ADD 1 (Commission draft regulation on fragrance allergen labelling; benzyl alcohol entry 'for purposes other than inhibiting the development of microorganisms in the product')",
-       "url": "https://data.consilium.europa.eu/doc/document/ST-7839-2023-ADD-1/en/pdf"
-      },
-      {
-       "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
-       "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
-      }
-     ],
-     "role_confidence": "limited"
+     "inci": "PINUS MUGO LEAF OIL",
+     "annex3_entry": "109"
+    },
+    {
+     "inci": "PINUS MUGO TWIG LEAF EXTRACT",
+     "annex3_entry": "109"
+    },
+    {
+     "inci": "PINUS MUGO TWIG OIL",
+     "annex3_entry": "109"
+    },
+    {
+     "inci": "PINUS PUMILA NEEDLE EXTRACT",
+     "annex3_entry": "114"
+    },
+    {
+     "inci": "PINUS PUMILA TWIG LEAF EXTRACT",
+     "annex3_entry": "114"
+    },
+    {
+     "inci": "PINUS PUMILA TWIG LEAF OIL",
+     "annex3_entry": "114"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA BARK EXTRACT",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA BARK OIL",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA BARK WATER",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA LEAF EXTRACT",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA WOOD EXTRACT",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "CEDRUS ATLANTICA WOOD OIL",
+     "annex3_entry": "122"
+    },
+    {
+     "inci": "TURPENTINE",
+     "annex3_entry": "124"
+    },
+    {
+     "inci": "ALPHA-TERPINENE",
+     "annex3_entry": "131"
+    },
+    {
+     "inci": "TERPINOLENE",
+     "annex3_entry": "133"
+    },
+    {
+     "inci": "MYROXYLON BALSAMUM PEREIRAE BALSAM EXTRACT",
+     "annex3_entry": "154"
+    },
+    {
+     "inci": "MYROXYLON BALSAMUM PEREIRAE BALSAM OIL",
+     "annex3_entry": "154"
+    },
+    {
+     "inci": "MYROXYLON PEREIRAE OIL",
+     "annex3_entry": "154"
+    },
+    {
+     "inci": "MYROXYLON PEREIRAE RESIN EXTRACT",
+     "annex3_entry": "154"
+    },
+    {
+     "inci": "MYROXYLON PEREIRAE RESIN",
+     "annex3_entry": "154"
+    },
+    {
+     "inci": "ALPHA-DAMASCONE",
+     "annex3_entry": "157"
+    },
+    {
+     "inci": "3-PROPYLIDENEPHTHALIDE",
+     "annex3_entry": "175"
+    },
+    {
+     "inci": "LIPPIA CITRIODORA ABSOLUTE",
+     "annex3_entry": "196"
+    },
+    {
+     "inci": "METHYL SALICYLATE",
+     "annex3_entry": "324"
+    },
+    {
+     "inci": "ACETYL CEDRENE",
+     "annex3_entry": "327"
+    },
+    {
+     "inci": "AMYL SALICYLATE",
+     "annex3_entry": "328"
+    },
+    {
+     "inci": "ANETHOLE",
+     "annex3_entry": "329"
+    },
+    {
+     "inci": "BENZALDEHYDE",
+     "annex3_entry": "330"
+    },
+    {
+     "inci": "CAMPHOR",
+     "annex3_entry": "331"
+    },
+    {
+     "inci": "BETA-CARYOPHYLLENE",
+     "annex3_entry": "332"
+    },
+    {
+     "inci": "CARVONE",
+     "annex3_entry": "333"
+    },
+    {
+     "inci": "DIMETHYL PHENETHYL ACETATE",
+     "annex3_entry": "334"
+    },
+    {
+     "inci": "HEXADECANOLACTONE",
+     "annex3_entry": "335"
+    },
+    {
+     "inci": "HEXAMETHYLINDANOPYRAN",
+     "annex3_entry": "336"
+    },
+    {
+     "inci": "LINALYL ACETATE",
+     "annex3_entry": "337"
+    },
+    {
+     "inci": "MENTHOL",
+     "annex3_entry": "338"
+    },
+    {
+     "inci": "TRIMETHYLCYCLOPENTENYL METHYLISOPENTENOL",
+     "annex3_entry": "339"
+    },
+    {
+     "inci": "SALICYLALDEHYDE",
+     "annex3_entry": "340"
+    },
+    {
+     "inci": "SANTALOL",
+     "annex3_entry": "341"
+    },
+    {
+     "inci": "SCLAREOL",
+     "annex3_entry": "342"
+    },
+    {
+     "inci": "TERPINEOL",
+     "annex3_entry": "343"
+    },
+    {
+     "inci": "TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES",
+     "annex3_entry": "344"
+    },
+    {
+     "inci": "TRIMETHYLBENZENEPROPANOL",
+     "annex3_entry": "345"
+    },
+    {
+     "inci": "VANILLIN",
+     "annex3_entry": "346"
+    },
+    {
+     "inci": "CANANGA ODORATA FLOWER EXTRACT",
+     "annex3_entry": "347"
+    },
+    {
+     "inci": "CANANGA ODORATA FLOWER OIL",
+     "annex3_entry": "347"
+    },
+    {
+     "inci": "CINNAMOMUM CASSIA LEAF OIL",
+     "annex3_entry": "348"
+    },
+    {
+     "inci": "CINNAMOMUM ZEYLANICUM BARK OIL",
+     "annex3_entry": "349"
+    },
+    {
+     "inci": "CITRUS AURANTIUM AMARA FLOWER OIL",
+     "annex3_entry": "350"
+    },
+    {
+     "inci": "CITRUS AURANTIUM AMARA PEEL OIL",
+     "annex3_entry": "351"
+    },
+    {
+     "inci": "CITRUS AURANTIUM BERGAMIA PEEL OIL",
+     "annex3_entry": "352"
+    },
+    {
+     "inci": "CITRUS LIMON PEEL OIL",
+     "annex3_entry": "353"
+    },
+    {
+     "inci": "CYMBOPOGON SCHOENANTHUS OIL",
+     "annex3_entry": "354"
+    },
+    {
+     "inci": "EUCALYPTUS GLOBULUS LEAF OIL",
+     "annex3_entry": "355"
+    },
+    {
+     "inci": "EUGENIA CARYOPHYLLUS LEAF OIL",
+     "annex3_entry": "356"
+    },
+    {
+     "inci": "JASMINUM GRANDIFLORUM FLOWER EXTRACT",
+     "annex3_entry": "357"
+    },
+    {
+     "inci": "JASMINUM OFFICINALE OIL",
+     "annex3_entry": "357"
+    },
+    {
+     "inci": "JASMINUM OFFICINALE FLOWER EXTRACT",
+     "annex3_entry": "357"
+    },
+    {
+     "inci": "JUNIPERUS VIRGINIANA OIL",
+     "annex3_entry": "358"
+    },
+    {
+     "inci": "JUNIPERUS VIRGINIANA WOOD OIL",
+     "annex3_entry": "358"
+    },
+    {
+     "inci": "LAURUS NOBILIS LEAF OIL",
+     "annex3_entry": "359"
+    },
+    {
+     "inci": "LAVANDULA HYBRIDA OIL",
+     "annex3_entry": "360"
+    },
+    {
+     "inci": "LAVANDULA HYBRIDA EXTRACT",
+     "annex3_entry": "360"
+    },
+    {
+     "inci": "LAVANDULA HYBRIDA FLOWER EXTRACT",
+     "annex3_entry": "360"
+    },
+    {
+     "inci": "MENTHA PIPERITA OIL",
+     "annex3_entry": "361"
+    },
+    {
+     "inci": "MENTHA VIRIDIS LEAF OIL",
+     "annex3_entry": "362"
+    },
+    {
+     "inci": "NARCISSUS POETICUS EXTRACT",
+     "annex3_entry": "363"
+    },
+    {
+     "inci": "PELARGONIUM GRAVEOLENS OIL",
+     "annex3_entry": "364"
+    },
+    {
+     "inci": "PELARGONIUM GRAVEOLENS FLOWER OIL",
+     "annex3_entry": "364"
+    },
+    {
+     "inci": "PELARGONIUM GRAVEOLENS LEAF OIL",
+     "annex3_entry": "364"
+    },
+    {
+     "inci": "POGOSTEMON CABLIN OIL",
+     "annex3_entry": "365"
+    },
+    {
+     "inci": "POGOSTEMON CABLIN LEAF OIL",
+     "annex3_entry": "365"
+    },
+    {
+     "inci": "ROSA DAMASCENA FLOWER OIL",
+     "annex3_entry": "366"
+    },
+    {
+     "inci": "ROSA DAMASCENA FLOWER EXTRACT",
+     "annex3_entry": "366"
+    },
+    {
+     "inci": "SANTALUM ALBUM OIL",
+     "annex3_entry": "367"
+    },
+    {
+     "inci": "EUGENYL ACETATE",
+     "annex3_entry": "368"
+    },
+    {
+     "inci": "GERANYL ACETATE",
+     "annex3_entry": "369"
+    },
+    {
+     "inci": "ISOEUGENYL ACETATE",
+     "annex3_entry": "370"
     }
    ],
    "source": [
     {
-     "label": "Commission Regulation (EU) 2023/1545 (amends Annex III of Regulation (EC) No 1223/2009), EUR-Lex",
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    },
+    {
+     "label": "Commission Regulation (EU) 2023/1545 (amends Annex III: fragrance allergen labelling), EUR-Lex",
      "url": "https://eur-lex.europa.eu/eli/reg/2023/1545"
-    },
-    {
-     "label": "EMA appendix: EU list of fragrance allergens requiring labelling in cosmetic and detergent products",
-     "url": "https://www.ema.europa.eu/en/documents/other/appendix-european-union-list-fragrance-allergens-requiring-labelling-cosmetic-and-detergent-products_en.pdf"
-    },
-    {
-     "label": "European Commission: perfume allergies (lay summary of the SCCS opinion; the 26 substances were added to Annex III by Directive 2003/15/EC)",
-     "url": "https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/en/l-3/1-introduction.htm"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "established",
-   "limits": "Member list = the long-standing Annex III entries confirmed by name in EMA/European Commission tables. The additional substances added by Regulation (EU) 2023/1545 are NOT included (see data/curation/TODO.md); HICC (Lyral) and methyl 2-octynoate are also left out here."
+   "limits": "103 INCI names from 80 Annex III entries, read from the consolidated text. Butylphenyl methylpropional (Lilial) and HICC (Lyral), formerly on the list, are now prohibited (Annex II). Some substances also have concentration limits or other conditions in Annex III that are not repeated here."
   },
   {
    "id": "fragrance_mixtures",
@@ -152,25 +476,732 @@
    ],
    "source": [
     {
-     "label": "EU CosIng glossary of ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
      "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "established",
-   "limits": "The CosIng glossary page explains that perfuming ingredients may carry 'perfuming names'; what a given mixture contains cannot be read from the label."
+   "limits": "The glossary explains that perfuming ingredients may carry 'perfuming names'; what a given mixture contains cannot be read from the label."
+  },
+  {
+   "id": "preservatives_annex_v",
+   "name": "Permitted preservatives (Annex V)",
+   "kind": "class",
+   "description": "Substances the EU permits as preservatives in cosmetic products, with maximum concentrations and conditions (Annex V). A substance can also have other uses.",
+   "regulatory": {
+    "text": "Listed in Annex V of Regulation (EC) No 1223/2009 as a permitted preservative.",
+    "source": [
+     {
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+     }
+    ]
+   },
+   "members": [
+    {
+     "inci": "BENZOIC ACID",
+     "annex5_entry": "1",
+     "max": "Rinse-off products, except oral products | 2,5 % (acid)"
+    },
+    {
+     "inci": "SODIUM BENZOATE",
+     "annex5_entry": "1",
+     "max": "Rinse-off products, except oral products | 2,5 % (acid)"
+    },
+    {
+     "inci": "AMMONIUM BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "CALCIUM BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "POTASSIUM BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "MAGNESIUM BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "MEA-BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "METHYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "ETHYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "PROPYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "BUTYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "ISOBUTYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "ISOPROPYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "PHENYL BENZOATE",
+     "annex5_entry": "1a",
+     "max": "0,5 % (acid)"
+    },
+    {
+     "inci": "PROPIONIC ACID",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "AMMONIUM PROPIONATE",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "CALCIUM PROPIONATE",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "MAGNESIUM PROPIONATE",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "POTASSIUM PROPIONATE",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "SODIUM PROPIONATE",
+     "annex5_entry": "2",
+     "max": "2 % (acid)"
+    },
+    {
+     "inci": "SALICYLIC ACID",
+     "annex5_entry": "3",
+     "max": "0,5 % (acid) | Not to be used in products for children under 3 years of age. | Not to be used for children under 3 years of age ( 12 )"
+    },
+    {
+     "inci": "SORBIC ACID",
+     "annex5_entry": "4",
+     "max": "0,6 % (acid)"
+    },
+    {
+     "inci": "CALCIUM SORBATE",
+     "annex5_entry": "4",
+     "max": "0,6 % (acid)"
+    },
+    {
+     "inci": "SODIUM SORBATE",
+     "annex5_entry": "4",
+     "max": "0,6 % (acid)"
+    },
+    {
+     "inci": "POTASSIUM SORBATE",
+     "annex5_entry": "4",
+     "max": "0,6 % (acid)"
+    },
+    {
+     "inci": "O-PHENYLPHENOL",
+     "annex5_entry": "7",
+     "max": "(a) Rinse-off products (b) Leave-on products | (a) 0,2 % (as phenol (b) 0,15 % (as phenol) | When o-Phenylphenol and Sodium o-Phenylphenate are used together, t"
+    },
+    {
+     "inci": "SODIUM O-PHENYLPHENATE",
+     "annex5_entry": "7",
+     "max": "(a) Rinse-off products (b) Leave-on products | (a) 0,2 % (as phenol (b) 0,15 % (as phenol) | When o-Phenylphenol and Sodium o-Phenylphenate are used together, t"
+    },
+    {
+     "inci": "SODIUM SULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "AMMONIUM BISULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "AMMONIUM SULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "POTASSIUM SULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "SODIUM BISULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "SODIUM METABISULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "POTASSIUM METABISULFITE",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "HYDROGEN",
+     "annex5_entry": "9",
+     "max": "0,2 % (as free SO 2 )"
+    },
+    {
+     "inci": "CHLOROBUTANOL",
+     "annex5_entry": "11",
+     "max": "0,5 % | Not to be used in aerosol dispensers (sprays) | Contains Chlorobutanol"
+    },
+    {
+     "inci": "4-HYDROXYBENZOIC ACID",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "METHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "POTASSIUM ETHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "POTASSIUM PARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "SODIUM METHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "SODIUM ETHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "ETHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "SODIUM PARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "POTASSIUM METHYLPARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "CALCIUM PARABEN",
+     "annex5_entry": "12",
+     "max": "0,4 % (as acid) for single ester 0,8 % (as acid) for mixtures of esters"
+    },
+    {
+     "inci": "BUTYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "PROPYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "SODIUM PROPYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "SODIUM BUTYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "POTASSIUM BUTYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "POTASSIUM PROPYLPARABEN",
+     "annex5_entry": "12a",
+     "max": "0,14 % (as acid) for the sum of the individual concentrations 0,8 % (as acid) for mixtures of substances mentioned in entry 12 and 12a, where the sum of the ind"
+    },
+    {
+     "inci": "DEHYDROACETIC ACID",
+     "annex5_entry": "13",
+     "max": "0,6 % (as acid) | Not to be used in aerosol dispensers (sprays)"
+    },
+    {
+     "inci": "SODIUM DEHYDROACETATE",
+     "annex5_entry": "13",
+     "max": "0,6 % (as acid) | Not to be used in aerosol dispensers (sprays)"
+    },
+    {
+     "inci": "FORMIC ACID",
+     "annex5_entry": "14",
+     "max": "0,5 % (as acid)"
+    },
+    {
+     "inci": "SODIUM FORMATE",
+     "annex5_entry": "14",
+     "max": "0,5 % (as acid)"
+    },
+    {
+     "inci": "DIBROMOHEXAMIDINE ISETHIONATE",
+     "annex5_entry": "15",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "THIMEROSAL",
+     "annex5_entry": "16",
+     "max": "Eye products | 0,007 % (of Hg) If mixed with other mercurial compounds authorised by this Regulation, the maximum concentration of Hg remains fixed at 0,007 % |"
+    },
+    {
+     "inci": "PHENYL MERCURIC ACETATE",
+     "annex5_entry": "17",
+     "max": "Eye products | 0,007 % (of Hg) If mixed with other mercurial compounds authorised by this Regulation, the maximum concentration of Hg remains fixed at 0,007 % |"
+    },
+    {
+     "inci": "PHENYL MERCURIC BENZOATE",
+     "annex5_entry": "17",
+     "max": "Eye products | 0,007 % (of Hg) If mixed with other mercurial compounds authorised by this Regulation, the maximum concentration of Hg remains fixed at 0,007 % |"
+    },
+    {
+     "inci": "UNDECYLENIC ACID",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "POTASSIUM UNDECYLENATE",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "SODIUM UNDECYLENATE",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "CALCIUM UNDECYLENATE",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "TEA-UNDECYLENATE",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "MEA-UNDECYLENATE",
+     "annex5_entry": "18",
+     "max": "0,2 % (as acid)"
+    },
+    {
+     "inci": "HEXETIDINE",
+     "annex5_entry": "19",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "5-BROMO-5-NITRO-1,3-DIOXANE",
+     "annex5_entry": "20",
+     "max": "Rinse-off products | 0,1 % | Avoid formation of nitrosamines"
+    },
+    {
+     "inci": "2-BROMO-2-NITROPROPANE-1,3-DIOL",
+     "annex5_entry": "21",
+     "max": "0,1 % | Avoid formation of nitrosamines"
+    },
+    {
+     "inci": "DICHLOROBENZYL ALCOHOL",
+     "annex5_entry": "22",
+     "max": "0,15 %"
+    },
+    {
+     "inci": "TRICLOCARBAN",
+     "annex5_entry": "23",
+     "max": "All cosmetic products, with the exception of mouthwash. | 0,2 % | Purity criteria: 3,3',4,4'-Tetrachloroazobenzene ≤ 1 ppm 3,3',4,4'-Tetrachloroazoxybenzene ≤ 1"
+    },
+    {
+     "inci": "P-CHLORO-M-CRESOL",
+     "annex5_entry": "24",
+     "max": "Not to be used in products applied on mucuous membranes | 0,2 %"
+    },
+    {
+     "inci": "TRICLOSAN",
+     "annex5_entry": "25",
+     "max": "Toothpastes; Hand soaps; Body soaps/Shower gels; Deodorants (non-spray); Face powders and blemish concealers; Nail products for cleaning the fingernails and toe"
+    },
+    {
+     "inci": "CHLOROXYLENOL",
+     "annex5_entry": "26",
+     "max": "0,5 %"
+    },
+    {
+     "inci": "IMIDAZOLIDINYL UREA",
+     "annex5_entry": "27",
+     "max": "0,6 %"
+    },
+    {
+     "inci": "POLYAMINOPROPYL BIGUANIDE",
+     "annex5_entry": "28",
+     "max": "0,1 % | Not to be used in applications that may lead to exposure of the end-user's lungs by inhalation"
+    },
+    {
+     "inci": "PHENOXYETHANOL",
+     "annex5_entry": "29",
+     "max": "1,0 %"
+    },
+    {
+     "inci": "METHENAMINE",
+     "annex5_entry": "30",
+     "max": "0,15 %"
+    },
+    {
+     "inci": "CLIMBAZOLE",
+     "annex5_entry": "32",
+     "max": "(a) Hair lotions ( 21 ) (b) Face creams ( 21 ) (c) Foot care products ( 21 ) (d) Rinse-off shampoo ( 21 ) | (a) 0,2 % ( 21 ) (b) 0,2 % ( 21 ) (c) 0,2 % ( 21 ) ("
+    },
+    {
+     "inci": "DMDM HYDANTOIN",
+     "annex5_entry": "33",
+     "max": "0,6 %"
+    },
+    {
+     "inci": "BENZYL ALCOHOL",
+     "annex5_entry": "34",
+     "max": "1,0 %"
+    },
+    {
+     "inci": "PIROCTONE OLAMINE",
+     "annex5_entry": "35",
+     "max": "Rinse-off products | 1,0 %"
+    },
+    {
+     "inci": "BROMOCHLOROPHENE",
+     "annex5_entry": "37",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "O-CYMEN-5-OL",
+     "annex5_entry": "38",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "METHYLCHLOROISOTHIAZOLINONE",
+     "annex5_entry": "39",
+     "max": "Rinse-off products | 0,0015 % (of a mixture in the ratio 3:1 of 5-chloro-2-methylisothiazol 3(2H)-one and 2-methylisothiazol-3 (2H)-one)"
+    },
+    {
+     "inci": "METHYLISOTHIAZOLINONE",
+     "annex5_entry": "39",
+     "max": "Rinse-off products | 0,0015 % (of a mixture in the ratio 3:1 of 5-chloro-2-methylisothiazol 3(2H)-one and 2-methylisothiazol-3 (2H)-one)"
+    },
+    {
+     "inci": "CHLORHEXIDINE",
+     "annex5_entry": "42",
+     "max": "0,3 % (as chlorhexidine)"
+    },
+    {
+     "inci": "CHLORHEXIDINE DIACETATE",
+     "annex5_entry": "42",
+     "max": "0,3 % (as chlorhexidine)"
+    },
+    {
+     "inci": "CHLORHEXIDINE DIGLUCONATE",
+     "annex5_entry": "42",
+     "max": "0,3 % (as chlorhexidine)"
+    },
+    {
+     "inci": "CHLORHEXIDINE DIHYDROCHLORIDE",
+     "annex5_entry": "42",
+     "max": "0,3 % (as chlorhexidine)"
+    },
+    {
+     "inci": "PHENOXYISOPROPANOL",
+     "annex5_entry": "43",
+     "max": "Only for rinse-off products | 1,0 %"
+    },
+    {
+     "inci": "BEHENTRIMONIUM CHLORIDE",
+     "annex5_entry": "44",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "DIMETHYL OXAZOLIDINE",
+     "annex5_entry": "45",
+     "max": "0,1 % | pH &gt; 6"
+    },
+    {
+     "inci": "DIAZOLIDINYL UREA",
+     "annex5_entry": "46",
+     "max": "0,5 %"
+    },
+    {
+     "inci": "HEXAMIDINE",
+     "annex5_entry": "47",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "HEXAMIDINE DIISETHIONATE",
+     "annex5_entry": "47",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "HEXAMIDINE PARABEN",
+     "annex5_entry": "47",
+     "max": "0,1 %"
+    },
+    {
+     "inci": "GLUTARAL",
+     "annex5_entry": "48",
+     "max": "0,1 % | Not to be used in aerosols (sprays) | Contains glutaral ( 9 )"
+    },
+    {
+     "inci": "7-ETHYLBICYCLOOXAZOLIDINE",
+     "annex5_entry": "49",
+     "max": "0,3 % | Not to be used in oral products and in products applied on mucous membranes"
+    },
+    {
+     "inci": "CHLORPHENESIN",
+     "annex5_entry": "50",
+     "max": "0,3 %"
+    },
+    {
+     "inci": "SODIUM HYDROXYMETHYLGLYCINATE",
+     "annex5_entry": "51",
+     "max": "0,5 % | Not to be used unless it can be shown that the maximum theoretical concentration of releasable formaldehyde, irrespective of the source, in the mixture "
+    },
+    {
+     "inci": "SILVER CHLORIDE",
+     "annex5_entry": "52",
+     "max": "0,004 % (as AgCl) | 20 % AgCl (w/w) on TiO 2 . Not to be used in products for children under 3 years of age, in oral products and in eye and lip products"
+    },
+    {
+     "inci": "BENZETHONIUM CHLORIDE",
+     "annex5_entry": "53",
+     "max": "(a) Rinse-off products (b) Leave-on products other than oral products | 0,1 %"
+    },
+    {
+     "inci": "BENZALKONIUM CHLORIDE",
+     "annex5_entry": "54",
+     "max": "0,1 % (as benzalkonium chloride) | Avoid contact with eyes"
+    },
+    {
+     "inci": "BENZALKONIUM BROMIDE",
+     "annex5_entry": "54",
+     "max": "0,1 % (as benzalkonium chloride) | Avoid contact with eyes"
+    },
+    {
+     "inci": "BENZALKONIUM SACCHARINATE",
+     "annex5_entry": "54",
+     "max": "0,1 % (as benzalkonium chloride) | Avoid contact with eyes"
+    },
+    {
+     "inci": "BENZYLHEMIFORMAL",
+     "annex5_entry": "55",
+     "max": "Rinse-off products | 0,15 %"
+    },
+    {
+     "inci": "IODOPROPYNYL BUTYLCARBAMATE",
+     "annex5_entry": "56",
+     "max": "(a) Rinse-off products (b) Leave-on products (c) Deo-dorants/anti-perspirants | (a) 0,02 % (b) 0,01 %, (c) 0,0075 % | Not to be used in oral and lip products (a"
+    },
+    {
+     "inci": "METHYLISOTHIAZOLINONE",
+     "annex5_entry": "57",
+     "max": "Rinse-off products | 0,0015 %"
+    },
+    {
+     "inci": "ETHYL LAUROYL ARGINATE HCL",
+     "annex5_entry": "58",
+     "max": "(a) Mouthwashes | (a) 0,15 % | (a) Not to be used in preparations for children under 10 years of age | (a) Not to be used for children under 10 years of age"
+    },
+    {
+     "inci": "CITRIC ACID",
+     "annex5_entry": "59",
+     "max": "0,2 %, corresponding to 0,0024 % of silver | Not to be used in oral products and eye products"
+    },
+    {
+     "inci": "SILVER CITRATE",
+     "annex5_entry": "59",
+     "max": "0,2 %, corresponding to 0,0024 % of silver | Not to be used in oral products and eye products"
+    },
+    {
+     "inci": "HYDROXYETHOXYPHENYL BUTANONE",
+     "annex5_entry": "60",
+     "max": "0,7 %"
+    },
+    {
+     "inci": "SILVER",
+     "annex5_entry": "61",
+     "max": "(a) Deodorant spray (b) Powder foundation | (a) and (b) 1 % | For (a) and (b) the silver content in Ammonium Silver Zinc Aluminium Silicate must not exceed 2,5 "
+    },
+    {
+     "inci": "ZINC",
+     "annex5_entry": "61",
+     "max": "(a) Deodorant spray (b) Powder foundation | (a) and (b) 1 % | For (a) and (b) the silver content in Ammonium Silver Zinc Aluminium Silicate must not exceed 2,5 "
+    }
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Names read from the consolidated Annex V. Preservative boosters not listed in Annex V (for example some glycols) are not covered, so this list is not exhaustive for 'what is acting as a preservative'."
+  },
+  {
+   "id": "parabens",
+   "name": "Parabens",
+   "kind": "class",
+   "description": "Esters of 4-hydroxybenzoic acid used as preservatives. In the EU methyl-, ethyl-, propyl- and butylparaben (and their salts) are permitted within limits; isopropyl-, isobutyl-, phenyl-, benzyl- and pentylparaben are prohibited.",
+   "regulatory": {
+    "text": "Methylparaben and ethylparaben: Annex V entry 12 (0.4% single ester, 0.8% mixtures, as acid). Propylparaben and butylparaben: Annex V entry 12a (0.14% sum, 0.8% with the others). Isopropyl-, isobutyl-, phenyl-, benzyl- and pentylparaben: prohibited (Annex II).",
+    "source": [
+     {
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+     }
+    ]
+   },
+   "members": [
+    {
+     "inci": "METHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "POTASSIUM ETHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "POTASSIUM PARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "SODIUM METHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "SODIUM ETHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "ETHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "SODIUM PARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "POTASSIUM METHYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "CALCIUM PARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "BUTYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "PROPYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "SODIUM PROPYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "SODIUM BUTYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "POTASSIUM BUTYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "POTASSIUM PROPYLPARABEN",
+     "status": "permitted"
+    },
+    {
+     "inci": "ISOPROPYLPARABEN",
+     "status": "prohibited_annex_II"
+    },
+    {
+     "inci": "ISOBUTYLPARABEN",
+     "status": "prohibited_annex_II"
+    },
+    {
+     "inci": "PHENYLPARABEN",
+     "status": "prohibited_annex_II"
+    },
+    {
+     "inci": "BENZYLPARABEN",
+     "status": "prohibited_annex_II"
+    },
+    {
+     "inci": "PENTYLPARABEN",
+     "status": "prohibited_annex_II"
+    }
+   ],
+   "source": [
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "established",
+   "limits": "Names read from the consolidated Annexes II and V; 'hexamidine paraben' (Annex V entry 47) is a salt of a different preservative and is not listed as a paraben here."
   },
   {
    "id": "isothiazolinones",
    "name": "Isothiazolinone preservatives",
    "kind": "allergen",
-   "description": "Methylisothiazolinone (MI) and methylchloroisothiazolinone (MCI) are preservatives with well-documented contact allergy; the EU Commission found no safe concentration for leave-on use of MI.",
+   "description": "Methylisothiazolinone (MI) and the methylchloroisothiazolinone/MI mixture (MCI/MI) are preservatives with well-documented contact allergy; the EU restricts them to rinse-off products.",
    "regulatory": {
-    "text": "Methylisothiazolinone is not permitted in leave-on cosmetic products in the EU (Regulation (EU) 2016/1198, applying from 12 February 2017 per secondary sources). Rinse-off and MCI/MI-mixture limits are set in Annex V and were not verified here: check the current text.",
+    "text": "Annex V entries 57 (MI) and 39 (MCI/MI mixture): permitted in rinse-off products only, at a maximum of 0.0015%. Leave-on use is not permitted (see also Regulation (EU) 2016/1198 for MI).",
     "source": [
      {
-      "label": "Commission Regulation (EU) 2016/1198 (methylisothiazolinone not permitted in leave-on cosmetic products), legislation.gov.uk copy",
-      "url": "https://www.legislation.gov.uk/eur/2016/1198"
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
      }
     ]
    },
@@ -180,62 +1211,98 @@
      "aliases": [
       "MI",
       "MIT"
-     ]
+     ],
+     "annex5_entry": "57"
     },
     {
      "inci": "METHYLCHLOROISOTHIAZOLINONE",
      "aliases": [
       "MCI"
-     ]
+     ],
+     "annex5_entry": "39"
     }
    ],
    "source": [
     {
-     "label": "Commission Regulation (EU) 2016/1198 (methylisothiazolinone not permitted in leave-on cosmetic products), legislation.gov.uk copy",
-     "url": "https://www.legislation.gov.uk/eur/2016/1198"
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "established",
-   "limits": "Benzisothiazolinone (BIT) is not included: not verified (see TODO)."
+   "limits": "Benzisothiazolinone (BIT) is not included: no Annex V entry was found and no source for membership was verified."
   },
   {
    "id": "formaldehyde_releasers",
    "name": "Formaldehyde-releasing preservatives",
    "kind": "allergen",
-   "description": "Preservatives that can release formaldehyde. Reactions to them often reflect formaldehyde itself. A review advises formaldehyde-allergic people to avoid leave-on products preserved with them.",
+   "description": "Preservatives that can release formaldehyde. Reactions to them often reflect formaldehyde itself. A review advises formaldehyde-allergic people to avoid leave-on products preserved with them. The EU requires a 'releases formaldehyde' warning when the finished product releases more than 0.001% (10 ppm).",
+   "regulatory": {
+    "text": "Annex V general note: finished products containing listed substances that release formaldehyde must carry the warning 'releases formaldehyde' when the total released exceeds 0.001% (10 ppm).",
+    "source": [
+     {
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+     }
+    ]
+   },
    "members": [
     {
-     "inci": "DMDM HYDANTOIN"
+     "inci": "DMDM HYDANTOIN",
+     "regulatory_note": "Annex V entry 33: permitted, max 0.6%."
     },
     {
-     "inci": "IMIDAZOLIDINYL UREA"
+     "inci": "IMIDAZOLIDINYL UREA",
+     "regulatory_note": "Annex V entry 27: permitted, max 0.6%."
     },
     {
-     "inci": "DIAZOLIDINYL UREA"
+     "inci": "DIAZOLIDINYL UREA",
+     "regulatory_note": "Annex V entry 46: permitted, max 0.5%."
     },
     {
-     "inci": "QUATERNIUM-15"
+     "inci": "2-BROMO-2-NITROPROPANE-1,3-DIOL",
+     "regulatory_note": "Annex V entry 21: permitted, max 0.1%, avoid formation of nitrosamines."
+    },
+    {
+     "inci": "QUATERNIUM-15",
+     "regulatory_note": "Prohibited in cosmetic products in the EU (Annex II)."
     }
    ],
    "source": [
     {
      "label": "de Groot et al., formaldehyde-releasers in cosmetics (two-part review), Contact Dermatitis 2010",
      "url": "https://pubmed.ncbi.nlm.nih.gov/20136875/"
+    },
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "established",
-   "limits": "Bronopol is also a releaser in that review but is not in the seed dictionary. EU regulatory status of each member was NOT verified and is not stated. Amounts released depend on the product and cannot be read from the label."
+   "limits": "Membership comes from the de Groot review; the regulatory notes come from the consolidated text. Bronopol is listed here under its Annex V name (2-bromo-2-nitropropane-1,3-diol). The amount actually released depends on the product and cannot be read from the label."
   },
   {
    "id": "retinoids",
    "name": "Retinoids and vitamin A forms",
    "kind": "class",
    "description": "Vitamin A derivatives used for skin renewal. Regulators advise against topical retinoids in pregnancy as a precaution.",
+   "regulatory": {
+    "text": "Retinol, retinyl acetate and retinyl palmitate are restricted in Annex III: 0.05% retinol equivalent in body lotion and 0.3% in other products, and the label must say 'Contains Vitamin A. Consider your daily intake before use'.",
+    "source": [
+     {
+      "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+      "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
+     }
+    ]
+   },
    "members": [
     {
-     "inci": "RETINOL"
+     "inci": "RETINOL",
+     "annex3_entry": "376"
+    },
+    {
+     "inci": "RETINYL ACETATE"
     },
     {
      "inci": "RETINYL PALMITATE"
@@ -257,18 +1324,22 @@
     {
      "label": "EMA: updated measures for pregnancy prevention during retinoid use",
      "url": "https://www.ema.europa.eu/mt/news/updated-measures-pregnancy-prevention-during-retinoid-use"
+    },
+    {
+     "label": "Regulation (EC) No 1223/2009, consolidated version 2026-05-18 (CELEX 02009R1223-20260518), EU Publications Office",
+     "url": "https://publications.europa.eu/resource/cellar/9382f98e-9b27-11f1-b25c-01aa75ed71a1"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "limited",
-   "limits": "The EMA statement concerns topical retinoids as a class and is precautionary (it notes negligible absorption). That it covers cosmetic retinol and retinyl esters is the usual reading in secondary sources, not something the EMA page states for each ingredient."
+   "limits": "The pregnancy statement is the EMA's, about topical retinoids as a class and precautionary (it notes negligible absorption); that it covers cosmetic retinol and its esters is the usual reading in secondary sources, not something the EMA page states ingredient by ingredient. Retinal and retinyl propionate have no Annex III entry here. Adapalene is a medicine, not a cosmetic ingredient."
   },
   {
    "id": "fatty_alcohols",
    "name": "Fatty alcohols",
    "kind": "class",
    "description": "Waxy, long-chain alcohols (cetyl, stearyl, cetearyl, behenyl alcohol) used to soften skin and thicken creams. Chemically they are alcohols, but they are not the solvent alcohols (ethanol, alcohol denat.) that can feel drying.",
-   "candidate_note": "The possible matches are all fatty alcohols with a similar role (waxy softeners). They are not drying alcohols, so the practical difference between them is small.",
+   "candidate_note": "Fatty alcohols among the possible matches are waxy softeners, not drying alcohols.",
    "members": [
     {
      "inci": "CETYL ALCOHOL"
@@ -285,13 +1356,13 @@
    ],
    "source": [
     {
-     "label": "Paula's Choice ingredient dictionary: cetearyl alcohol (secondary, retailer; contrasts fatty alcohols with solvent alcohols)",
+     "label": "Paula's Choice ingredient dictionary: cetearyl alcohol (secondary, retailer)",
      "url": "https://www.paulaschoice.co.uk/cetearyl-alcohol/ingredient-cetearyl-alcohol.html"
     }
    ],
    "last_verified": "2026-10-09",
    "confidence": "limited",
-   "limits": "Supported by a secondary consumer database that cites the Cosmetic Ingredient Review panel; the CIR report itself was not retrieved (see TODO). This is a classification note, not a safety statement; people with damaged skin can still react to any ingredient."
+   "limits": "Supported by a secondary retailer page; the Cosmetic Ingredient Review report was not retrieved (see TODO). This is a classification note, not a safety statement; people with damaged skin can still react to any ingredient."
   },
   {
    "id": "solvent_alcohols",
@@ -327,6 +1398,52 @@
    "last_verified": "2026-10-09",
    "confidence": "established",
    "limits": "Chemical identity only. No claim is made here about how these feel on skin."
+  },
+  {
+   "id": "silicones",
+   "name": "Silicones",
+   "kind": "class",
+   "members": [],
+   "patterns": [
+    {
+     "regex": "(METHICONE|SILOXANE|DIMETHICONOL|DIMETHICONE|SILSESQUIOXANE|SILICONE)\\b",
+     "flags": "i",
+     "exclude": []
+    }
+   ],
+   "description": "Silicone polymers and related compounds (dimethicone, siloxanes, methicones, silsesquioxanes). Identified by their INCI names. Silica and silicates are minerals, not silicones.",
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "limited",
+   "limits": "Membership is by INCI naming convention, not by a regulatory definition; a few silicone-based names may not match and a few matches may be borderline. No source for a formal definition was verified."
+  },
+  {
+   "id": "sulfate_surfactants",
+   "name": "Sulfate surfactants",
+   "kind": "class",
+   "members": [],
+   "patterns": [
+    {
+     "regex": "(LAURYL|LAURETH|MYRETH|OLETH|PARETH|TRIDECETH|DECYL|COCO|CETEARYL|STEARYL|C\\d+-\\d+)[A-Z0-9\\- ]* SULFATE$",
+     "flags": "i",
+     "exclude": []
+    }
+   ],
+   "description": "Alkyl and ethoxylated alkyl sulfate cleansing agents (sodium lauryl sulfate, sodium laureth sulfate and similar). What 'sulfate-free' claims usually refer to. Mineral salts such as magnesium sulfate are not included.",
+   "source": [
+    {
+     "label": "EU glossary of common ingredient names (Commission Implementing Decision (EU) 2025/1175)",
+     "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database/cosing-glossary-ingredients_en"
+    }
+   ],
+   "last_verified": "2026-10-09",
+   "confidence": "limited",
+   "limits": "Membership is by INCI naming convention; the meaning of 'sulfate-free' is not defined in law, so brands may use it more narrowly or more widely."
   }
  ]
 }

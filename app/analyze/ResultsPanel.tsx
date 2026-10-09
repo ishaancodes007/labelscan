@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { GLOSSARY, titleCase } from "@/lib/rules/data";
 import { evaluate, identityOf } from "@/lib/rules/engine";
 import type { Finding, ItemIn, Profile, Source, Tier } from "@/lib/rules/types";
+import type { OcrWordIn } from "@/lib/trust/misspell";
+import TrustPanel from "./TrustPanel";
 
 export interface ApiItem {
   raw: string; status: string; layer?: string; inci_name?: string | null; inci?: string; category?: string | null; source?: string | null;
@@ -36,13 +38,16 @@ function toItemIn(it: ApiItem, i: number): ItemIn {
   return { index: i, raw: it.raw, status: it.status, layer: it.layer, inci_name: it.inci_name, category: it.category, candidates: it.candidates, highConfidence: it.highConfidence, source: it.source, optional: it.optional };
 }
 
-export default function ResultsPanel({ result, profile }: { result: ApiResult; profile: Profile }) {
+export interface PackText { frontText: string; frontWords?: OcrWordIn[]; datesText: string; datesConf?: number }
+
+export default function ResultsPanel({ result, profile, pack }: { result: ApiResult; profile: Profile; pack: PackText }) {
   const [accepted, setAccepted] = useState<Record<number, string>>({});
   const items = useMemo(() => result.items.map(toItemIn), [result]);
   const ev = useMemo(() => evaluate(items, profile, accepted), [items, profile, accepted]);
   const source = result.meta?.dictionarySource ?? null;
 
   return (
+    <>
     <section className="card" aria-labelledby="res">
       <h2 id="res">3. Ingredients</h2>
       {result.notice && <p className="notice warn" role="status">{result.notice}</p>}
@@ -79,7 +84,7 @@ export default function ResultsPanel({ result, profile }: { result: ApiResult; p
                 <dt><strong>Function</strong></dt>
                 <dd>Not available: CosIng function data is not loaded, so none is shown instead of guessing. ({GLOSSARY.terms.length} function terms are explained in plain language and will be used once it is.)</dd>
                 <dt><strong>Regulatory status</strong></dt>
-                <dd>{ev.regulatory[i].length ? ev.regulatory[i].map((r) => r && <span key={r.family} style={{ display: "block" }}>{r.family}: {r.text} <small className="muted">Source: <SrcLinks list={r.source} /></small></span>) : "No regulatory status is recorded for this ingredient in BeautyLens' curated data. That does not mean there is none."}</dd>
+                <dd>{ev.regulatory[i].length ? ev.regulatory[i].map((r, ri) => r && <span key={`${ri}-${r.family}`} style={{ display: "block" }}>{r.family}: {r.text} <small className="muted">Source: <SrcLinks list={r.source} /></small></span>) : "No regulatory status is recorded for this ingredient in BeautyLens' curated data. That does not mean there is none."}</dd>
                 <dt><strong>Rules that fired</strong></dt>
                 <dd>{fs.length ? <ul className="plain">{fs.map((f) => <li key={f.ruleId}><strong>{TIER_LABEL[f.tier]}</strong> · {f.title} <small className="muted">(confidence: {f.confidence})</small><br /><small>{f.explanation}</small><br /><small className="muted">Source: <SrcLinks list={f.source} /></small></li>)}</ul> : "None. BeautyLens only has a small set of sourced rules, so no rule firing is not a clearance."}</dd>
                 <dt><strong>Limitations</strong></dt>
@@ -96,5 +101,7 @@ export default function ResultsPanel({ result, profile }: { result: ApiResult; p
         </div>)}
       {result.removed?.length ? <details><summary>Removed as not ingredients ({result.removed.length})</summary><ul className="plain">{result.removed.map((r, i) => <li key={i}>{r.raw} <small className="muted">· {r.reason}</small></li>)}</ul></details> : null}
     </section>
+    <TrustPanel items={items} accepted={accepted} removedText={(result.removed ?? []).map((r) => r.raw)} frontText={pack.frontText} frontWords={pack.frontWords} datesText={pack.datesText} datesConf={pack.datesConf} />
+    </>
   );
 }

@@ -9,3 +9,4 @@ backend/data/*.sqlite
 .venv
 public/tesseract/
 backend/data/raw/
+public/words/

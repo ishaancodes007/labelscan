@@ -23,5 +23,16 @@ for (const f of FAMILIES) for (const m of f.members) memberNames(m).forEach((n, 
   const k = normKey(n); const arr = INDEX.get(k) ?? []; arr.push({ family: f, member: m, via: i === 0 ? "name" : "alias" }); INDEX.set(k, arr);
 });
 export const lookupKey = (k: string) => INDEX.get(k) ?? [];
+
+// pattern families (silicones, sulfate surfactants): membership by INCI naming convention
+const PATTERNS = FAMILIES.filter((f) => f.patterns?.length).map((f) => ({ f, rx: f.patterns!.map((p) => new RegExp(p.regex, p.flags ?? "i")), ex: f.patterns!.flatMap((p) => p.exclude ?? []).map(normKey) }));
+/** Every (family, member) an ingredient belongs to: explicit members by name/alias plus pattern families by INCI name. */
+export function hitsFor(inci: string): { family: Family; member: Family["members"][number]; via: "name" | "alias" | "pattern" }[] {
+  const out: { family: Family; member: Family["members"][number]; via: "name" | "alias" | "pattern" }[] = [...lookupKey(normKey(inci))];
+  const name = inci.toUpperCase();
+  for (const p of PATTERNS) if (!out.some((h) => h.family.id === p.f.id) && p.rx.some((r) => r.test(name)) && !p.ex.includes(normKey(inci)))
+    out.push({ family: p.f, member: { inci: name }, via: "pattern" });
+  return out;
+}
 export const membersKeys = (f: Family) => [...new Set(f.members.flatMap(memberNames).map(normKey))];
 export const familiesOf = (inci: string) => [...new Set(lookupKey(normKey(inci)).map((h) => h.family.id))];

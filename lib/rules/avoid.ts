@@ -1,10 +1,10 @@
 // Avoid-list expansion: a user types ONE name; we offer every other name for it and the curated family, each with its source.
-import { FAMILIES, lookupKey, membersKeys, normKey, titleCase } from "./data";
+import { FAMILIES, hitsFor, membersKeys, normKey, titleCase } from "./data";
 import type { AvoidEntry, Family, Member, Strength } from "./types";
 
 export interface Expansion {
   text: string; key: string;
-  hits: { family: Family; member: Member; via: "name" | "alias" }[];
+  hits: { family: Family; member: Member; via: "name" | "alias" | "pattern" }[];
   otherNames: string[];            // other names for the same ingredient (aliases / INCI name), excluding what was typed
   families: Family[];              // families the ingredient belongs to (offered as "add the whole family")
   nameFamilies: Family[];          // the user typed a family name itself (e.g. "formaldehyde releasers")
@@ -12,7 +12,7 @@ export interface Expansion {
 
 export function expandAvoid(text: string): Expansion {
   const key = normKey(text);
-  const hits = key ? lookupKey(key) : [];
+  const hits = key ? hitsFor(text.trim()) : [];
   const typed = text.trim().toUpperCase();
   const other = new Set<string>();
   for (const h of hits) for (const n of [h.member.inci, ...(h.member.aliases ?? [])]) if (normKey(n) !== key) other.add(n);

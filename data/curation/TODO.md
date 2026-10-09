@@ -27,3 +27,11 @@ Sources used so far were checked through web-search summaries (the EU hosts coul
 ## function_glossary.json
 - [ ] Hindi wording has not been reviewed by a native speaker (`hindi_reviewed: false`).
 - [ ] Per-ingredient functions are not in the repo: they require the CosIng import (the official CosIng data hosts were unreachable). Until then the app says "function data not loaded" and does not guess.
+
+## claims.json
+- [ ] "No essential oils": needs a verified definition/list of essential oil INCI names (the claim is detected and reported as "cannot be checked yet").
+- [ ] Plant-oil and "aloe vera" aliases (avocado = Persea gratissima etc.) rest on standard botanical names, not individually verified (marked `limited`).
+- [ ] Silicone and sulfate families are defined by INCI naming patterns; find an authoritative classification (no regulatory definition exists) and confirm what "sulfate-free" is usually taken to mean.
+- [ ] "Unscented" is deliberately not treated as "fragrance-free" (it can mean masking fragrance); decide the logic with a source.
+- [ ] Reference-formula (Open Beauty Facts) comparison is information only: the overlap at which a difference would suggest counterfeit packaging is uncalibrated; collect same-product pairs before adding a trigger.
+- [ ] Annex II (prohibited substances) is only partly loaded: 49 of its entries could be identified by INCI name; the rest have chemical names only.

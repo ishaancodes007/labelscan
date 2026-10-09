@@ -34,10 +34,20 @@ PASS  Banner (all accepted): states the avoid-list match, never 'safe'
 PASS  Banner (nothing accepted): adds how many items still need review
 PASS  Summary is deterministic text with no verdict words
 PASS  Empty profile: banner asks for an avoid list instead of claiming anything
-PENDING  Claims: vitamin E/B3/B5/avocado oil 'matches' (Phase 4)
-PENDING  Claim: 'No added fragrance' 'consistent' with benzyl-alcohol nuance (Phase 4)
-PENDING  Claims: won't clog pores / non-irritating / clinically tested 'not verifiable' (Phase 4)
-PENDING  Trust signal: printed-misspelling soft notice (Phase 4)
-PENDING  Expiry 04/29 extracted with low confidence + confirm prompt (Phase 4)
+PASS  Claim 'Vitamin E' -> matches the ingredient list
+PASS  Claim 'Vitamin B3' -> matches the ingredient list
+PASS  Claim 'Pro-vitamin B5' -> matches the ingredient list
+PASS  Claim 'Avocado oil (printed 'Avocadi Oil')' -> matches the ingredient list
+PASS  Claim 'No added fragrance' -> consistent, with the benzyl alcohol nuance explained
+PASS  Claim 'Won't clog pores (printed "Won'n clog pores")' -> not verifiable from ingredients
+PASS  Claim 'Non-irritating' -> not verifiable from ingredients
+PASS  Claim 'Clinically tested (printed 'Clincally Tested')' -> not verifiable from ingredients
+PASS  No claim is reported as a contradiction for the golden label
+PASS  Before the user accepts suggestions, 'No added fragrance' is NOT called consistent (items still need review)
+PASS  Printed-misspelling heuristic triggers a soft notice (several high-confidence misspelled words; OCR confidence assumed 90)
+PASS  ...and never on low-confidence OCR words (confidence 50)
+PASS  ...and never on typed text (no OCR confidence)
+PASS  Mfg. date 01/26 extracted (January 2026)
+PASS  Use-before extracted as 04/29 with LOW confidence and the user is asked to confirm
 
-34/36 implemented expectations pass, 2 documented deviation(s), 0 fail; 5 pending (later phases). PubChem: off.
+49/51 implemented expectations pass, 2 documented deviation(s), 0 fail; 0 pending (later phases). PubChem: off.

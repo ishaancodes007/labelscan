@@ -1,6 +1,7 @@
 // Deterministic rules engine. No scores, no verdicts: it reports which curated, sourced rules apply to the ingredients the user has
 // accepted or that resolved, and says plainly what it could not check. The LLM has no part in this.
-import { FAMILIES, MYTH_NOTES, RULES, lookupKey, normKey, stripParens, titleCase } from "./data";
+import { FAMILIES, MYTH_NOTES, RULES, hitsFor, normKey, stripParens, titleCase } from "./data";
+import { regulatoryFor } from "./regulatory";
 import { TIER_ORDER, type Banner, type Evaluation, type Finding, type ItemIn, type Profile, type Source, type Tier } from "./types";
 
 const uniq = (list: Source[]): Source[] => [...new Map(list.map((x) => [x.url, x])).values()];
@@ -27,12 +28,12 @@ export function evaluate(items: ItemIn[], profile: Profile, accepted: Record<num
   items.forEach((it, i) => {
     const id = ids[i];
     if (id.via !== "none") {
-      const hits = lookupKey(id.key);
+      const hits = hitsFor(id.inci!);
       // 1. user's avoid list (strongest tier wins per entry; role caps apply to family entries only)
       for (const e of profile.avoid) {
-        if (!e.keys.includes(id.key)) continue;
+        if (!e.keys.includes(id.key) && !(e.kind === "family" && e.familyId && hits.some((h) => h.family.id === e.familyId))) continue;
         const fam = e.familyId ? FAMILIES.find((f) => f.id === e.familyId) : hits[0]?.family;
-        const member = fam?.members.find((m) => normKey(m.inci) === id.key || (m.aliases ?? []).some((a) => normKey(a) === id.key));
+        const member = fam?.members.find((m) => normKey(m.inci) === id.key || (m.aliases ?? []).some((a) => normKey(a) === id.key)) ?? hits.find((h) => h.family === fam)?.member;
         let tier: Tier = e.strength === "doctor" ? "avoid" : "caution";
         let extra = "";
         let src = fam?.source ?? [];
@@ -63,14 +64,18 @@ export function evaluate(items: ItemIn[], profile: Profile, accepted: Record<num
         findings[i].push({ kind: "family_note", tier: "note", ruleId: n.id, title: n.title, explanation: n.text, source: n.source, confidence: n.confidence });
       }
       // regulatory status lines from the curated families
-      for (const f of new Set(hits.map((h) => h.family))) if (f.regulatory) regulatory[i].push({ text: f.regulatory.text, source: f.regulatory.source, family: f.name });
+      const lines = regulatoryFor(id.inci!);
+      lines.forEach((l) => regulatory[i].push({ text: l.text, source: l.source, family: "EU Regulation 1223/2009" }));
+      for (const h of hits) if (h.member.regulatory_note && !lines.some((l) => l.text.includes(h.member.regulatory_note!.slice(0, 20))))
+        regulatory[i].push({ text: h.member.regulatory_note, source: h.family.source, family: h.family.name });
+      if (!lines.length) for (const f of new Set(hits.map((h) => h.family))) if (f.regulatory) regulatory[i].push({ text: f.regulatory.text, source: f.regulatory.source, family: f.name });
     } else if (it.status === "suggested" && it.candidates && it.candidates.length >= 2) {
       // candidate note: when at least two of the top candidates are members of a family with a candidate note, say so (informational:
       // it does NOT identify the item)
       const top = it.candidates.slice(0, 3);
       for (const f of FAMILIES) {
         if (!f.candidate_note) continue;
-        const inFam = top.filter((c) => lookupKey(normKey(c.inci_name)).some((h) => h.family.id === f.id));
+        const inFam = top.filter((c) => hitsFor(c.inci_name).some((h) => h.family.id === f.id));
         if (inFam.length >= 2)
           findings[i].push({ kind: "candidate_note", tier: "note", ruleId: `cand:${f.id}`, title: "Some of the possible matches are alike",
             explanation: `Among the possible matches, ${inFam.map((c) => titleCase(c.inci_name)).join(" and ")} are fatty alcohols with a similar role (waxy softeners). They are not drying alcohols, so the practical difference between them is small.`,
@@ -96,7 +101,7 @@ export function evaluate(items: ItemIn[], profile: Profile, accepted: Record<num
 
   // myth notes (deterministic triggers over identified items)
   const present = new Set(ids.filter((x) => x.via !== "none").map((x) => x.key));
-  const presentFamilies = new Set([...present].flatMap((k) => lookupKey(k).map((h) => h.family.id)));
+  const presentFamilies = new Set(ids.filter((x) => x.via !== "none").flatMap((x) => hitsFor(x.inci!).map((h) => h.family.id)));
   const myth = MYTH_NOTES.filter((n) => (n.trigger.family && presentFamilies.has(n.trigger.family)) || (n.trigger.inci && present.has(normKey(n.trigger.inci))) ||
     (n.trigger.any_inci && n.trigger.any_inci.some((x) => present.has(normKey(x))))).map(({ id, title, text, source, confidence }) => ({ id, title, text, source, confidence }));
 
@@ -117,7 +122,7 @@ function summarise(items: ItemIn[], ids: Identity[]): string {
     const unconfirmed = top.some((x) => x.id.via === "none");
     parts.push(`${waterFirst ? "Water is listed first, so it is a water-based product. " : ""}The first ${first.length > 1 ? `${first.length} printed items are` : "printed item is"} ${first.join(", ")}${unconfirmed ? " (quoted ones are shown as printed and not confirmed yet)" : ""}. Listing order shows relative amount only for ingredients above 1%; it is not a concentration.`);
   }
-  const fam = (id: string) => named.filter((x) => lookupKey(x.id.key).some((h) => h.family.id === id)).map((x) => nameOf(x.it, x.id));
+  const fam = (id: string) => named.filter((x) => hitsFor(x.id.inci!).some((h) => h.family.id === id)).map((x) => nameOf(x.it, x.id));
   const fa = fam("fatty_alcohols"), al = fam("eu_fragrance_allergens"), fm = fam("fragrance_mixtures"), pres = fam("isothiazolinones").concat(fam("formaldehyde_releasers"));
   if (fa.length) parts.push(`Includes fatty alcohols (${fa.join(", ")}), which are waxy softeners and not drying alcohols.`);
   if (fm.length) parts.push(`Lists ${fm.join(", ")}: an undisclosed fragrance mixture.`);
