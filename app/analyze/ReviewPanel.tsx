@@ -16,7 +16,10 @@ function sourceOf(c: Cand, dict: string | null): { label: string; url: string } 
 const why = (c: Cand) => {
   if (c.source === "ai_agent") return (c.note ?? "").replace(/^AI suggestion \([a-z]+\): ?/, "") || "Found by a lookup.";
   const e = (c.edits ?? []).filter(Boolean);
-  return c.note ? c.note : e.length ? `Close to what is printed once these differences are allowed for: ${e.join("; ")}.` : "Closest dictionary name by spelling.";
+  if (c.note) return c.note;
+  if (!e.length) return "Closest dictionary name by spelling.";
+  const kinds = [e.some((x) => /look-alike/.test(x)) && "look-alike letters", e.some((x) => /missing/.test(x)) && "missing letters", e.some((x) => /extra/.test(x)) && "extra letters"].filter(Boolean);
+  return `Differs from the printed text by ${e.length} small edit${e.length === 1 ? "" : "s"}${kinds.length ? ` (${kinds.join(", ")})` : ""}.`;
 };
 
 export default function ReviewPanel({ shown, buckets, source, choices, set, rebuild, onRerun }: {

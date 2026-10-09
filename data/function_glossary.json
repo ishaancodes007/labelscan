@@ -1,7 +1,7 @@
 {
  "version": 1,
  "last_updated": "2026-10-09",
- "provenance": "Plain-language wording written by the project for the common CosIng 'function' terms. It paraphrases what the term names mean; it is NOT CosIng text and makes no safety claim. Per-ingredient functions must come from the CosIng import (not loaded yet).",
+ "provenance": "Plain-language wording written by the project for the common CosIng 'function' terms. It paraphrases what the term names mean; it is NOT CosIng text and makes no safety claim. Per-ingredient functions are in data/ingredient_functions.json (limited confidence; see its provenance). Terms added in the Phase 9 UI pass are project paraphrases too.",
  "source": {
   "label": "EU CosIng database (function terms)",
   "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en"
@@ -158,6 +158,156 @@
    "function": "TONIC",
    "en": "Marketed to leave skin feeling refreshed.",
    "hi": "त्वचा को तरोताज़ा महसूस कराने के लिए बताया जाता है।"
+  },
+  {
+   "function": "ABSORBENT",
+   "en": "Soaks up oil, sweat or moisture.",
+   "hi": ""
+  },
+  {
+   "function": "ANTI-SEBORRHOEIC",
+   "en": "Listed for use on skin or scalp that is oily or flaky.",
+   "hi": ""
+  },
+  {
+   "function": "ANTICAKING",
+   "en": "Keeps powders loose so they do not clump.",
+   "hi": ""
+  },
+  {
+   "function": "ANTICORROSIVE",
+   "en": "Protects metal packaging or equipment from the product.",
+   "hi": ""
+  },
+  {
+   "function": "ANTIFOAMING",
+   "en": "Cuts down foam while the product is made or used.",
+   "hi": ""
+  },
+  {
+   "function": "ASTRINGENT",
+   "en": "Gives a temporary tightening or toning feel to the skin surface.",
+   "hi": ""
+  },
+  {
+   "function": "BINDING",
+   "en": "Holds the other ingredients together.",
+   "hi": ""
+  },
+  {
+   "function": "BULKING",
+   "en": "Adds volume or body to the product.",
+   "hi": ""
+  },
+  {
+   "function": "DENATURANT",
+   "en": "Added to alcohol so it cannot be drunk.",
+   "hi": ""
+  },
+  {
+   "function": "DENATURING",
+   "en": "Added to alcohol so it cannot be drunk.",
+   "hi": ""
+  },
+  {
+   "function": "DEODORANT",
+   "en": "Reduces or covers body odour.",
+   "hi": ""
+  },
+  {
+   "function": "DISPERSING",
+   "en": "Helps particles spread evenly instead of settling.",
+   "hi": ""
+  },
+  {
+   "function": "FOAM BOOSTING",
+   "en": "Helps a cleanser build lather.",
+   "hi": ""
+  },
+  {
+   "function": "FOAMING",
+   "en": "Helps a cleanser build lather.",
+   "hi": ""
+  },
+  {
+   "function": "GEL FORMING",
+   "en": "Thickens a liquid into a gel.",
+   "hi": ""
+  },
+  {
+   "function": "HAIR FIXING",
+   "en": "Helps hold a hairstyle in place.",
+   "hi": ""
+  },
+  {
+   "function": "KERATOLYTIC",
+   "en": "Helps loosen and shed dead cells from the skin surface.",
+   "hi": ""
+  },
+  {
+   "function": "LIGHT STABILISER",
+   "en": "Protects the product from changes caused by light.",
+   "hi": ""
+  },
+  {
+   "function": "LIGHT STABILISING",
+   "en": "Protects the product from changes caused by light.",
+   "hi": ""
+  },
+  {
+   "function": "LIGHT STABILIZER",
+   "en": "Protects the product from changes caused by light.",
+   "hi": ""
+  },
+  {
+   "function": "ORAL CARE",
+   "en": "Used in products for the mouth and teeth.",
+   "hi": ""
+  },
+  {
+   "function": "OXIDISING",
+   "en": "A chemical that can change other substances by oxidation.",
+   "hi": ""
+  },
+  {
+   "function": "PERFUMING",
+   "en": "Adds scent, or helps carry a fragrance.",
+   "hi": ""
+  },
+  {
+   "function": "PLASTICISER",
+   "en": "Keeps films or coatings flexible.",
+   "hi": ""
+  },
+  {
+   "function": "REFATTING",
+   "en": "Puts oils back into skin or hair.",
+   "hi": ""
+  },
+  {
+   "function": "SKIN BRIGHTENING",
+   "en": "Listed as evening out the look of skin tone.",
+   "hi": ""
+  },
+  {
+   "function": "SKIN CONDITIONING - MISCELLANEOUS",
+   "en": "Another way of leaving skin feeling conditioned.",
+   "hi": ""
+  },
+  {
+   "function": "SKIN CONDITIONING - OCCLUSIVE",
+   "en": "Forms a thin layer that slows water loss from the skin.",
+   "hi": ""
+  },
+  {
+   "function": "SLIP MODIFIER",
+   "en": "Makes the product glide more easily.",
+   "hi": ""
+  },
+  {
+   "function": "SURFACTANT - FOAM BOOSTING",
+   "en": "A cleansing agent that also helps build lather.",
+   "hi": ""
   }
  ]
 }

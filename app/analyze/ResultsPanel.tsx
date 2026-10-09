@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { GLOSSARY, titleCase } from "@/lib/rules/data";
+import { familyById, plainFor, prettyFn, rolesFor } from "@/lib/functions/data";
+import { titleCase } from "@/lib/rules/data";
 import { evaluate, identityOf } from "@/lib/rules/engine";
 import type { Finding, ItemIn, Profile, Source, Tier } from "@/lib/rules/types";
 import type { OcrWordIn } from "@/lib/trust/misspell";
 import { ck, type Choices } from "./choices";
 import ReviewPanel, { type Cand } from "./ReviewPanel";
+import RoleOverview, { RoleChip, type OverviewItem } from "./roles";
 import SaveProduct from "./SaveProduct";
 import TrustPanel from "./TrustPanel";
 
@@ -88,6 +90,11 @@ export default function ResultsPanel({ result, profile, pack, choices, setChoice
     return [...mainTxt, ...(opt.length ? [`may contain: ${opt.join(", ")}`] : []), ...removedByBackend].join(", ");
   }
   const set = (f: (c: Choices) => Choices) => setChoices(f);
+  const overview: OverviewItem[] = main.map((i) => {
+    const id = identityOf(items[i], accepted), top = (shown[i].candidates ?? []).find((c) => c.source !== "ai_agent") ?? shown[i].candidates?.[0];
+    return id.inci ? { key: String(i), raw: shown[i].raw, inci: id.inci, status: "identified" as const } : { key: String(i), raw: shown[i].raw, inci: null, status: "to_confirm" as const, guess: top?.inci_name ?? null };
+  });
+  const jump = (k: string) => { const el = document.getElementById(`ing-${k}`); if (el) { el.scrollIntoView({ behavior: document.documentElement.dataset.motion === "reduce" ? "auto" : "smooth", block: "center" }); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); } };
 
   return (
     <>
@@ -100,7 +107,11 @@ export default function ResultsPanel({ result, profile, pack, choices, setChoice
       {requestedAgent && result.meta?.agentStatus === "unavailable" && <p className="notice info" role="status">AI helper: unavailable on this server, so only the standard matching was used.</p>}
       {requestedAgent && result.meta?.agentStatus === "rate_limited" && <p className="notice info" role="status">AI helper: paused for now (too many requests); only the standard matching was used.</p>}
 
-      <h3 id="idsum">Identity summary</h3>
+      <RoleOverview items={overview} onJump={jump} />
+      <div className="strip" role="img" aria-label={`One tile per listed ingredient, in listing order: ${main.length} in all, ${needsReview} still to check. Tile colour shows how sure the match is, not how much is in the product.`}>
+        {main.map((i, n) => <span key={i} className={`tile ${BUCKET[buckets[i]].cls}`} style={{ ["--i" as string]: Math.min(n, 40) }} title={`${shown[i].raw}: ${BUCKET[buckets[i]].label}`} />)}
+      </div>
+      <h3 id="idsum">How sure the matches are</h3>
       <ul className="plain stats" aria-labelledby="idsum">
         {(Object.keys(BUCKET) as Bucket[]).filter((b) => counts[b]).map((b) => <li key={b}><span className={`badge ${BUCKET[b].cls}`}>{BUCKET[b].label}</span> <strong>{counts[b]}</strong></li>)}
       </ul>
@@ -115,16 +126,27 @@ export default function ResultsPanel({ result, profile, pack, choices, setChoice
       {ev.summary && <p>{ev.summary}</p>}
       <p className="muted"><small>Identity, role, hazard, exposure, regulation and your own compatibility are separate questions. A PubChem record shows identity only, and a CosIng listing is not a safety approval. Nothing here is a verdict, and suggestions are never applied until you confirm them.</small></p>
 
-      <h3>All ingredients</h3>
+      <h3 id="all-h">Ingredient by ingredient</h3>
       <ul className="plain">{shown.map((a, i) => {
         const it = items[i], id = identityOf(it, accepted), b = BUCKET[buckets[i]], fs: Finding[] = ev.findings[i];
         const acc = !!accepted[i];
+        const roles = rolesFor(id.inci);
+        const guessName = !id.inci ? (a.candidates ?? []).find((c) => c.source !== "ai_agent")?.inci_name ?? a.candidates?.[0]?.inci_name : null;
+        const guessRoles = guessName ? rolesFor(guessName) : null;
         return (
-          <li key={`${i}-${a.raw}`}>
-            <strong>{a.raw}</strong> <span className={`badge ${b.cls}`}>{b.label}</span>
+          <li key={`${i}-${a.raw}`} id={`ing-${i}`} className="ing-row" style={{ ["--h" as string]: familyById((roles?.families[0] ?? "other")).hue, ["--i" as string]: Math.min(i, 30) }}>
+            <strong className="ing-name">{a.raw}</strong> <span className={`badge ${b.cls}`}>{b.label}</span>
             {id.inci ? <small className="muted"> → {titleCase(id.inci)}</small> : null}
             {fs.map((f) => <span key={f.ruleId} className={`badge ${TIER_CLASS[f.tier]}`} style={{ marginLeft: ".4rem" }}>{TIER_LABEL[f.tier]}</span>)}
             {(acc || choices.kept[ck(a.raw)]) ? <button className="secondary" style={{ minHeight: "2rem", padding: ".2rem .6rem", marginLeft: ".4rem" }} onClick={() => set((c) => { const x = { ...c, accepted: { ...c.accepted }, kept: { ...c.kept } }; delete x.accepted[ck(a.raw)]; delete x.kept[ck(a.raw)]; return x; })}>Undo</button> : null}
+            {roles ? (
+              <div className="ing-roles">
+                <div className="chips">{roles.functions.slice(0, 4).map((fn) => <RoleChip key={fn} fn={fn} />)}{roles.functions.length > 4 && <span className="more">+{roles.functions.length - 4} more</span>}</div>
+                <p className="plain-role"><strong>{prettyFn(roles.functions[0])}:</strong> {plainFor(roles.functions[0])}</p>
+                {roles.functions.length > 1 && <details className="role-more"><summary>What each listed role means</summary><ul className="plain-roles">{[...new Map(roles.functions.map((fn) => [plainFor(fn), fn])).entries()].map(([t, fn]) => <li key={fn}><strong>{prettyFn(fn)}:</strong> {t}</li>)}</ul></details>}
+                <small className="muted">Listed role · {roles.kind === "official" ? "CosIng" : roles.kind === "reference" ? "Cosmetics reference (Cosmile Europe, CIR)" : "Secondary source"}, page not opened by BeautyLens: <a href={roles.source.url} target="_blank" rel="noopener noreferrer">{roles.source.label}</a></small>
+              </div>) : id.inci ? <p className="muted ing-norole"><small>No sourced role in BeautyLens’ data for this ingredient yet. That is a gap in the data, not a finding.</small></p>
+              : guessRoles ? <div className="ing-roles guess"><small className="muted">If this is {titleCase(guessName!)}, it is listed as: </small><span className="chips">{guessRoles.functions.map((fn) => <RoleChip key={fn} fn={fn} />)}</span></div> : null}
             {a.mergedFrom ? <small className="muted"> · merged from {a.mergedFrom} fragments</small> : null}{a.splitFrom ? <small className="muted"> · split from one token</small> : null}
             {fs.map((f) => (
               <div key={`${f.ruleId}-n`} className={`notice ${f.tier === "note" ? "info" : "warn"}`} role="note" style={{ margin: ".3rem 0" }}>
@@ -136,7 +158,7 @@ export default function ResultsPanel({ result, profile, pack, choices, setChoice
                 <dt><strong>Identity</strong></dt>
                 <dd>{acc ? `You accepted ${titleCase(id.inci!)} (a suggestion).` : b.label}{a.layer ? ` · matched by: ${a.layer.replace(/_/g, " ")}` : ""}{a.source ? ` · dictionary: ${a.source === "seed" ? "starter list (not the EU glossary)" : a.source === "eu_glossary" ? "EU glossary of common ingredient names" : a.source}` : ""}. Identity only: it is not a safety statement.</dd>
                 <dt><strong>Function</strong></dt>
-                <dd>Not available: CosIng function data is not loaded, so none is shown instead of guessing. ({GLOSSARY.terms.length} function terms are explained in plain language and will be used once it is.)</dd>
+                <dd>{roles ? `Listed as: ${roles.functions.map(prettyFn).join("; ")}. Wording comes from a cosmetics reference, not verified against the official CosIng record, and is not an effect claim for this product.` : "No sourced role in BeautyLens' data for this ingredient yet. None is shown rather than guessed."}</dd>
                 <dt><strong>Regulatory status</strong></dt>
                 <dd>{ev.regulatory[i].length ? ev.regulatory[i].map((r, ri) => r && <span key={`${ri}-${r.family}`} style={{ display: "block" }}>{r.family}: {r.text} <small className="muted">Source: <SrcLinks list={r.source} /></small></span>) : "No regulatory status is recorded for this ingredient in BeautyLens' curated data. That does not mean there is none."}</dd>
                 <dt><strong>Rules that fired</strong></dt>

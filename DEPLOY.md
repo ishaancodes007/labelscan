@@ -29,6 +29,9 @@ Notes: free instances sleep when idle and take roughly a minute to wake. The app
 
 If you skip step 1, leave those variables out: the site works and shows "Enhanced recognition unavailable" on `/analyze`.
 
+## Keeping the site up to date
+If Vercel offered to "create a Git repository" when you imported the project, it made a **one-time private copy** of the code. Later pushes to this repository do not reach that copy. To fix it: in the Vercel project, go to **Settings → Git**, disconnect the copy, connect `ishaancodes007/labelscan`, and set the branch to deploy to `claude/beautylens-master-prompt-v3-x0r1uq`. From then on every push redeploys.
+
 ## 3. Check it
 - Open the URL on your phone. The landing page should load; try **Analyze a label**, paste text from `DEMO.md`, and confirm the provider line says "Enhanced recognition: on".
 - `https://<your-service>.onrender.com/v1/ingredients/resolve` without the token must answer 401.

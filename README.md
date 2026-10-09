@@ -14,7 +14,7 @@ Explains cosmetic ingredient labels: it reads the text, identifies each name, sh
 | Open Beauty Facts (alternatives, reference formula) | Live through `/api/reference`; crowd-sourced, ODbL, attributed |
 | Curated rules, actives, claims, regulation annexes (`data/`) | Cited; unverified items are listed in `data/curation/TODO.md` |
 | AI name helper (opt-in) | **Built and guardrail-tested with a mock, never run against a real model** (no API key was available). `docs/PHASE6.md` |
-| Per-ingredient function data (CosIng) | **Not loaded**; none is shown rather than guessed |
+| Per-ingredient roles ("what it is listed as doing") | **Partial**: `data/ingredient_functions.json`, researched through search results for Cosmetics Europe's COSMILE database and CosIng-mirroring pages; the pages were not opened and it is not the official CosIng record. Ingredients not in it show no role rather than a guess. See `docs/PHASE9.md` |
 | Hindi, server-side OCR, accounts, server-side storage | Not built |
 
 ## Run locally

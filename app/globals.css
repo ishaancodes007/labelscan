@@ -39,3 +39,26 @@ nav.site .brand { font-family:var(--serif); font-weight:700; } nav.site .grow { 
 nav.site a { color:inherit; background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat; text-decoration:none; transition:background-size .25s; } nav.site a:hover, nav.site a:focus-visible { background-size:100% 1px; }
 nav.site { display:flex; flex-wrap:wrap; gap:.1rem 1rem; padding:.25rem 1rem; border-bottom:1px solid var(--line); font-size:.95rem; } nav.site a { padding:.5rem 0; }
 a { color:var(--accent); } a.btn, a.btn:hover { color:var(--accent-fg); } nav.site a { color:inherit; }
+
+/* Status palette (OKLCH). Each state has its own hue AND its own words/icon in the UI: colour is never the only signal.
+   green = identified, amber = needs your check, violet = ambiguous, rust = not matched, slate = lookup unavailable. */
+:root { --ok-bg:oklch(93% .06 155); --ok-fg:oklch(30% .08 155); --ok-line:oklch(70% .12 155);
+  --warn-bg:oklch(94% .09 85); --warn-fg:oklch(34% .08 70); --warn-line:oklch(78% .13 85);
+  --amb-bg:oklch(93% .045 295); --amb-fg:oklch(34% .09 295); --amb-line:oklch(72% .1 295);
+  --bad-bg:oklch(93% .05 28); --bad-fg:oklch(36% .1 28); --bad-line:oklch(72% .12 28);
+  --unav-bg:oklch(92% .015 245); --unav-fg:oklch(36% .03 245); --unav-line:oklch(72% .03 245);
+  --info-bg:oklch(93% .04 230); --info-fg:oklch(34% .09 235); }
+@media (prefers-color-scheme: dark) { :root { --ok-bg:oklch(30% .06 155); --ok-fg:oklch(90% .08 155); --ok-line:oklch(55% .11 155);
+  --warn-bg:oklch(33% .07 80); --warn-fg:oklch(91% .1 85); --warn-line:oklch(58% .11 80);
+  --amb-bg:oklch(30% .06 295); --amb-fg:oklch(90% .06 295); --amb-line:oklch(55% .1 295);
+  --bad-bg:oklch(31% .07 28); --bad-fg:oklch(91% .06 28); --bad-line:oklch(56% .12 28);
+  --unav-bg:oklch(30% .02 245); --unav-fg:oklch(88% .02 245); --unav-line:oklch(52% .03 245);
+  --info-bg:oklch(30% .06 235); --info-fg:oklch(90% .06 235); } }
+.badge { border:1px solid transparent; }
+.badge.resolved { background:var(--ok-bg); color:var(--ok-fg); border-color:var(--ok-line); }
+.badge.suggested { background:var(--warn-bg); color:var(--warn-fg); border-color:var(--warn-line); }
+.badge.ambiguous { background:var(--amb-bg); color:var(--amb-fg); border-color:var(--amb-line); }
+.badge.notfound { background:var(--bad-bg); color:var(--bad-fg); border-color:var(--bad-line); }
+.badge.unavailable { background:var(--unav-bg); color:var(--unav-fg); border-color:var(--unav-line); }
+.badge.class { background:var(--neutral-bg); color:var(--neutral-fg); border-color:var(--line); }
+.notice.warn { background:var(--warn-bg); color:var(--warn-fg); } .notice.info { background:var(--info-bg); color:var(--info-fg); }

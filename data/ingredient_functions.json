@@ -1,0 +1,1925 @@
+{
+ "version": 1,
+ "last_verified": "2026-10-10",
+ "provenance": "Listed cosmetic functions per ingredient, researched through web-search results for Cosmetics Europe's COSMILE INCI database (cosmileeurope.eu), CIR summaries and pages that mirror CosIng. THE PAGES WERE NOT OPENED (this environment cannot reach those hosts); each entry rests on search-result text for a URL that appeared in the results, so wording can differ from the official CosIng record (Cosmile uses some labels CosIng does not, such as FRAGRANCE FUNCTIONAL and pH adjustment). Entries the researcher flagged as doubtful were left out; entries read from translated pages are kept and say so in their note. Confidence for every entry is 'limited'. Please check against CosIng (ec.europa.eu/growth/tools-databases/cosing) before relying on any of it.",
+ "confidence": "limited",
+ "entries": [
+  {
+   "inci": "3-O-ETHYL ASCORBIC ACID",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "SkinSort (mirrors CosIng)",
+   "url": "https://skinsort.com/ingredients/3-o-ethyl-ascorbic-acid",
+   "quote": "All Functions Skin Conditioning",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ACETYL GLUCOSAMINE",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe (German/Italian/Dutch pages, skin-care function)",
+   "url": "https://cosmileeurope.eu/de/inci/inhaltsstoff/232/acetyl-glucosamine/",
+   "quote": "skin-care function (translates as skin conditioning)",
+   "note": "Read from translated pages, English wording inferred. SpecialChem instead describes it as humectant with exfoliating/brightening uses. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER",
+   "functions": [
+    "EMULSION STABILISING",
+    "FILM FORMING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "SpecialChem (COSING REF 74162)",
+   "url": "https://www.specialchem.com/cosmetics/inci-ingredients/acrylates-c10-30-alkyl-acrylate-crosspolymer",
+   "quote": "Function(s) ... emulsion stabilising, film forming, and viscosity controlling",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ALCOHOL",
+   "functions": [
+    "ASTRINGENT",
+    "ANTIFOAMING",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/590/alcohol/",
+   "quote": "astringent, antifoaming, solvent, viscosity controlling",
+   "note": "Search summary also mentioned antimicrobial and fragrance-functional entries. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ALCOHOL DENAT.",
+   "functions": [
+    "ASTRINGENT",
+    "ANTIFOAMING",
+    "ANTIMICROBIAL",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/591/alcohol-denat/",
+   "quote": "adstringent, antifoaming, antimicrobial, fragrance functional, solvent, and viscosity controlling",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ALOE BARBADENSIS LEAF JUICE",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/690/aloe-barbadensis-leaf-juice/",
+   "quote": "SKIN CONDITIONING, Maintains the skin in good condition",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "AMODIMETHICONE",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe (French page)",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/953/amodimethicone/",
+   "quote": "antistatic agent and hair conditioner",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "AQUA",
+   "functions": [
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1100/aqua/",
+   "quote": "fragrance-functional excipient and solvent",
+   "note": "SkinSort (water, CosIng ID 92472) instead lists SKIN CONDITIONING and SOLVENT: https://www.skinsort.com/ingredients/water . Sources disagree. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ARGININE",
+   "functions": [
+    "ANTISTATIC",
+    "PERFUMING",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1160/arginine/",
+   "quote": "antistatic, fragrance, hair conditioning, skin conditioning",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ASCORBIC ACID",
+   "functions": [
+    "ANTIOXIDANT",
+    "SKIN CONDITIONING",
+    "BUFFERING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe (French page)",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/1234/ascorbic-acid/",
+   "quote": "antioxidant, skin-conditioning, pH-buffering, fragrance-excipient roles",
+   "note": "Read from de/fr/it/nl pages; English wording inferred. SpecialChem lists additional roles (skin protector, preservative, UV filter). Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "ASCORBYL PALMITATE",
+   "functions": [
+    "ANTIOXIDANT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe (Bulgarian/Polish pages)",
+   "url": "https://cosmileeurope.eu/pl/inci/szczegoly/1244/ascorbyl-palmitate/",
+   "quote": "antioxidant; auxiliary substance in fragrance oils and/or flavours",
+   "note": "Read from translated pages. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BAKUCHIOL",
+   "functions": [
+    "ANTIMICROBIAL",
+    "ANTIOXIDANT",
+    "EMOLLIENT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "SkinSort (mirrors CosIng)",
+   "url": "https://skinsort.com/ingredients/bakuchiol",
+   "quote": "CosIng ID 32053 ... Antimicrobial, Antioxidant, Emollient, Skin Conditioning",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BEHENTRIMONIUM CHLORIDE",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING",
+    "PRESERVATIVE"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1530/behentrimonium-chloride/",
+   "quote": "Antistatic, Hair Conditioning, Preservative",
+   "note": "SpecialChem additionally lists emulsifying. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BEHENYL ALCOHOL",
+   "functions": [
+    "BINDING",
+    "EMOLLIENT",
+    "EMULSION STABILISING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1533/behenyl-alcohol/",
+   "quote": "Binding, Emollient, Emulsion Stabilising, Viscosity Controlling",
+   "note": "List per SkinSort (CosIng ID 74589); COSMILE said to match plus a fragrance-functional role. SpecialChem adds opacifying. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BENZOPHENONE-3",
+   "functions": [
+    "UV FILTER",
+    "UV ABSORBER",
+    "LIGHT STABILISER"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1577/benzophenone-3/",
+   "quote": "UV filter, UV absorber, light stabilizer, fragrance functional",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BENZOYL PEROXIDE",
+   "functions": [
+    "OXIDISING"
+   ],
+   "kind": "secondary",
+   "label": "CosIng Checker",
+   "url": "https://cosingchecker.com/ingredients/41528-benzoyl-peroxide",
+   "quote": "Recorded cosmetic function: OXIDISING",
+   "note": "Trade press also cites CosIng function oxidising; INCIDecoder says anti-acne (not a CosIng function). Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BENZYL ALCOHOL",
+   "functions": [
+    "PERFUMING",
+    "PRESERVATIVE",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1592/benzyl-alcohol/",
+   "quote": "fragrance, preservative, solvent, viscosity control",
+   "note": "CosIng Checker records PERFUMING, PRESERVATIVE, SOLVENT, VISCOSITY CONTROLLING (https://cosingchecker.com/regulations/gb/records/6628/). Spanish COSMILE page adds solubilizer. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BETAINE",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING",
+    "HUMECTANT",
+    "SKIN CONDITIONING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1648/betaine/",
+   "quote": "Antistatic, hair conditioning, humectant, skin conditioning, viscosity controlling",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BHT",
+   "functions": [
+    "ANTIOXIDANT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1672/bht/",
+   "quote": "antioxidant ... fragrance-functional excipient in perfume oils",
+   "note": "CosIng Checker (https://cosingchecker.com/ingredients/32185-bht/) said to record ANTIOXIDANT and FRAGRANCE. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BISABOLOL",
+   "functions": [
+    "SKIN CONDITIONING",
+    "SOOTHING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/1814/bisabolol/",
+   "quote": "fragrance, skin conditioning, soothing",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BUTYL METHOXYDIBENZOYLMETHANE",
+   "functions": [
+    "UV FILTER",
+    "UV ABSORBER",
+    "LIGHT STABILISER"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2000/butyl-methoxydibenzoylmethane/",
+   "quote": "UV filter, UV absorber, light stabilizer, fragrance-functional excipient",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BUTYLENE GLYCOL",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2015/butylene-glycol/",
+   "quote": "Fragrance, Humectant, Skin Conditioning, Solvent, Viscosity Controlling",
+   "note": "Disagreement: SkinSort (CosIng ID 74756) lists HUMECTANT, MASKING, SKIN CONDITIONING, SOLVENT, VISCOSITY CONTROLLING: https://www.skinsort.com/ingredients/butylene-glycol Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "BUTYROSPERMUM PARKII BUTTER",
+   "functions": [
+    "SKIN CONDITIONING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/18767/butyrospermum-parkii-butter/",
+   "quote": "skin conditioning and viscosity controlling",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "C12-15 ALKYL BENZOATE",
+   "functions": [
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2154/c12-15-alkyl-benzoate/",
+   "quote": "SKIN CONDITIONING; SKIN CONDITIONING - EMOLLIENT",
+   "note": "Disagreement: SkinSort/CosIng ID 74635 lists ANTIMICROBIAL, EMOLLIENT, SKIN CONDITIONING: https://skinsort.com/ingredients/c12-15-alkyl-benzoate Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CAFFEINE",
+   "functions": [
+    "PERFUMING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2351/caffeine/",
+   "quote": "fragrance ... and skin conditioning",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CAMELLIA SINENSIS LEAF EXTRACT",
+   "functions": [
+    "ASTRINGENT",
+    "ANTIMICROBIAL",
+    "ANTIOXIDANT",
+    "PERFUMING",
+    "HUMECTANT",
+    "ORAL CARE",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SKIN PROTECTING",
+    "TONIC",
+    "UV ABSORBER"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2499/camellia-sinensis-leaf-extract/",
+   "quote": "adstringent, antimicrobial, antioxidant, fragrance, humectant, oral care, skin conditioning, emollient, skin protecting, tonic, UV absorber",
+   "note": "Disagreement: SkinSort (CosIng ID 55220) lists MASKING instead of FRAGRANCE: https://www.skinsort.com/ingredients/camellia-sinensis-leaf-extract Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CAPRYLIC/CAPRIC TRIGLYCERIDE",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2584/caprylic-capric-triglyceride/",
+   "quote": "FRAGRANCE FUNCTIONAL ...; SKIN CONDITIONING, Maintains the skin in good condition",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CAPRYLYL GLYCOL",
+   "functions": [
+    "DEODORANT",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2612/caprylyl-glycol/",
+   "quote": "deodorant, fragrance functional, hair conditioning, skin conditioning, skin conditioning-emollient",
+   "note": "Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CARBOMER",
+   "functions": [
+    "EMULSION STABILISING",
+    "GEL FORMING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2648/carbomer/",
+   "quote": "EMULSION STABILISING, GEL FORMING, VISCOSITY CONTROLLING",
+   "note": "SkinSort (CosIng ID 74820) agrees. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CENTELLA ASIATICA LEAF EXTRACT",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2807/centella-asiatica-leaf-extract/",
+   "quote": "skin conditioning only listed function",
+   "note": "SkinSort (CosIng ID 55319) agrees. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CERA ALBA",
+   "functions": [
+    "FILM FORMING",
+    "PERFUMING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2813/cera-alba/",
+   "quote": "film forming, fragrance, skin conditioning (emollient), surfactant (emulsifying)",
+   "note": "COSMILE entry 21574 'beeswax' (synonym Cera Alba) instead lists binding, emulsion stabilising, fragrance, skin conditioning, viscosity controlling: https://cosmileeurope.eu/inci/detail/21574/beeswax/ Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CERAMIDE NP",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/25522/ceramide-np/",
+   "quote": "Hair conditioning; skin conditioning (miscellaneous)",
+   "note": "Skin conditioning may be a sub-type (miscellaneous). Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CETEARETH-20",
+   "functions": [
+    "CLEANSING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2865/ceteareth-20/",
+   "quote": "cleansing, surfactant (cleansing), surfactant (emulsifying)",
+   "note": "SkinSort (CosIng ID 75105) lists CLEANSING, EMULSIFYING, SURFACTANT. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CETEARYL ALCOHOL",
+   "functions": [
+    "EMULSION STABILISING",
+    "OPACIFYING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING",
+    "SURFACTANT - FOAM BOOSTING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2895/cetearyl-alcohol",
+   "quote": "emulsion stabilising, opacifying, skin conditioning (emollient), surfactant (cleansing, emulsifying, foam boosting), viscosity controlling",
+   "note": "SkinSort (CosIng ID 75132) lists EMOLLIENT, EMULSIFYING, EMULSION STABILISING, FOAM BOOSTING, OPACIFYING, SURFACTANT, VISCOSITY CONTROLLING. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CETEARYL GLUCOSIDE",
+   "functions": [
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2903/cetearyl-glucoside/",
+   "quote": "cleansing surfactant and emulsifying surfactant",
+   "note": "SkinSort (CosIng ID 75137) lists EMULSIFYING and SURFACTANT only. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CETRIMONIUM CHLORIDE",
+   "functions": [
+    "ANTIMICROBIAL",
+    "ANTISTATIC",
+    "PRESERVATIVE",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe",
+   "url": "https://cosmileeurope.eu/inci/detail/2965/cetrimonium-chloride/",
+   "quote": "antimicrobial, antistatic, preservative, surfactant (emulsifying)",
+   "note": "SkinSort (CosIng ID 32590) matches. Page not opened (fetch blocked); functions read from search-result text for this page."
+  },
+  {
+   "inci": "CETYL ALCOHOL",
+   "functions": [
+    "EMOLLIENT",
+    "EMULSIFYING",
+    "EMULSION STABILISING",
+    "FOAM BOOSTING",
+    "MASKING",
+    "OPACIFYING",
+    "SURFACTANT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Skinsort (states CosIng data)",
+   "url": "https://www.skinsort.com/ingredients/cetyl-alcohol",
+   "quote": "CosIng entry ID 32596 ... functions: emollient, emulsifying, emulsion stabilising, foam boosting, masking, opacifying, surfactant, viscosity controlling",
+   "note": "Page not opened; from search-result text. Cosmile Europe page (https://cosmileeurope.eu/inci/detail/2973/cetyl-alcohol/) search text was inconsistent: reportedly adds fragrance and skin conditioning, and gives surfactant as cleansing/emulsifying. Sources disagree in wording; verify."
+  },
+  {
+   "inci": "CHLORPHENESIN",
+   "functions": [
+    "ANTIMICROBIAL",
+    "PRESERVATIVE"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3114/chlorphenesin/",
+   "quote": "lists two functions: antimicrobial and preservative",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "CHOLESTEROL",
+   "functions": [
+    "LIGHT STABILIZER",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SURFACTANT - EMULSIFYING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3117/cholesterol/",
+   "quote": "SKIN CONDITIONING - EMOLLIENT: Softens and smoothens the skin; SURFACTANT - EMULSIFYING; VISCOSITY CONTROLLING",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "CITRIC ACID",
+   "functions": [
+    "BUFFERING",
+    "CHELATING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3374/citric-acid",
+   "quote": "Chelating: Binds metal ions which could negatively affect the stability and / or appearance of cosmetics",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. pH adjustment is Cosmile's label for what CosIng calls BUFFERING (not confirmed from page)."
+  },
+  {
+   "inci": "CITRONELLOL",
+   "functions": [
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/19208/citronellol/",
+   "quote": "Function(s) of this ingredient in cosmetic products: FRAGRANCE",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "COCAMIDOPROPYL BETAINE",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - FOAM BOOSTING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3599/cocamidopropyl-betaine/",
+   "quote": "five cosmetic functions: antistatic, hair conditioning, surfactant (cleansing), surfactant (foam boosting), viscosity controlling",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "COCO-GLUCOSIDE",
+   "functions": [
+    "CLEANSING",
+    "FOAMING",
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3641/coco-glucoside/",
+   "quote": "three functions: cleansing, foaming, and surfactant (cleansing)",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. Page is titled 'coco glucoside'."
+  },
+  {
+   "inci": "COCOS NUCIFERA OIL",
+   "functions": [
+    "PERFUMING",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/3680/cocos-nucifera-oil/",
+   "quote": "three cosmetic functions: fragrance, hair conditioning, and skin conditioning",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "COUMARIN",
+   "functions": [
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/19218/coumarin/",
+   "quote": "one cosmetic function: fragrance",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "CYCLOHEXASILOXANE",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4025/cyclohexasiloxane/",
+   "quote": "lists hair conditioning, skin conditioning, skin conditioning-emollient, and solvent as its functions",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "CYCLOPENTASILOXANE",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4034/cyclopentasiloxane/",
+   "quote": "SKIN CONDITIONING - EMOLLIENT: Softens and smoothens the skin; SOLVENT: Dissolves other substances",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "DECYL GLUCOSIDE",
+   "functions": [
+    "CLEANSING",
+    "EMULSION STABILISING",
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4177/decyl-glucoside/",
+   "quote": "four functions: cleansing, emulsion stabilising, fragrance functional, and surfactant-cleansing",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "DEHYDROACETIC ACID",
+   "functions": [
+    "PRESERVATIVE"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4211/dehydroacetic-acid/",
+   "quote": "lists its cosmetic function as a preservative",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "DIISOPROPYL ADIPATE",
+   "functions": [
+    "PLASTICISER",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4535/diisopropyl-adipate/",
+   "quote": "five functions: fragrance, plasticiser, skin conditioning, skin conditioning-emollient, and solvent",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. Trade sources (Knowde, SpecialChem) word it differently (carrier/emollient); not used."
+  },
+  {
+   "inci": "DIMETHICONE",
+   "functions": [
+    "ANTIFOAMING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SKIN PROTECTING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4583/dimethicone",
+   "quote": "five functions: antifoaming, fragrance functional, skin conditioning, skin conditioning-emollient, and skin protecting",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "DIMETHYL ISOSORBIDE",
+   "functions": [
+    "VISCOSITY CONTROLLING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/ro/inci/ingredient/4692/dimethyl-isosorbide/",
+   "quote": "Bulgarian/Greek pages: viscosity control (increases or decreases viscosity); solvent (dissolves other substances)",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. English page not seen; functions derived from translated (Bulgarian/Greek) pages, URL is the Romanian version listed in results."
+  },
+  {
+   "inci": "DISODIUM COCOAMPHODIACETATE",
+   "functions": [
+    "CLEANSING",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - FOAM BOOSTING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4922/disodium-cocoamphodiacetate/",
+   "quote": "five cosmetic functions: cleansing, hair conditioning, skin conditioning, surfactant (cleansing), and surfactant (foam boosting)",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "DISODIUM EDTA",
+   "functions": [
+    "CHELATING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/4934/disodium-edta",
+   "quote": "three functions: Chelating, Fragrance functional, Viscosity controlling",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. Search text said the cosingchecker.com CosIng mirror (https://cosingchecker.com/ingredients/33604-disodium-edta/) shows only 2 functions (names not visible), so CosIng count differs from Cosmile's 3; verify."
+  },
+  {
+   "inci": "ETHOXYDIGLYCOL",
+   "functions": [
+    "HUMECTANT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5336/ethoxydiglycol/",
+   "quote": "lists three functions: fragrance functional, humectant, and solvent",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. cosingchecker mirror reportedly shows 3 functions (names not visible)."
+  },
+  {
+   "inci": "ETHYLHEXYL SALICYLATE",
+   "functions": [
+    "UV FILTER",
+    "UV ABSORBER",
+    "LIGHT STABILIZER"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5496/ethylhexyl-salicylate/",
+   "quote": "three functions: UV filter, UV absorber, and light stabilizer",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "ETHYLHEXYL STEARATE",
+   "functions": [
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5497/ethylhexyl-stearate/",
+   "quote": "SKIN CONDITIONING - EMOLLIENT Softens and smoothens the skin",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "ETHYLHEXYLGLYCERIN",
+   "functions": [
+    "DEODORANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5500/ethylhexylglycerin",
+   "quote": "lists two functions in English: deodorant and skin conditioning",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. Spanish version adds fragrance excipient; SpecialChem describes surfactant/preservative/skin conditioning (not used). Sources disagree."
+  },
+  {
+   "inci": "EUGENOL",
+   "functions": [
+    "DENATURANT",
+    "PERFUMING",
+    "TONIC"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5549/eugenol/",
+   "quote": "lists three functions in cosmetics: denaturant, fragrance, and tonic",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GERANIOL",
+   "functions": [
+    "PERFUMING",
+    "TONIC"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5834/geraniol/",
+   "quote": "lists two functions: fragrance and tonic",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCERETH-26",
+   "functions": [
+    "HUMECTANT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5928/glycereth-26/",
+   "quote": "HUMECTANT Holds and retains moisture in cosmetic products VISCOSITY CONTROLLING Increases or decreases the viscosity",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCERIN",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING",
+    "HAIR CONDITIONING",
+    "VISCOSITY CONTROLLING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/5951/glycerin/",
+   "quote": "Humectant: holds and retains moisture in cosmetic products; plus skin conditioning, hair conditioning, viscosity controlling, solvent, fragrance functional",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCERYL STEARATE",
+   "functions": [
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6054/glyceryl-stearate/",
+   "quote": "functions are SKIN CONDITIONING - EMOLLIENT and SURFACTANT - EMULSIFYING",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCERYL STEARATE SE",
+   "functions": [
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/6059/glyceryl-stearate-se/",
+   "quote": "cosmetic function as surfactant-emulsifier (from FR/ES/RO pages)",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. English page not seen; label translated from French/Spanish pages, so exact English wording unconfirmed."
+  },
+  {
+   "inci": "GLYCOL DISTEARATE",
+   "functions": [
+    "OPACIFYING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SURFACTANT - EMULSIFYING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6123/glycol-distearate/",
+   "quote": "five cosmetic functions: opacifying, skin conditioning, skin conditioning emollient, surfactant emulsifying, viscosity controlling",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCOLIC ACID",
+   "functions": [
+    "BUFFERING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6139/glycolic-acid/",
+   "quote": "lists glycolic acid's cosmetic function as buffering, meaning it controls the pH of cosmetic products",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "GLYCYRRHIZA GLABRA ROOT EXTRACT",
+   "functions": [
+    "SKIN CONDITIONING",
+    "EMOLLIENT",
+    "SKIN BRIGHTENING",
+    "SOOTHING",
+    "PERFUMING",
+    "SMOOTHING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/es/inci/ingrediente/6154/glycyrrhiza-glabra-root-extract/",
+   "quote": "Spanish/French pages: skin conditioning, emollient, bleaching, soothing, fragrance, smoothing",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. Only Spanish/French pages seen, labels translated by the search summary (bleaching ~ skin brightening); low confidence in exact wording. Knowde supplier lists differ (not used)."
+  },
+  {
+   "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+   "functions": [
+    "ANTISTATIC",
+    "FILM FORMING",
+    "SKIN CONDITIONING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6212/guar-hydroxypropyltrimonium-chloride/",
+   "quote": "four functions: antistatic, film forming, skin conditioning, and viscosity controlling",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording. A dermatology encyclopedia page lists antistatic, film former, viscosity regulator (no skin conditioning)."
+  },
+  {
+   "inci": "HELIANTHUS ANNUUS SEED OIL",
+   "functions": [
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6310/helianthus-annuus-seed-oil/",
+   "quote": "three functions: fragrance functional, skin conditioning, skin conditioning emollient",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "HEXYL CINNAMAL",
+   "functions": [
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/19147/hexyl-cinnamal",
+   "quote": "lists its cosmetic function as fragrance",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "HOMOSALATE",
+   "functions": [
+    "UV ABSORBER",
+    "UV FILTER"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6509/homosalate/",
+   "quote": "listed as a UV absorber, a UV filter, and a fragrance-functional ingredient",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "HYALURONIC ACID",
+   "functions": [
+    "ANTISTATIC",
+    "HUMECTANT",
+    "MOISTURISING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/6550/hyaluronic-acid/",
+   "quote": "four cosmetic functions: antistatic, humectant, moisturising, and skin conditioning",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "HYDROXYACETOPHENONE",
+   "functions": [
+    "ANTIOXIDANT"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/17301/hydroxyacetophenone/",
+   "quote": "Inhibits reactions promoted by oxygen, thus avoiding oxidation and deterioration of ingredients; Functional ingredient (excipient) of perfume oils",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "HYDROXYETHYLCELLULOSE",
+   "functions": [
+    "BINDING",
+    "EMULSION STABILISING",
+    "FILM FORMING",
+    "LIGHT STABILISING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "Cosmetics Europe COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/7114/hydroxyethylcellulose/",
+   "quote": "six functions: binding, emulsion stabilising, film forming, fragrance functional, light stabilising, and viscosity controlling",
+   "note": "Page itself could not be opened (egress blocked); functions taken from the search-result text for this page. Cosmile uses its own labels (e.g. FRAGRANCE, pH adjustment) which may differ from CosIng wording."
+  },
+  {
+   "inci": "ISOCETETH-20",
+   "functions": [
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "secondary",
+   "label": "SpecialChem INCI page",
+   "url": "https://www.specialchem.com/cosmetics/inci-ingredients/isoceteth-20",
+   "quote": "ISOCETETH-20 listed as an emulsifying surfactant",
+   "note": "Function wording from search-result text; page not opened. No Cosmile or CosIng function list found (cosingchecker ref 76731 URL seen, no functions shown)."
+  },
+  {
+   "inci": "ISODODECANE",
+   "functions": [
+    "PERFUMING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/7429/isododecane/",
+   "quote": "fragrance, skin conditioning-emollient, and solvent",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "ISOPROPYL MYRISTATE",
+   "functions": [
+    "BINDING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/7511/isopropyl-myristate/",
+   "quote": "Ensures the cohesion of powdered products; Softens and smoothens the skin",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "ISOPROPYL PALMITATE",
+   "functions": [
+    "SKIN CONDITIONING - EMOLLIENT",
+    "BINDING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/7514/isopropyl-palmitate/",
+   "quote": "emollient; excipient in fragrance oils; binding agent for pressed powders",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "KAOLIN",
+   "functions": [
+    "ABRASIVE",
+    "ABSORBENT",
+    "ANTICAKING",
+    "BULKING",
+    "COSMETIC COLORANT",
+    "OPACIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/7698/kaolin/",
+   "quote": "abrasive, absorbent, anticaking, bulking, colorant, and opacifying",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "LACTIC ACID",
+   "functions": [
+    "SKIN CONDITIONING",
+    "BUFFERING",
+    "HUMECTANT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/7749/lactic-acid/",
+   "quote": "skin conditioning, pH buffering, humectant, and fragrance excipient",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "LAURYL GLUCOSIDE",
+   "functions": [
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/de/inci/inhaltsstoff/8133/lauryl-glucoside/",
+   "quote": "classed as a cleansing agent and surfactant",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Search text did not name an emulsifying function."
+  },
+  {
+   "inci": "LAVANDULA ANGUSTIFOLIA OIL",
+   "functions": [
+    "PERFUMING",
+    "TONIC"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/8190/lavandula-angustifolia-oil/",
+   "quote": "TONIFIANT Produit des sensations de fraicheur, pureté et force sur la peau et les cheveux",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. French page; fragrance function stated, tonic = TONIFIANT."
+  },
+  {
+   "inci": "LECITHIN",
+   "functions": [
+    "ANTISTATIC",
+    "SKIN CONDITIONING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/8209/lecithin/",
+   "quote": "Reduces electrostatic charges (eg of the hair); surfactant emulsifying; skin conditioning",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "LIMONENE",
+   "functions": [
+    "DEODORANT",
+    "PERFUMING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/8297/limonene/",
+   "quote": "Reduces or masks unpleasant body odours; Enhances the smell of a product; Dissolves other substances",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "LINALOOL",
+   "functions": [
+    "DEODORANT",
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/8307/linalool/",
+   "quote": "Reduces or masks unpleasant body odours; enhances the smell of a product",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "MAGNESIUM ALUMINUM SILICATE",
+   "functions": [
+    "ABSORBENT",
+    "ANTICAKING",
+    "OPACIFYING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Skinsort (CosIng-based)",
+   "url": "https://skinsort.com/ingredients/magnesium-aluminum-silicate",
+   "quote": "CosIng-based INCI functions: absorbent, anticaking, opacifying, viscosity controlling",
+   "note": "Search text said the Skinsort page is garbled around 'opacifying'; page not opened. SpecialChem also calls it emulsion stabilizer/thickener. No Cosmile page found."
+  },
+  {
+   "inci": "MANDELIC ACID",
+   "functions": [
+    "ANTIMICROBIAL"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/8647/mandelic-acid/",
+   "quote": "ANTIMICROBIAL Helps control the growth of micro-organisms (eg bacteria and fungi)",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "METHYLPARABEN",
+   "functions": [
+    "PRESERVATIVE"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/9041/methylparaben",
+   "quote": "preservative and functional excipient in perfume oils and flavours",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "MICA",
+   "functions": [
+    "ANTICAKING",
+    "BULKING",
+    "COSMETIC COLORANT",
+    "OPACIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/9067/mica/",
+   "quote": "anticaking, bulking, colorant, and opacifying",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "MINERAL OIL",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SKIN CONDITIONING - OCCLUSIVE",
+    "SKIN PROTECTING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/31712/mineral-oil",
+   "quote": "fragrance excipient, hair conditioning, emollient, occlusive, skin protection, solvent",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "NIACINAMIDE",
+   "functions": [
+    "SMOOTHING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/9443/niacinamide/",
+   "quote": "Function(s) of this ingredient in cosmetic products SMOOTHING",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Search text showed only SMOOTHING; a third-party glossary (miintrade) claims more, not CosIng."
+  },
+  {
+   "inci": "OCTOCRYLENE",
+   "functions": [
+    "UV FILTER",
+    "UV ABSORBER",
+    "LIGHT STABILISER"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/9594/octocrylene/",
+   "quote": "UV filter; UV absorber; light stabilizer; fragrance functional",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "OCTYLDODECANOL",
+   "functions": [
+    "PERFUMING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/9620/octyldodecanol/",
+   "quote": "fragrance, skin conditioning (emollient), and solvent",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PANTHENOL",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10243/panthenol/",
+   "quote": "antistatic, fragrance functional, hair conditioning, and skin conditioning",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PANTOLACTONE",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10250/pantolactone/",
+   "quote": "humectant and skin conditioning",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PARAFFINUM LIQUIDUM",
+   "functions": [
+    "ANTISTATIC",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "SKIN PROTECTING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10266/paraffinum-liquidum",
+   "quote": "antistatic, fragrance functional, skin conditioning (emollient), skin protecting, and solvent",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Differs from MINERAL OIL entry (no hair conditioning/occlusive here)."
+  },
+  {
+   "inci": "PARFUM",
+   "functions": [
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/10267/parfum/",
+   "quote": "main function as fragrance, scents a product or the skin",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. French entry also mentions masking odours; English page not seen."
+  },
+  {
+   "inci": "PEG-10 DIMETHICONE",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10333/peg-10-dimethicone/",
+   "quote": "Leaves the hair easy to comb, supple, soft and shiny; Maintains the skin in good condition",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PEG-100 STEARATE",
+   "functions": [
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10380/peg-100-stearate/",
+   "quote": "English page gives the category as SURFACTANT - CLEANSING",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Search text said list may be truncated."
+  },
+  {
+   "inci": "PEG-40 HYDROGENATED CASTOR OIL",
+   "functions": [
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/10814/peg-40-hydrogenated-castor-oil/",
+   "quote": "surfactant (cleansing), surfactant (emulsifying), and fragrance functional",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. SpecialChem additionally lists emollient/solubilizer; not CosIng-verified."
+  },
+  {
+   "inci": "PENTYLENE GLYCOL",
+   "functions": [
+    "SKIN CONDITIONING",
+    "SOLVENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/11416/pentylene-glycol/",
+   "quote": "fragrance functional, skin conditioning, and solvent",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PERSEA GRATISSIMA OIL",
+   "functions": [
+    "SKIN CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/11472/persea-gratissima-oil/",
+   "quote": "skin conditioning agent and functional excipient in perfume oils and flavours",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PETROLATUM",
+   "functions": [
+    "ANTISTATIC",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/11488/petrolatum/",
+   "quote": "ANTISTATIC; SKIN CONDITIONING - EMOLLIENT",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PHENOXYETHANOL",
+   "functions": [
+    "ANTIMICROBIAL",
+    "PRESERVATIVE"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/11555/phenoxyethanol/",
+   "quote": "antimicrobial and preservative",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Search text also said it can serve as fragrance."
+  },
+  {
+   "inci": "PHYTIC ACID",
+   "functions": [
+    "CHELATING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/11656/phytic-acid/",
+   "quote": "Function(s) of this ingredient in cosmetic products: CHELATING",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "POLYHYDROXYSTEARIC ACID",
+   "functions": [
+    "DISPERSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/12317/polyhydroxystearic-acid/",
+   "quote": "Facilitating the dispersion of solids in liquids; Allows the formation of finely dispersed mixtures of oil and water",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "POLYSORBATE 20",
+   "functions": [
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/12491/polysorbate-20/",
+   "quote": "cleansing surfactant, emulsifying surfactant, perfume excipient",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. English page not in results; non-English pages used."
+  },
+  {
+   "inci": "POLYSORBATE 60",
+   "functions": [
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/es/inci/ingrediente/12494/polysorbate-60/",
+   "quote": "TENSIOACTIVO - LIMPIADOR; EXCIPIENTE DE FRAGANCIA",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. English page not in results; Spanish/Romanian pages used."
+  },
+  {
+   "inci": "POLYSORBATE 80",
+   "functions": [
+    "DENATURANT",
+    "SURFACTANT - EMULSIFYING",
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/12497/polysorbate-80/",
+   "quote": "denaturant, fragrance functional, surfactant emulsifying, surfactant cleansing",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "POTASSIUM SORBATE",
+   "functions": [
+    "PRESERVATIVE",
+    "PERFUMING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/12776/potassium-sorbate",
+   "quote": "preservative: protects cosmetic products from microbial spoilage; fragrance",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Second function worded differently by language (enhances smell vs perfume-oil excipient)."
+  },
+  {
+   "inci": "PROLINE",
+   "functions": [
+    "SKIN CONDITIONING",
+    "HAIR CONDITIONING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13164/proline/",
+   "quote": "Maintains the skin in good condition; leaves the hair easy to comb, supple, soft and shiny",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record."
+  },
+  {
+   "inci": "PROPANEDIOL",
+   "functions": [
+    "HUMECTANT",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13169/propanediol/",
+   "quote": "fragrance excipient, humectant, solvent, and viscosity control",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. myskinrecipes (secondary) adds preservative booster; not CosIng."
+  },
+  {
+   "inci": "PROPYLENE GLYCOL",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING",
+    "SOLVENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "reference",
+   "label": "COSMILE Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13188/propylene-glycol/",
+   "quote": "fragrance functional, humectant, skin conditioning, solvent, viscosity controlling",
+   "note": "Source page not opened (fetch blocked); functions taken from web-search result text for the page. Cosmile wording, not CosIng record. Search summary said 'four' but listed five."
+  },
+  {
+   "inci": "PROPYLPARABEN",
+   "functions": [
+    "PRESERVATIVE"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13237/propylparaben",
+   "quote": "Protects cosmetic products from microbial spoilage; also functional excipient of fragrance oils and flavours.",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). A skinsort.com summary instead said PERFUMING, PRESERVATIVE."
+  },
+  {
+   "inci": "PULLULAN",
+   "functions": [
+    "FILM FORMING",
+    "BINDING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13408/pullulan/",
+   "quote": "Produces a continuous film on skin, hair and / or nails; Ensures the cohesion of powdered products.",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "RETINOL",
+   "functions": [
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - MISCELLANEOUS"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13645/retinol/",
+   "quote": "lists its cosmetic function as skin conditioning, with a secondary skin conditioning - miscellaneous label",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). cosingchecker.com says CosIng tags RETINOL with two functions but the summary did not name them."
+  },
+  {
+   "inci": "ROSA DAMASCENA FLOWER WATER",
+   "functions": [
+    "PERFUMING",
+    "SKIN CONDITIONING",
+    "SKIN PROTECTING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/13810/rosa-damascena-flower-water/",
+   "quote": "lists three functions: fragrance, skin conditioning, and skin protecting",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SALICYLIC ACID",
+   "functions": [
+    "ANTI-SEBORRHOEIC",
+    "KERATOLYTIC",
+    "PRESERVATIVE",
+    "SKIN CONDITIONING",
+    "HAIR CONDITIONING",
+    "PERFUMING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14076/salicylic-acid/",
+   "quote": "Anti-seborrhoeic, keratolytic, preservative, skin conditioning, hair conditioning, and fragrance",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SCLEROTIUM GUM",
+   "functions": [
+    "EMULSION STABILISING",
+    "SKIN CONDITIONING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14255/sclerotium-gum/",
+   "quote": "three cosmetic functions: emulsion stabilising, skin conditioning, and viscosity controlling",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SILICA",
+   "functions": [
+    "ABRASIVE",
+    "ABSORBENT",
+    "ANTICAKING",
+    "BULKING",
+    "OPACIFYING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14425/silica/",
+   "quote": "abrasive, absorbent, anti-caking, bulking, fragrance functional, opacifying, and viscosity controlling",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SIMMONDSIA CHINENSIS SEED OIL",
+   "functions": [
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14490/simmondsia-chinensis-seed-oil/",
+   "quote": "three functions: hair conditioning, skin conditioning, and skin conditioning as an emollient",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM ASCORBYL PHOSPHATE",
+   "functions": [
+    "ANTIOXIDANT"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14550/sodium-ascorbyl-phosphate/",
+   "quote": "classifies it as an antioxidant. Inhibits reactions promoted by oxygen, thus avoiding oxidation and deterioration of ingredients.",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM BENZOATE",
+   "functions": [
+    "ANTICORROSIVE",
+    "PERFUMING",
+    "PRESERVATIVE"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14561/sodium-benzoate",
+   "quote": "three cosmetic functions: anticorrosive, fragrance, and preservative",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM COCOYL ISETHIONATE",
+   "functions": [
+    "CLEANSING",
+    "HAIR CONDITIONING",
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14723/sodium-cocoyl-isethionate/",
+   "quote": "three functions: cleansing, hair conditioning, and surfactant (cleansing)",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM GLUCONATE",
+   "functions": [
+    "CHELATING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14787/sodium-gluconate/",
+   "quote": "Chelating: Binds metal ions which could negatively affect the stability and / or appearance of cosmetics; Skin conditioning: Maintains the skin in good condition",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM HYALURONATE",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14809/sodium-hyaluronate",
+   "quote": "HUMECTANT / Holds and retains moisture in cosmetic products / SKIN CONDITIONING / Maintains the skin in good condition",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). skinsort.com summary (CosIng-based) also gave Humectant, Skin Conditioning."
+  },
+  {
+   "inci": "SODIUM HYDROXIDE",
+   "functions": [
+    "BUFFERING",
+    "DENATURING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14821/sodium-hydroxide/",
+   "quote": "three functions: buffering (pH control), denaturing, and a fragrance-functional role",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM LAURETH SULFATE",
+   "functions": [
+    "CLEANSING",
+    "FOAMING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14857/sodium-laureth-sulfate/",
+   "quote": "four functions: cleansing, foaming, cleansing surfactant, and emulsifying surfactant",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM LAURYL SULFATE",
+   "functions": [
+    "CLEANSING",
+    "FOAMING",
+    "SURFACTANT - CLEANSING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/14906/sodium-lauryl-sulfate/",
+   "quote": "three functions in cosmetics: cleansing, foaming, and surfactant for cleansing",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM PCA",
+   "functions": [
+    "ANTISTATIC",
+    "HAIR CONDITIONING",
+    "HUMECTANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15008/sodium-pca/",
+   "quote": "four cosmetic functions: antistatic, hair conditioning, humectant, and skin conditioning",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SODIUM POLYACRYLATE",
+   "functions": [
+    "ABSORBENT",
+    "BINDING",
+    "EMULSION STABILISING",
+    "FILM FORMING",
+    "HAIR FIXING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15040/sodium-polyacrylate/",
+   "quote": "absorbent, binding, emulsion stabilising, film forming, hair fixing, skin conditioning (including an emollient sub-function), and viscosity controlling",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Summary was internally inconsistent on whether English page lists BINDING (French page does); emollient sub-function wording is the summary's."
+  },
+  {
+   "inci": "SORBITAN OLEATE",
+   "functions": [
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15311/sorbitan-oleate/",
+   "quote": "cosmetic functions as surfactant (emulsifying) and fragrance-functional",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SORBITOL",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15325/sorbitol/",
+   "quote": "Its functions are fragrance functional, humectant, and skin conditioning",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "SQUALANE",
+   "functions": [
+    "HAIR CONDITIONING",
+    "REFATTING",
+    "SKIN CONDITIONING",
+    "SKIN CONDITIONING - EMOLLIENT"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15418/squalane/",
+   "quote": "Hair conditioning; Refatting; Skin conditioning; Skin conditioning, emollient",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). A third-party page in the results listed antistatic, emollient, hair conditioner, lipid restorer, skin care agent, solvent; not recorded."
+  },
+  {
+   "inci": "STEARIC ACID",
+   "functions": [
+    "CLEANSING",
+    "EMULSION STABILISING",
+    "PERFUMING",
+    "REFATTING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15514/stearic-acid/",
+   "quote": "includes cleansing, emulsion stabilising, fragrance, refatting, and surfactant roles (cleansing and emulsifying)",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Summary said the full list was not returned; may be incomplete."
+  },
+  {
+   "inci": "STEARYL ALCOHOL",
+   "functions": [
+    "EMULSION STABILISING",
+    "VISCOSITY CONTROLLING",
+    "SKIN CONDITIONING - EMOLLIENT",
+    "REFATTING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING",
+    "SURFACTANT - FOAM BOOSTING",
+    "OPACIFYING",
+    "PERFUMING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15539/stearyl-alcohol/",
+   "quote": "lists nine cosmetic functions: emulsion stabilising, viscosity controlling, skin conditioning (emollient), refatting, surfactant cleansing/emulsifying/foam boosting, opacifying, fragrance",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Summary says CosIng page (cosingchecker.com) also shows nine functions."
+  },
+  {
+   "inci": "TALC",
+   "functions": [
+    "ABRASIVE",
+    "ABSORBENT",
+    "ANTICAKING",
+    "BULKING",
+    "OPACIFYING",
+    "SKIN PROTECTING",
+    "SLIP MODIFIER"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/15804/talc/",
+   "quote": "abrasive, absorbent, anti-caking, bulking, opacifying, skin protecting, and slip modifier",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). DISAGREE: Cosmile lists 7 functions; summary says EU CosIng (via cosingchecker.com) tags TALC with six."
+  },
+  {
+   "inci": "TETRASODIUM GLUTAMATE DIACETATE",
+   "functions": [
+    "CHELATING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/17638/tetrasodium-glutamate-diacetate",
+   "quote": "COSMILE Europe lists tetrasodium glutamate diacetate's cosmetic function as chelating",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "TITANIUM DIOXIDE",
+   "functions": [
+    "UV ABSORBER",
+    "UV FILTER",
+    "OPACIFYING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16217/titanium-dioxide/",
+   "quote": "lists four functions: UV absorber, UV filter, opacifying agent, and fragrance functional ingredient",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Separate entry CI 77891 lists colorant."
+  },
+  {
+   "inci": "TOCOPHEROL",
+   "functions": [
+    "ANTIOXIDANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16234/tocopherol/",
+   "quote": "three functions in cosmetics: antioxidant, skin conditioning, and fragrance functional",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "TOCOPHERYL ACETATE",
+   "functions": [
+    "ANTIOXIDANT",
+    "SKIN CONDITIONING",
+    "PERFUMING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/16237/tocopheryl-acetate/",
+   "quote": "antioxidant, skin conditioning, and perfuming (as an excipient in fragrance oils)",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Function list was read from non-English pages (French/Greek/Bulgarian) per the summary; English snippet did not show it."
+  },
+  {
+   "inci": "TRANEXAMIC ACID",
+   "functions": [
+    "ASTRINGENT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/fr/inci/ingredient/16278/tranexamic-acid/",
+   "quote": "two cosmetic functions: astringent and skin conditioning",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). No English page in results; list taken from translated pages."
+  },
+  {
+   "inci": "TRIETHANOLAMINE",
+   "functions": [
+    "BUFFERING",
+    "SURFACTANT - CLEANSING",
+    "SURFACTANT - EMULSIFYING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16384/triethanolamine",
+   "quote": "four main functions: buffering, fragrance functional, surfactant (cleansing), and surfactant (emulsifying)",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "TRIETHYLHEXANOIN",
+   "functions": [
+    "PERFUMING",
+    "HAIR CONDITIONING",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16400/triethylhexanoin",
+   "quote": "three functions in cosmetics: fragrance, hair conditioning, and skin conditioning",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "UREA",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING",
+    "ANTISTATIC",
+    "BUFFERING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16737/urea/",
+   "quote": "Humectant; Skin conditioning; Antistatic; Buffering; Fragrance functional",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "XANTHAN GUM",
+   "functions": [
+    "BINDING",
+    "EMULSION STABILISING",
+    "GEL FORMING",
+    "SKIN CONDITIONING",
+    "SURFACTANT - EMULSIFYING",
+    "VISCOSITY CONTROLLING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/16999/xanthan-gum/",
+   "quote": "seven functions: binding, emulsion stabilising, fragrance functional, gel forming, skin conditioning, surfactant-emulsifying, and viscosity controlling",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  },
+  {
+   "inci": "ZINC OXIDE",
+   "functions": [
+    "ANTIMICROBIAL",
+    "BULKING",
+    "LIGHT STABILIZER",
+    "ORAL CARE",
+    "SKIN PROTECTING",
+    "UV ABSORBER",
+    "UV FILTER"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/17131/zinc-oxide/",
+   "quote": "seven cosmetic functions: antimicrobial, bulking, light stabilizer, oral care, skin protection, UV absorber, and UV filter",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING). Summary wrote 'skin protection'; recorded as SKIN PROTECTING."
+  },
+  {
+   "inci": "ZINC PCA",
+   "functions": [
+    "HUMECTANT",
+    "SKIN CONDITIONING"
+   ],
+   "kind": "secondary",
+   "label": "Cosmile Europe INCI database",
+   "url": "https://cosmileeurope.eu/inci/detail/17133/zinc-pca/",
+   "quote": "HUMECTANT, Holds and retains moisture in cosmetic products; SKIN CONDITIONING, Maintains the skin in good condition",
+   "note": "Page not opened; from search summary. Cosmile Europe labels may differ from CosIng wording (e.g. FRAGRANCE vs PERFUMING)."
+  }
+ ]
+}

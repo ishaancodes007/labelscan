@@ -1,0 +1,18 @@
+PASS dropzone, camera and gallery inputs, and a 3-step stepper are present
+PASS step 1 is the current step before anything is added
+PASS dropzone art is animated by default
+PASS while a photo is being read the scan frame animates
+PASS after reading, a 'Read N words' badge shows
+PASS results open with the role overview, before the review and the match counts
+PASS Glycerin is under Moisture, and Cetyl Alcohol under Softening
+PASS unmatched names sit in 'Still to confirm', with the guess marked as a guess
+PASS the overview states that a role is not an amount or an effect here
+PASS an identified row shows role chips, a plain-language line and a source link
+PASS the source is disclosed as not opened and not official
+PASS an unmatched row only offers a conditional role ('If this is …')
+PASS a name with no match shows no role at all
+PASS no row claims a score, 'safe' or 'toxic'
+PASS clicking a chip jumps to and flashes that ingredient
+PASS one tile per listed ingredient in the strip
+PASS Reduce motion stops the analyze-page animations  [none,none,none]
+PASS no page errors

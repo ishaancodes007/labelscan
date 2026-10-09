@@ -129,6 +129,5 @@ function summarise(items: ItemIn[], ids: Identity[]): string {
   if (fm.length) parts.push(`Lists ${fm.join(", ")}: an undisclosed fragrance mixture.`);
   if (al.length) parts.push(`Includes ${al.length} ingredient${al.length > 1 ? "s" : ""} on the EU fragrance-allergen list (${al.join(", ")}).`);
   if (pres.length) parts.push(`Includes preservatives that have documented contact-allergy reports (${pres.join(", ")}).`);
-  parts.push("A description of what each ingredient does will appear once CosIng function data is loaded.");
   return parts.join(" ");
 }

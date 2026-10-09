@@ -1,0 +1,26 @@
+ingredients with a sourced role in data: 148
+cetaphil_moisturising_lotion_ocr             15/15
+ref_aha_toner                                7/8
+ref_foundation                               9/9
+ref_gentle_cleanser                          8/9
+ref_hair_oil_indian                          1/1
+ref_lip_balm                                 3/3
+ref_mineral_sunscreen                        9/9
+ref_niacinamide_serum                        10/10
+ref_shampoo                                  10/11
+ref_sunscreen_spf50                          12/12
+
+fixture ingredients (identified entries only): 84/87 have a role (96.6%)
+no role yet: SODIUM CHLORIDE x2, ALLANTOIN
+real_cetaphil_lotion               16/16 resolved names have a role (16 items)
+real_minimalist_vitc_serum         15/16 resolved names have a role (16 items)
+real_nivea_body_lotion             10/16 resolved names have a role (16 items)
+real_garnier_shampoo               18/29 resolved names have a role (30 items)
+real_indian_label_crop             23/42 resolved names have a role (42 items)
+real_derma_co_sunscreen_tube       15/22 resolved names have a role (25 items)
+real_joy_sunscreen_lotion          16/19 resolved names have a role (21 items)
+real_dot_key_vitc_sunscreen_box    20/33 resolved names have a role (36 items)
+real_forest_essentials_balm        2/3 resolved names have a role (43 items)
+
+REAL-LABEL TRUTH TEXTS (9 products): 135/196 resolved ingredients have a role (68.9%); 196/245 items resolved
+no role yet: ETHYLHEXYL METHOXYCINNAMATE x4, BENZYL SALICYLATE x2, PHOSPHOLIPIDS x2, CENTELLA ASIATICA LEAF WATER, ISOHEXADECANE, PEG-40 SORBITAN PERISOSTEARATE, POLYGLYCERYL-3 DIISOSTEARATE, PRUNUS AMYGDALUS DULCIS OIL, MAGNESIUM SULFATE, SODIUM CITRATE, COCAMIDE MIPA, COCO-BETAINE, SODIUM CHLORIDE, PYRUS MALUS FRUIT EXTRACT, PYRIDOXINE HCL, SACCHARUM OFFICINARUM EXTRACT, SALIX NIGRA BARK EXTRACT, METHYL COCOATE, SODIUM COCOATE, CITRUS MEDICA LIMONUM PEEL EXTRACT, AMMONIUM ACRYLOYLDIMETHYLTAURATE/VP COPOLYMER, LYSINE CARBOXYMETHYL CYSTEINATE, HEXYLRESORCINOL, RETINYL PROPIONATE, AMMONIUM ACRYLOYLDIMETHYLTAURATE/BEHENETH-25 METHACRYLATE CROSSPOLYMER, LINOLEAMIDOPROPYL PG-DIMONIUM CHLORIDE PHOSPHATE, SYNTHETIC FLUORPHLOGOPITE, ALUMINUM HYDROXIDE, TIN OXIDE, IODOPROPYNYL BUTYLCARBAMATE, POTASSIUM HYDROXIDE, POLYMETHYLSILSESQUIOXANE, DIAMOND POWDER, ALPHA-ISOMETHYL IONONE, BENZYL BENZOATE, CI 14700, CI 19140, XYLITOL, CAPRYLIC ACID, SODIUM LEVULINATE, ALLANTOIN, MELANIN, PHENYL TRIMETHICONE, VITIS VINIFERA SEED EXTRACT, DICAPRYLYL CARBONATE, GLYCERYL CITRATE/LACTATE/LINOLEATE/OLEATE, METHYLENE BIS-BENZOTRIAZOLYL TETRAMETHYLBUTYLPHENOL, POLYACRYLATE-13, POLYISOBUTENE, POLYACRYLATE CROSSPOLYMER-6, ASCORBYL GLUCOSIDE, CITRUS SINENSIS FRUIT EXTRACT, FRUCTOOLIGOSACCHARIDES, BETA VULGARIS ROOT EXTRACT, TERMINALIA FERDINANDIANA FRUIT EXTRACT, MILK

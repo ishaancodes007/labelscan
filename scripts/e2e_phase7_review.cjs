@@ -28,7 +28,7 @@ const fs = require("fs");
   const bad = await pg.evaluate(() => [...document.querySelectorAll(".review-card .badge")].filter((e) => e.classList.contains("resolved")).length);
   ok("no unresolved item uses the green 'resolved' style", bad === 0);
   const firstCard = pg.locator(".review-card").first();
-  ok("card shows raw token, OCR confidence line, candidates with source links and a why-note", (await firstCard.locator("strong").first().innerText()).startsWith("“") && /OCR confidence/.test(await firstCard.innerText()) && (await firstCard.locator("a[href^='https://']").count()) > 0 && /Close to what is printed|Closest dictionary/.test(await firstCard.innerText()));
+  ok("card shows raw token, OCR confidence line, candidates with source links and a why-note", (await firstCard.locator("strong").first().innerText()).startsWith("“") && /OCR confidence/.test(await firstCard.innerText()) && (await firstCard.locator("a[href^='https://']").count()) > 0 && /Differs from the printed text|Closest dictionary/.test(await firstCard.innerText()));
   ok("at most 3 candidates per card", (await pg.locator(".review-card").evaluateAll((els) => Math.max(...els.map((e) => e.querySelectorAll(".cand").length)))) <= 3);
 
   // bulk accept shows the full list first

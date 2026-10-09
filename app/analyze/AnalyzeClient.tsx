@@ -9,6 +9,7 @@ import { crop as cropGray, rotate as rotateGray } from "@/lib/ocr/preprocess";
 import { assess, assessOcr, type QualityReport } from "@/lib/ocr/quality";
 import { loadProfile } from "@/lib/rules/profileStore";
 import { EMPTY_PROFILE, type Profile } from "@/lib/rules/types";
+import "./analyze.css";
 import { NO_CHOICES, type Choices } from "./choices";
 import ResultsPanel, { type ApiResult } from "./ResultsPanel";
 
@@ -47,6 +48,8 @@ export default function AnalyzeClient() {
   const [agentAsked, setAgentAsked] = useState(false);
   const [useAgent, setUseAgent] = useState(false);   // opt-in, off by default
   const [busy, setBusy] = useState(false);
+  const [over, setOver] = useState(false);
+  const [ink, setInk] = useState(0);
   const [error, setError] = useState("");
   const worker = useRef<Worker | null>(null);
   const seq = useRef(0);
@@ -115,7 +118,7 @@ export default function AnalyzeClient() {
   const frontWords = frontEdited ? undefined : roleWords("front");
 
   const mergedText = merged ? segmentsToText(merged.segments) : "";
-  useEffect(() => { if (!edited) setText(mergedText); }, [mergedText, edited]);
+  useEffect(() => { if (!edited) { setText(mergedText); if (mergedText) setInk((n) => n + 1); } }, [mergedText, edited]);
 
   async function analyze(t = text, noMerge: string[] = choices.noMerge) {
     setBusy(true); setError(""); setResult(null);
@@ -130,17 +133,41 @@ export default function AnalyzeClient() {
   /** Re-run from the review panel (edit text / split merge): the earlier results are cleared first so nothing stale stays on screen. */
   function rerun(t: string, noMerge?: string[]) { setText(t); setEdited(true); analyze(t, noMerge ?? choices.noMerge); }
 
+  const hasInput = photos.length > 0 || text.trim().length > 0;
   return (
-    <main>
-      <h1>Analyze a label</h1>
-      <p className="notice info" role="note">Photos stay in this browser. Text is read on your device. Only the ingredient text you choose to analyze is sent for name matching.</p>
+    <main className="az">
+      <header className="az-hero">
+        <h1>Analyze a label</h1>
+        <p>Add the ingredient list and see what each part is listed as doing. Photos stay in this browser, text is read on your device, and only the ingredient text you choose to analyze is sent for name matching.</p>
+        <ol className="stepper" aria-label="Steps">
+          <li className={hasInput ? "done" : "now"}>Add the label</li>
+          <li className={result ? "done" : hasInput ? "now" : ""}>Check the text</li>
+          <li className={result ? "now" : ""}>See what is in it</li>
+        </ol>
+      </header>
 
-      <section className="card" aria-labelledby="cap">
-        <h2 id="cap">1. Add photos of the ingredient list</h2>
-        <label htmlFor="file">Take or choose photos (add several if the list wraps around the bottle)</label>
-        <input id="file" type="file" accept="image/*" capture="environment" multiple onChange={(e) => { onFiles(e.target.files); e.target.value = ""; }} />
+      <section aria-labelledby="cap">
+        <h2 id="cap" className="sr-only">1. Add photos of the ingredient list</h2>
+        <div className={`drop${over ? " over" : ""}`} onDragOver={(e) => { e.preventDefault(); setOver(true); }} onDragLeave={() => setOver(false)} onDrop={(e) => { e.preventDefault(); setOver(false); onFiles(e.dataTransfer.files); }}>
+          <label htmlFor="file" className="drop-hit"><span className="sr-only">Choose photos of the ingredient list</span></label>
+          <input id="file" className="sr-only" type="file" accept="image/*" multiple onChange={(e) => { onFiles(e.target.files); e.target.value = ""; }} />
+          <input id="camera" className="sr-only" type="file" accept="image/*" capture="environment" onChange={(e) => { onFiles(e.target.files); e.target.value = ""; }} />
+          <svg className="drop-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <circle className="ring" cx="60" cy="60" r="50" opacity=".5" />
+            <rect x="34" y="30" width="52" height="62" rx="9" /><path d="M44 46h32M44 56h32M44 66h22" />
+            <path className="scan" d="M30 60h60" stroke="oklch(70% .17 155)" strokeWidth="3" />
+            <g className="leaf"><path d="M86 98c10-4 16-12 16-22-10 2-16 10-16 22z" /><path d="M86 98c-2-8-8-14-16-16" /></g>
+          </svg>
+          <p className="drop-title">Drop a photo of the ingredient list</p>
+          <p className="drop-sub">or choose one. Add several if the list wraps around the bottle.</p>
+          <div className="pill-row">
+            <label htmlFor="file" className="pill-btn">Choose photos</label>
+            <label htmlFor="camera" className="pill-btn ghost">Take a photo</label>
+            <button type="button" className="pill-btn ghost" onClick={() => { const t = document.getElementById("txt"); t?.scrollIntoView({ behavior: "smooth", block: "center" }); (t as HTMLTextAreaElement | null)?.focus(); }}>Type or paste instead</button>
+          </div>
+        </div>
         {error && <p role="alert" className="notice warn">{error}</p>}
-        <details>
+        <details className="tips">
           <summary>Tips for a good photo</summary>
           <ul>
             <li>Hold the phone parallel to the label, in even light, and tap to focus. Avoid glare and shadows.</li>
@@ -157,7 +184,7 @@ export default function AnalyzeClient() {
       <section className="card" aria-labelledby="rev">
         <h2 id="rev">2. Check the text</h2>
         <label htmlFor="txt">Ingredient text (edit anything the camera got wrong)</label>
-        <textarea id="txt" value={text} onChange={(e) => { setText(e.target.value); setEdited(true); }} placeholder="Read a photo above, or type or paste the ingredient list here." />
+        <textarea id="txt" key={ink} className={ink ? "ink" : ""} value={text} onChange={(e) => { setText(e.target.value); setEdited(true); }} placeholder="Read a photo above, or type or paste the ingredient list here." />
         <label style={{ fontWeight: 400 }}><input type="checkbox" checked={useAgent} onChange={(e) => setUseAgent(e.target.checked)} /> Use AI to help identify unrecognized names (sends only those names, never your photo or profile).</label>
         <div className="row">
           {edited && mergedText && <button className="secondary" onClick={() => { setEdited(false); setText(mergedText); }}>Reset to the text read from photos</button>}
@@ -208,7 +235,13 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
       <h2 id={`${id}-h`}>Photo {index}: {p.name}</h2>
       {p.report && !p.report.ok && <div role="status">{p.report.prompts.map((m) => <p key={m} className="notice warn">{m}</p>)}</div>}
       {p.report?.ok && p.status !== "done" && <p className="notice info" role="status">No blur, glare or size problems found. Press the button below to read the text; we will tell you if it could not be read.</p>}
-      <canvas ref={canvas} aria-label={`Preview of photo ${index} after crop and rotation`} />
+      <div className={`scanframe${p.status === "reading" ? " reading" : ""}`}>
+        <canvas ref={canvas} aria-label={`Preview of photo ${index} after crop and rotation`} />
+        <i className="corner c1" aria-hidden="true" /><i className="corner c2" aria-hidden="true" /><i className="corner c3" aria-hidden="true" /><i className="corner c4" aria-hidden="true" />
+        <span className="beam2" aria-hidden="true" />
+        <span className="readpill" aria-hidden="true"><svg className="ring-svg" viewBox="0 0 24 24"><circle className="bg" cx="12" cy="12" r="9" /><circle className="fg" cx="12" cy="12" r="9" strokeDasharray="56.5" strokeDashoffset={56.5 * (1 - Math.max(0.05, p.progress))} /></svg>Reading {Math.round(p.progress * 100)}%</span>
+      </div>
+      {p.status === "done" && p.lines && <p className="read-done" role="status">Read {p.lines.reduce((n, l) => n + l.words.length, 0)} words</p>}
       <details>
         <summary>Crop and rotate</summary>
         <div className="row">
