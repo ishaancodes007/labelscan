@@ -1,0 +1,44 @@
+{
+  "id": "ref_lip_balm",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic lip balm (reference list, unverified; line-broken)",
+  "raw_ingredients": "Ricinus Communis (Castor)\nSeed Oil, Cera Alba, Butyrospermum Parkii\n(Shea) Butter, Cocos Nucifera (Coconut) Oil, Tocopherol, Mentha Piperita (Peppermint) Oil, Limonene",
+  "expected": [
+    {
+      "raw": "Ricinus Communis (Castor) Seed Oil",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Cera Alba",
+      "inci": "CERA ALBA"
+    },
+    {
+      "raw": "Butyrospermum Parkii (Shea) Butter",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Cocos Nucifera (Coconut) Oil",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Tocopherol",
+      "inci": "TOCOPHEROL"
+    },
+    {
+      "raw": "Mentha Piperita (Peppermint) Oil",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Limonene",
+      "inci": "LIMONENE"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 7
+}

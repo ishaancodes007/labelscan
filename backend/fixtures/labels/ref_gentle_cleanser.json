@@ -1,0 +1,53 @@
+{
+  "id": "ref_gentle_cleanser",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic gentle cream cleanser (reference list, unverified)",
+  "raw_ingredients": "AQUA/WATER/EAU, GLYCERIN, CETEARYL ALCOHOL, COCAMIDOPROPYL BETAINE, SODIUM COCOYL ISETHIONATE, STEARIC ACID, PHENOXYETHANOL, SODIUM CHLORIDE, CITRIC ACID, PARFUM",
+  "expected": [
+    {
+      "raw": "AQUA/WATER/EAU",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "GLYCERIN",
+      "inci": "GLYCERIN"
+    },
+    {
+      "raw": "CETEARYL ALCOHOL",
+      "inci": "CETEARYL ALCOHOL"
+    },
+    {
+      "raw": "COCAMIDOPROPYL BETAINE",
+      "inci": "COCAMIDOPROPYL BETAINE"
+    },
+    {
+      "raw": "SODIUM COCOYL ISETHIONATE",
+      "inci": "SODIUM COCOYL ISETHIONATE"
+    },
+    {
+      "raw": "STEARIC ACID",
+      "inci": "STEARIC ACID"
+    },
+    {
+      "raw": "PHENOXYETHANOL",
+      "inci": "PHENOXYETHANOL"
+    },
+    {
+      "raw": "SODIUM CHLORIDE",
+      "inci": "SODIUM CHLORIDE"
+    },
+    {
+      "raw": "CITRIC ACID",
+      "inci": "CITRIC ACID"
+    },
+    {
+      "raw": "PARFUM",
+      "inci": null,
+      "category": "fragrance"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 10
+}

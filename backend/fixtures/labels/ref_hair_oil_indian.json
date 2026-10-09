@@ -1,0 +1,51 @@
+{
+  "id": "ref_hair_oil_indian",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic hair oil, Indian market style (reference list, unverified; Hindi/English trade names)",
+  "raw_ingredients": "Cocos Nucifera Oil, Sesamum Indicum Seed Oil, Phyllanthus Emblica Fruit Extract, Eclipta Prostrata Extract, Bhringraj Extract, Tocopherol, Parfum, CI 61565",
+  "expected": [
+    {
+      "raw": "Cocos Nucifera Oil",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Sesamum Indicum Seed Oil",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Phyllanthus Emblica Fruit Extract",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Eclipta Prostrata Extract",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Bhringraj Extract",
+      "inci": null,
+      "category": "trade/common name"
+    },
+    {
+      "raw": "Tocopherol",
+      "inci": "TOCOPHEROL"
+    },
+    {
+      "raw": "Parfum",
+      "inci": null,
+      "category": "fragrance"
+    },
+    {
+      "raw": "CI 61565",
+      "inci": null,
+      "category": "colorant"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 8
+}

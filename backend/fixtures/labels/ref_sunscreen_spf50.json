@@ -1,0 +1,65 @@
+{
+  "id": "ref_sunscreen_spf50",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic chemical sunscreen (reference list, unverified; hyphenated line breaks)",
+  "raw_ingredients": "Aqua, Homo-\nsalate, Ethylhexyl Salicylate, Butyl Methoxy-\ndibenzoylmethane, Octocrylene, Glycerin, Alcohol Denat., Phenoxy-\nethanol, Carbomer, Tocopheryl Acetate, Sodium Hydroxide, Disodium EDTA, Parfum",
+  "expected": [
+    {
+      "raw": "Aqua",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "Homosalate",
+      "inci": "HOMOSALATE"
+    },
+    {
+      "raw": "Ethylhexyl Salicylate",
+      "inci": "ETHYLHEXYL SALICYLATE"
+    },
+    {
+      "raw": "Butyl Methoxydibenzoylmethane",
+      "inci": "BUTYL METHOXYDIBENZOYLMETHANE"
+    },
+    {
+      "raw": "Octocrylene",
+      "inci": "OCTOCRYLENE"
+    },
+    {
+      "raw": "Glycerin",
+      "inci": "GLYCERIN"
+    },
+    {
+      "raw": "Alcohol Denat.",
+      "inci": "ALCOHOL DENAT."
+    },
+    {
+      "raw": "Phenoxyethanol",
+      "inci": "PHENOXYETHANOL"
+    },
+    {
+      "raw": "Carbomer",
+      "inci": "CARBOMER"
+    },
+    {
+      "raw": "Tocopheryl Acetate",
+      "inci": "TOCOPHERYL ACETATE"
+    },
+    {
+      "raw": "Sodium Hydroxide",
+      "inci": "SODIUM HYDROXIDE"
+    },
+    {
+      "raw": "Disodium EDTA",
+      "inci": "DISODIUM EDTA"
+    },
+    {
+      "raw": "Parfum",
+      "inci": null,
+      "category": "fragrance"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 13
+}

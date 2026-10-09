@@ -1,0 +1,115 @@
+{
+  "id": "cetaphil_moisturising_lotion_ocr",
+  "golden": true,
+  "verified": true,
+  "provenance": "Raw OCR text supplied in the BeautyLens V3 spec, typos preserved exactly.",
+  "front_text": "This Non-gressy Lightweight Lotion With Avocadi Oil, Vitamin E & B3 And Pro-vitamin B5 Is Clincally Tested To Nily restores the siin moisture barrie in just 1 weak, | No added fragrance | Won'n clog pores | Non-irritating | Defends Against 5 Sings Of Skin Sensitivity | Weakened Skin Moisture Barrier, Dryness, Imtation, Roughness, Tightness",
+  "raw_ingredients": "INGREDIENTS ACUA, GLYCERN, ISCPROPIL, PIMITATE, DETRY ALCOHOL, CETEARETH:20, PANTHEVOL, NACINANDE, TOCOPYENYLACETATE, DIMETHICONE, PERSEA, GRATISS?IE OIL, HELLATHUS ANNUUS SEED FANTLACTOIDE, GLYCERIN STRERATE, SODILN BENDATE, BENEYL ALCOHOL, CITRIC ACO. FIL1746700",
+  "other_fields": {
+    "mrp": "MRP Rs. 789.00 (Rs.6.69/ml)",
+    "batch": "B.NO. B5MZ16",
+    "mfg": "Mfg. Date 01/26",
+    "use_before": "04/29 (partially occluded, low confidence)"
+  },
+  "expected_removed": [
+    {
+      "raw": "FIL1746700",
+      "reason": "product/packaging code"
+    },
+    {
+      "raw": "MRP Rs. 789.00 (Rs.6.69/ml)",
+      "reason": "price"
+    },
+    {
+      "raw": "B.NO. B5MZ16",
+      "reason": "batch code"
+    },
+    {
+      "raw": "Mfg. Date 01/26",
+      "reason": "date"
+    }
+  ],
+  "expected": [
+    {
+      "raw": "ACUA",
+      "inci": "AQUA",
+      "note": "ingredient"
+    },
+    {
+      "raw": "GLYCERN",
+      "inci": "GLYCERIN",
+      "note": "ingredient"
+    },
+    {
+      "raw": "ISCPROPIL + PIMITATE",
+      "inci": "ISOPROPYL PALMITATE",
+      "note": "ingredient (merge of 2 fragments)"
+    },
+    {
+      "raw": "DETRY ALCOHOL",
+      "inci": null,
+      "note": "suggested: CETYL ALCOHOL | CETEARYL ALCOHOL (both fatty alcohols, same role)"
+    },
+    {
+      "raw": "CETEARETH:20",
+      "inci": "CETEARETH-20",
+      "note": "ingredient"
+    },
+    {
+      "raw": "PANTHEVOL",
+      "inci": "PANTHENOL",
+      "note": "ingredient"
+    },
+    {
+      "raw": "NACINANDE",
+      "inci": "NIACINAMIDE",
+      "note": "ingredient"
+    },
+    {
+      "raw": "TOCOPYENYLACETATE",
+      "inci": "TOCOPHERYL ACETATE",
+      "note": "ingredient"
+    },
+    {
+      "raw": "DIMETHICONE",
+      "inci": "DIMETHICONE",
+      "note": "ingredient"
+    },
+    {
+      "raw": "PERSEA + GRATISS?IE OIL",
+      "inci": "PERSEA GRATISSIMA OIL",
+      "note": "ingredient (merge of 2 fragments)"
+    },
+    {
+      "raw": "HELLATHUS ANNUUS SEED",
+      "inci": "HELIANTHUS ANNUUS SEED OIL",
+      "note": "suggested ('Oil' not visible)"
+    },
+    {
+      "raw": "FANTLACTOIDE",
+      "inci": "PANTOLACTONE",
+      "note": "suggested, low confidence, never auto-accepted; verify vs reference formula"
+    },
+    {
+      "raw": "GLYCERIN STRERATE",
+      "inci": "GLYCERYL STEARATE",
+      "note": "ingredient (must NOT resolve to GLYCERIN)"
+    },
+    {
+      "raw": "SODILN BENDATE",
+      "inci": "SODIUM BENZOATE",
+      "note": "ingredient"
+    },
+    {
+      "raw": "BENEYL ALCOHOL",
+      "inci": "BENZYL ALCOHOL",
+      "note": "ingredient"
+    },
+    {
+      "raw": "CITRIC ACO",
+      "inci": "CITRIC ACID",
+      "note": "ingredient"
+    }
+  ],
+  "expected_count": 16
+}

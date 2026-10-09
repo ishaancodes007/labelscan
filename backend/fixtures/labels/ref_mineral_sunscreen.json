@@ -1,0 +1,53 @@
+{
+  "id": "ref_mineral_sunscreen",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic mineral sunscreen (reference list, unverified)",
+  "raw_ingredients": "Zinc Oxide (nano), Caprylic/Capric Triglyceride, Aqua, Glycerin, Cetearyl Alcohol, Polyhydroxystearic Acid, Helianthus Annuus (Sunflower) Seed Oil, Tocopherol, Xanthan Gum, May Contain: CI 77891",
+  "expected": [
+    {
+      "raw": "Zinc Oxide (nano)",
+      "inci": "ZINC OXIDE"
+    },
+    {
+      "raw": "Caprylic/Capric Triglyceride",
+      "inci": "CAPRYLIC/CAPRIC TRIGLYCERIDE"
+    },
+    {
+      "raw": "Aqua",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "Glycerin",
+      "inci": "GLYCERIN"
+    },
+    {
+      "raw": "Cetearyl Alcohol",
+      "inci": "CETEARYL ALCOHOL"
+    },
+    {
+      "raw": "Polyhydroxystearic Acid",
+      "inci": "POLYHYDROXYSTEARIC ACID"
+    },
+    {
+      "raw": "Helianthus Annuus (Sunflower) Seed Oil",
+      "inci": "HELIANTHUS ANNUUS SEED OIL"
+    },
+    {
+      "raw": "Tocopherol",
+      "inci": "TOCOPHEROL"
+    },
+    {
+      "raw": "Xanthan Gum",
+      "inci": "XANTHAN GUM"
+    },
+    {
+      "raw": "May Contain: CI 77891",
+      "inci": null,
+      "category": "colorant (may-contain)"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 10
+}

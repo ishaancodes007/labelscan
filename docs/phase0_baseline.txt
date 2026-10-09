@@ -1,0 +1,85 @@
+# Phase 0 baseline  (PubChem lookup: ON)
+cetaphil_moisturising_lotion_ocr   tokens=17 (expected 16) resolved=1 ms=123
+ref_aha_toner                      tokens= 9 (expected 9) resolved=8 ms=4
+ref_foundation                     tokens=12 (expected 13) resolved=8 ms=7
+ref_gentle_cleanser                tokens=10 (expected 10) resolved=9 ms=2
+ref_hair_oil_indian                tokens= 8 (expected 8) resolved=2 ms=8
+ref_lip_balm                       tokens= 7 (expected 7) resolved=3 ms=7
+ref_mineral_sunscreen              tokens=10 (expected 10) resolved=6 ms=6
+ref_niacinamide_serum              tokens=11 (expected 11) resolved=5 ms=11
+ref_shampoo                        tokens=13 (expected 13) resolved=10 ms=6
+ref_sunscreen_spf50                tokens=13 (expected 13) resolved=10 ms=5
+
+## Unresolved tokens
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "ACUA"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "GLYCERN"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  2_broken_merged                    "ISCPROPIL"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  2_broken_merged                    "PIMITATE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "DETRY ALCOHOL"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "CETEARETH:20"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "PANTHEVOL"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "NACINANDE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "TOCOPYENYLACETATE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  2_broken_merged                    "PERSEA"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  2_broken_merged                    "GRATISS?IE OIL"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  2_broken_merged                    "HELLATHUS ANNUUS SEED FANTLACTOIDE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "GLYCERIN STRERATE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "SODILN BENDATE"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  1_ocr_noise                        "BENEYL ALCOHOL"
+cetaphil_moisturising_lotion_ocr   lookup_unavailable  4_leakage                          "CITRIC ACO. FIL1746700"
+ref_aha_toner                      lookup_unavailable  3_wrong_tool                       "Aloe Barbadensis Leaf Juice"
+ref_foundation                     lookup_unavailable  5_unknown                          "PEG-10 Dimethicone"
+ref_foundation                     lookup_unavailable  2_broken_merged+3_wrong_tool       "Parfum. +/- CI 77891"
+ref_foundation                     lookup_unavailable  3_wrong_tool                       "CI 77492"
+ref_foundation                     lookup_unavailable  4_leakage+3_wrong_tool             "CI 77491. Shake well before use. Made in Italy. Net wt 30 ml"
+ref_gentle_cleanser                lookup_unavailable  3_wrong_tool                       "AQUA/WATER/EAU"
+ref_gentle_cleanser                FALSE-ACCEPT?        (resolved to PARFUM, not in expected identities) "PARFUM"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "Cocos Nucifera Oil"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "Sesamum Indicum Seed Oil"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "Phyllanthus Emblica Fruit Extract"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "Eclipta Prostrata Extract"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "Bhringraj Extract"
+ref_hair_oil_indian                FALSE-ACCEPT?        (resolved to PARFUM, not in expected identities) "Parfum"
+ref_hair_oil_indian                lookup_unavailable  3_wrong_tool                       "CI 61565"
+ref_lip_balm                       lookup_unavailable  3_wrong_tool                       "Ricinus Communis (Castor) Seed Oil"
+ref_lip_balm                       lookup_unavailable  3_wrong_tool                       "Butyrospermum Parkii (Shea) Butter"
+ref_lip_balm                       lookup_unavailable  3_wrong_tool                       "Cocos Nucifera (Coconut) Oil"
+ref_lip_balm                       lookup_unavailable  3_wrong_tool                       "Mentha Piperita (Peppermint) Oil"
+ref_mineral_sunscreen              lookup_unavailable  3_wrong_tool                       "Zinc Oxide (nano)"
+ref_mineral_sunscreen              lookup_unavailable  5_unknown                          "Polyhydroxystearic Acid"
+ref_mineral_sunscreen              lookup_unavailable  3_wrong_tool                       "Helianthus Annuus (Sunflower) Seed Oil"
+ref_mineral_sunscreen              lookup_unavailable  3_wrong_tool                       "May Contain: CI 77891"
+ref_niacinamide_serum              lookup_unavailable  5_unknown                          "Zinc PCA"
+ref_niacinamide_serum              lookup_unavailable  5_unknown                          "Dimethyl Isosorbide"
+ref_niacinamide_serum              lookup_unavailable  3_wrong_tool                       "Tamarindus Indica Seed Gum"
+ref_niacinamide_serum              lookup_unavailable  5_unknown                          "Isoceteth-20"
+ref_niacinamide_serum              lookup_unavailable  5_unknown                          "Ethoxydiglycol"
+ref_niacinamide_serum              lookup_unavailable  5_unknown                          "Chlorphenesin"
+ref_shampoo                        lookup_unavailable  5_unknown                          "GLYCOL DISTEARATE"
+ref_shampoo                        FALSE-ACCEPT?        (resolved to PARFUM, not in expected identities) "PARFUM"
+ref_shampoo                        lookup_unavailable  5_unknown                          "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+ref_shampoo                        lookup_unavailable  3_wrong_tool                       "CI 19140"
+ref_sunscreen_spf50                lookup_unavailable  2_broken_merged                    "Homo- salate"
+ref_sunscreen_spf50                lookup_unavailable  2_broken_merged                    "Butyl Methoxy- dibenzoylmethane"
+ref_sunscreen_spf50                lookup_unavailable  2_broken_merged                    "Phenoxy- ethanol"
+ref_sunscreen_spf50                FALSE-ACCEPT?        (resolved to PARFUM, not in expected identities) "Parfum"
+
+## Status counts { lookup_unavailable: 48, inci_exact: 62 }
+## Cause counts (primary cause, first label) {
+  '1_ocr_noise': 10,
+  '2_broken_merged': 9,
+  '3_wrong_tool': 18,
+  '4_leakage': 2,
+  '5_unknown': 9
+}
+## Cause counts (any label; tokens can have several) {
+  '1_ocr_noise': 10,
+  '2_broken_merged': 9,
+  '3_wrong_tool': 20,
+  '4_leakage': 2,
+  '5_unknown': 9
+}
+
+## Totals
+tokens=110  resolved=62 (56.4%)  false-accept=4
+expected entries=110  correctly found by exact seed match=58 (52.7%)

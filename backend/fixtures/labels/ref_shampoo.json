@@ -1,0 +1,66 @@
+{
+  "id": "ref_shampoo",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic shampoo (reference list, unverified)",
+  "raw_ingredients": "AQUA, SODIUM LAURETH SULFATE, COCAMIDOPROPYL BETAINE, SODIUM CHLORIDE, GLYCOL DISTEARATE, DIMETHICONE, SODIUM BENZOATE, PARFUM, CITRIC ACID, GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE, LINALOOL, LIMONENE, CI 19140",
+  "expected": [
+    {
+      "raw": "AQUA",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "SODIUM LAURETH SULFATE",
+      "inci": "SODIUM LAURETH SULFATE"
+    },
+    {
+      "raw": "COCAMIDOPROPYL BETAINE",
+      "inci": "COCAMIDOPROPYL BETAINE"
+    },
+    {
+      "raw": "SODIUM CHLORIDE",
+      "inci": "SODIUM CHLORIDE"
+    },
+    {
+      "raw": "GLYCOL DISTEARATE",
+      "inci": "GLYCOL DISTEARATE"
+    },
+    {
+      "raw": "DIMETHICONE",
+      "inci": "DIMETHICONE"
+    },
+    {
+      "raw": "SODIUM BENZOATE",
+      "inci": "SODIUM BENZOATE"
+    },
+    {
+      "raw": "PARFUM",
+      "inci": null,
+      "category": "fragrance"
+    },
+    {
+      "raw": "CITRIC ACID",
+      "inci": "CITRIC ACID"
+    },
+    {
+      "raw": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE",
+      "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+    },
+    {
+      "raw": "LINALOOL",
+      "inci": "LINALOOL"
+    },
+    {
+      "raw": "LIMONENE",
+      "inci": "LIMONENE"
+    },
+    {
+      "raw": "CI 19140",
+      "inci": null,
+      "category": "colorant"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 13
+}

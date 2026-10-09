@@ -1,0 +1,49 @@
+{
+  "id": "ref_aha_toner",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic exfoliating toner (reference list, unverified)",
+  "raw_ingredients": "Aqua, Glycolic Acid, Sodium Hydroxide, Aloe Barbadensis Leaf Juice, Glycerin, Propylene Glycol, Allantoin, Phenoxyethanol, Ethylhexylglycerin",
+  "expected": [
+    {
+      "raw": "Aqua",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "Glycolic Acid",
+      "inci": "GLYCOLIC ACID"
+    },
+    {
+      "raw": "Sodium Hydroxide",
+      "inci": "SODIUM HYDROXIDE"
+    },
+    {
+      "raw": "Aloe Barbadensis Leaf Juice",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Glycerin",
+      "inci": "GLYCERIN"
+    },
+    {
+      "raw": "Propylene Glycol",
+      "inci": "PROPYLENE GLYCOL"
+    },
+    {
+      "raw": "Allantoin",
+      "inci": "ALLANTOIN"
+    },
+    {
+      "raw": "Phenoxyethanol",
+      "inci": "PHENOXYETHANOL"
+    },
+    {
+      "raw": "Ethylhexylglycerin",
+      "inci": "ETHYLHEXYLGLYCERIN"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 9
+}

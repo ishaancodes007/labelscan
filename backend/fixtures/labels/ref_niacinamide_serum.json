@@ -1,0 +1,57 @@
+{
+  "id": "ref_niacinamide_serum",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic niacinamide serum (reference list, unverified)",
+  "raw_ingredients": "Aqua, Niacinamide, Pentylene Glycol, Zinc PCA, Dimethyl Isosorbide, Tamarindus Indica Seed Gum, Xanthan Gum, Isoceteth-20, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin",
+  "expected": [
+    {
+      "raw": "Aqua",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "Niacinamide",
+      "inci": "NIACINAMIDE"
+    },
+    {
+      "raw": "Pentylene Glycol",
+      "inci": "PENTYLENE GLYCOL"
+    },
+    {
+      "raw": "Zinc PCA",
+      "inci": "ZINC PCA"
+    },
+    {
+      "raw": "Dimethyl Isosorbide",
+      "inci": "DIMETHYL ISOSORBIDE"
+    },
+    {
+      "raw": "Tamarindus Indica Seed Gum",
+      "inci": null,
+      "category": "botanical"
+    },
+    {
+      "raw": "Xanthan Gum",
+      "inci": "XANTHAN GUM"
+    },
+    {
+      "raw": "Isoceteth-20",
+      "inci": "ISOCETETH-20"
+    },
+    {
+      "raw": "Ethoxydiglycol",
+      "inci": "ETHOXYDIGLYCOL"
+    },
+    {
+      "raw": "Phenoxyethanol",
+      "inci": "PHENOXYETHANOL"
+    },
+    {
+      "raw": "Chlorphenesin",
+      "inci": "CHLORPHENESIN"
+    }
+  ],
+  "expected_removed": [],
+  "expected_count": 11
+}

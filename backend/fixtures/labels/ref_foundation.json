@@ -1,0 +1,81 @@
+{
+  "id": "ref_foundation",
+  "golden": false,
+  "verified": false,
+  "provenance": "Typed from memory as a representative list for this product type. NOT verified against a physical pack; replace with real transcriptions when available. Layout problems are reproduced; character-level OCR noise is NOT simulated.",
+  "name": "Generic foundation (reference list, unverified; marketing + colorants + directions)",
+  "raw_ingredients": "Aqua, Cyclopentasiloxane, Dimethicone, Glycerin, Titanium Dioxide, PEG-10 Dimethicone, Phenoxyethanol, Mica, Silica, Parfum. +/- CI 77891, CI 77492, CI 77491. Shake well before use. Made in Italy. Net wt 30 ml",
+  "expected": [
+    {
+      "raw": "Aqua",
+      "inci": "AQUA"
+    },
+    {
+      "raw": "Cyclopentasiloxane",
+      "inci": "CYCLOPENTASILOXANE"
+    },
+    {
+      "raw": "Dimethicone",
+      "inci": "DIMETHICONE"
+    },
+    {
+      "raw": "Glycerin",
+      "inci": "GLYCERIN"
+    },
+    {
+      "raw": "Titanium Dioxide",
+      "inci": "TITANIUM DIOXIDE"
+    },
+    {
+      "raw": "PEG-10 Dimethicone",
+      "inci": "PEG-10 DIMETHICONE"
+    },
+    {
+      "raw": "Phenoxyethanol",
+      "inci": "PHENOXYETHANOL"
+    },
+    {
+      "raw": "Mica",
+      "inci": "MICA"
+    },
+    {
+      "raw": "Silica",
+      "inci": "SILICA"
+    },
+    {
+      "raw": "Parfum",
+      "inci": null,
+      "category": "fragrance"
+    },
+    {
+      "raw": "+/- CI 77891",
+      "inci": null,
+      "category": "colorant"
+    },
+    {
+      "raw": "CI 77492",
+      "inci": null,
+      "category": "colorant"
+    },
+    {
+      "raw": "CI 77491",
+      "inci": null,
+      "category": "colorant"
+    }
+  ],
+  "expected_removed": [
+    {
+      "raw": "Shake well before use",
+      "reason": "directions"
+    },
+    {
+      "raw": "Made in Italy",
+      "reason": "packaging copy"
+    },
+    {
+      "raw": "Net wt 30 ml",
+      "reason": "net quantity"
+    }
+  ],
+  "expected_count": 13
+}
