@@ -1,6 +1,6 @@
 """Identity resolver: normalize -> filter -> ladder -> merge/split -> PubChem -> fuzzy. Identity only; no rules, no safety."""
 from __future__ import annotations
-import time
+import re, time
 from dataclasses import dataclass, field
 from rapidfuzz import fuzz, process
 
@@ -101,7 +101,23 @@ class Resolver:
         return [(Candidate(inci_name=n, score=round(sc, 3), edits=edits, source="dictionary"), un)
                 for n, (sc, edits, un) in ranked if sc >= self.T["suggest_floor"]]
 
-    def _apply_fuzzy(self, st: State, cands: list[tuple[Candidate, int]]):
+    def _word_swap_note(self, text: str, cand: Candidate) -> str | None:
+        """Warn when a candidate differs from the printed text by a WHOLE WORD that is itself a valid ingredient word
+        (e.g. printed 'Aluminum Hydroxide', candidate 'Sodium Hydroxide'): that is a different ingredient, not a misspelling."""
+        tw = re.findall(r"[A-Z0-9]{3,}", without_parens(text).upper())
+        cw = re.findall(r"[A-Z0-9]{3,}", cand.inci_name.upper())
+        extra_t = [w for w in tw if w not in cw]
+        extra_c = [w for w in cw if w not in tw]
+        for w in extra_t:
+            if w in self.d.vocab and len(w) >= 4:
+                for c in extra_c:
+                    if c in self.d.vocab and len(c) >= 4 and fuzz.ratio(w, c) < 90:
+                        return f"Printed '{w.title()}' is a different ingredient word from '{c.title()}'. This may be a different ingredient, not a misspelling: check the pack."
+        return None
+
+    def _apply_fuzzy(self, st: State, cands: list[tuple[Candidate, int]], text: str = ""):
+        if text:
+            cands = [(c.model_copy(update={"note": self._word_swap_note(text, c)}) if self._word_swap_note(text, c) else c, un) for c, un in cands]
         st.cands = [c for c, _ in cands]
         if not cands:
             return False
@@ -179,7 +195,7 @@ class Resolver:
                     continue
                 pc_unavail = r.status == "unavailable"
             cands = self._fuzzy(text)
-            if self._apply_fuzzy(st, cands):
+            if self._apply_fuzzy(st, cands, text):
                 continue
             if pc_unavail:
                 st.status, st.layer = "lookup_unavailable", "lookup_unavailable"; unavailable_seen = True

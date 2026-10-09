@@ -2,7 +2,7 @@
 
 Explains cosmetic ingredient labels (identity, formulation role, hazard, exposure, regulation and user compatibility are kept separate). No scores, no verdicts. Progress is recorded per phase in `docs/`.
 
-**Status:** Phases 0-2 done: identity resolution service, and `/analyze` with photo quality prompts, local OCR, crop/rotate and multi-photo merge. Rules, claims, customer features, the review panel and the landing page are **not built yet** (`app/page.tsx` is a placeholder).
+**Status:** Phases 0-2 done: identity resolution service, and `/analyze` with photo quality prompts, local OCR, crop/rotate and multi-photo merge. Local OCR reads clean, large label text well but **not** small, blurry or curved ingredient lines (measured on 5 real photos; see `docs/PHASE2.md`). Rules, claims, customer features, the review panel and the landing page are **not built yet** (`app/page.tsx` is a placeholder).
 
 ```bash
 npm install && npm run dev                 # Next.js app + POST /api/analyze

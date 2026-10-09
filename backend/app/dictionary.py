@@ -97,6 +97,10 @@ class Dictionary:
         for k, e in self.alias_key.items():
             self.corpus.setdefault(k, e.inci_name)
         self.corpus_keys = list(self.corpus)
+        # vocabulary of whole words used in dictionary names (for the "different ingredient word" warning)
+        self.vocab: set[str] = set()
+        for name in set(self.corpus.values()):
+            self.vocab.update(re.findall(r"[A-Z0-9]{3,}", name))
 
     @property
     def source(self) -> str:

@@ -1,0 +1,39 @@
+### REAL photos (5; owner-supplied; truth text read by an AI model, not human-verified). PubChem off, seed dictionary.
+photos scored: 5 (real)   dictionary: seed (235 entries)
+variant                       CER  wRec   top1   auto  FA  ms/photo
+v0_raw_psm3                110.8%   46%  47.9%  38.5%   8      1219
+r1_up2_shipped             122.8%   49%  41.7%  35.4%   7      1899
+x1_rapidocr_full            95.5%   10%  21.9%  19.8%   6      1486
+r2_up3_shipped             166.7%   49%  45.8%  38.5%   8      3872
+x2_rapidocr_crop            77.9%    8%  14.6%  12.5%   4      1004
+x3_rapidocr_crop_up2        79.9%    8%  14.6%  13.5%   2       892
+r3_crop_raw                 59.3%   40%  37.5%  29.2%   6       336
+v4_flatten                  98.5%   37%  38.5%  31.2%   5      1025
+r4_crop_shipped             59.5%   40%  26.0%  16.7%   3       331
+r5_crop_up2_shipped         59.8%   44%  36.5%  28.1%   5       430
+r6_crop_up3_shipped         60.6%   40%  39.6%  29.2%   5       550
+r7_crop_up3_contrast        63.9%   32%  35.4%  28.1%   5       501
+r8_crop_up2_contrast        69.0%   31%  33.3%  25.0%   4       307
+v12_deskew                 111.5%   45%  43.8%  36.5%   6      1134
+v13_deskew_adaptive         97.5%   34%  14.6%  10.4%   5       985
+v17_shipped_pipeline       112.0%   45%  24.0%  15.6%   4      1069
+v19_pipeline_v2            110.8%   46%  47.9%  38.5%   8      1085
+
+## per photo: v0_raw_psm3
+   real_cetaphil_lotion         CER 97.7% wordRecall   7%  top1 1/16  auto 0/16  FA 0  conf 55  []
+   real_minimalist_vitc_serum   CER 178.9% wordRecall  67%  top1 8/12  auto 5/12  FA 1  conf 71  []
+   real_nivea_body_lotion       CER 157.5% wordRecall  55%  top1 7/13  auto 3/13  FA 4  conf 73  []
+   real_garnier_shampoo         CER 85.0% wordRecall   0%  top1 0/23  auto 0/23  FA 0  conf 39  []
+   real_indian_label_crop       CER 35.1% wordRecall 100%  top1 30/32  auto 29/32  FA 3  conf 85  []
+## per photo: v19_pipeline_v2
+   real_cetaphil_lotion         CER 97.7% wordRecall   7%  top1 1/16  auto 0/16  FA 0  conf 55  []
+   real_minimalist_vitc_serum   CER 178.9% wordRecall  67%  top1 8/12  auto 5/12  FA 1  conf 71  []
+   real_nivea_body_lotion       CER 157.5% wordRecall  55%  top1 7/13  auto 3/13  FA 4  conf 73  []
+   real_garnier_shampoo         CER 85.0% wordRecall   0%  top1 0/23  auto 0/23  FA 0  conf 39  []
+   real_indian_label_crop       CER 35.1% wordRecall 100%  top1 30/32  auto 29/32  FA 3  conf 85  []
+## per photo: r4_crop_shipped
+   real_cetaphil_lotion         CER 100.0% wordRecall   0%  top1 0/16  auto 0/16  FA 0  conf 0  []
+   real_minimalist_vitc_serum   CER 30.9% wordRecall  74%  top1 11/12  auto 5/12  FA 2  conf 55  []
+   real_nivea_body_lotion       CER 50.8% wordRecall  41%  top1 3/13  auto 2/13  FA 1  conf 57  []
+   real_garnier_shampoo         CER 100.0% wordRecall   0%  top1 0/23  auto 0/23  FA 0  conf 0  []
+   real_indian_label_crop       CER 16.0% wordRecall  83%  top1 11/32  auto 9/32  FA 0  conf 77  []

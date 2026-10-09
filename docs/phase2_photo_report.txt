@@ -1,64 +1,42 @@
-### 16 photos (bad_* excluded), synthetic, PubChem off, seed dictionary
+### 16 synthetic photos (bad_* excluded), PubChem off, seed dictionary
 photos scored: 16 (synthetic)   dictionary: seed (235 entries)
-variant                       CER   top1   auto  FA  ms/photo
-v0_raw_psm3                 11.0%  86.0%  79.2%  10       396
-v1_contrast                 13.7%  84.3%  77.5%  11       441
-v2_up2                      12.6%  85.4%  76.4%  10       643
-v3_adaptive                 11.4%  89.9%  77.5%   4       365
-v4_flatten                  16.6%  86.0%  76.4%   5       436
-v5_up2_contrast             13.4%  86.0%  77.0%   5       675
-v6_psm6                     10.2%  88.2%  81.5%   3       479
-v7_psm4                     12.6%  85.4%  77.5%  11       364
-v8_psm11                    19.3%  84.3%  73.0%   8       552
-v9_dpi300                   11.5%  85.4%  78.7%  10       404
-v10_flatten_up2             11.4%  84.3%  76.4%   6       629
-v11_flatten_up2_adaptive    12.9%  88.2%  77.0%   8       493
-v12_deskew                   3.8%  89.9%  84.3%   4       440
-v13_deskew_adaptive          3.4%  92.1%  84.3%   3       377
-v14_deskew_up2               4.0%  91.0%  84.3%   4       650
-v15_deskew_up2_contrast      4.9%  91.0%  84.3%   3       664
-v16_deskew_psm6             11.4%  86.5%  80.3%   4       502
-v17_shipped_pipeline         3.1%  91.0%  84.8%   4       399
-
-### all 19 photos (includes 3 deliberately unreadable bad_* photos)
-photos scored: 19 (synthetic)   dictionary: seed (235 entries)
-variant                       CER   top1   auto  FA  ms/photo
-v0_raw_psm3                 22.1%  75.7%  69.0%  12       351
-v1_contrast                 24.3%  74.3%  67.6%  12       389
-v2_up2                      19.3%  79.0%  68.6%  12       594
-v3_adaptive                 21.4%  79.0%  67.1%   6       371
-v4_flatten                  27.6%  75.7%  66.2%   7       390
-v5_up2_contrast             20.2%  79.5%  69.0%   7       607
-v6_psm6                     21.4%  77.6%  71.0%   5       422
-v7_psm4                     23.4%  75.2%  67.6%  13       323
-v8_psm11                    28.6%  74.3%  63.8%  10       502
-v9_dpi300                   22.5%  75.2%  68.6%  13       357
-v10_flatten_up2             19.1%  77.6%  67.6%  10       592
-v11_flatten_up2_adaptive    19.5%  80.5%  67.6%  12       525
-v12_deskew                  16.1%  79.0%  73.3%   6       396
-v13_deskew_adaptive         14.6%  81.0%  72.9%   5       377
-v14_deskew_up2              12.1%  83.8%  75.2%   6       589
-v15_deskew_up2_contrast     13.1%  83.8%  75.2%   5       606
-v16_deskew_psm6             22.4%  76.2%  70.0%   6       438
-v17_shipped_pipeline        16.0%  79.5%  73.3%   6       360
+variant                       CER  wRec   top1   auto  FA  ms/photo
+v0_raw_psm3                 11.0%   95%  86.0%  79.2%  10       396
+v1_contrast                 13.7%   95%  84.3%  77.5%  11       441
+v2_up2                      12.6%   96%  85.4%  76.4%  10       643
+v3_adaptive                 11.4%   96%  89.9%  77.5%   4       365
+v4_flatten                  16.6%   95%  86.0%  76.4%   5       436
+v5_up2_contrast             13.4%   96%  86.0%  77.0%   5       675
+v6_psm6                     10.2%   95%  88.2%  81.5%   3       479
+v7_psm4                     12.6%   95%  85.4%  77.5%  11       364
+v8_psm11                    19.3%   93%  84.3%  73.0%   8       552
+v9_dpi300                   11.5%   95%  85.4%  78.7%  10       404
+v10_flatten_up2             11.4%   96%  84.3%  76.4%   6       629
+v11_flatten_up2_adaptive    12.9%   95%  88.2%  77.0%   8       493
+v12_deskew                   3.8%   97%  89.9%  84.3%   4       440
+v13_deskew_adaptive          3.4%   98%  92.1%  84.3%   3       377
+v14_deskew_up2               4.0%   96%  91.0%  84.3%   4       650
+v15_deskew_up2_contrast      4.9%   96%  91.0%  84.3%   3       664
+v16_deskew_psm6             11.4%   97%  86.5%  80.3%   4       502
+v17_shipped_pipeline         3.1%   98%  91.0%  84.8%   4       399
+v19_pipeline_v2              3.8%   97%  89.9%  84.3%   4       384
 
 CEILING (perfect OCR text) over 16 photos: top1 99.4%  auto 97.2%  false-accept 0
 
-### paired: raw -> shipped pipeline
    g_clean            CER  0.0% ->  0.0%   top1 16 -> 16
-   g_combo            CER 10.5% ->  8.2%   top1 14 -> 14
+   g_combo            CER 10.5% -> 11.9%   top1 14 -> 14
    g_curve            CER  0.0% ->  0.0%   top1 15 -> 15
    cleanser_clean     CER  0.0% ->  0.0%   top1 10 -> 10
    serum_blur         CER  0.7% ->  0.7%   top1 11 -> 11
-   spf_glare          CER  9.1% ->  6.8%   top1 11 -> 12
+   spf_glare          CER  9.1% ->  9.1%   top1 11 -> 11
    mineral_curve      CER 64.6% ->  1.9%   top1 5 -> 8
    shampoo_lowres     CER  0.0% ->  0.0%   top1 13 -> 13
-   toner_combo        CER 20.0% -> 16.2%   top1 6 -> 7
+   toner_combo        CER 20.0% -> 20.0%   top1 6 -> 6
    lip_rot            CER 46.5% ->  0.0%   top1 4 -> 7
    foundation_curve   CER  3.0% ->  3.0%   top1 11 -> 11
    hair_clean         CER  1.4% ->  1.4%   top1 5 -> 5
    pair_g_a           CER  2.3% ->  2.3%   top1 9 -> 9
-   pair_g_b           CER 15.9% ->  5.7%   top1 8 -> 9
+   pair_g_b           CER 15.9% ->  8.3%   top1 8 -> 9
    pair_sh_a          CER  0.0% ->  0.0%   top1 8 -> 8
    pair_sh_b          CER  2.8% ->  2.8%   top1 7 -> 7
-top1 per photo: v0_raw_psm3 better on 0, v17_shipped_pipeline better on 5, tie 11; net entries gained by v17_shipped_pipeline: 9
+top1 per photo: v0_raw_psm3 better on 0, v19_pipeline_v2 better on 3, tie 13; net entries gained by v19_pipeline_v2: 7

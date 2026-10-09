@@ -8,13 +8,13 @@ merged_g: matched 4 segments, overlapFound=true, 15 segments
   [pair_g_a] conf 91  PANTHENOL
   [pair_g_a+pair_g_b] conf 91  NIACINAMIDE
   [pair_g_a+pair_g_b] conf 94  TOCOPHERYL ACETATE
-  [pair_g_a+pair_g_b] conf 92  DIMETHICONE
+  [pair_g_a+pair_g_b] conf 91  DIMETHICONE
   [pair_g_a+pair_g_b] conf 92  PERSEA GRATISSIMA OIL
-  [pair_g_b] conf 71  HELIANTHUS ANNUUS SEED C ACTONE
+  [pair_g_b] conf 93  HELIANTHUS ANNUUS SEED TONE
   [pair_g_b] conf 96  GLYCERYL STEARATE
-  [pair_g_b] conf 94  SODIUM BENZOATE
-  [pair_g_b] conf 75  benZYL ALCOHOL
-  [pair_g_b] conf 95  CITRIC ACID
+  [pair_g_b] conf 76  SODIUM BENZOATE
+  [pair_g_b] conf 60  5=NZYL ALCOHOL
+  [pair_g_b] conf 96  CITRIC ACID
 
 merged_sh: matched 3 segments, overlapFound=true, 13 segments
   [pair_sh_a] conf 95  AQUA

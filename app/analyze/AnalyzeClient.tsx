@@ -6,16 +6,16 @@ import { grayToRGBA, resizeGray, toGray, type RGBA } from "@/lib/ocr/image";
 import { mergePhotos, segmentsFromLines, segmentsToText, type MSegment } from "@/lib/ocr/merge";
 import { prepareForOcr } from "@/lib/ocr/pipeline";
 import { crop as cropGray, rotate as rotateGray } from "@/lib/ocr/preprocess";
-import { assess, type QualityReport } from "@/lib/ocr/quality";
+import { assess, assessOcr, type QualityReport } from "@/lib/ocr/quality";
 
 interface Trim { l: number; t: number; r: number; b: number }
 interface Photo {
   id: string; name: string; rgba: RGBA; trim: Trim; rotate: number; report?: QualityReport;
-  status: "idle" | "reading" | "done" | "error"; progress: number; lines?: { words: { text: string; confidence: number }[] }[]; note?: string;
+  status: "idle" | "reading" | "done" | "error"; progress: number; warnings?: string[]; lines?: { words: { text: string; confidence: number }[] }[]; note?: string;
 }
 interface ApiItem {
   raw: string; status: string; layer?: string; inci_name?: string | null; category?: string | null; source?: string | null; highConfidence?: boolean;
-  candidates?: { inci_name: string; score: number }[]; notes?: string[]; mergedFrom?: number | null; splitFrom?: string | null;
+  candidates?: { inci_name: string; score: number; note?: string | null }[]; notes?: string[]; mergedFrom?: number | null; splitFrom?: string | null;
 }
 interface ApiResult { engine: "enhanced" | "fallback"; notice?: string; items: ApiItem[]; removed?: { raw: string; reason: string }[] }
 
@@ -78,7 +78,7 @@ export default function AnalyzeClient() {
   useEffect(() => {
     const h = setTimeout(() => {
       setPhotos((ps) => ps.map((p) => {
-        const m = prepareForOcr(p.rgba, { crop: cropRect(p), rotateDeg: p.rotate, autoDeskew: false, glareAdaptive: false }).metrics;
+        const m = prepareForOcr(p.rgba, { crop: cropRect(p), rotateDeg: p.rotate, autoDeskew: false }).metrics;
         return { ...p, report: assess(m) };
       }));
     }, 250);
@@ -99,7 +99,8 @@ export default function AnalyzeClient() {
       c.getContext("2d")!.putImageData(new ImageData(new Uint8ClampedArray(rgba.data), rgba.width, rgba.height), 0, 0);
       const r = await runOcr(worker.current, c);
       update(p.id, { status: "done", progress: 1, lines: r.lines.map((l) => ({ words: l.words.map((w) => ({ text: w.text, confidence: w.confidence })) })),
-        note: `${prep.skewApplied ? "Straightened the text. " : ""}${prep.adaptiveApplied ? "Reduced glare. " : ""}Read in this browser.` });
+        warnings: assessOcr(r.text, r.words, r.meanConfidence),
+        note: `${prep.skewApplied ? "Straightened the text. " : ""}Read in this browser.` });
     } catch (e) { update(p.id, { status: "error", note: "Could not read this photo. You can type the ingredients instead." }); console.error(e); }
   }
 
@@ -171,6 +172,7 @@ export default function AnalyzeClient() {
             return (<li key={i}><strong>{it.raw}</strong> <span className={`badge ${v.cls}`}>{v.label}</span>
               {it.inci_name ? <> <small className="muted">→ {it.inci_name}</small></> : null}
               {it.status === "suggested" && it.candidates?.length ? <small className="muted"> Possible: {it.candidates.map((c) => c.inci_name).join(", ")}{it.highConfidence ? "" : " (not certain)"}</small> : null}
+              {it.status === "suggested" && it.candidates?.[0]?.note ? <small className="notice warn" role="note" style={{ display: "block" }}>{it.candidates[0].note}</small> : null}
               {it.mergedFrom ? <small className="muted"> · merged from {it.mergedFrom} fragments</small> : null}{it.splitFrom ? <small className="muted"> · split from one token</small> : null}
               {it.notes?.length ? <small className="muted"> {it.notes.join(" ")}</small> : null}</li>);
           })}</ul>
@@ -200,7 +202,7 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
     <section className="card" aria-labelledby={`${id}-h`}>
       <h2 id={`${id}-h`}>Photo {index}: {p.name}</h2>
       {p.report && !p.report.ok && <div role="status">{p.report.prompts.map((m) => <p key={m} className="notice warn">{m}</p>)}</div>}
-      {p.report?.ok && <p className="notice info" role="status">This photo looks readable.</p>}
+      {p.report?.ok && p.status !== "done" && <p className="notice info" role="status">No blur, glare or size problems found. Press the button below to read the text; we will tell you if it could not be read.</p>}
       <canvas ref={canvas} aria-label={`Preview of photo ${index} after crop and rotation`} />
       <details>
         <summary>Crop and rotate</summary>
@@ -217,6 +219,8 @@ function PhotoCard({ index, photo: p, onChange, onRead, onRemove }: { index: num
         <button onClick={onRead} disabled={p.status === "reading"}>{p.status === "reading" ? `Reading… ${Math.round(p.progress * 100)}%` : p.status === "done" ? "Read again" : "Read text from this photo"}</button>
         <button className="secondary" onClick={onRemove}>Remove photo</button>
       </div>
+      {p.warnings?.map((w) => <p key={w} role="status" className="notice warn">{w}</p>)}
+      {p.status === "idle" && !p.warnings && <p className="muted"><small>Tip: crop to just the ingredient list before reading. It removes marketing text and reads more accurately.</small></p>}
       {p.note && <p role="status" className={p.status === "error" ? "notice warn" : "muted"}><small>{p.note}</small></p>}
     </section>
   );

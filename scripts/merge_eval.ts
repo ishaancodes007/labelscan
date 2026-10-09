@@ -1,9 +1,9 @@
 // Merges the overlapping photo pairs from stored OCR output and writes the merged text next to the per-photo results.
-// Usage: npx tsx scripts/ocr_eval.ts v17_shipped_pipeline && npx tsx scripts/merge_eval.ts
+// Usage: npx tsx scripts/ocr_eval.ts v19_pipeline_v2 && npx tsx scripts/merge_eval.ts
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { mergePhotos, segmentsFromLines, segmentsToText } from "../lib/ocr/merge";
 
-const V = "v17_shipped_pipeline", dir = "backend/fixtures/photos/_ocr";
+const V = "v19_pipeline_v2", dir = "backend/fixtures/photos/_ocr";
 const load = (id: string) => {
   const o = JSON.parse(readFileSync(`${dir}/${V}/${id}.json`, "utf8")) as { lines: [string, number][][] };
   return segmentsFromLines(o.lines.map((l) => ({ words: l.map(([text, confidence]) => ({ text, confidence })) })), id);

@@ -24,7 +24,8 @@ from app.normalize import without_parens  # noqa: E402
 from app.pubchem import PubChemClient  # noqa: E402
 from app.resolver import Resolver  # noqa: E402
 
-PH = ROOT / "backend/fixtures/photos"
+import os
+PH = ROOT / os.environ.get("PHOTO_DIR", "backend/fixtures/photos")
 
 
 def entry_names(e):
@@ -49,10 +50,14 @@ def score_text(text, entries, resolver):
     items = list(resp.items)
     used, found_auto, found_top1 = set(), 0, 0
     allowed, cats = set(), set()
+    n_cov = 0
     for e in entries:
         names, cat = entry_names(e)
         allowed |= names
         if cat: cats.add(cat)
+        if not e.get("covered", True):
+            continue   # dictionary gap, not an OCR problem: not counted as missed
+        n_cov += 1
         best = None
         for n, it in enumerate(items):
             if n in used:
@@ -69,7 +74,18 @@ def score_text(text, entries, resolver):
             fa += 1
         elif it.layer == "category_recognized" and n not in used and not cats:
             fa += 1
-    return dict(n=len(entries), top1=found_top1, auto=found_auto, fa=fa, items=len(items))
+    return dict(n=n_cov, top1=found_top1, auto=found_auto, fa=fa, items=len(items))
+
+
+def word_recall(truth, ocr):
+    """Share of truth words (>=4 letters) that have a similar word (ratio >= 80) anywhere in the OCR text. Ignores extra OCR text."""
+    import re
+    from rapidfuzz import fuzz, process
+    tw = [w for w in re.findall(r"[A-Za-z]{4,}", truth.upper())]
+    ow = list(set(re.findall(r"[A-Za-z]{3,}", ocr.upper())))
+    if not tw or not ow:
+        return 0.0
+    return sum(1 for w in tw if process.extractOne(w, ow, scorer=fuzz.ratio, score_cutoff=80)) / len(tw)
 
 
 def main():
@@ -101,8 +117,8 @@ def main():
         print(f"top1 per photo: {A} better on {wins['A']}, {B} better on {wins['B']}, tie {wins['tie']}; net entries gained by {B}: {dsum}")
         return
     variants = [a.variant] if a.variant else sorted((d.name for d in (PH / "_ocr").iterdir() if d.is_dir()), key=lambda s: int(s.split("_")[0][1:]))
-    print(f"photos scored: {len(index)} (synthetic)   dictionary: {resolver.d.source} ({len(resolver.d.by_key)} entries)")
-    print(f"{'variant':26s} {'CER':>6s} {'top1':>6s} {'auto':>6s} {'FA':>3s} {'ms/photo':>9s}")
+    print(f"photos scored: {len(index)} ({"synthetic" if all(p.get("synthetic") for p in index) else "real" if not any(p.get("synthetic") for p in index) else "mixed"})   dictionary: {resolver.d.source} ({len(resolver.d.by_key)} entries)")
+    print(f"{'variant':26s} {'CER':>6s} {'wRec':>5s} {'top1':>6s} {'auto':>6s} {'FA':>3s} {'ms/photo':>9s}")
     for v in variants:
         rows = []
         for p in index:
@@ -113,13 +129,14 @@ def main():
             truth, got = key(p["truth_text"]), key(o["text"])
             cer = Levenshtein.distance(got, truth) / max(1, len(truth))
             s = score_text(o["text"], p["expected"], resolver)
+            s["wr"] = word_recall(p["truth_text"], o["text"])
             rows.append((p["id"], cer, s, o["ms"]))
             if a.detail:
-                print(f"   {p['id']:18s} CER {cer:5.1%}  top1 {s['top1']}/{s['n']}  auto {s['auto']}/{s['n']}  FA {s['fa']}  conf {o['meanConfidence']:.0f}  [{','.join(p['degradations'])}]")
+                print(f"   {p['id']:28s} CER {cer:5.1%} wordRecall {s['wr']:4.0%}  top1 {s['top1']}/{s['n']}  auto {s['auto']}/{s['n']}  FA {s['fa']}  conf {o['meanConfidence']:.0f}  [{','.join(p['degradations'])}]")
         if not rows:
             continue
         N = sum(r[2]["n"] for r in rows)
-        print(f"{v:26s} {statistics.mean(r[1] for r in rows):6.1%} {sum(r[2]['top1'] for r in rows) / N:6.1%} "
+        print(f"{v:26s} {statistics.mean(r[1] for r in rows):6.1%} {statistics.mean(r[2]['wr'] for r in rows):5.0%} {sum(r[2]['top1'] for r in rows) / N:6.1%} "
               f"{sum(r[2]['auto'] for r in rows) / N:6.1%} {sum(r[2]['fa'] for r in rows):3d} {statistics.mean(r[3] for r in rows):9.0f}")
 
 

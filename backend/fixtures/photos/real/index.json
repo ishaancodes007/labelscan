@@ -1,0 +1,730 @@
+[
+ {
+  "id": "real_cetaphil_lotion",
+  "file": "real_cetaphil_lotion.jpg",
+  "product": "Cetaphil Moisturising Lotion (back of bottle, hand-held, 556x800)",
+  "crop": {
+   "x": 0.35,
+   "y": 0.715,
+   "w": 0.5,
+   "h": 0.075
+  },
+  "notes": "The real pack behind the golden OCR fixture. Ingredient line is ~7px tall in this image.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Aqua, Glycerin, Isopropyl Palmitate, Cetearyl Alcohol, Ceteareth-20, Panthenol, Niacinamide, Tocopheryl Acetate, Dimethicone, Persea Gratissima Oil, Helianthus Annuus Seed Oil, Pantolactone, Glyceryl Stearate, Sodium Benzoate, Benzyl Alcohol, Citric Acid",
+  "expected": [
+   {
+    "raw": "Aqua",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Isopropyl Palmitate",
+    "covered": true,
+    "inci": "ISOPROPYL PALMITATE"
+   },
+   {
+    "raw": "Cetearyl Alcohol",
+    "covered": true,
+    "inci": "CETEARYL ALCOHOL"
+   },
+   {
+    "raw": "Ceteareth-20",
+    "covered": true,
+    "inci": "CETEARETH-20"
+   },
+   {
+    "raw": "Panthenol",
+    "covered": true,
+    "inci": "PANTHENOL"
+   },
+   {
+    "raw": "Niacinamide",
+    "covered": true,
+    "inci": "NIACINAMIDE"
+   },
+   {
+    "raw": "Tocopheryl Acetate",
+    "covered": true,
+    "inci": "TOCOPHERYL ACETATE"
+   },
+   {
+    "raw": "Dimethicone",
+    "covered": true,
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Persea Gratissima Oil",
+    "covered": true,
+    "inci": "PERSEA GRATISSIMA OIL"
+   },
+   {
+    "raw": "Helianthus Annuus Seed Oil",
+    "covered": true,
+    "inci": "HELIANTHUS ANNUUS SEED OIL"
+   },
+   {
+    "raw": "Pantolactone",
+    "covered": true,
+    "inci": "PANTOLACTONE"
+   },
+   {
+    "raw": "Glyceryl Stearate",
+    "covered": true,
+    "inci": "GLYCERYL STEARATE"
+   },
+   {
+    "raw": "Sodium Benzoate",
+    "covered": true,
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "Benzyl Alcohol",
+    "covered": true,
+    "inci": "BENZYL ALCOHOL"
+   },
+   {
+    "raw": "Citric Acid",
+    "covered": true,
+    "inci": "CITRIC ACID"
+   }
+  ]
+ },
+ {
+  "id": "real_minimalist_vitc_serum",
+  "file": "real_minimalist_vitc_serum.jpg",
+  "product": "Minimalist Vitamin C serum label, India (hand-held, 700x659, watermark)",
+  "crop": {
+   "x": 0.2,
+   "y": 0.28,
+   "w": 0.62,
+   "h": 0.13
+  },
+  "notes": "Has 'Ingredients:' heading, MRP/Batch/Mfg fields and a 'No Fragrance...' claims box nearby.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Centella Asiatica Leaf Water, 3-O-Ethyl Ascorbic Acid, Ethoxydiglycol, Dimethyl Isosorbide, Glycerin, Sodium Gluconate, Acetyl Glucosamine, Sodium Hyaluronate, Pullulan, Hydroxyethylcellulose, Xanthan Gum, Sclerotium Gum, Phenoxyethanol, Ethylhexylglycerin, Lecithin, Lactic Acid",
+  "expected": [
+   {
+    "raw": "Centella Asiatica Leaf Water",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "3-O-Ethyl Ascorbic Acid",
+    "covered": false,
+    "inci": "3-O-ETHYL ASCORBIC ACID",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Ethoxydiglycol",
+    "covered": true,
+    "inci": "ETHOXYDIGLYCOL"
+   },
+   {
+    "raw": "Dimethyl Isosorbide",
+    "covered": true,
+    "inci": "DIMETHYL ISOSORBIDE"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Sodium Gluconate",
+    "covered": true,
+    "inci": "SODIUM GLUCONATE"
+   },
+   {
+    "raw": "Acetyl Glucosamine",
+    "covered": false,
+    "inci": "ACETYL GLUCOSAMINE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Sodium Hyaluronate",
+    "covered": true,
+    "inci": "SODIUM HYALURONATE"
+   },
+   {
+    "raw": "Pullulan",
+    "covered": false,
+    "inci": "PULLULAN",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Hydroxyethylcellulose",
+    "covered": true,
+    "inci": "HYDROXYETHYLCELLULOSE"
+   },
+   {
+    "raw": "Xanthan Gum",
+    "covered": true,
+    "inci": "XANTHAN GUM"
+   },
+   {
+    "raw": "Sclerotium Gum",
+    "covered": false,
+    "inci": "SCLEROTIUM GUM",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "covered": true,
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Ethylhexylglycerin",
+    "covered": true,
+    "inci": "ETHYLHEXYLGLYCERIN"
+   },
+   {
+    "raw": "Lecithin",
+    "covered": true,
+    "inci": "LECITHIN"
+   },
+   {
+    "raw": "Lactic Acid",
+    "covered": true,
+    "inci": "LACTIC ACID"
+   }
+  ]
+ },
+ {
+  "id": "real_nivea_body_lotion",
+  "file": "real_nivea_body_lotion.jpg",
+  "product": "Nivea body lotion, curved blue bottle, skewed text, watermark (1200x1600)",
+  "crop": {
+   "x": 0.14,
+   "y": 0.8,
+   "w": 0.56,
+   "h": 0.16
+  },
+  "notes": "Curved bottle, white text on blue, text tilted. Contains 'Fragrance' and a 'Skin compatibility dermatologically tested' claim.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Water, Mineral Oil, Isohexadecane, Glycerin, Isopropyl Palmitate, Petrolatum, PEG-40 Sorbitan Perisostearate, Polyglyceryl-3 Diisostearate, Prunus Amygdalus Dulcis (Sweet Almond) Oil, Sodium Hyaluronate, Tocopherol, Magnesium Sulfate, Fragrance, Citric Acid, Sodium Citrate, Potassium Sorbate",
+  "expected": [
+   {
+    "raw": "Water",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Mineral Oil",
+    "covered": true,
+    "inci": "MINERAL OIL"
+   },
+   {
+    "raw": "Isohexadecane",
+    "covered": false,
+    "inci": "ISOHEXADECANE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Isopropyl Palmitate",
+    "covered": true,
+    "inci": "ISOPROPYL PALMITATE"
+   },
+   {
+    "raw": "Petrolatum",
+    "covered": true,
+    "inci": "PETROLATUM"
+   },
+   {
+    "raw": "PEG-40 Sorbitan Perisostearate",
+    "covered": false,
+    "inci": "PEG-40 SORBITAN PERISOSTEARATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Polyglyceryl-3 Diisostearate",
+    "covered": true,
+    "inci": "POLYGLYCERYL-3 DIISOSTEARATE"
+   },
+   {
+    "raw": "Prunus Amygdalus Dulcis (Sweet Almond) Oil",
+    "covered": true,
+    "inci": "PRUNUS AMYGDALUS DULCIS OIL"
+   },
+   {
+    "raw": "Sodium Hyaluronate",
+    "covered": true,
+    "inci": "SODIUM HYALURONATE"
+   },
+   {
+    "raw": "Tocopherol",
+    "covered": true,
+    "inci": "TOCOPHEROL"
+   },
+   {
+    "raw": "Magnesium Sulfate",
+    "covered": true,
+    "inci": "MAGNESIUM SULFATE"
+   },
+   {
+    "raw": "Fragrance",
+    "covered": true,
+    "inci": "PARFUM"
+   },
+   {
+    "raw": "Citric Acid",
+    "covered": true,
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "Sodium Citrate",
+    "covered": false,
+    "inci": "SODIUM CITRATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Potassium Sorbate",
+    "covered": true,
+    "inci": "POTASSIUM SORBATE"
+   }
+  ]
+ },
+ {
+  "id": "real_garnier_shampoo",
+  "file": "real_garnier_shampoo.jpg",
+  "product": "Garnier Fructis anti-dandruff shampoo, US Drug Facts panel, tilted bottle (1200x1600)",
+  "crop": {
+   "x": 0.33,
+   "y": 0.635,
+   "w": 0.34,
+   "h": 0.1
+  },
+  "notes": "Very small text on a grey bottle; 'Inactive ingredients' list only (the active, pyrithione zinc 1%, is excluded).",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Water, Sodium Laureth Sulfate, Cocamide MIPA, Coco-Betaine, Glycol Distearate, Sodium Chloride, Fragrance, Dimethicone, Pyrus Malus (Apple) Fruit Extract, Sodium Benzoate, Salicylic Acid, Carbomer, Niacinamide, Pyridoxine HCl, Aloe Barbadensis Leaf Juice, Citric Acid, Linalool, Limonene, Saccharum Officinarum (Sugar Cane) Extract, Salix Nigra (Willow) Bark Extract, Guar Hydroxypropyltrimonium Chloride, Methyl Cocoate, Hexyl Cinnamal, Benzyl Alcohol, Benzyl Salicylate, Sodium Cocoate, Sodium Hydroxide, Citrus Medica Limonum (Lemon) Peel Extract, Camellia Sinensis Leaf Extract, Blue 1",
+  "expected": [
+   {
+    "raw": "Water",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Sodium Laureth Sulfate",
+    "covered": true,
+    "inci": "SODIUM LAURETH SULFATE"
+   },
+   {
+    "raw": "Cocamide MIPA",
+    "covered": false,
+    "inci": "COCAMIDE MIPA",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Coco-Betaine",
+    "covered": false,
+    "inci": "COCO-BETAINE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Glycol Distearate",
+    "covered": true,
+    "inci": "GLYCOL DISTEARATE"
+   },
+   {
+    "raw": "Sodium Chloride",
+    "covered": true,
+    "inci": "SODIUM CHLORIDE"
+   },
+   {
+    "raw": "Fragrance",
+    "covered": true,
+    "inci": "PARFUM"
+   },
+   {
+    "raw": "Dimethicone",
+    "covered": true,
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Pyrus Malus (Apple) Fruit Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Sodium Benzoate",
+    "covered": true,
+    "inci": "SODIUM BENZOATE"
+   },
+   {
+    "raw": "Salicylic Acid",
+    "covered": true,
+    "inci": "SALICYLIC ACID"
+   },
+   {
+    "raw": "Carbomer",
+    "covered": true,
+    "inci": "CARBOMER"
+   },
+   {
+    "raw": "Niacinamide",
+    "covered": true,
+    "inci": "NIACINAMIDE"
+   },
+   {
+    "raw": "Pyridoxine HCl",
+    "covered": false,
+    "inci": "PYRIDOXINE HCL",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Aloe Barbadensis Leaf Juice",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Citric Acid",
+    "covered": true,
+    "inci": "CITRIC ACID"
+   },
+   {
+    "raw": "Linalool",
+    "covered": true,
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "Limonene",
+    "covered": true,
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "Saccharum Officinarum (Sugar Cane) Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Salix Nigra (Willow) Bark Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Guar Hydroxypropyltrimonium Chloride",
+    "covered": true,
+    "inci": "GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE"
+   },
+   {
+    "raw": "Methyl Cocoate",
+    "covered": false,
+    "inci": "METHYL COCOATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Hexyl Cinnamal",
+    "covered": true,
+    "inci": "HEXYL CINNAMAL"
+   },
+   {
+    "raw": "Benzyl Alcohol",
+    "covered": true,
+    "inci": "BENZYL ALCOHOL"
+   },
+   {
+    "raw": "Benzyl Salicylate",
+    "covered": true,
+    "inci": "BENZYL SALICYLATE"
+   },
+   {
+    "raw": "Sodium Cocoate",
+    "covered": false,
+    "inci": "SODIUM COCOATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Sodium Hydroxide",
+    "covered": true,
+    "inci": "SODIUM HYDROXIDE"
+   },
+   {
+    "raw": "Citrus Medica Limonum (Lemon) Peel Extract",
+    "covered": false,
+    "inci": "CITRUS MEDICA LIMONUM (LEMON) PEEL EXTRACT",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Camellia Sinensis Leaf Extract",
+    "covered": true,
+    "inci": null,
+    "category": "botanical"
+   },
+   {
+    "raw": "Blue 1",
+    "covered": false,
+    "inci": "BLUE 1",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   }
+  ]
+ },
+ {
+  "id": "real_indian_label_crop",
+  "file": "real_indian_label_crop.jpg",
+  "product": "Indian-market product label, flat close-up crop (500x500): ingredients + MFG addresses + barcode",
+  "crop": {
+   "x": 0.0,
+   "y": 0.0,
+   "w": 1.0,
+   "h": 0.43
+  },
+  "notes": "Long list with slash names, CI colorants and leakage (MFG addresses, barcode digits). Sunscreen/retinoid-type formula.",
+  "synthetic": false,
+  "truth_verified": false,
+  "degradations": [],
+  "part": "all",
+  "truth_text": "INGREDIENTS: Water, Dimethicone, Glycerin, Butylene Glycol, Ammonium Acryloyldimethyltaurate/VP Copolymer, Niacinamide, Titanium Dioxide, Caprylic/Capric Triglyceride, Stearic Acid, Ethylhexyl Methoxycinnamate, Lysine Carboxymethyl Cysteinate, Hexylresorcinol, Retinyl Propionate, Ammonium Acryloyldimethyltaurate/Beheneth-25 Methacrylate Crosspolymer, Linoleamidopropyl PG-Dimonium Chloride Phosphate, Tocopheryl Acetate, Sodium PCA, Fragrance, PEG-40 Hydrogenated Castor Oil, Phenoxyethanol, Synthetic Fluorphlogopite, Polysorbate 20, Disodium EDTA, BHT, Triethanolamine, Aluminum Hydroxide, Tin Oxide, Iodopropynyl Butylcarbamate, Potassium Hydroxide, Polymethylsilsesquioxane, Diamond Powder, Alpha-Isomethyl Ionone, Benzyl Alcohol, Benzyl Benzoate, Benzyl Salicylate, Citronellol, Geraniol, Hexyl Cinnamal, Limonene, Linalool, CI 14700, CI 19140",
+  "expected": [
+   {
+    "raw": "Water",
+    "covered": true,
+    "inci": "AQUA"
+   },
+   {
+    "raw": "Dimethicone",
+    "covered": true,
+    "inci": "DIMETHICONE"
+   },
+   {
+    "raw": "Glycerin",
+    "covered": true,
+    "inci": "GLYCERIN"
+   },
+   {
+    "raw": "Butylene Glycol",
+    "covered": true,
+    "inci": "BUTYLENE GLYCOL"
+   },
+   {
+    "raw": "Ammonium Acryloyldimethyltaurate/VP Copolymer",
+    "covered": true,
+    "inci": "AMMONIUM ACRYLOYLDIMETHYLTAURATE/VP COPOLYMER"
+   },
+   {
+    "raw": "Niacinamide",
+    "covered": true,
+    "inci": "NIACINAMIDE"
+   },
+   {
+    "raw": "Titanium Dioxide",
+    "covered": true,
+    "inci": "TITANIUM DIOXIDE"
+   },
+   {
+    "raw": "Caprylic/Capric Triglyceride",
+    "covered": true,
+    "inci": "CAPRYLIC/CAPRIC TRIGLYCERIDE"
+   },
+   {
+    "raw": "Stearic Acid",
+    "covered": true,
+    "inci": "STEARIC ACID"
+   },
+   {
+    "raw": "Ethylhexyl Methoxycinnamate",
+    "covered": true,
+    "inci": "ETHYLHEXYL METHOXYCINNAMATE"
+   },
+   {
+    "raw": "Lysine Carboxymethyl Cysteinate",
+    "covered": false,
+    "inci": "LYSINE CARBOXYMETHYL CYSTEINATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Hexylresorcinol",
+    "covered": false,
+    "inci": "HEXYLRESORCINOL",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Retinyl Propionate",
+    "covered": false,
+    "inci": "RETINYL PROPIONATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Ammonium Acryloyldimethyltaurate/Beheneth-25 Methacrylate Crosspolymer",
+    "covered": true,
+    "inci": null,
+    "category": "polymer"
+   },
+   {
+    "raw": "Linoleamidopropyl PG-Dimonium Chloride Phosphate",
+    "covered": false,
+    "inci": "LINOLEAMIDOPROPYL PG-DIMONIUM CHLORIDE PHOSPHATE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Tocopheryl Acetate",
+    "covered": true,
+    "inci": "TOCOPHERYL ACETATE"
+   },
+   {
+    "raw": "Sodium PCA",
+    "covered": true,
+    "inci": "SODIUM PCA"
+   },
+   {
+    "raw": "Fragrance",
+    "covered": true,
+    "inci": "PARFUM"
+   },
+   {
+    "raw": "PEG-40 Hydrogenated Castor Oil",
+    "covered": true,
+    "inci": "PEG-40 HYDROGENATED CASTOR OIL"
+   },
+   {
+    "raw": "Phenoxyethanol",
+    "covered": true,
+    "inci": "PHENOXYETHANOL"
+   },
+   {
+    "raw": "Synthetic Fluorphlogopite",
+    "covered": false,
+    "inci": "SYNTHETIC FLUORPHLOGOPITE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Polysorbate 20",
+    "covered": true,
+    "inci": "POLYSORBATE 20"
+   },
+   {
+    "raw": "Disodium EDTA",
+    "covered": true,
+    "inci": "DISODIUM EDTA"
+   },
+   {
+    "raw": "BHT",
+    "covered": false,
+    "inci": "BHT",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Triethanolamine",
+    "covered": true,
+    "inci": "TRIETHANOLAMINE"
+   },
+   {
+    "raw": "Aluminum Hydroxide",
+    "covered": false,
+    "inci": "ALUMINUM HYDROXIDE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Tin Oxide",
+    "covered": false,
+    "inci": "TIN OXIDE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Iodopropynyl Butylcarbamate",
+    "covered": true,
+    "inci": "IODOPROPYNYL BUTYLCARBAMATE"
+   },
+   {
+    "raw": "Potassium Hydroxide",
+    "covered": true,
+    "inci": "POTASSIUM HYDROXIDE"
+   },
+   {
+    "raw": "Polymethylsilsesquioxane",
+    "covered": false,
+    "inci": "POLYMETHYLSILSESQUIOXANE",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Diamond Powder",
+    "covered": false,
+    "inci": "DIAMOND POWDER",
+    "note": "not in the seed dictionary (coverage gap, not an OCR error)"
+   },
+   {
+    "raw": "Alpha-Isomethyl Ionone",
+    "covered": true,
+    "inci": "ALPHA-ISOMETHYL IONONE"
+   },
+   {
+    "raw": "Benzyl Alcohol",
+    "covered": true,
+    "inci": "BENZYL ALCOHOL"
+   },
+   {
+    "raw": "Benzyl Benzoate",
+    "covered": true,
+    "inci": "BENZYL BENZOATE"
+   },
+   {
+    "raw": "Benzyl Salicylate",
+    "covered": true,
+    "inci": "BENZYL SALICYLATE"
+   },
+   {
+    "raw": "Citronellol",
+    "covered": true,
+    "inci": "CITRONELLOL"
+   },
+   {
+    "raw": "Geraniol",
+    "covered": true,
+    "inci": "GERANIOL"
+   },
+   {
+    "raw": "Hexyl Cinnamal",
+    "covered": true,
+    "inci": "HEXYL CINNAMAL"
+   },
+   {
+    "raw": "Limonene",
+    "covered": true,
+    "inci": "LIMONENE"
+   },
+   {
+    "raw": "Linalool",
+    "covered": true,
+    "inci": "LINALOOL"
+   },
+   {
+    "raw": "CI 14700",
+    "covered": true,
+    "inci": null,
+    "category": "colorant"
+   },
+   {
+    "raw": "CI 19140",
+    "covered": true,
+    "inci": null,
+    "category": "colorant"
+   }
+  ]
+ }
+]

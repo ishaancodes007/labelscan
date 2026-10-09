@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Scores multi-photo merge: each photo alone vs the merged text, against the FULL ingredient list (same scorer as photo_report.py).
-Run after: npx tsx scripts/ocr_eval.ts v17_shipped_pipeline && npx tsx scripts/merge_eval.ts"""
+Run after: npx tsx scripts/ocr_eval.ts v19_pipeline_v2 && npx tsx scripts/merge_eval.ts"""
 import json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from photo_report import PH, Resolver, Dictionary, PubChemClient, score_text  # noqa: E402
 
-V = "v17_shipped_pipeline"
+V = "v19_pipeline_v2"
 idx = {p["id"]: p for p in json.load(open(PH / "index.json"))}
 resolver = Resolver(Dictionary(), PubChemClient(enabled=False))
 print("full-list recall (identified at top-1 / expected entries); auto = resolved without user action")

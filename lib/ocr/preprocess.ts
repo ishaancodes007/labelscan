@@ -101,7 +101,7 @@ export function estimateSkewDeg(g: Gray, maxDeg = 10): number {
   let best = 0, bestS = score(0);
   for (let a = -maxDeg; a <= maxDeg; a += 0.5) { const sc = score(a); if (sc > bestS) { bestS = sc; best = a; } }
   for (let a = best - 0.4; a <= best + 0.4; a += 0.1) { const sc = score(a); if (sc > bestS) { bestS = sc; best = a; } }
-  return Math.abs(best) < 0.4 ? 0 : Math.round(best * 10) / 10;
+  return Math.abs(best) < 1 ? 0 : Math.round(best * 10) / 10;   // < 1 degree: not worth resampling (measured: it only blurs real photos)
 }
 
 export function deskew(g: Gray): Gray { return rotate(g, estimateSkewDeg(g)); }

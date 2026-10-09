@@ -1,0 +1,6 @@
+id                     blur  glareFrac  glareBlob  longSide  textH  prompts / degradations
+real_cetaphil_lotion      145     0.0072      0.000       800    723   0 
+real_minimalist_vitc_serum      163     0.0002      0.000       700    659   0 
+real_nivea_body_lotion      174     0.0021      0.000      1600   1600   0 
+real_garnier_shampoo      138     0.0037      0.000      1600   1600   0 
+real_indian_label_crop      240     0.6605      0.422       500     12   0 
